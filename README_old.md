@@ -158,7 +158,7 @@ python generate_realism_patch.py
 }
 ```
 
-### 智能识别特性
+### 智能特性
 
 #### ✨ ItemToClone 常量前缀识别 （v2.0新增）
 脚本可以通过常量名称前缀自动推断物品类型：
@@ -182,210 +182,176 @@ python generate_realism_patch.py
 Items文件夹中的所有JSON文件都会被自动发现和处理，包括：
 - 直接放在Items/目录的文件
 - 任意深度的子文件夹中的文件
-
-## 💡 工作流程
-
-### 数据处理流程图
-
-```
-输入文件 (Items文件夹)
-    ↓
-格式检测 (自动识别5种格式)
-    ↓
-数据提取 (parentId / ItemToClone / clone等)
-    ↓
-类型识别 (武器 / 配件 / 弹药 / 装备等)
-    ↓
-模板匹配 (查找相应的参考模板)
-    ↓
-属性继承 (从模板继承属性)
-    ↓
-属性覆盖 (用输入数据覆盖属性)
-    ↓
-补丁生成 (生成最终的Realism补丁)
-    ↓
-输出文件 (output文件夹)
+    "enable": true,     // 可选字段
+    "clone": "..."      // 可选字段
+  }
+}
 ```
 
-### 主要处理步骤
+脚本会自动检测数据格式并正确处理。
 
-1. **递归扫描** - 查找Items文件夹及所有子文件夹中的JSON文件
-2. **格式检测** - 自动判断数据格式（ITEMTOCLONE/STANDARD/VIR/CLONE/TEMPLATE_ID）
-3. **信息提取** - 从输入数据中提取关键信息（ID、parentId、属性等）
-4. **类型推断** - 基于parentId、ItemToClone前缀、HandbookParent推断物品类型
-5. **模板查询** - 在相应的模板库中查找参考数据
-6. **属性合并** - 合并模板属性和输入属性
-7. **分类输出** - 按类型（武器/配件/弹药）生成独立文件和合并文件
+### 2. 模板匹配
+脚本通过物品的 `parentId` 字段来识别物品类型，并匹配相应的模板文件：
 
-## 📊 支持的物品类型
+#### 武器类型映射
+- 突击步枪 → `weapons/AssaultRifleTemplates.json`
+- 手枪 → `weapons/PistolTemplates.json`
+- 狙击步枪 → `weapons/SniperRifleTemplates.json`
+- 等等...
 
-### 武器类型 (v2.0)
-- 突击步枪、卡宾枪、精确射手步枪、狙击步枪
-- 机枪、冲锋枪、霰弹枪、手枪
-- 榴弹发射器
+#### 配件类型映射
+- 瞄准镜 → `attatchments/ScopeTemplates.json`
+- 弹匣 → `attatchments/MagazineTemplates.json`
+- 枪口装置 → `attatchments/MuzzleDeviceTemplates.json`
+- 等等...
 
-### 配件类型 (v2.0)
-- **瞄具** - 瞄准镜、机械瞄具、铁刻度
-- **供弹** - 弹匣、弹鼓
-- **枪口部件** - 消音器、制退器、闪光隐藏器
-- **握把部件** - 前握把、手枪握把、掌托
-- **枪机部件** - 枪托、护木、枪管、机匣
-- **安装部件** - 导轨、刺刀、钻头
-- **特殊** - 战术组合装置
+### 2. 数据生成策略
 
-### 装备与其他 (v2.0)
-- **护甲类** - 防弹衣、防弹板、头盔
-- **携行** - 背包、战术背心
-- **其他** - 消耗品、钥匙、容器、信息物品
+#### 武器和配件
+- **精确匹配**: 如果模板中存在相同ItemID的配置，直接使用该配置
+- **模板随机选择**: 如果没有精确匹配，从相同类型的模板中随机选择一个作为基础
+- **默认配置**: 如果找不到合适的模板，使用预设的默认配置
 
-## 📈 运行结果示例
+#### 子弹（新增）
+- 子弹无需模板文件，直接从原始数据提取属性
+- 自动提取：Damage、PenetrationPower、InitialSpeed、BulletMassGram、BallisticCoeficient
+- 所有子弹默认LoyaltyLevel为1，BasePriceModifier为1
 
+### 3. 输出格式
+生成的补丁文件为标准JSON格式，可以直接用于现实主义MOD。
+
+## 生成统计示例
 ```
-============================================================
-EFT 现实主义MOD兼容补丁生成器 v2.0
-============================================================
-
-扫描 Items 文件夹...
-  发现 15 个 JSON 文件
-
-加载模板库...
-  weapons/: 9 个文件
-  attachments/: 16 个文件
-  ammo/: 1 个文件
-  gear/: 1 个文件
-  ✓ 模板加载完成
-
-处理物品数据...
-  ✓ WeaponAK74.json (3 个物品识别)
-  ✓ AttachmentScopes.json (12 个物品识别)
-  ...
-  总计: 42 个物品识别
-
-格式统计:
-  ItemToClone 格式: 18 个
-  Standard 格式: 15 个
-  Clone 格式: 6 个
-  VIR 格式: 3 个
-
-类型统计:
-  武器: 8 个
-  配件: 28 个
-  弹药: 4 个
-  装备: 2 个
-
-生成补丁...
-  ✓ weapons_realism_patch.json (8 个物品)
-  ✓ attachments_realism_patch.json (32 个物品)
-  ✓ ammo_realism_patch.json (4 个物品)
-  ✓ all_items_realism_patch.json (44 个物品)
-
-✅ 补丁生成完成！耗时 0.23 秒
-============================================================
+生成统计:
+  武器补丁: 55 个
+  配件补丁: 492 个
+  子弹补丁: 3 个
+  总计: 550 个
 ```
 
-## ⚙️ 高级配置
+## 跳过的物品
+以下情况的物品会被跳过：
+1. 没有 `parentId` 字段的物品
+2. `parentId` 未在映射表中定义的物品（如任务物品、容器等）
+3. 使用自定义 `parentId` 的物品
 
-### 修改模板文件位置
-编辑 `generate_realism_patch.py` 中的模板路径配置：
+这些被跳过的物品会在控制台输出中显示，格式如：
+```
+跳过 <ItemID>: 未找到匹配的模板 (parentId: <ParentID>)
+```
+
+## ParentID 映射表
+
+### 武器类型
+| ParentID | 武器类型 | 模板文件 |
+|----------|---------|---------|
+| 5447b5cf4bdc2d65278b4567 | 突击步枪 | AssaultRifleTemplates.json |
+| 5447b5fc4bdc2d87278b4567 | 卡宾枪 | AssaultCarbineTemplates.json |
+| 5447bed64bdc2d97278b4568 | 机枪 | MachinegunTemplates.json |
+| 5447b6094bdc2dc3278b4567 | 精确射手步枪 | MarksmanRifleTemplates.json |
+| 5447b6254bdc2dc3278b4568 | 狙击步枪 | SniperRifleTemplates.json |
+| 5447b5e04bdc2d62278b4567 | 冲锋枪 | SMGTemplates.json |
+| 5447b5c44bdc2d87278b4567 | 霰弹枪 | ShotgunTemplates.json |
+| 5447b5e04bdc2d62278b4566 | 手枪 | PistolTemplates.json |
+| 5447bedf4bdc2d87278b4568 | 榴弹发射器 | GrenadeLauncherTemplates.json |
+
+### 配件类型
+| ParentID | 配件类型 | 模板文件 |
+|----------|---------|---------|
+| 55818ad54bdc2ddc698b4569 | 瞄准镜 | ScopeTemplates.json |
+| 55818acf4bdc2dde698b456b | 机械瞄具 | IronSightTemplates.json |
+| 5448bc234bdc2d3c308b4569 | 弹匣 | MagazineTemplates.json |
+| 550aa4cd4bdc2dd8348b456c | 枪口装置 | MuzzleDeviceTemplates.json |
+| 55818b084bdc2d5b648b4571 | 前握把 | ForegripTemplates.json |
+| 55818a684bdc2ddd698b456d | 枪托 | StockTemplates.json |
+| 55818b164bdc2ddc698b456c | 手枪握把 | PistolGripTemplates.json |
+| 55818a6f4bdc2db9688b456b | 护木 | HandguardTemplates.json |
+| 555ef6e44bdc2de9068b457e | 枪管 | BarrelTemplates.json |
+| 55818b224bdc2dde698b456f | 导轨 | MountTemplates.json |
+
+### 子弹类型
+| ParentID | 物品类型 | 处理方式 |
+|----------|---------|---------|
+| 5485a8684bdc2da71d8b4567 | 子弹 | 直接生成（无需模板） |
+
+## 子弹补丁格式
+
+子弹补丁使用简化的格式，不需要模板文件。生成的子弹补丁包含以下字段：
+
+### 必需字段
+- `$type`: "RealismMod.Ammo, RealismMod"
+- `ItemID`: 子弹的唯一ID
+- `Name`: 子弹名称
+- `Damage`: 伤害值
+- `PenetrationPower`: 穿透力
+- `LoyaltyLevel`: 忠诚度等级（默认1）
+- `BasePriceModifier`: 基础价格修正（默认1）
+
+### 可选字段
+- `InitialSpeed`: 初始速度（米/秒）
+- `BulletMassGram`: 子弹质量（克）
+- `BallisticCoeficient`: 弹道系数
+
+### 示例
+```json
+{
+    "6bf1974e43598ca9672d9380": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "ItemID": "6bf1974e43598ca9672d9380",
+        "Name": "dbp191",
+        "Damage": 48,
+        "PenetrationPower": 48,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "InitialSpeed": 940,
+        "BulletMassGram": 4,
+        "BallisticCoeficient": 0.275
+    }
+}
+```
+
+## 自定义修改
+
+### 添加新的ParentID映射
+如果需要支持新的物品类型，可以在脚本中的 `PARENT_ID_TO_TEMPLATE` 字典中添加映射：
+
 ```python
-TEMPLATE_BASE_PATH = "现实主义物品模板"
+PARENT_ID_TO_TEMPLATE = {
+    # 添加新的映射
+    "新的ParentID": "path/to/TemplateFile.json",
+    # ...
+}
 ```
 
-### 添加自定义模板
-1. 在相应的模板子文件夹中创建新的JSON文件
-2. 按照现有模板格式编写数据
-3. 重新运行脚本，会自动加载新模板
+### 修改默认模板
+可以修改脚本中的 `DEFAULT_WEAPON_TEMPLATE` 和 `DEFAULT_MOD_TEMPLATE` 来调整默认配置的属性值。
 
-### 调整输出文件
-所有生成的补丁文件都是标准JSON格式，可以：
-- 手动编辑属性值
-- 合并多个补丁文件
-- 用于其他工具处理
+## 注意事项
 
-## 🆘 常见问题 & 解决方案
+1. **备份数据**: 运行脚本前建议备份重要数据
+2. **检查输出**: 生成补丁后，建议检查output文件夹中的JSON文件，确保格式正确
+3. **模板完整性**: 确保weapons和attatchments文件夹中的模板文件完整且格式正确
+4. **编码问题**: 所有JSON文件应使用UTF-8编码
 
-| 问题 | 原因 | 解决方案 |
-|------|------|--------|
-| 脚本无法运行 | Python版本过低 | 升级至Python 3.6+ |
-| 生成物品数少 | 物品parentId未映射或格式不支持 | 查看控制台"跳过"信息，检查数据格式 |
-| 数据格式错误 | 输入JSON不符合任何支持的格式 | 查看本README的格式示例部分 |
-| 模板路径错误 | 模板文件夹不存在 | 确保"现实主义物品模板"文件夹存在 |
-| 中文乱码 | 文件编码问题 | 确保所有JSON文件使用UTF-8编码 |
+## 问题排查
 
-## 📞 技术支持
+### 问题1: 脚本无法运行
+- 检查Python版本是否为3.6+
+- 确保所有必需的文件夹存在（Items, weapons, attatchments）
 
-遇到问题？请检查以下内容：
+### 问题2: 生成的物品数量少于预期
+- 检查控制台输出中的"跳过"信息
+- 确认被跳过的物品的parentId是否在映射表中
+- 可能需要添加新的parentId映射
 
-1. **查看控制台输出** - 大部分信息会显示在运行结果中
-2. **检查文件格式** - 用JSON验证工具检查JSON文件有效性
-3. **检查文件编码** - 确保使用UTF-8编码
-4. **查看日志信息** - 脚本会输出详细的处理过程
-
-## 📚 相关文档
-
-阅读以下文档获取更多信息：
-
-- [快速入门.md](快速入门.md) - 快速开始（3步完成）
-- [高级配置指南.md](高级配置指南.md) - 深度配置和定制
-- [v2.0更新说明.md](v2.0更新说明.md) - v2.0新功能详解
-- [配件数据结构更新说明.md](配件数据结构更新说明.md) - 完整属性参考
-
-## 📝 AttributeID 属性参考
-
-### 武器常见属性
-- `Accuracy` - 精准度
-- `Ergonomics` - 人体工程学
-- `VerticalRecoil` - 竖直后坐力
-- `HorizontalRecoil` - 水平后坐力
-- `RoF` - 射速
-- `CyclicalRateOfFire` - 循环射速
-
-### 配件常见属性
-- `ModType` - 配件类型
-- `Ergonomics` - 人体工程学改动
-- `RecoilModifier` - 后坐力修正
-- `AccuracyModifier` - 精准度修正
-- `Handling` - 操控性
-
-更多属性详见 [高级配置指南.md](高级配置指南.md)
-
-## ✅ 质量检查清单
-
-| 检查项 | 说明 | 状态 |
-|-------|------|------|
-| ✓ | 所有JSON文件使用UTF-8编码 | 必需 |
-| ✓ | Items文件夹存在并包含数据 | 必需 |
-| ✓ | 模板库完整 | 必需 |
-| ✓ | Python版本 ≥ 3.6 | 必需 |
-| ✓ | 生成的补丁大小合理 | 推荐 |
-| ✓ | 补丁文件可被JSON验证器打开 | 推荐 |
-
-## 🎯 最佳实践
-
-1. **循序渐进** - 先用少量数据测试，确认效果后再处理大量数据
-2. **保存备份** - 保存原始的Items数据和生成后的补丁
-3. **定期更新** - 随着现实主义MOD更新而更新补丁
-4. **版本控制** - 为不同版本的补丁标记版本号
-5. **测试验证** - 在游戏中充分测试补丁的有效性
+### 问题3: 生成的JSON格式错误
+- 检查模板文件是否为有效的JSON格式
+- 确保模板文件编码为UTF-8
 
 ## 版本信息
+- 版本: 1.0
+- 创建日期: 2026年2月20日
+- 作者: GitHub Copilot
 
-| 项目 | 信息 |
-|------|------|
-| **当前版本** | 2.0 |
-| **更新日期** | 2026年2月20日 |
-| **版本状态** | ✅ 稳定版 |
-| **Python要求** | ≥ 3.6 |
-| **依赖** | 无（仅标准库） |
-
-## 许可证
-
-本项目遵循MIT许可证。详见 [LICENSE](LICENSE) 文件。
-
----
-
-**上次更新**: 2026年2月20日
-
-**贡献者**: GitHub Copilot
-
-**反馈**: 如有建议或发现问题，欢迎反馈！
+## 许可
+本脚本仅供学习和研究使用。

@@ -1,0 +1,298 @@
+{
+    "685b40db60670990eb71ca2d": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "685b40db60670990eb71ca2d",
+        "Name": "EOTech EXPS3 holographic sight",
+        "ModType": "sight",
+        "AimSpeed": 16,
+        "Accuracy": 17,
+        "ConflictingItems": [],
+        "Ergonomics": 0,
+        "Weight": 0.255,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "LoyaltyLevel": 3
+    },
+    "672e37d16837c8feaa64be0f":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d16837c8feaa64be0f",
+        "Name": "WMX Blk",
+        "TemplateID": "626becf9582c3e319310b837"
+    },
+    "672e37d1027fc0fe0d13b56c":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1027fc0fe0d13b56c",
+        "Name": "HK mag Blk",
+        "TemplateID": "5c6d42cb2e2216000e69d7d1"
+    },
+    "672e37d1520640dc6dcd5cdd":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1520640dc6dcd5cdd",
+        "Name": "FSP Black",
+        "TemplateID": "5c9a26332e2216001219ea70"  
+    },
+    "672e37d10527a90689a16240":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d10527a90689a16240",
+        "Name": "EXPS3-B",
+        "TemplateID": "558022b54bdc2dac148b458d"  
+    },
+    "672e37d10c5f88d8ed0d056a":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d10c5f88d8ed0d056a",
+        "Name": "BAST-TOPO",
+        "TemplateID": "5d2c76ed48f03532f2136169"  
+    },
+    "672e37d1c999f94dae595a1b":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1c999f94dae595a1b",
+        "Name": "LS321-B",
+        "TemplateID": "57fd23e32459772d0805bcf1"  
+    },
+    "672e37d1a98e0628807ba29a":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1a98e0628807ba29a",
+        "Name": "MK47R Topo",
+        "TemplateID": "606587a88900dc2d9a55b659"  
+    },
+    "672e37d178e24689d6ff50ce":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d178e24689d6ff50ce",
+        "Name": "RAPTAR-B",
+        "TemplateID": "61605d88ffa6e502ac5e7eeb"  
+    },
+    "672e37d19f3e60fb0cbbe568":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d19f3e60fb0cbbe568",
+        "Name": "Razor HD Black",
+        "TemplateID": "618ba27d9008e4636a67f61d"  
+    },
+    "67617ec9ea1e82ea5e103054":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67617ec9ea1e82ea5e103054",
+        "Name": "TANGO6T Black",
+        "TemplateID": "6567e7681265c8a131069b0f"  
+    },
+    "672e37d1603bec7640eb5459":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1603bec7640eb5459",
+        "Name": "Gen.3 Topo",
+        "TemplateID": "5c07a8770db8340023300450"  
+    },
+    "672e37d12636da3c12abb505":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d12636da3c12abb505",
+        "Name": "VPO101 Black",
+        "TemplateID": "5c503af12e221602b177ca02"  
+    },
+    "672e37d1f647e5253b953b08":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1f647e5253b953b08",
+        "Name": "S.A.S.S. Black",
+        "TemplateID": "5ab372a310e891001717f0d8"  
+    },
+    "672e37d1565ea85b2a92e2e4":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1565ea85b2a92e2e4",
+        "Name": "Hybrid 46 S",
+        "TemplateID": "59bffbb386f77435b379b9c2"  
+    },
+    "672e37d16dd16ffec1f6019e":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d16dd16ffec1f6019e",
+        "Name": "AUG mag Black",
+        "TemplateID": "62e7c98b550c8218d602cbb4"  
+    },
+    "672e37d1974eeef8028990a4":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1974eeef8028990a4",
+        "Name": "PT-1-S",
+        "TemplateID": "5b222d405acfc400153af4fe"  
+    },
+    "672e37d1af063ed84beecc40":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1af063ed84beecc40",
+        "Name": "MOE AK-S",
+        "TemplateID": "5b30ac585acfc433000eb79c"  
+    },
+    "672e37d1d3f662d053528ca3":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1d3f662d053528ca3",
+        "Name": "ION Lite S",
+        "TemplateID": "628a83c29179c324ed269508"  
+    },
+    "672e37d1bbce23f93c60de67":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1bbce23f93c60de67",
+        "Name": "Dog Leg Rail S",
+        "TemplateID": "5d2c772c48f0355d95672c25"  
+    },
+    "672e37d16b2e4ea6c4076cbc":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d16b2e4ea6c4076cbc",
+        "Name": "Delta Carbon Black",
+        "TemplateID": "63888bbd28e5cc32cc09d2b6"  
+    },
+    "672e37d1ffec1409f4571dd7":{
+        "$type": "RealismMod.Gear, RealismMod",
+        "ItemID": "672e37d1ffec1409f4571dd7",
+        "Name": "SLAAP Skull",
+        "TemplateID": "5c0e66e2d174af02a96252f4"  
+    },
+    "672e37d126a93d06f86b177a":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d126a93d06f86b177a",
+        "Name": "Delta Carbon Black",
+        "TemplateID": "5a6f5e048dc32e00094b97da"  
+    },
+    "672e37d127e81492ac0c21a4":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d127e81492ac0c21a4",
+        "Name": "G17 SPEC",
+        "TemplateID": "5a6f5f078dc32e00094b97dd"  
+    },
+    "672e37d1b6df87f2230c0b61":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1b6df87f2230c0b61",
+        "Name": "6L23 SPEC",
+        "TemplateID": "55d480c04bdc2d1d4e8b456a"  
+    },
+    "672e37d1249244ae3a50bb2f":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1249244ae3a50bb2f",
+        "Name": "MUR-1S PE",
+        "TemplateID": "59bfe68886f7746004266202"  
+    },
+    "672e37d1e35a6ec6e6997492":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d1e35a6ec6e6997492",
+        "Name": "AK-103 Topo",
+        "TemplateID": "5ac66d2e5acfc43b321d4b53"  
+    },
+    "672e37d1dd890afba20c10e7":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d1dd890afba20c10e7",
+        "Name": "R11-Black",
+        "TemplateID": "5a367e5dc4a282000e49738f"  
+    },
+    "672e37d10b7a12e6a7a50b77":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d10b7a12e6a7a50b77",
+        "Name": "MK47 Topo",
+        "TemplateID": "606587252535c57a13424cfd"  
+    },
+    "672e37d1ddaf7c656e3a634c":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d1ddaf7c656e3a634c",
+        "Name": "M4A1 Flames",
+        "TemplateID": "5447a9cd4bdc2dbd208b4567"  
+    },
+    "672e37d19f1683101780773b":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d19f1683101780773b",
+        "Name": "M4A1-PE Pristine",
+        "TemplateID": "5447a9cd4bdc2dbd208b4567"  
+    },
+    "672e37d17f433cdb29072bc8":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "672e37d17f433cdb29072bc8",
+        "Name": "SPEAR Black",
+        "TemplateID": "65290f395ae2ae97b80fdf2d"  
+    },
+    "672e37d10e627f2e9563a930":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d10e627f2e9563a930",
+        "Name": "Angled Grip Black",
+        "TemplateID": "5c7fc87d2e221644f31c0298"  
+    },
+    "672e37d19811257c1de39e6d":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d19811257c1de39e6d",
+        "Name": "L7AWM20 Black",
+        "TemplateID": "65293c38fc460e50a509cb25"  
+    },
+    "672e37d15fe804508ab7c6e6":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d15fe804508ab7c6e6",
+        "Name": "L7AWM25 Black",
+        "TemplateID": "65293c7a17e14363030ad308"  
+    },
+    "672e37d1861c12c7e1d94089":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1861c12c7e1d94089",
+        "Name": "M400 pistol grip Black",
+        "TemplateID": "652911675ae2ae97b80fdf3c"  
+    },
+    "672e37d1984bc9a10241a9c7":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1984bc9a10241a9c7",
+        "Name": "SPEAR HANDGUARD Black",
+        "TemplateID": "652910ef50dc782999054b97"  
+    },
+    "672e37d1906226680c4e28d5":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1906226680c4e28d5",
+        "Name": "SPEAR CHARGE Black",
+        "TemplateID": "6529109524cbe3c74a05e5b7"  
+    },
+    "672e37d143ba463a1cdcbd7b":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d143ba463a1cdcbd7b",
+        "Name": "SLX68 Black",
+        "TemplateID": "652911e650dc782999054b9d"  
+    },
+    "672e37d151b832f3fb8ccbb0":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d151b832f3fb8ccbb0",
+        "Name": "MCX/MPX BUFFER Black",
+        "TemplateID": "6529366450dc782999054ba0"  
+    },
+    "672e37d1d9a55146e49287d6":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1d9a55146e49287d6",
+        "Name": "MOE SL-K Black",
+        "TemplateID": "6529370c405a5f51dd023db8"  
+    },
+    "672e37d1700e32cad600018f":{
+        "$type": "RealismMod.Gear, RealismMod",
+        "ItemID": "672e37d1700e32cad600018f",
+        "Name": "Balaclava Black",
+        "TemplateID": "572b7f1624597762ae139822"  
+    },
+    "672e37d1d0d67e193f688afa":{
+        "$type": "RealismMod.Gear, RealismMod",
+        "ItemID": "672e37d1d0d67e193f688afa",
+        "Name": "Condor Black",
+        "TemplateID": "603409c80ca681766b6a0fb2"  
+    },
+    "672e37d1431d27aff3b27f4d":{
+        "$type": "RealismMod.Gear, RealismMod",
+        "ItemID": "672e37d1431d27aff3b27f4d",
+        "Name": "TV-110 Black",
+        "TemplateID": "5c0e746986f7741453628fe5"  
+    },
+    "672e37d18d4d0ec5f16f5cc9":{
+        "$type": "RealismMod.Gear, RealismMod",
+        "ItemID": "672e37d18d4d0ec5f16f5cc9",
+        "Name": "AVS Black",
+        "TemplateID": "544a5caa4bdc2d1a388b4568"  
+    },
+    "672e37d1988fac66b10d23c8":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1988fac66b10d23c8",
+        "Name": "UH-1 V2",
+        "TemplateID": "59f9d81586f7744c7506ee62"  
+    },
+    "672e37d1c3f0ee2b60c5854d":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1c3f0ee2b60c5854d",
+        "Name": "AN/PEQ-15 (Black)",
+        "TemplateID": "544909bb4bdc2d6f028b4577"  
+    },
+    "672e37d1713443a0355d72e8":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "672e37d1713443a0355d72e8",
+        "Name": "GL-CORE (Black)",
+        "TemplateID": "602e620f9b513876d4338d9a"  
+    }
+}

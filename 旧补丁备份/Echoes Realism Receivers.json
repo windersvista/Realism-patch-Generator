@@ -1,0 +1,38 @@
+{
+    "684488b1c9ead5b831d49ac8": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "684488b1c9ead5b831d49ac8",
+        "Name": "M16A2 5.56x45 upper reciever",
+        "ModType": "",
+        "ModMalfunctionChance": 0,
+        "Accuracy": 0,
+        "HeatFactor": 0.989,
+        "CoolFactor": 1.01,
+        "DurabilityBurnModificator": 1,
+        "ConflictingItems": [],
+        "Ergonomics": 0,
+        "Weight": 0.3295,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "ChamberSpeed": 0,
+        "LoyaltyLevel": 1
+    },
+    "684489fe2cc79fb0b0fd98af": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "684489fe2cc79fb0b0fd98af",
+        "Name": "M16A2 5.56x45 upper reciever",
+        "ModType": "",
+        "ModMalfunctionChance": 0,
+        "Accuracy": 0,
+        "HeatFactor": 0.989,
+        "CoolFactor": 1.01,
+        "DurabilityBurnModificator": 1,
+        "ConflictingItems": [],
+        "Ergonomics": 0,
+        "Weight": 0.3295,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "ChamberSpeed": 0,
+        "LoyaltyLevel": 1
+    }
+}

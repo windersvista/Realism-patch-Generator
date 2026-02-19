@@ -1,0 +1,362 @@
+{
+    "67ac92666a64ef2c6b5ac67a":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac92666a64ef2c6b5ac67a",
+        "Name": "AR-15 Rainier Arms Avalanche MOD2 charging handle (Sand)",
+        "TemplateID": "5f633ff5c444ce7e3c30a006",
+        "TemplateType": "mod"    
+        },
+    "67ac92af20c9f3a249c343fa":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac92af20c9f3a249c343fa",
+        "Name": "AR-15 F1 Firearms Skeletonized Style 2 PC pistol grip (Sand)",
+        "TemplateID": "6113cc78d3a39d50044c065a",
+        "TemplateType": "mod"    
+        },
+    "67ac92f0c6580fd625e7eb71":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac92f0c6580fd625e7eb71",
+        "Name": "AR-15 Noveske Gen.3 5.56x45 upper receiver (Sand)",
+        "TemplateID": "5c07a8770db8340023300450",
+        "TemplateType": "mod"    
+        },
+    "67ac93504322c6b83e627f79":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac93504322c6b83e627f79",
+        "Name": "AR-15 Griffin Armament M4SD-K 5.56x45 sound suppressor (Sand)",
+        "TemplateID": "638612b607dfed1ccb7206ba",
+        "TemplateType": "mod"    
+        },
+    "67ac9375b5c21b465238cf5e":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac9375b5c21b465238cf5e",
+        "Name": "AR-15 Vltor MUR-1S 5.56x45 upper receiver (Sand)",
+        "TemplateID": "59bfe68886f7746004266202",
+        "TemplateType": "mod"    
+        },
+    "67ac93ba39b044b1a6930797":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac93ba39b044b1a6930797",
+        "Name": "AR-15 STNGR VYPR 10 inch M-LOK handguard (Sand)",
+        "TemplateID": "5c6d5d8b2e221644fc630b39",
+        "TemplateType": "mod"    
+        },
+    "67ac93ebd9dbfdf17ec804a1":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac93ebd9dbfdf17ec804a1",
+        "Name": "EOTech Vudu 1-6x24 30mm riflescope (Sand)",
+        "TemplateID": "5b3b99475acfc432ff4dcbee",
+        "TemplateType": "mod"    
+        },
+    "67ac940303be02c6d5cd7dd5":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac940303be02c6d5cd7dd5",
+        "Name": "MCX GEN1 .300 BLK upper receiver (Sand)",
+        "TemplateID": "5fbcc3e4d6fa9c00c571bb58",
+        "TemplateType": "mod"    
+        },
+    "67ac942b933106d9bf6fd59f":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac942b933106d9bf6fd59f",
+        "Name": "MPX/MCX telescoping stock (Sand)",
+        "TemplateID": "5fbcc429900b1d5091531dd7",
+        "TemplateType": "mod"    
+        },
+    "67ac94456401d8a16de8607e":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac94456401d8a16de8607e",
+        "Name": "MCX GEN1 KeyMod 12 inch handguard (Sand)",
+        "TemplateID": "5fbc227aa56d053a3543f79e",
+        "TemplateType": "mod"    
+        },
+    "67ac946b5df41149bc0df809":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac946b5df41149bc0df809",
+        "Name": "Vltor EMOD stock (Sand)",
+        "TemplateID": "5b39f8db5acfc40016387a1b",
+        "TemplateType": "mod"    
+        },
+    "67ac94898f1d50a181e6d39e":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac94898f1d50a181e6d39e",
+        "Name": "AK-74 dust cover 6P20 0-1 (Sand)",
+        "TemplateID": "5649af094bdc2df8348b4586",
+        "TemplateType": "mod"    
+        },
+    "67ac94a942c1d1f45270acd9":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac94a942c1d1f45270acd9",
+        "Name": "AK Zenit B-30 handguard with B-31S upper handguard rail (Sand)",
+        "TemplateID": "5efaf417aeb21837e749c7f2",
+        "TemplateType": "mod"    
+        },
+    "67ac94c9f4465d43d278fe02":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac94c9f4465d43d278fe02",
+        "Name": "RPK-16 buffer tube (Sand)",
+        "TemplateID": "5beec8b20db834001961942a",
+        "TemplateType": "mod"    
+        },
+    "67ac94f16d083a6741a03f73":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac94f16d083a6741a03f73",
+        "Name": "AK-74 thread type JMac Customs RRD-4C multi-caliber muzzle brake (Sand)",
+        "TemplateID": "5f633f791b231926f2329f13",
+        "TemplateType": "mod"    
+        },
+    "67ac952ad0b68a94cb38bc57":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac952ad0b68a94cb38bc57",
+        "Name": "AR-15 KAC RIS handguard (Sand)",
+        "TemplateID": "55d459824bdc2d892f8b4573",
+        "TemplateType": "mod"    
+        },
+    "67ac9551c4a6846376bc736f":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac9551c4a6846376bc736f",
+        "Name": "AR-15 KAC RIS lower handguard (Sand)",
+        "TemplateID": "637f57b78d137b27f70c496a",
+        "TemplateType": "mod"    
+        },
+    "67ac956f7a83f699484d8bb8":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac956f7a83f699484d8bb8",
+        "Name": "AR-15 KAC URX 3 8 inch handguard (Sand)",
+        "TemplateID": "5d123102d7ad1a004e475fe5",
+        "TemplateType": "mod"    
+        },
+    "67ac959865673d2540068932":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac959865673d2540068932",
+        "Name": "AR-15 KAC URX 3 8 inch lower handguard (Sand)",
+        "TemplateID": "637f57d2f5ef8c33840d36c4",
+        "TemplateType": "mod"    
+        },
+    "67ac95ba15b974f710f5d437":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac95ba15b974f710f5d437",
+        "Name": "AR-15 KAC URX 3.1 10.75 inch handguard (Sand)",
+        "TemplateID": "5d122e7bd7ad1a07102d6d7f",
+        "TemplateType": "mod"    
+        },
+    "67ac95e175458f7c85c1dcd7":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac95e175458f7c85c1dcd7",
+        "Name": "AR-15 KAC URX 3.1 10.75 inch lower handguard (Sand)",
+        "TemplateID": "637f57c532b66e7e320a6676",
+        "TemplateType": "mod"    
+        },
+    "67ac9600e873cc656432d052":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac9600e873cc656432d052",
+        "Name": "AR-15 JP Enterprises Gas System-5B (Sand)",
+        "TemplateID": "5d00ec68d7ad1a04a067e5be",
+        "TemplateType": "mod"    
+        },
+    "67ac961ed02893dfab1245df":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac961ed02893dfab1245df",
+        "Name": "AR-15 5.56x45 260mm barrel (Sand)",
+        "TemplateID": "55d35ee94bdc2d61338b4568",
+        "TemplateType": "mod"    
+        },
+    "67ac964d1a314d8b1e42f45b":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac964d1a314d8b1e42f45b",
+        "Name": "AR-15 5.56x45 370mm barrel (Sand)",
+        "TemplateID": "55d3632e4bdc2d972f8b4569",
+        "TemplateType": "mod"    
+        },
+    "67ac9673a60fcc81327632b3":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac9673a60fcc81327632b3",
+        "Name": "AK-74 polymer stock (Sand)",
+        "TemplateID": "5649b0fc4bdc2d17108b4588",
+        "TemplateType": "mod"    
+        },
+    "67ac968b64d7480a26e615a1":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac968b64d7480a26e615a1",
+        "Name": "AK-74M polymer stock (Sand)",
+        "TemplateID": "5ac50c185acfc400163398d4",
+        "TemplateType": "mod"    
+        },
+    "67ac96dab40b064aceb026fe":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac96dab40b064aceb026fe",
+        "Name": "SLR-106/AK 5.56x45 Circle 10 30-round magazine (Sand)",
+        "TemplateID": "5c0548ae0db834001966a3c2",
+        "TemplateType": "mod"    
+        },
+    "67ac97093f1e5a077a18f281":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac97093f1e5a077a18f281",
+        "Name": "AK TROY Full Length Rail handguard & gas tube combo (Sand)",
+        "TemplateID": "5b237e425acfc4771e1be0b6",
+        "TemplateType": "mod"    
+        },
+    "67ac97279d5545d3da332621":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac97279d5545d3da332621",
+        "Name": "Thunder Beast Arms Ultra 5 sound suppressor (Sand)",
+        "TemplateID": "5d44064fa4b9361e4f6eb8b5",
+        "TemplateType": "mod"    
+        },
+    "67ac974434dea5ee71dd764f":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac974434dea5ee71dd764f",
+        "Name": "AK TWS Dog Leg Rail dust cover (Sand)",
+        "TemplateID": "5d2c772c48f0355d95672c25",
+        "TemplateType": "mod"    
+        },
+    "67ac976ca53ae4f24b864d7e":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac976ca53ae4f24b864d7e",
+        "Name": "5.56x45 Magpul PMAG D-60 STANAG 60-round magazine (Sand)",
+        "TemplateID": "59c1383d86f774290a37e0ca",
+        "TemplateType": "mod"    
+        },
+    "67ac97a1ce7690e5e3c8ee97":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac97a1ce7690e5e3c8ee97",
+        "Name": "Aimpoint Micro T-1 reflex sight (Sand)",
+        "TemplateID": "58d399e486f77442e0016fe7",
+        "TemplateType": "mod"    
+        },
+    "67ac97b7794749148f47e25a":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac97b7794749148f47e25a",
+        "Name": "Aimpoint Micro Spacer High (Sand)",
+        "TemplateID": "58d39b0386f77443380bf13c",
+        "TemplateType": "mod"    
+        },
+    "67ac97da6ef1050bcb05f636":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac97da6ef1050bcb05f636",
+        "Name": "Aimpoint Micro H-2 Standard Mount (Sand)",
+        "TemplateID": "616554fe50224f204c1da2aa",
+        "TemplateType": "mod"    
+        },
+    "67ac9808464979b14d5b41a2":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac9808464979b14d5b41a2",
+        "Name": "AK Zenit PT-1 stock (Sand)",
+        "TemplateID": "5b222d405acfc400153af4fe",
+        "TemplateType": "mod"    
+        },
+    "67ac98604f9dff3e638aaafe":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac98604f9dff3e638aaafe",
+        "Name": "HK G36 4-vent handguard (Sand)",
+        "TemplateID": "62386b7153757417e93a4e9f",
+        "TemplateType": "mod"    
+        },
+    "67ac987c5d3324bc95204965":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac987c5d3324bc95204965",
+        "Name": "HK G36 magwell (Sand)",
+        "TemplateID": "622f02437762f55aaa68ac85",
+        "TemplateType": "mod"    
+        },
+    "67ac989bf0eca0c5c8bf771b":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac989bf0eca0c5c8bf771b",
+        "Name": "HK G36 STANAG magwell (Sand)",
+        "TemplateID": "622f039199f4ea1a4d6c9a17",
+        "TemplateType": "mod"    
+        },
+    "67ac98ae312ed370565912d5":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac98ae312ed370565912d5",
+        "Name": "HK G36 polymer stock (Sand)",
+        "TemplateID": "622f140da5958f63c67f1735",
+        "TemplateType": "mod"    
+        },
+    "67ac98cc071ccd41df6f9bd8":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac98cc071ccd41df6f9bd8",
+        "Name": "Vortex Razor AMG UH-1 holographic sight (Sand)",
+        "TemplateID": "59f9d81586f7744c7506ee62",
+        "TemplateType": "mod"    
+        },
+    "67ac98f6726df986c91ca654":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac98f6726df986c91ca654",
+        "Name": "AR-15 Vltor MUR-1S 5.56x45 upper receiver (Sand 2)",
+        "TemplateID": "59bfe68886f7746004266202",
+        "TemplateType": "mod"    
+        },
+    "67ac990ee8cc11a2c2ac28d0":{
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "67ac990ee8cc11a2c2ac28d0",
+        "Name": "SIG MCX .300 Blackout assault rifle (Sand)",
+        "TemplateID": "5fbcc1d9016cce60e8341ab3",
+        "TemplateType": "mod"    
+        },
+    "67ac99d71a8e8eef28647ce3":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67ac99d71a8e8eef28647ce3",
+        "Name": "Colt M4A1 5.56x45 assault rifle (Sand)",
+        "TemplateID": "5447a9cd4bdc2dbd208b4567",
+        "TemplateType": "mod"    
+        },
+    "67ac9a472ee3e4b51f5dd35e":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67ac9a472ee3e4b51f5dd35e",
+        "Name": "Kalashnikov AK-101 5.56x45 assault rifle (Sand)",
+        "TemplateID": "5ac66cb05acfc40198510a10",
+        "TemplateType": "gun"    
+        },
+    "67ac9aaed7cf7c4c8f746dec":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67ac9aaed7cf7c4c8f746dec",
+        "Name": "Kalashnikov AK-102 5.56x45 assault rifle (Sand)",
+        "TemplateID": "5ac66d015acfc400180ae6e4",
+        "TemplateType": "gun"    
+        },
+    "67acad34075a8956a1527144":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acad34075a8956a1527144",
+        "Name": "Kalashnikov AK-103 7.62x39 assault rifle (Sand)",
+        "TemplateID": "5ac66d2e5acfc43b321d4b53",
+        "TemplateType": "gun"    
+        },
+    "67acad68d0e021eed9675bfe":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acad68d0e021eed9675bfe",
+        "Name": "Kalashnikov AK-104 7.62x39 assault rifle (Sand)",
+        "TemplateID": "5ac66d725acfc43b321d4b60",
+        "TemplateType": "gun"    
+        },
+    "67acad9e746e609a4cd6dd61":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acad9e746e609a4cd6dd61",
+        "Name": "Kalashnikov AK-105 5.45x39 assault rifle (Sand)",
+        "TemplateID": "5ac66d9b5acfc4001633997a",
+        "TemplateType": "gun"    
+        },
+    "67acadcbc246ef38a908be82":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acadcbc246ef38a908be82",
+        "Name": "HK 416A5 5.56x45 assault rifle (Sand)",
+        "TemplateID": "5bb2475ed4351e00853264e3",
+        "TemplateType": "gun"    
+        },
+    "67acae1faf6ff63f7d5630d1":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acae1faf6ff63f7d5630d1",
+        "Name": "HK G36 5.56x45 assault rifle (Sand)",
+        "TemplateID": "623063e994fc3f7b302a9696",
+        "TemplateType": "gun"    
+        },
+    "67acae5c6a6c938f3c4a7d4c":{
+        "$type": "RealismMod.Gun, RealismMod",
+        "ItemID": "67acae5c6a6c938f3c4a7d4c",
+        "Name": "Colt M4A1 5.56x45 assault rifle (Sand 2)",
+        "TemplateID": "5447a9cd4bdc2dbd208b4567",
+        "TemplateType": "gun"    
+        }
+
+
+
+}

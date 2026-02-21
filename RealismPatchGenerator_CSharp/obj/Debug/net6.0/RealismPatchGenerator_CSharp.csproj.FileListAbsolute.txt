@@ -1,5 +1,0 @@
-e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net6.0\RealismPatchGenerator_CSharp.GeneratedMSBuildEditorConfig.editorconfig
-e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net6.0\RealismPatchGenerator_CSharp.AssemblyInfoInputs.cache
-e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net6.0\RealismPatchGenerator_CSharp.AssemblyInfo.cs
-e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net6.0\RealismPatchGenerator_CSharp.csproj.CoreCompileInputs.cache
-e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net6.0\RealismPatchGenerator_CSharp.sourcelink.json

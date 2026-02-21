@@ -1,0 +1,70 @@
+{
+    "686e96247283228774e7875e": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "686e96247283228774e7875e",
+        "Name": "M82A1 .50 BMG 10发弹匣",
+        "ModType": "",
+        "ReloadSpeed": 0,
+        "Ergonomics": -5,
+        "MalfunctionChance": 0.01,
+        "LoadUnloadModifier": 5,
+        "CheckTimeModifier": 15,
+        "ConflictingItems": [],
+        "Weight": 0.612
+    },
+    "686e90abd63bee9a05dcf5db": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": ".50 BMG 空尖弹",
+        "Damage": 260,
+        "PenetrationPower": 34,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "686e90abd63bee9a05dcf5db",
+        "InitialSpeed": 880,
+        "BulletMassGram": 45,
+        "Weight": 0.114,
+        "DurabilityBurnModificator": 1.52
+    },
+    "686e926498b323bfbbe1fc7c": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": ".50 BMG M21 曳光弹",
+        "Damage": 220,
+        "PenetrationPower": 45,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "686e926498b323bfbbe1fc7c",
+        "InitialSpeed": 867,
+        "BulletMassGram": 45,
+        "BallisticCoeficient": 0.614,
+        "Weight": 0.121,
+        "DurabilityBurnModificator": 1.52
+    },
+    "686e93d861bcbeca0b805201": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": ".50 BMG M33 弹",
+        "Damage": 190,
+        "PenetrationPower": 56,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "686e93d861bcbeca0b805201",
+        "InitialSpeed": 887,
+        "BulletMassGram": 45,
+        "BallisticCoeficient": 0.622,
+        "Weight": 0.107,
+        "DurabilityBurnModificator": 1.52
+    },
+    "686e959752397d5b3485ad75": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": ".50 BMG M903 SLAP 穿甲弹",
+        "Damage": 160,
+        "PenetrationPower": 115,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "686e959752397d5b3485ad75",
+        "InitialSpeed": 1220,
+        "BulletMassGram": 45,
+        "BallisticCoeficient": 0.347,
+        "Weight": 0.103,
+        "DurabilityBurnModificator": 1
+    }
+}

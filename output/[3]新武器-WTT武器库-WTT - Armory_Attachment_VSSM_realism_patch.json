@@ -1,0 +1,31 @@
+{
+    "68cae1561e2d372b839a3fed": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "68cae1561e2d372b839a3fed",
+        "Name": "VSS-M \"Ublyudok\" 9x39 integral barrel-suppressor",
+        "ModType": "",
+        "VerticalRecoil": -8,
+        "HorizontalRecoil": -2.5,
+        "Dispersion": -5,
+        "CameraRecoil": -8,
+        "AutoROF": 0,
+        "SemiROF": 0,
+        "ModMalfunctionChance": 0,
+        "CanCycleSubs": false,
+        "Accuracy": 0,
+        "HeatFactor": 1.21,
+        "CoolFactor": 1.06,
+        "DurabilityBurnModificator": 1.2,
+        "Velocity": 0.98,
+        "RecoilAngle": 0,
+        "ConflictingItems": [
+            "5a9fc7e6a2750c0032157184"
+        ],
+        "Ergonomics": -2,
+        "Weight": 0.158,
+        "Loudness": -5,
+        "Convergence": 0,
+        "LoyaltyLevel": 2,
+        "Flash": 45
+    }
+}

@@ -1,0 +1,138 @@
+{
+    "683246a74073e586d112af9f": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor Norma Match",
+        "Damage": 77,
+        "PenetrationPower": 43,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683246a74073e586d112af9f",
+        "InitialSpeed": 885,
+        "BulletMassGram": 8,
+        "Weight": 0.024
+    },
+    "68325a63730b17c69ee176eb": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor HPBT Match",
+        "Damage": 91,
+        "PenetrationPower": 31,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "68325a63730b17c69ee176eb",
+        "InitialSpeed": 868,
+        "BulletMassGram": 8.5,
+        "Weight": 0.024
+    },
+    "6833baea86387d71b68abd6f": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor Hornady ELD-X",
+        "Damage": 75,
+        "PenetrationPower": 28,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "6833baea86387d71b68abd6f",
+        "InitialSpeed": 891,
+        "BulletMassGram": 9,
+        "BallisticCoeficient": 0.601,
+        "Weight": 0.024
+    },
+    "6833bae4baa31474639bea7d": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor Norma AP",
+        "Damage": 64,
+        "PenetrationPower": 71,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "6833bae4baa31474639bea7d",
+        "InitialSpeed": 839,
+        "BulletMassGram": 5.8,
+        "BallisticCoeficient": 0.42,
+        "Weight": 0.024
+    },
+    "6833ba38a1c9ff155c04e56f": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor Terminal Ascent",
+        "Damage": 91,
+        "PenetrationPower": 31,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "6833ba38a1c9ff155c04e56f",
+        "InitialSpeed": 952,
+        "BulletMassGram": 8.4,
+        "BallisticCoeficient": 0.532
+    },
+    "6833b8cb54aa764b2deefdfe": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor SIG Venari SP",
+        "Damage": 101,
+        "PenetrationPower": 31,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "6833b8cb54aa764b2deefdfe",
+        "InitialSpeed": 859,
+        "BulletMassGram": 8
+    },
+    "6834e6f28f5570aec23ca0c2": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.5x48mm Creedmoor C-HP",
+        "Damage": 88,
+        "PenetrationPower": 31,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "6834e6f28f5570aec23ca0c2",
+        "InitialSpeed": 829,
+        "BulletMassGram": 8
+    },
+    "683d1b69d6f6778f205e9dfd": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.8x51mm SIG Venari SP",
+        "Damage": 99,
+        "PenetrationPower": 24,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683d1b69d6f6778f205e9dfd",
+        "InitialSpeed": 826
+    },
+    "683a1844ac7f29765fc135b2": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "6.8x51mm SIG HiPower",
+        "Damage": 105,
+        "PenetrationPower": 19,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683a1844ac7f29765fc135b2"
+    },
+    "683d1ba7b5a2063de35a8c39": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "8.6 Blackout AP-Subsonic",
+        "Damage": 77,
+        "PenetrationPower": 68,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683d1ba7b5a2063de35a8c39",
+        "InitialSpeed": 320,
+        "BulletMassGram": 22
+    },
+    "683d1e142cee4317689e75e4": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "8.6 Blackout Copper Solid",
+        "Damage": 82,
+        "PenetrationPower": 51,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683d1e142cee4317689e75e4",
+        "InitialSpeed": 321,
+        "BulletMassGram": 18.4
+    },
+    "683d1ec4f7164f4f77ea7a85": {
+        "$type": "RealismMod.Ammo, RealismMod",
+        "Name": "8.6 Blackout REX Subsonic",
+        "Damage": 103,
+        "PenetrationPower": 45,
+        "LoyaltyLevel": 1,
+        "BasePriceModifier": 1,
+        "ItemID": "683d1ec4f7164f4f77ea7a85",
+        "InitialSpeed": 314,
+        "BulletMassGram": 19
+    }
+}

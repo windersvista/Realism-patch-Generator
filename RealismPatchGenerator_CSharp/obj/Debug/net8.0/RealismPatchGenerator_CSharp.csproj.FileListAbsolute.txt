@@ -1,0 +1,15 @@
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.GeneratedMSBuildEditorConfig.editorconfig
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.AssemblyInfoInputs.cache
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.AssemblyInfo.cs
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.csproj.CoreCompileInputs.cache
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.sourcelink.json
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\bin\Debug\net8.0\RealismPatchGenerator.exe
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\bin\Debug\net8.0\RealismPatchGenerator.deps.json
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\bin\Debug\net8.0\RealismPatchGenerator.runtimeconfig.json
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\bin\Debug\net8.0\RealismPatchGenerator.dll
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\bin\Debug\net8.0\RealismPatchGenerator.pdb
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator.dll
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\refint\RealismPatchGenerator.dll
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator.pdb
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\RealismPatchGenerator_CSharp.genruntimeconfig.cache
+e:\云文件\GitHub\Realism-patch-Generator\RealismPatchGenerator_CSharp\obj\Debug\net8.0\ref\RealismPatchGenerator.dll

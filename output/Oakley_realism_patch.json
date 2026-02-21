@@ -9,6 +9,7 @@
         "Comfort": 0.75,
         "speedPenaltyPercent": -3.5,
         "mousePenalty": 0,
-        "weaponErgonomicPenalty": 0
+        "weaponErgonomicPenalty": 0,
+        "Weight": 3.5
     }
 }

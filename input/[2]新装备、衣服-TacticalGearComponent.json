@@ -5286,7 +5286,7 @@
         "FragmentationChance": 0.33,
         "Deterioration": 1,
         "SpeedRetardation": 2.3e-5,
-        "ArmorDamage": 54,
+        "ArmorDamage": 1,
         "MalfMisfireChance": 0.175,
         "DurabilityBurnModificator": 1.6,
         "HeatFactor": 1.97,

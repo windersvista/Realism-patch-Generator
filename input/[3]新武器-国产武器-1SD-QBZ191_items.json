@@ -4015,7 +4015,7 @@
         "AmmoLifeTimeSec": 5,
       "AmmoTooltipClass": "ArmorPiercing",
       "AnimationVariantsNumber": 0,
-      "ArmorDamage": 47,
+      "ArmorDamage": 1,
       "ArmorDistanceDistanceDamage": {
         "x": 0,
         "y": 0,
@@ -4177,7 +4177,7 @@
         "AmmoLifeTimeSec": 5,
       "AmmoTooltipClass": "Universal",
       "AnimationVariantsNumber": 0,
-      "ArmorDamage": 45,
+      "ArmorDamage": 1,
       "ArmorDistanceDistanceDamage": {
         "x": 0,
         "y": 0,
@@ -4339,7 +4339,7 @@
         "AmmoLifeTimeSec": 5,
       "AmmoTooltipClass": "ArmorPiercing",
       "AnimationVariantsNumber": 0,
-      "ArmorDamage": 58,
+      "ArmorDamage": 1,
       "ArmorDistanceDistanceDamage": {
         "x": 0,
         "y": 0,

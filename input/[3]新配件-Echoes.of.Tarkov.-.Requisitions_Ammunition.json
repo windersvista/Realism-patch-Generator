@@ -9,7 +9,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 885,
-			"ArmorDamage": 51,
+			"ArmorDamage": 1,
 			"PenetrationPower": 43,
 			"Damage": 77,
 			"BulletMassGram": 8,
@@ -74,7 +74,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 868,
-			"ArmorDamage": 45,
+			"ArmorDamage": 1,
 			"PenetrationPower": 31,
 			"Damage": 91,
 			"BulletMassGram": 8.5,
@@ -140,7 +140,7 @@
 			},
 			"InitialSpeed": 891,
 			"BallisticCoeficient": 0.601,
-			"ArmorDamage": 31,
+			"ArmorDamage": 1,
 			"PenetrationPower": 28,
 			"Damage": 75,
 			"BulletMassGram": 9,
@@ -206,7 +206,7 @@
 			},
 			"InitialSpeed": 839,
 			"BallisticCoeficient": 0.420,
-			"ArmorDamage": 83,
+			"ArmorDamage": 1,
 			"PenetrationPower": 71,
 			"Damage": 64,
 			"BulletMassGram": 5.8,
@@ -272,7 +272,7 @@
 			},
 			"InitialSpeed": 952,
 			"BallisticCoeficient": 0.532,
-			"ArmorDamage": 45,
+			"ArmorDamage": 1,
 			"PenetrationPower": 31,
 			"Damage": 91,
 			"BulletMassGram": 8.4,
@@ -336,7 +336,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 859,
-			"ArmorDamage": 24,
+			"ArmorDamage": 1,
 			"PenetrationPower": 31,
 			"Damage": 101,
 			"BulletMassGram": 8,
@@ -400,7 +400,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 829,
-			"ArmorDamage": 44,
+			"ArmorDamage": 1,
 			"PenetrationPower": 31,
 			"Damage": 88,
 			"BulletMassGram": 8,
@@ -464,7 +464,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 826,
-			"ArmorDamage": 30,
+			"ArmorDamage": 1,
 			"PenetrationPower": 24,
 			"Damage": 99,
 			"StackMaxSize": 60,
@@ -528,7 +528,7 @@
 				"path": "assets/content/items/ammo/patrons/patron_68x51.bundle",
 				"rcid": ""
 			},
-			"ArmorDamage": 24,
+			"ArmorDamage": 1,
 			"PenetrationPower": 19,
 			"Damage": 105,
 			"StackMaxSize": 60,
@@ -591,7 +591,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 320,
-			"ArmorDamage": 79,
+			"ArmorDamage": 1,
 			"PenetrationPower": 68,
 			"Damage": 77,
 			"StackMaxSize": 60,
@@ -657,7 +657,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 321,
-			"ArmorDamage": 64,
+			"ArmorDamage": 1,
 			"PenetrationPower": 51,
 			"Damage": 82,
 			"StackMaxSize": 60,
@@ -723,7 +723,7 @@
 				"rcid": ""
 			},
 			"InitialSpeed": 314,
-			"ArmorDamage": 58,
+			"ArmorDamage": 1,
 			"PenetrationPower": 45,
 			"Damage": 103,
 			"StackMaxSize": 60,

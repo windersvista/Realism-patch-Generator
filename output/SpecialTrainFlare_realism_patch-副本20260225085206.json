@@ -1,8 +1,8 @@
 {
-    "67cda57f8f59300db5c0ec5b": {
+    "67cde31eea2d15e888fa7dee": {
         "$type": "RealismMod.Gun, RealismMod",
-        "ItemID": "67cda57f8f59300db5c0ec5b",
-        "Name": "特种白色信号弹（后勤处）",
+        "ItemID": "67cde31eea2d15e888fa7dee",
+        "Name": "列车召唤信号弹（后勤处）",
         "WeapType": "",
         "OperationType": "",
         "WeapAccuracy": 0,
@@ -26,7 +26,7 @@
         "CoolFactorGun": 0.576,
         "CoolFactorGunMods": 1,
         "AllowOverheat": false,
-        "CenterOfImpact": 0.7,
+        "CenterOfImpact": 0.6,
         "HipAccuracyRestorationDelay": 0.2,
         "HipAccuracyRestorationSpeed": 7,
         "HipInnaccuracyGain": 0.16,
@@ -43,6 +43,7 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.015,
-        "RecoilIntensity": 0.345
+        "RecoilIntensity": 0.345,
+        "ShotgunDispersion": 1
     }
 }

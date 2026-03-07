@@ -5,14 +5,14 @@
         "Name": "VSS-M \"Ublyudok\" 9x39 integral barrel-suppressor",
         "ModType": "",
         "VerticalRecoil": -8,
-        "HorizontalRecoil": -2.5,
+        "HorizontalRecoil": -5,
         "Dispersion": -5,
         "CameraRecoil": -8,
         "AutoROF": 0,
         "SemiROF": 0,
-        "ModMalfunctionChance": 0,
-        "CanCycleSubs": false,
-        "Accuracy": 0,
+        "ModMalfunctionChance": 10,
+        "CanCycleSubs": true,
+        "Accuracy": -1,
         "HeatFactor": 1.21,
         "CoolFactor": 1.06,
         "DurabilityBurnModificator": 1.2,
@@ -21,11 +21,11 @@
         "ConflictingItems": [
             "5a9fc7e6a2750c0032157184"
         ],
-        "Ergonomics": -2,
+        "Ergonomics": -8,
         "Weight": 0.158,
-        "Loudness": -5,
+        "Loudness": -20,
         "Convergence": 0,
         "LoyaltyLevel": 2,
-        "Flash": 45
+        "Flash": -30
     }
 }

@@ -4,14 +4,14 @@
         "ItemID": "09a00fdd295d5f374c3b6829",
         "Name": "AR-15 Midwest Industries Night Fighter 9.25 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.96,
-        "CoolFactor": 1.11,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
@@ -20,23 +20,23 @@
             "56ea8d2fd2720b7c698b4570"
         ],
         "Weight": 0.323,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "fda2c36ae178185078035ce3": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "fda2c36ae178185078035ce3",
         "Name": "AR-15 Midwest Industries Night Fighter 10.5 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.96,
-        "CoolFactor": 1.11,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
@@ -47,23 +47,23 @@
             "55d35ee94bdc2d61338b4568"
         ],
         "Weight": 0.351,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "ec47c8fd149c9b6a07db4dc6": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "ec47c8fd149c9b6a07db4dc6",
         "Name": "AR-15 Midwest Industries Night Fighter 13.5 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.96,
-        "CoolFactor": 1.11,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
@@ -76,8 +76,8 @@
             "63d3ce0446bd475bcb50f55f"
         ],
         "Weight": 0.399,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     }
 }

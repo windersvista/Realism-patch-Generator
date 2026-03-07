@@ -11,7 +11,7 @@
             "55d5f46a4bdc2d1b198b4567",
             "5bfd4c980db834001b73449d"
         ],
-        "Ergonomics": -3,
+        "Ergonomics": -5,
         "Weight": 0.391,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -60,7 +60,7 @@
             "5c0e2f26d174af02a9625114",
             "5bb20d53d4351e4502010a69"
         ],
-        "Ergonomics": 0,
+        "Ergonomics": -5,
         "Weight": 0.19,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -78,7 +78,7 @@
             "5a7c74b3e899ef0014332c29",
             "5bfd4c980db834001b73449d"
         ],
-        "Ergonomics": -3.5,
+        "Ergonomics": -5,
         "Weight": 0.495,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -89,10 +89,10 @@
         "ItemID": "5ae3d18efa17cbd51e898ced",
         "Name": "ITL MARS reflex sight",
         "ModType": "sight",
-        "AimSpeed": 5,
+        "AimSpeed": -5,
         "Accuracy": 5,
         "ConflictingItems": [],
-        "Ergonomics": -3.5,
+        "Ergonomics": -5,
         "Weight": 0.43,
         "LoyaltyLevel": 4
     }

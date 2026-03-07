@@ -26,7 +26,7 @@
         "CoolFactorGun": 0.576,
         "CoolFactorGunMods": 1,
         "AllowOverheat": false,
-        "CenterOfImpact": 0.7,
+        "CenterOfImpact": 0.6,
         "HipAccuracyRestorationDelay": 0.2,
         "HipAccuracyRestorationSpeed": 7,
         "HipInnaccuracyGain": 0.16,
@@ -43,6 +43,8 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.015,
-        "RecoilIntensity": 0.345
+        "RecoilIntensity": 0.345,
+        "ShotgunDispersion": 1,
+        "LoyaltyLevel": 1
     }
 }

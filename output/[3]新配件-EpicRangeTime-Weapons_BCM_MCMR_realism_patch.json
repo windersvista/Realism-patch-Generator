@@ -4,146 +4,146 @@
         "ItemID": "3610533f86d9fd15fc6394c6",
         "Name": "AR-15 BCM MCMR 7英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -1,
         "AimSpeed": 0,
-        "Ergonomics": 9,
+        "Ergonomics": 5,
         "Accuracy": 12,
         "HeatFactor": 0.996,
-        "CoolFactor": 1.054,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.332,
         "LoyaltyLevel": 4,
-        "AimStability": 4.5
+        "AimStability": 5
     },
     "c2b24307fb89f8984723bcdd": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "c2b24307fb89f8984723bcdd",
         "Name": "AR-15 BCM MCMR 7英寸M-LOK护木 (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -1,
         "AimSpeed": 0,
-        "Ergonomics": 9,
+        "Ergonomics": 5,
         "Accuracy": 12,
         "HeatFactor": 0.996,
-        "CoolFactor": 1.054,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.332,
         "LoyaltyLevel": 4,
-        "AimStability": 4.5
+        "AimStability": 5
     },
     "cba44796106f69385fa58045": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "cba44796106f69385fa58045",
         "Name": "AR-15 BCM MCMR 8英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "99b4f9090dabbe90dd48a5ee": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "99b4f9090dabbe90dd48a5ee",
         "Name": "AR-15 BCM  MCMR 8 inch M-LOK handguard (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "627c428dedfd6e61fdb522f7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "627c428dedfd6e61fdb522f7",
         "Name": "AR-15 BCM MCMR 9英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "6c06aaf97171cda862583e24": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6c06aaf97171cda862583e24",
         "Name": "AR-15 BCM MCMR 9英寸M-LOK护木 (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "daf0f7382ef0252f74709d9f": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "daf0f7382ef0252f74709d9f",
         "Name": "AR-15 BCM MCMR 10英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
@@ -152,23 +152,23 @@
             "c6b01e3e7a1ec6168254e687"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "49d2d35e1289ec81e2dae68d": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "49d2d35e1289ec81e2dae68d",
         "Name": "AR-15 BCM MCMR 10英寸M-LOK护木 (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "6357c98711fb55120211f7e1",
@@ -177,23 +177,23 @@
             "c6b01e3e7a1ec6168254e687"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "7ccd70caf1ff5c7501f806f6": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "7ccd70caf1ff5c7501f806f6",
         "Name": "AR-15 BCM MCMR 13英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "44805f562c61dd6f99629991",
@@ -208,23 +208,23 @@
             "d0b292e070ee6c5263285461"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "1541c03f68a57b9f4d937a38": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "1541c03f68a57b9f4d937a38",
         "Name": "AR-15 BCM MCMR 13英寸M-LOK护木 (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "44805f562c61dd6f99629991",
@@ -239,23 +239,23 @@
             "d0b292e070ee6c5263285461"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "b3388010e3e50af19b770e77": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "b3388010e3e50af19b770e77",
         "Name": "AR-15 BCM MCMR 15英寸M-LOK护木",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "44805f562c61dd6f99629991",
@@ -273,23 +273,23 @@
             "a6cd0aecdd7c681e6ce5fad0"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "539b18d0242b3bc3d4ed0e7a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "539b18d0242b3bc3d4ed0e7a",
         "Name": "AR-15 BCM MCMR 15英寸M-LOK护木 (FDE)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "a06aec4316ac6ff7353845f4",
             "44805f562c61dd6f99629991",
@@ -307,8 +307,8 @@
             "a6cd0aecdd7c681e6ce5fad0"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     }
 }

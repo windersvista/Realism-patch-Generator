@@ -13,7 +13,7 @@
         "ConflictingItems": [],
         "Weight": 0.072,
         "LoyaltyLevel": 1,
-        "Handling": 5.25
+        "Handling": 8
     },
     "685d1544a4233f993d69e802": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -29,7 +29,7 @@
         "ConflictingItems": [],
         "Weight": 0.072,
         "LoyaltyLevel": 1,
-        "Handling": 5.25
+        "Handling": 8
     },
     "685d1558f7cc3c5737893bbe": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -45,6 +45,6 @@
         "ConflictingItems": [],
         "Weight": 0.072,
         "LoyaltyLevel": 1,
-        "Handling": 5.25
+        "Handling": 8
     }
 }

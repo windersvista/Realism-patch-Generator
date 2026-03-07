@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-EFT 现实主义MOD兼容补丁生成器 v2.4
+EFT 现实主义MOD兼容补丁生成器 v2.5
 用于根据input文件夹中的物品数据，使用模板生成Realism MOD兼容配置文件
 
 版本历史:
+- v2.5 (2026-03-08):
+    - 新增并接入《武器属性规则指南》《附件属性规则指南》规则层，支持武器/附件细分档位数值范围校验；
+    - 重构 `process_single_item` 为编排式结构，拆分 TEMPLATE_ID/CLONE/ITEMTOCLONE 分支与主类分流；
+    - 重构文件处理与导出流程，拆分为多私有方法，降低复杂度并提升维护性；
+    - 保持输入输出兼容，补全类型标注并通过静态错误检查。
 - v2.4 (2026-02-21): 
     - 引入“现实主义最高优先级规则校验”系统，强制规避数值夸大；
     - 实现基于物理规律的自动化属性推断：材质感应、尺寸性能缩放、枪管长度转换初速等逻辑；
@@ -462,6 +467,11 @@ MOD_TYPE_SPECIFIC_ATTRS = {
         "Handling": 0,
         "AimStability": 0,
     },
+    "foregrip": {
+        "Dispersion": 0,
+        "Handling": 0,
+        "AimStability": 0,
+    },
     # 护木相关
     "handguard": {
         "Dispersion": 0,
@@ -532,6 +542,265 @@ MOD_TYPE_SPECIFIC_ATTRS = {
     }
 }
 
+# 武器类型 parent_id 分组（用于应用武器规则指南中的典型范围）
+WEAPON_PARENT_GROUPS = {
+    "assault": {
+        "5447b5f14bdc2d61278b4567",  # ASSAULT_RIFLE
+        "5447b5fc4bdc2d87278b4567",  # ASSAULT_CARBINE
+    },
+    "pistol": {
+        "5447b5cf4bdc2d65278b4567",  # HANDGUN
+    },
+    "smg": {
+        "5447b5e04bdc2d62278b4567",  # SMG
+    },
+    "sniper": {
+        "5447b6194bdc2d67278b4567",  # MARKSMAN_RIFLE
+        "5447b6254bdc2dc3278b4568",  # SNIPER_RIFLE
+    },
+    "shotgun": {
+        "5447b6094bdc2dc3278b4567",  # SHOTGUN
+    },
+}
+
+# 武器规则范围（来自“武器属性规则指南”）
+WEAPON_PROFILE_RANGES = {
+    "assault": {
+        "VerticalRecoil": (80, 95),
+        "HorizontalRecoil": (160, 200),
+        "Convergence": (2, 25),
+        "Dispersion": (4, 8),
+        "VisualMulti": (1.1, 1.3),
+        "Ergonomics": (80, 90),
+        "RecoilIntensity": (0.15, 0.25),
+    },
+    "pistol": {
+        "VerticalRecoil": (450, 650),
+        "HorizontalRecoil": (400, 600),
+        "Convergence": (14, 18),
+        "Dispersion": (10, 18),
+        "VisualMulti": (2.3, 2.8),
+        "BaseTorque": (-2.0, -1.0),
+    },
+    "smg": {
+        "VerticalRecoil": (30, 55),
+        "HorizontalRecoil": (80, 140),
+        "Convergence": (16, 22),
+        "Dispersion": (6, 12),
+        "VisualMulti": (0.9, 1.2),
+        "RecoilIntensity": (0.1, 0.18),
+    },
+    "sniper": {
+        "VerticalRecoil": (130, 250),
+        "HorizontalRecoil": (180, 350),
+        "Convergence": (8, 13),
+        "Dispersion": (0.5, 3.0),
+        "VisualMulti": (1.2, 2.0),
+    },
+    "shotgun": {
+        "VerticalRecoil": (300, 500),
+        "HorizontalRecoil": (300, 550),
+        "Dispersion": (15, 30),
+        "VisualMulti": (2.0, 2.5),
+        "RecoilIntensity": (0.4, 0.6),
+        "ShotgunDispersion": (1, 1),
+    },
+}
+
+# 附件规则范围（来自“附件属性规则指南”，仅在字段存在时夹紧）
+MOD_PROFILE_RANGES = {
+    "muzzle_suppressor": {
+        "Ergonomics": (-18, -8),
+        "CameraRecoil": (-8, -3),
+        "VerticalRecoil": (-15, -8),
+        "HorizontalRecoil": (-10, -5),
+        "Dispersion": (-5, -1),
+        "Accuracy": (-5, -1),
+        "Velocity": (0.2, 1.0),
+        "Loudness": (-40, -20),
+        "Flash": (-80, -30),
+        "ModMalfunctionChance": (10, 25),
+        "DurabilityBurnModificator": (1.2, 1.5),
+        "AimSpeed": (-20, -8),
+    },
+    "muzzle_flashhider": {
+        "Ergonomics": (-5, -2),
+        "CameraRecoil": (-2, -1),
+        "VerticalRecoil": (-5, -2),
+        "HorizontalRecoil": (-3, -1),
+        "Dispersion": (-2, 2),
+        "Loudness": (0, 10),
+        "Flash": (-70, -40),
+        "AimSpeed": (-3, -1),
+    },
+    "muzzle_brake": {
+        "Ergonomics": (-8, -3),
+        "CameraRecoil": (-10, -3),
+        "VerticalRecoil": (-20, -12),
+        "HorizontalRecoil": (-15, -8),
+        "Dispersion": (-5, -2),
+        "Accuracy": (-2, -1),
+        "Velocity": (0.5, 1.0),
+        "Loudness": (10, 20),
+        "Flash": (3, 15),
+        "AimSpeed": (-6, -2),
+    },
+    "muzzle_thread": {
+        "Ergonomics": (0, 1),
+        "CameraRecoil": (0, 0),
+        "VerticalRecoil": (0, 0),
+        "HorizontalRecoil": (0, 0),
+        "Dispersion": (0, 0),
+        "Accuracy": (0, 0),
+        "Velocity": (0, 0),
+        "Loudness": (0, 0),
+        "Flash": (0, 0),
+        "ModMalfunctionChance": (0, 0),
+        "DurabilityBurnModificator": (1.0, 1.0),
+        "AimSpeed": (0, 0),
+    },
+    "magazine": {
+        "Ergonomics": (-25, -1),
+        "ReloadSpeed": (-25, 5),
+        "LoadUnloadModifier": (5, 15),
+        "CheckTimeModifier": (1, 5),
+        "MalfunctionChance": (-2, 5),
+        "AimSpeed": (-8, -1),
+        "Handling": (-8, -1),
+    },
+    "gasblock": {
+        "Ergonomics": (-2, 0),
+        "VerticalRecoil": (-2, 0),
+        "HorizontalRecoil": (-1, 0),
+        "ModMalfunctionChance": (-2, 5),
+        "DurabilityBurnModificator": (0.95, 1.05),
+        "HeatFactor": (0.98, 1.02),
+        "CoolFactor": (0.98, 1.02),
+    },
+    "scope_magnified": {
+        "AimSpeed": (-15, -5),
+        "AimStability": (5, 20),
+        "Ergonomics": (-12, -5),
+        "Handling": (-10, -3),
+    },
+    "scope_red_dot": {
+        "AimSpeed": (2, 8),
+        "AimStability": (0, 5),
+        "Ergonomics": (-3, 0),
+    },
+    "iron_sight": {
+        "AimSpeed": (2, 10),
+        "Ergonomics": (0, 2),
+    },
+    "stock": {
+        "VerticalRecoil": (-15, -5),
+        "HorizontalRecoil": (-10, -2),
+        "CameraRecoil": (-20, -5),
+        "Convergence": (5, 20),
+        "AimSpeed": (-12, -2),
+        "AimStability": (5, 15),
+        "Handling": (-10, -2),
+        "Ergonomics": (-15, -2),
+    },
+    "pistol_grip": {
+        "Ergonomics": (2, 15),
+        "AimSpeed": (1, 5),
+        "AimStability": (1, 5),
+        "Handling": (2, 8),
+        "VerticalRecoil": (-5, -1),
+    },
+    "foregrip": {
+        "VerticalRecoil": (-7, -2),
+        "HorizontalRecoil": (-4, -1),
+        "CameraRecoil": (-6, -1),
+        "Convergence": (0, 5),
+        "AimSpeed": (-2, 6),
+        "AimStability": (5, 12),
+        "Handling": (8, 18),
+        "Ergonomics": (-2, 6),
+    },
+    "receiver": {
+        "AutoROF": (0, 2),
+        "SemiROF": (0, 5),
+        "ModMalfunctionChance": (-5, 5),
+        "Accuracy": (-5, 5),
+        "HeatFactor": (0.95, 1.05),
+        "CoolFactor": (0.95, 1.05),
+        "Ergonomics": (-2, 5),
+        "Convergence": (0, 10),
+    },
+    "mount": {
+        "Ergonomics": (-1, 1),
+    },
+    "flashlight_laser": {
+        "Ergonomics": (-3, -1),
+        "Handling": (-8, -2),
+    },
+    "barrel_short": {
+        "CenterOfImpact": (0.05, 0.15),
+        "Velocity": (-15, -5),
+        "Accuracy": (-20, -5),
+        "HeatFactor": (1.1, 1.3),
+        "CoolFactor": (1.05, 1.2),
+        "Convergence": (10, 25),
+        "DurabilityBurnModificator": (1.1, 1.3),
+        "RecoilAngle": (5, 15),
+    },
+    "barrel_medium": {
+        "CenterOfImpact": (0.02, 0.05),
+        "Velocity": (-2, 5),
+        "Accuracy": (-2, 5),
+        "HeatFactor": (0.95, 1.05),
+        "CoolFactor": (0.95, 1.05),
+        "Convergence": (0, 10),
+        "DurabilityBurnModificator": (0.95, 1.05),
+        "RecoilAngle": (-5, 5),
+    },
+    "barrel_long": {
+        "CenterOfImpact": (0.005, 0.02),
+        "Velocity": (10, 25),
+        "Accuracy": (10, 25),
+        "HeatFactor": (0.8, 0.95),
+        "CoolFactor": (0.8, 0.95),
+        "Convergence": (-15, -5),
+        "DurabilityBurnModificator": (0.7, 0.9),
+        "RecoilAngle": (-15, -5),
+    },
+    "handguard_short": {
+        "VerticalRecoil": (-3, -1),
+        "HorizontalRecoil": (-2, -1),
+        "HeatFactor": (1.05, 1.1),
+        "CoolFactor": (1.05, 1.15),
+        "AimStability": (1, 5),
+        "AimSpeed": (2, 8),
+        "Handling": (5, 12),
+        "Ergonomics": (2, 10),
+        "DurabilityBurnModificator": (1.0, 1.0),
+    },
+    "handguard_medium": {
+        "VerticalRecoil": (-8, -3),
+        "HorizontalRecoil": (-5, -2),
+        "HeatFactor": (0.95, 1.05),
+        "CoolFactor": (0.95, 1.05),
+        "AimStability": (5, 10),
+        "AimSpeed": (0, 5),
+        "Handling": (2, 8),
+        "Ergonomics": (0, 5),
+        "DurabilityBurnModificator": (1.0, 1.0),
+    },
+    "handguard_long": {
+        "VerticalRecoil": (-15, -8),
+        "HorizontalRecoil": (-10, -5),
+        "HeatFactor": (0.85, 0.95),
+        "CoolFactor": (0.85, 0.95),
+        "AimStability": (10, 20),
+        "AimSpeed": (-8, -2),
+        "Handling": (-8, -2),
+        "Ergonomics": (-5, -2),
+        "DurabilityBurnModificator": (0.9, 1.0),
+    },
+}
+
 
 class RealismPatchGenerator:
     def __init__(self, base_path: str):
@@ -554,110 +823,249 @@ class RealismPatchGenerator:
         # 格式: { "filename": { "item_id": patch_data, ... }, ... }
         self.file_based_patches = {}
 
-    def apply_realism_sanity_check(self, patch: Dict):
+    def _clamp(self, value: Any, min_v: float, max_v: float) -> Any:
+        """仅对数值执行夹紧，其余类型保持不变。"""
+        if isinstance(value, (int, float)):
+            return max(min_v, min(max_v, value))
+        return value
+
+    def _apply_numeric_ranges(self, patch: Dict, ranges: Dict[str, tuple]):
+        """按规则范围对补丁字段进行夹紧（仅当字段存在时）。"""
+        for key, range_pair in ranges.items():
+            if key in patch and isinstance(range_pair, tuple) and len(range_pair) == 2:
+                patch[key] = self._clamp(patch[key], range_pair[0], range_pair[1])
+
+    def _infer_weapon_profile(self, patch: Dict, item_info: Optional[Dict]) -> Optional[str]:
+        """推断武器规则档位（assault/pistol/smg/sniper/shotgun）。"""
+        parent_id = self.normalize_parent_id((item_info or {}).get("parent_id")) if item_info else None
+        if parent_id:
+            for profile, parent_set in WEAPON_PARENT_GROUPS.items():
+                if parent_id in parent_set:
+                    return profile
+
+        name = str(patch.get("Name", "")).lower()
+        weap_type = str(patch.get("WeapType", "")).lower()
+
+        if any(k in name for k in ["pistol", "handgun"]) or "pistol" in weap_type:
+            return "pistol"
+        if "smg" in name or "smg" in weap_type:
+            return "smg"
+        if any(k in name for k in ["sniper", "marksman", "dmr"]):
+            return "sniper"
+        if "shotgun" in name or "shotgun" in weap_type:
+            return "shotgun"
+        if any(k in name for k in ["carbine", "assault", "rifle"]):
+            return "assault"
+        return None
+
+    def _infer_mod_profile(self, patch: Dict, item_info: Optional[Dict]) -> Optional[str]:
+        """推断附件细分规则档位。"""
+        name = str(patch.get("Name", "")).lower()
+        mod_type = str(patch.get("ModType", "")).lower()
+        parent_id = self.normalize_parent_id((item_info or {}).get("parent_id")) if item_info else None
+
+        # parent_id 直接映射优先
+        parent_profile_map = {
+            "5448bc234bdc2d3c308b4569": "magazine",
+            "56ea9461d2720b67698b456f": "gasblock",
+            "55818a304bdc2db5418b457d": "receiver",
+            "55818a684bdc2ddd698b456d": "pistol_grip",
+            "55818af64bdc2d5b648b4570": "foregrip",
+            "55818a594bdc2db9688b456a": "stock",
+            "55818b224bdc2dde698b456f": "mount",
+            "55818ac54bdc2d5b648b456e": "iron_sight",
+            "55818ae44bdc2dde698b456c": "scope_magnified",
+            "55818ad54bdc2ddc698b4569": "scope_red_dot",
+            "55818a104bdc2db9688b4569": "handguard_medium",
+            "555ef6e44bdc2de9068b457e": "barrel_medium",
+            "55818b084bdc2d5b648b4571": "flashlight_laser",
+            "55818b164bdc2ddc698b456c": "flashlight_laser",
+            "5448fe124bdc2da5018b4567": "flashlight_laser",
+            "550aa4cd4bdc2dd8348b456c": "muzzle_suppressor",
+            "550aa4bf4bdc2dd6348b456b": "muzzle_flashhider",
+            "550aa4dd4bdc2dc9348b4569": "muzzle_brake",
+        }
+        if parent_id in parent_profile_map:
+            base_profile = parent_profile_map[parent_id]
+        else:
+            base_profile = None
+
+        # 基于 ModType / 名称进一步细分
+        if "muzzle" in mod_type or (base_profile and base_profile.startswith("muzzle")):
+            if any(k in name for k in ["silencer", "suppressor", "qd", "pbs"]):
+                return "muzzle_suppressor"
+            if any(k in name for k in ["brake", "comp", "compensator"]):
+                return "muzzle_brake"
+            if "thread" in name or "protector" in name:
+                return "muzzle_thread"
+            return "muzzle_flashhider"
+
+        if "barrel" in mod_type or "short_barrel" in mod_type or (base_profile and base_profile.startswith("barrel")):
+            if any(k in name for k in ["short", "sbr", "10\"", "11\"", "12\""]):
+                return "barrel_short"
+            if any(k in name for k in ["long", "20\"", "22\"", "24\""]):
+                return "barrel_long"
+            return "barrel_medium"
+
+        if "handguard" in mod_type or (base_profile and base_profile.startswith("handguard")):
+            if any(k in name for k in ["short", "carbine"]):
+                return "handguard_short"
+            if any(k in name for k in ["long", "extended"]):
+                return "handguard_long"
+            return "handguard_medium"
+
+        if mod_type in ["grip", "foregrip"]:
+            return "foregrip"
+        if mod_type in ["stock", "stock_adapter"]:
+            return "stock"
+        if mod_type in ["pistolgrip", "pistol_grip"]:
+            return "pistol_grip"
+        if mod_type in ["receiver"]:
+            return "receiver"
+        if mod_type in ["mount"]:
+            return "mount"
+        if mod_type in ["sight"]:
+            if any(k in name for k in ["x", "scope", "lpvo", "acog"]):
+                return "scope_magnified"
+            return "scope_red_dot"
+
+        return base_profile
+
+    def _ensure_required_fields(self, patch: Dict, item_type: str, item_info: Optional[Dict]):
+        """根据新规则文档补全必填字段。"""
+        if "RealismMod.Gun" in item_type:
+            patch.setdefault("$type", "RealismMod.Gun, RealismMod")
+            patch.setdefault("Name", (item_info or {}).get("name") or f"weapon_{patch.get('ItemID', 'unknown')}")
+            patch.setdefault("Weight", 1.5)
+            patch.setdefault("LoyaltyLevel", 1)
+        elif "RealismMod.WeaponMod" in item_type:
+            patch.setdefault("$type", "RealismMod.WeaponMod, RealismMod")
+            patch.setdefault("Name", (item_info or {}).get("name") or f"mod_{patch.get('ItemID', 'unknown')}")
+            patch.setdefault("Weight", 0.1)
+            patch.setdefault("LoyaltyLevel", 1)
+            patch.setdefault("ModType", "")
+
+    def apply_realism_sanity_check(self, patch: Dict, item_info: Optional[Dict] = None):
         """
-        根据“现实主义“Realism”装备补丁属性规则说明”对补丁数值进行最终校验和纠正。
-        实现“最优先生成规则”：规避数值夸大，并根据物品名称推断现实世界属性。
+        根据新旧规则文档对补丁进行最终校验：
+        1) 保证必填字段；
+        2) 按武器/附件细分规则夹紧数值；
+        3) 保留原有现实主义推断与极值兜底。
         """
-        item_id = patch.get("ItemID", "Unknown")
-        item_name = patch.get("Name", "").lower()
-        item_type = patch.get("$type", "")
+        item_name = str(patch.get("Name", "")).lower()
+        item_type = str(patch.get("$type", ""))
+
+        # 0. 必填字段兜底
+        self._ensure_required_fields(patch, item_type, item_info)
 
         # 1. 基础限制：规避夸大数值 (Clamping)
         if "RealismMod.Gun" in item_type:
-            # 武器限制
             if "Ergonomics" in patch:
-                patch["Ergonomics"] = max(10, min(100, patch["Ergonomics"])) 
+                patch["Ergonomics"] = self._clamp(patch["Ergonomics"], 10, 100)
             if "VerticalRecoil" in patch:
-                patch["VerticalRecoil"] = max(10, min(1800, patch["VerticalRecoil"]))
+                patch["VerticalRecoil"] = self._clamp(patch["VerticalRecoil"], 10, 1800)
             if "Convergence" in patch:
-                patch["Convergence"] = max(1, min(40, patch["Convergence"]))
-            if "RecoilAngle" in patch:
-                # 引导后坐力角度到合理范围 (通常 80-95 是垂直向上系列)
-                if patch["RecoilAngle"] < 30 or patch["RecoilAngle"] > 150:
-                    patch["RecoilAngle"] = 90
-                
+                patch["Convergence"] = self._clamp(patch["Convergence"], 1, 40)
+            if "RecoilAngle" in patch and (patch["RecoilAngle"] < 30 or patch["RecoilAngle"] > 150):
+                patch["RecoilAngle"] = 90
+            if "LoyaltyLevel" in patch:
+                patch["LoyaltyLevel"] = self._clamp(patch["LoyaltyLevel"], 1, 5)
+
+            # 应用武器新规则范围
+            weapon_profile = self._infer_weapon_profile(patch, item_info)
+            if weapon_profile and weapon_profile in WEAPON_PROFILE_RANGES:
+                self._apply_numeric_ranges(patch, WEAPON_PROFILE_RANGES[weapon_profile])
+
+            # 文档要求手枪默认无抵肩
+            if weapon_profile == "pistol":
+                patch["HasShoulderContact"] = False
+
         elif "RealismMod.WeaponMod" in item_type:
-            # 配件限制
             if "VerticalRecoil" in patch:
-                # 即使是最好的消音器，也极难超过 -35% 减震
-                patch["VerticalRecoil"] = max(-35.0, min(35.0, patch["VerticalRecoil"]))
+                patch["VerticalRecoil"] = self._clamp(patch["VerticalRecoil"], -35.0, 35.0)
             if "HorizontalRecoil" in patch:
-                patch["HorizontalRecoil"] = max(-35.0, min(35.0, patch["HorizontalRecoil"]))
+                patch["HorizontalRecoil"] = self._clamp(patch["HorizontalRecoil"], -35.0, 35.0)
             if "Dispersion" in patch:
-                patch["Dispersion"] = max(-55.0, min(55.0, patch["Dispersion"]))
+                patch["Dispersion"] = self._clamp(patch["Dispersion"], -55.0, 55.0)
             if "Velocity" in patch:
-                # 初速修正：枪管常用范围 -15% 到 +15%
                 max_v = 15.0 if "barrel" in item_name else 5.0
-                patch["Velocity"] = max(-max_v, min(max_v, patch["Velocity"]))
+                patch["Velocity"] = self._clamp(patch["Velocity"], -max_v, max_v)
             if "Loudness" in patch:
-                # 消音器效果限制：-45 是顶级消音器的限度
-                patch["Loudness"] = max(-45, min(50, patch["Loudness"]))
+                patch["Loudness"] = self._clamp(patch["Loudness"], -45, 50)
             if "Accuracy" in patch:
-                # 精度修正通常在 -10 到 +10 之间
-                patch["Accuracy"] = max(-15, min(15, patch["Accuracy"]))
+                patch["Accuracy"] = self._clamp(patch["Accuracy"], -15, 15)
+            if "LoyaltyLevel" in patch:
+                patch["LoyaltyLevel"] = self._clamp(patch["LoyaltyLevel"], 1, 4)
+
+            # 应用附件新规则范围
+            mod_profile = self._infer_mod_profile(patch, item_info)
+            if mod_profile and mod_profile in MOD_PROFILE_RANGES:
+                self._apply_numeric_ranges(patch, MOD_PROFILE_RANGES[mod_profile])
+
+            # 文档要求消音器必须可循环亚音速弹
+            if mod_profile == "muzzle_suppressor" and "CanCycleSubs" in patch:
+                patch["CanCycleSubs"] = True
 
         elif "RealismMod.Gear" in item_type:
-            # 装备限制
             if "ReloadSpeedMulti" in patch:
-                # 装填倍率极其敏感，通常在 0.9 到 1.2 之间
-                patch["ReloadSpeedMulti"] = max(0.85, min(1.25, patch["ReloadSpeedMulti"]))
+                patch["ReloadSpeedMulti"] = self._clamp(patch["ReloadSpeedMulti"], 0.85, 1.25)
             if "Comfort" in patch:
-                # 舒适度（重量惩罚系数）
-                patch["Comfort"] = max(0.6, min(1.4, patch["Comfort"]))
+                patch["Comfort"] = self._clamp(patch["Comfort"], 0.6, 1.4)
             if "speedPenaltyPercent" in patch:
-                # 移速惩罚通常是负数且不应低于 -30%
-                patch["speedPenaltyPercent"] = max(-40, min(10, patch["speedPenaltyPercent"]))
-                
+                patch["speedPenaltyPercent"] = self._clamp(patch["speedPenaltyPercent"], -40, 10)
+
         # 2. 自动化现实数据推断 (Automated Reality-based Lookup)
-        # 模拟“查询现实效果”：基于关键词和物理常识自动调整数值
-        
-        # A. 材质影响
         if any(kw in item_name for kw in ["titanium", "ti-", "carbon"]):
-            # 钛合金/碳纤维：更轻 (通常轻 15-20%)，散热更好
-            if "Weight" in patch: patch["Weight"] = round(patch["Weight"] * 0.8, 3)
-            if "CoolFactor" in patch: patch["CoolFactor"] = round(patch["CoolFactor"] * 1.15, 2)
-            if "Ergonomics" in patch: patch["Ergonomics"] = round(patch["Ergonomics"] * 1.05, 1)
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 0.8, 3)
+            if "CoolFactor" in patch:
+                patch["CoolFactor"] = round(patch["CoolFactor"] * 1.15, 2)
+            if "Ergonomics" in patch:
+                patch["Ergonomics"] = round(patch["Ergonomics"] * 1.05, 1)
         elif "steel" in item_name:
-            # 钢制：更重，但更耐用
-            if "Weight" in patch: patch["Weight"] = round(patch["Weight"] * 1.25, 3)
-            if "DurabilityBurnModificator" in patch: patch["DurabilityBurnModificator"] = round(patch["DurabilityBurnModificator"] * 0.9, 2)
-            
-        # B. 紧凑型/超大型设备推断
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 1.25, 3)
+            if "DurabilityBurnModificator" in patch:
+                patch["DurabilityBurnModificator"] = round(patch["DurabilityBurnModificator"] * 0.9, 2)
+
         if any(kw in item_name for kw in ["compact", "mini", "short", "k-", "kurz"]):
-            if "Weight" in patch: patch["Weight"] = round(patch["Weight"] * 0.75, 3)
-            if "Loudness" in patch and patch["Loudness"] < 0: patch["Loudness"] = round(patch["Loudness"] * 0.7, 1) # 消音效果较差
-            if "VerticalRecoil" in patch and patch["VerticalRecoil"] < 0: patch["VerticalRecoil"] = round(patch["VerticalRecoil"] * 0.7, 2) # 减震效果较差
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 0.75, 3)
+            if "Loudness" in patch and patch["Loudness"] < 0:
+                patch["Loudness"] = round(patch["Loudness"] * 0.7, 1)
+            if "VerticalRecoil" in patch and patch["VerticalRecoil"] < 0:
+                patch["VerticalRecoil"] = round(patch["VerticalRecoil"] * 0.7, 2)
         elif any(kw in item_name for kw in ["long", "extended", "heavy", "full"]):
-            if "Weight" in patch: patch["Weight"] = round(patch["Weight"] * 1.3, 3)
-            if "Accuracy" in patch: patch["Accuracy"] = round(patch["Accuracy"] * 1.1 + 1, 1)
-            
-        # C. 枪管长度推断初速 (毫米/英寸转换)
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 1.3, 3)
+            if "Accuracy" in patch:
+                patch["Accuracy"] = round(patch["Accuracy"] * 1.1 + 1, 1)
+
+        # 3. 枪管长度推断初速 (毫米/英寸转换)
         import re
-        length_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:mm|inch|in|")', item_name)
+
+        length_match = re.search(r"(\d+(?:\.\d+)?)\s*(?:mm|inch|in|\")", item_name)
         if length_match and "barrel" in item_name:
             try:
                 val = float(length_match.group(1))
-                # 转换为毫米进行评估
                 mm_val = val * 25.4 if any(u in item_name for u in ["inch", "in", '"']) else val
-                
-                # 现实物理规律：长枪管提升初速，短枪管降低初速。
-                # 现代步枪标准枪管约为 14.5-16.5 英寸 (370-420mm)
-                # 每增加或减少 1 英寸 (25.4mm)，初速变化约 1.5%
                 inferred_velocity = (mm_val - 370) / 25.4 * 1.5
-                
-                # 直接应用到 Velocity 字段
                 if patch.get("Velocity", 0) == 0:
-                    patch["Velocity"] = round(max(-18, min(18, inferred_velocity)), 2)
-            except: pass
+                    patch["Velocity"] = round(self._clamp(inferred_velocity, -18, 18), 2)
+            except Exception:
+                pass
 
-        # D. 安全性兜底：防止任何属性出现天文数字
+        # 4. 安全性兜底：防止任何属性出现天文数字
         for key, value in patch.items():
             if isinstance(value, (int, float)):
-                if "Recoil" in key: patch[key] = max(-2000, min(2000, value))
-                elif "Ergonomics" in key: patch[key] = max(-50, min(100, value))
-                elif "Weight" in key: patch[key] = max(0, min(50, value))
-                elif "Multi" in key or "Factor" in key: patch[key] = max(0.01, min(10.0, value))
+                if "Recoil" in key:
+                    patch[key] = self._clamp(value, -2000, 2000)
+                elif "Ergonomics" in key:
+                    patch[key] = self._clamp(value, -50, 100)
+                elif "Weight" in key:
+                    patch[key] = self._clamp(value, 0, 50)
+                elif "Multi" in key or "Factor" in key:
+                    patch[key] = self._clamp(value, 0.01, 10.0)
 
     def load_all_templates(self):
         """加载所有模板文件"""
@@ -737,10 +1145,12 @@ class RealismPatchGenerator:
         # 否则返回原值（已经是ID或未知格式）
         return parent_id
     
-    def get_template_for_parent_id(self, parent_id: str) -> str:
+    def get_template_for_parent_id(self, parent_id: Optional[str]) -> Optional[str]:
         """根据parentId获取模板文件名"""
         # 标准化 parentId
         parent_id = self.normalize_parent_id(parent_id)
+        if not parent_id:
+            return None
         template_path = PARENT_ID_TO_TEMPLATE.get(parent_id)
         if template_path:
             return os.path.basename(template_path)
@@ -788,11 +1198,12 @@ class RealismPatchGenerator:
             info["name"] = item_data.get("Name")
             info["item_type"] = item_data.get("$type")
             # 根据$type判断类型
-            if "RealismMod.Gun" in info["item_type"]:
+            item_type = info.get("item_type") or ""
+            if "RealismMod.Gun" in item_type:
                 info["is_weapon"] = True
-            elif "RealismMod.Gear" in info["item_type"]:
+            elif "RealismMod.Gear" in item_type:
                 info["is_gear"] = True
-            elif "RealismMod.Consumable" in info["item_type"]:
+            elif "RealismMod.Consumable" in item_type:
                 info["is_consumable"] = True
         
         elif format_type == "VIR":
@@ -933,9 +1344,11 @@ class RealismPatchGenerator:
             elif key == "Weight" and "Weight" in patch:
                 patch["Weight"] = value
 
-    def is_gear_simple(self, parent_id: str) -> bool:
+    def is_gear_simple(self, parent_id: Optional[str]) -> bool:
         """判断是否为装备类型(护甲、背包、挂钩、头盔等)"""
         parent_id = self.normalize_parent_id(parent_id)
+        if not parent_id:
+            return False
         # 装备相关的 parent_id 列表
         gear_ids = [
             "5448e54d4bdc2dcc718b4568",  # ARMOR
@@ -958,8 +1371,10 @@ class RealismPatchGenerator:
             return "RealismMod.Gun" in template["$type"]
         return False
 
-    def is_weapon(self, parent_id: str) -> bool:
+    def is_weapon(self, parent_id: Optional[str]) -> bool:
         """判断是否为武器"""
+        if not parent_id:
+            return False
         template_file = self.get_template_for_parent_id(parent_id)
         if template_file and template_file in self.templates:
             # 检查模板中的$type字段
@@ -968,14 +1383,18 @@ class RealismPatchGenerator:
                     return "RealismMod.Gun" in item["$type"]
         return False
     
-    def is_ammo(self, parent_id: str) -> bool:
+    def is_ammo(self, parent_id: Optional[str]) -> bool:
         """判断是否为子弹"""
         parent_id = self.normalize_parent_id(parent_id)
+        if not parent_id:
+            return False
         return parent_id == "5485a8684bdc2da71d8b4567"
     
-    def is_consumable(self, parent_id: str) -> bool:
+    def is_consumable(self, parent_id: Optional[str]) -> bool:
         """判断是否为消耗品类型"""
         parent_id = self.normalize_parent_id(parent_id)
+        if not parent_id:
+            return False
         # 消耗品相关的 parent_id 列表
         consumable_ids = [
             "5448e8d04bdc2ddf718b4569",  # FOOD
@@ -1015,7 +1434,7 @@ class RealismPatchGenerator:
         
         return None
     
-    def select_template_data(self, template_file: str, item_id: str, clone_id: Optional[str] = None) -> Dict:
+    def select_template_data(self, template_file: str, item_id: str, clone_id: Optional[str] = None) -> Optional[Dict]:
         """从模板文件中选择合适的数据"""
         if template_file not in self.templates:
             return None
@@ -1111,17 +1530,23 @@ class RealismPatchGenerator:
         """根据模板文件名推断配件类型"""
         template_to_modtype = {
             "StockTemplates.json": "Stock",
-            "ForegripTemplates.json": "grip",
+            "ForegripTemplates.json": "foregrip",
             "HandguardTemplates.json": "handguard",
             "BarrelTemplates.json": "barrel",
             "MuzzleDeviceTemplates.json": "muzzle",
             "MagazineTemplates.json": "magazine",
             "ScopeTemplates.json": "sight",
             "IronSightTemplates.json": "sight",
+            "MountTemplates.json": "mount",
+            "PistolGripTemplates.json": "pistol_grip",
+            "ReceiverTemplates.json": "receiver",
+            "GasblockTemplates.json": "gasblock",
+            "FlashlightLaserTemplates.json": "flashlight_laser",
+            "AuxiliaryModTemplates.json": "auxiliary",
         }
         return template_to_modtype.get(template_file, "")
     
-    def create_default_mod_patch(self, item_id: str, item_info: Dict, template_file: str = None) -> Dict:
+    def create_default_mod_patch(self, item_id: str, item_info: Dict, template_file: Optional[str] = None) -> Dict:
         """创建默认的配件补丁，根据类型添加相应属性"""
         patch = copy.deepcopy(DEFAULT_MOD_TEMPLATE)
         patch["ItemID"] = item_id
@@ -1189,8 +1614,224 @@ class RealismPatchGenerator:
             patch["Name"] = f"consumable_{item_id}"
         
         return patch
+
+    def _add_to_file_patches(self, item_id: str, patch: Dict, source_file: Optional[str]):
+        """按源文件分组存储补丁。"""
+        if not source_file:
+            return
+        if source_file not in self.file_based_patches:
+            self.file_based_patches[source_file] = {}
+        self.file_based_patches[source_file][item_id] = patch
+
+    def _finalize_patch(self, item_id: str, patch: Dict, item_info: Dict, processed_items: set, source_file: Optional[str]):
+        """统一执行属性合并、规则校验、按文件存储。"""
+        self.merge_input_properties(patch, item_info)
+        self.apply_realism_sanity_check(patch, item_info)
+        self._add_to_file_patches(item_id, patch, source_file)
+        processed_items.add(item_id)
+
+    def _store_patch_by_item_info_flags(self, item_id: str, patch: Dict, item_info: Dict):
+        """按 item_info 标记分类存储（用于 TEMPLATE_ID 分支）。"""
+        if item_info.get("is_weapon"):
+            self.weapon_patches[item_id] = patch
+        elif item_info.get("is_gear"):
+            self.gear_patches[item_id] = patch
+        elif item_info.get("is_consumable"):
+            self.consumables_patches[item_id] = patch
+        else:
+            self.attachment_patches[item_id] = patch
+
+    def _store_patch_by_patch_type(self, item_id: str, patch: Dict):
+        """按补丁中的 $type 分类存储（用于 CLONE 分支）。"""
+        patch_type = str(patch.get("$type", ""))
+        if "RealismMod.Gun" in patch_type:
+            self.weapon_patches[item_id] = patch
+        elif "RealismMod.Gear" in patch_type:
+            self.gear_patches[item_id] = patch
+        elif "RealismMod.Consumable" in patch_type:
+            self.consumables_patches[item_id] = patch
+        elif "RealismMod.Ammo" in patch_type:
+            self.ammo_patches[item_id] = patch
+        else:
+            self.attachment_patches[item_id] = patch
+
+    def _resolve_clone_template(self, clone_id: str, items_data: Dict, processed_items: set, source_file: Optional[str]) -> Optional[Dict]:
+        """解析 CLONE 源模板：先查模板库，再查同文件递归来源。"""
+        template_data = self.find_template_by_id(clone_id)
+
+        if not template_data and clone_id in items_data:
+            if self.process_single_item(clone_id, items_data[clone_id], items_data, processed_items, source_file):
+                if clone_id in self.weapon_patches:
+                    template_data = copy.deepcopy(self.weapon_patches[clone_id])
+                elif clone_id in self.attachment_patches:
+                    template_data = copy.deepcopy(self.attachment_patches[clone_id])
+                elif clone_id in self.gear_patches:
+                    template_data = copy.deepcopy(self.gear_patches[clone_id])
+                elif clone_id in self.consumables_patches:
+                    template_data = copy.deepcopy(self.consumables_patches[clone_id])
+
+        return template_data
+
+    def _infer_parent_id_from_item_to_clone(self, clone_id: str) -> Optional[str]:
+        """根据 ItemToClone 常量名推断 parent_id。"""
+        if not clone_id:
+            return None
+
+        if "AMMO_" in clone_id:
+            return "5485a8684bdc2da71d8b4567"
+
+        if any(weapon_type in clone_id for weapon_type in ["ASSAULTRIFLE_", "RIFLE_", "SHOTGUN_", "SMG_", "PISTOL_", "HANDGUN_", "MACHINEGUN_", "GRENADELAUNCHER_"]):
+            if "ASSAULTRIFLE_" in clone_id:
+                return "5447b5f14bdc2d61278b4567"
+            if "RIFLE_" in clone_id or "MARKSMANRIFLE_" in clone_id:
+                return "5447b6194bdc2d67278b4567"
+            if "SNIPER" in clone_id or "SNIPERRIFLE_" in clone_id:
+                return "5447b6254bdc2dc3278b4568"
+            if "SHOTGUN_" in clone_id:
+                return "5447b6094bdc2dc3278b4567"
+            if "SMG_" in clone_id:
+                return "5447b5e04bdc2d62278b4567"
+            if "PISTOL_" in clone_id or "HANDGUN_" in clone_id:
+                return "5447b5cf4bdc2d65278b4567"
+            if "MACHINEGUN_" in clone_id:
+                return "5447bed64bdc2d97278b4568"
+            if "GRENADELAUNCHER_" in clone_id:
+                return "5447bedf4bdc2d87278b4568"
+
+        if "MAGAZINE_" in clone_id or "MAG_" in clone_id:
+            return "5448bc234bdc2d3c308b4569"
+        if "ARMOR_" in clone_id or "VEST_" in clone_id:
+            return "5448e54d4bdc2dcc718b4568"
+        if "CONTAINER_" in clone_id or "SECURE_" in clone_id:
+            return "5795f317245977243854e041"
+        if "KEY_" in clone_id or "KEYCARD_" in clone_id:
+            if "KEYCARD_" in clone_id:
+                return "5c164d2286f774194c5e69fa"
+            return "5c99f98d86f7745c314214b3"
+        if "INFO_" in clone_id or "DIARY_" in clone_id:
+            return "5448ecbe4bdc2d60728b4568"
+        if "HEADWEAR_" in clone_id or "HELMET_" in clone_id:
+            return "5a341c4086f77401f2541505"
+        if "HEADPHONES_" in clone_id:
+            return "5645bcb74bdc2ded0b8b4578"
+        if "FACECOVER_" in clone_id:
+            return "5a341c4686f77469e155819e"
+        if "RECEIVER_" in clone_id:
+            return "55818a304bdc2db5418b457d"
+        if "BARREL_" in clone_id:
+            return "555ef6e44bdc2de9068b457e"
+        if "STOCK_" in clone_id:
+            return "55818a594bdc2db9688b456a"
+        if "HANDGUARD_" in clone_id:
+            return "55818a104bdc2db9688b4569"
+        if "GRIP_" in clone_id or "FOREGRIP_" in clone_id:
+            return "55818af64bdc2d5b648b4570"
+        if "PISTOLGRIP_" in clone_id:
+            return "55818a684bdc2ddd698b456d"
+        if "SIGHT_" in clone_id or "SCOPE_" in clone_id:
+            if "SCOPE_" in clone_id:
+                return "55818ae44bdc2dde698b456c"
+            return "55818ad54bdc2ddc698b4569"
+        if "SILENCER_" in clone_id or "SUPPRESSOR_" in clone_id:
+            return "550aa4cd4bdc2dd8348b456c"
+        if "FLASHHIDER_" in clone_id or "MUZZLE_" in clone_id:
+            return "550aa4bf4bdc2dd6348b456b"
+        if "MOUNT_" in clone_id:
+            return "55818b224bdc2dde698b456f"
+
+        return None
+
+    def _resolve_itemtoclone_parent_id(self, item_data: Dict, clone_id: str) -> Optional[str]:
+        """解析 ITEMTOCLONE 的 parent_id。"""
+        handbook_parent = item_data.get("HandbookParent")
+
+        if handbook_parent and len(handbook_parent) == 24:
+            return handbook_parent
+
+        if handbook_parent and handbook_parent in HANDBOOK_PARENT_TO_ID:
+            return HANDBOOK_PARENT_TO_ID[handbook_parent]
+
+        return self._infer_parent_id_from_item_to_clone(clone_id)
+
+    def _handle_template_id_item(self, item_id: str, item_info: Dict, template_id: str, processed_items: set, source_file: Optional[str]) -> bool:
+        """处理 TEMPLATE_ID 格式物品。"""
+        template_data = self.find_template_by_template_id(template_id)
+        if not template_data:
+            print(f"  跳过 {item_id}: 未找到TemplateID {template_id} 对应的模板")
+            return False
+
+        template_data["ItemID"] = item_id
+        self._finalize_patch(item_id, template_data, item_info, processed_items, source_file)
+        self._store_patch_by_item_info_flags(item_id, template_data, item_info)
+        return True
+
+    def _handle_clone_item(self, item_id: str, item_info: Dict, clone_id: str, items_data: Dict, processed_items: set, source_file: Optional[str]) -> bool:
+        """处理 CLONE 格式物品。"""
+        template_data = self._resolve_clone_template(clone_id, items_data, processed_items, source_file)
+        if not template_data:
+            print(f"  跳过 {item_id}: 未找到clone ID {clone_id} 对应的模板")
+            return False
+
+        template_data["ItemID"] = item_id
+        self._finalize_patch(item_id, template_data, item_info, processed_items, source_file)
+        self._store_patch_by_patch_type(item_id, template_data)
+        return True
+
+    def _handle_itemtoclone_parent_resolution(self, item_id: str, item_data: Dict, item_info: Dict, clone_id: str) -> bool:
+        """处理 ITEMTOCLONE 的 parent_id 解析及类型刷新。"""
+        parent_id = self._resolve_itemtoclone_parent_id(item_data, clone_id)
+        if not parent_id:
+            print(f"  跳过 {item_id}: 无法确定ItemToClone格式的parent_id (ItemToClone={clone_id})")
+            return False
+
+        item_info["parent_id"] = parent_id
+        item_info["is_weapon"] = self.is_weapon(parent_id)
+        item_info["is_gear"] = self.is_gear_simple(parent_id)
+        item_info["is_consumable"] = self.is_consumable(parent_id)
+        return True
+
+    def _build_patch_for_parent_type(self, item_id: str, item_info: Dict, parent_id: str, clone_id: Optional[str]) -> Optional[Dict]:
+        """根据 parent 类型构建补丁（不包含最终合并/校验/存储）。"""
+        if self.is_ammo(parent_id):
+            return self.create_default_ammo_patch(item_id, item_info)
+
+        if self.is_consumable(parent_id):
+            template_file = self.get_template_for_parent_id(parent_id)
+            if template_file and template_file in self.templates:
+                template_data = self.select_template_data(template_file, item_id, clone_id)
+                if template_data:
+                    return template_data
+            return self.create_default_consumable_patch(item_id, item_info)
+
+        template_file = self.get_template_for_parent_id(parent_id)
+        if not template_file:
+            return None
+
+        template_data = self.select_template_data(template_file, item_id, clone_id)
+        if template_data:
+            return template_data
+
+        if item_info.get("is_weapon"):
+            return self.create_default_weapon_patch(item_id, item_info)
+        return self.create_default_mod_patch(item_id, item_info, template_file)
+
+    def _store_primary_patch(self, item_id: str, patch: Dict, parent_id: str, item_info: Dict):
+        """按主类别存储补丁（ammo/consumable/weapon/attachment）。"""
+        if self.is_ammo(parent_id):
+            self.ammo_patches[item_id] = patch
+            return
+
+        if self.is_consumable(parent_id):
+            self.consumables_patches[item_id] = patch
+            return
+
+        if item_info.get("is_weapon"):
+            self.weapon_patches[item_id] = patch
+            return
+
+        self.attachment_patches[item_id] = patch
     
-    def process_single_item(self, item_id: str, item_data: Dict, items_data: Dict, processed_items: set, source_file: str = None) -> bool:
+    def process_single_item(self, item_id: str, item_data: Dict, items_data: Dict, processed_items: set, source_file: Optional[str] = None) -> bool:
         """
         处理单个物品，支持递归处理 clone 引用
         
@@ -1204,413 +1845,180 @@ class RealismPatchGenerator:
         Returns:
             bool: 是否成功处理
         """
-        # 如果已经处理过，直接返回
         if item_id in processed_items:
             return True
-        
-        # 助手方法：存储到基于文件的补丁中
-        def add_to_file_patches(patch):
-            if source_file:
-                if source_file not in self.file_based_patches:
-                    self.file_based_patches[source_file] = {}
-                self.file_based_patches[source_file][item_id] = patch
 
-        # 检查 enable 字段，如果为 False 则跳过
         if "enable" in item_data and not item_data["enable"]:
             return False
-        
-        # 检测文件格式
+
         format_type = self.detect_item_format(item_data)
-        
         if format_type == "UNKNOWN":
             return False
-        
-        # 提取物品信息
+
         item_info = self.extract_item_info(item_id, item_data, format_type)
-        
         clone_id = item_info.get("clone_id")
         template_id = item_info.get("template_id")
         parent_id = item_info.get("parent_id")
-        
-        # 对于TEMPLATE_ID格式
-        if format_type == "TEMPLATE_ID" and template_id:
-            template_data = self.find_template_by_template_id(template_id)
-            
-            if template_data:
-                template_data["ItemID"] = item_id
-                
-                # 合并输入属性 (输入文件优先)
-                self.merge_input_properties(template_data, item_info)
-                
-                # 应用最优先现实主义数值规则校验
-                self.apply_realism_sanity_check(template_data)
-                
-                # 按文件存储
-                add_to_file_patches(template_data)
-                
-                # 根据类型分类存储 (保留旧的存储方式以防万一)
-                if item_info.get("is_weapon"):
-                    self.weapon_patches[item_id] = template_data
-                elif item_info.get("is_gear"):
-                    self.gear_patches[item_id] = template_data
-                elif item_info.get("is_consumable"):
-                    self.consumables_patches[item_id] = template_data
-                else:
-                    self.attachment_patches[item_id] = template_data
-                
-                processed_items.add(item_id)
-                return True
-            else:
-                print(f"  跳过 {item_id}: 未找到TemplateID {template_id} 对应的模板")
-                return False
-        
-        # 对于CLONE格式
-        if format_type == "CLONE" and clone_id:
-            # 首先在模板中查找
-            template_data = self.find_template_by_id(clone_id)
-            
-            # 如果模板中没找到，尝试在当前文件中查找
-            if not template_data and clone_id in items_data:
-                # 递归处理 clone 源物品
-                if self.process_single_item(clone_id, items_data[clone_id], items_data, processed_items, source_file):
-                    # 从已生成的补丁中获取 clone 源的数据
-                    if clone_id in self.weapon_patches:
-                        template_data = copy.deepcopy(self.weapon_patches[clone_id])
-                    elif clone_id in self.attachment_patches:
-                        template_data = copy.deepcopy(self.attachment_patches[clone_id])
-                    elif clone_id in self.gear_patches:
-                        template_data = copy.deepcopy(self.gear_patches[clone_id])
-                    elif clone_id in self.consumables_patches:
-                        template_data = copy.deepcopy(self.consumables_patches[clone_id])
-            
-            if template_data:
-                # 更新ItemID
-                template_data["ItemID"] = item_id
-                
-                # 合并输入属性 (输入文件优先)
-                self.merge_input_properties(template_data, item_info)
-                
-                # 应用最优先现实主义数值规则校验
-                self.apply_realism_sanity_check(template_data)
-                
-                # 按文件存储
-                add_to_file_patches(template_data)
-                
-                # 根据模板中的$type判断类型
-                if "$type" in template_data:
-                    if "RealismMod.Gun" in template_data["$type"]:
-                        self.weapon_patches[item_id] = template_data
-                    elif "RealismMod.Gear" in template_data["$type"]:
-                        self.gear_patches[item_id] = template_data
-                    elif "RealismMod.Consumable" in template_data["$type"]:
-                        self.consumables_patches[item_id] = template_data
-                    elif "RealismMod.Ammo" in template_data["$type"]:
-                        self.ammo_patches[item_id] = template_data
-                    else:
-                        self.attachment_patches[item_id] = template_data
-                else:
-                    self.attachment_patches[item_id] = template_data
-                
-                processed_items.add(item_id)
-                return True
-            else:
-                print(f"  跳过 {item_id}: 未找到clone ID {clone_id} 对应的模板")
-                return False
-        
-        # 对于ITEMTOCLONE格式
-        if format_type == "ITEMTOCLONE" and clone_id:
-            # 从Handbook字段获取parent_id
-            handbook_parent = item_data.get("HandbookParent")
-            
-            # 如果HandbookParent是24字符的ID，直接使用
-            if handbook_parent and len(handbook_parent) == 24:
-                parent_id = handbook_parent
-            # 否则从映射表中查找
-            elif handbook_parent and handbook_parent in HANDBOOK_PARENT_TO_ID:
-                parent_id = HANDBOOK_PARENT_TO_ID[handbook_parent]
-            
-            # 如果没有parent_id，尝试从ItemToClone常量名称推断
-            if not parent_id and clone_id:
-                # 从ItemToClone常量名称推断类型
-                if "AMMO_" in clone_id:
-                    parent_id = "5485a8684bdc2da71d8b4567"  # 弹药
-                elif any(weapon_type in clone_id for weapon_type in ["ASSAULTRIFLE_", "RIFLE_", "SHOTGUN_", "SMG_", "PISTOL_", "HANDGUN_", "MACHINEGUN_", "GRENADELAUNCHER_"]):
-                    # 根据常量名称推断武器类型
-                    if "ASSAULTRIFLE_" in clone_id:
-                        parent_id = "5447b5f14bdc2d61278b4567"  # 突击步枪
-                    elif "RIFLE_" in clone_id or "MARKSMANRIFLE_" in clone_id:
-                        parent_id = "5447b6194bdc2d67278b4567"  # 精确射手步枪
-                    elif "SNIPER" in clone_id or "SNIPERRIFLE_" in clone_id:
-                        parent_id = "5447b6254bdc2dc3278b4568"  # 狙击步枪
-                    elif "SHOTGUN_" in clone_id:
-                        parent_id = "5447b6094bdc2dc3278b4567"  # 霰弹枪
-                    elif "SMG_" in clone_id:
-                        parent_id = "5447b5e04bdc2d62278b4567"  # 冲锋枪
-                    elif "PISTOL_" in clone_id or "HANDGUN_" in clone_id:
-                        parent_id = "5447b5cf4bdc2d65278b4567"  # 手枪
-                    elif "MACHINEGUN_" in clone_id:
-                        parent_id = "5447bed64bdc2d97278b4568"  # 机枪
-                    elif "GRENADELAUNCHER_" in clone_id:
-                        parent_id = "5447bedf4bdc2d87278b4568"  # 榴弹发射器
-                elif "MAGAZINE_" in clone_id or "MAG_" in clone_id:
-                    parent_id = "5448bc234bdc2d3c308b4569"  # 弹匣
-                elif "ARMOR_" in clone_id or "VEST_" in clone_id:
-                    parent_id = "5448e54d4bdc2dcc718b4568"  # 护甲
-                elif "CONTAINER_" in clone_id or "SECURE_" in clone_id:
-                    parent_id = "5795f317245977243854e041"  # 容器
-                elif "KEY_" in clone_id or "KEYCARD_" in clone_id:
-                    if "KEYCARD_" in clone_id:
-                        parent_id = "5c164d2286f774194c5e69fa"  # 钥匙卡
-                    else:
-                        parent_id = "5c99f98d86f7745c314214b3"  # 机械钥匙
-                elif "INFO_" in clone_id or "DIARY_" in clone_id:
-                    parent_id = "5448ecbe4bdc2d60728b4568"  # 信息
-                elif "HEADWEAR_" in clone_id or "HELMET_" in clone_id:
-                    parent_id = "5a341c4086f77401f2541505"  # 头盔
-                elif "HEADPHONES_" in clone_id:
-                    parent_id = "5645bcb74bdc2ded0b8b4578"  # 耳机
-                elif "FACECOVER_" in clone_id:
-                    parent_id = "5a341c4686f77469e155819e"  # 面罩
-                # 配件类型
-                elif "RECEIVER_" in clone_id:
-                    parent_id = "55818a304bdc2db5418b457d"  # 机匣
-                elif "BARREL_" in clone_id:
-                    parent_id = "555ef6e44bdc2de9068b457e"  # 枪管
-                elif "STOCK_" in clone_id:
-                    parent_id = "55818a594bdc2db9688b456a"  # 枪托
-                elif "HANDGUARD_" in clone_id:
-                    parent_id = "55818a104bdc2db9688b4569"  # 护木
-                elif "GRIP_" in clone_id or "FOREGRIP_" in clone_id:
-                    parent_id = "55818af64bdc2d5b648b4570"  # 前握把
-                elif "PISTOLGRIP_" in clone_id:
-                    parent_id = "55818a684bdc2ddd698b456d"  # 手枪握把
-                elif "SIGHT_" in clone_id or "SCOPE_" in clone_id:
-                    if "SCOPE_" in clone_id:
-                        parent_id = "55818ae44bdc2dde698b456c"  # 高倍瞄具
-                    else:
-                        parent_id = "55818ad54bdc2ddc698b4569"  # 瞄具
-                elif "SILENCER_" in clone_id or "SUPPRESSOR_" in clone_id:
-                    parent_id = "550aa4cd4bdc2dd8348b456c"  # 消音器
-                elif "FLASHHIDER_" in clone_id or "MUZZLE_" in clone_id:
-                    parent_id = "550aa4bf4bdc2dd6348b456b"  # 制退器/枪口
-                elif "MOUNT_" in clone_id:
-                    parent_id = "55818b224bdc2dde698b456f"  # 导轨
 
-            
-            # 如果找到了parent_id，继续处理
-            if parent_id:
-                item_info["parent_id"] = parent_id
-                # 继续使用标准流程处理
-            else:
-                print(f"  跳过 {item_id}: 无法确定ItemToClone格式的parent_id (ItemToClone={clone_id})")
+        if format_type == "TEMPLATE_ID" and template_id:
+            return self._handle_template_id_item(item_id, item_info, template_id, processed_items, source_file)
+
+        if format_type == "CLONE" and clone_id:
+            return self._handle_clone_item(item_id, item_info, clone_id, items_data, processed_items, source_file)
+
+        if format_type == "ITEMTOCLONE" and clone_id:
+            if not self._handle_itemtoclone_parent_resolution(item_id, item_data, item_info, clone_id):
                 return False
-        
-        # 对于非CLONE/ITEMTOCLONE格式，需要parent_id
+            parent_id = item_info.get("parent_id")
+
         if not parent_id:
             return False
-        
-        # 检查是否为子弹
-        is_ammo_item = self.is_ammo(parent_id)
-        
-        if is_ammo_item:
-            patch = self.create_default_ammo_patch(item_id, item_info)
-            # 合并输入属性 (输入文件优先)
-            self.merge_input_properties(patch, item_info)
-            
-            # 应用最优先现实主义数值规则校验（根据核心规则进行校验和推断）
-            self.apply_realism_sanity_check(patch)
-            
-            # 按文件存储
-            add_to_file_patches(patch)
-            
-            self.ammo_patches[item_id] = patch
-            processed_items.add(item_id)
-            return True
-        
-        # 检查是否为消耗品
-        is_consumable_item = self.is_consumable(parent_id)
-        
-        if is_consumable_item:
-            template_file = self.get_template_for_parent_id(parent_id)
-            
-            if template_file and template_file in self.templates:
-                template_data = self.select_template_data(template_file, item_id, clone_id)
-                
-                if template_data:
-                    patch = template_data
-                else:
-                    patch = self.create_default_consumable_patch(item_id, item_info)
-            else:
-                patch = self.create_default_consumable_patch(item_id, item_info)
-            
-            # 合并输入属性 (输入文件优先)
-            self.merge_input_properties(patch, item_info)
-            
-            # 应用最优先现实主义数值规则校验（根据核心规则进行校验和推断）
-            self.apply_realism_sanity_check(patch)
-            
-            # 按文件存储
-            add_to_file_patches(patch)
-            
-            self.consumables_patches[item_id] = patch
-            processed_items.add(item_id)
-            return True
-        
-        # 其他类型（武器/配件）
-        template_file = self.get_template_for_parent_id(parent_id)
-        
-        if not template_file:
+
+        patch = self._build_patch_for_parent_type(item_id, item_info, parent_id, clone_id)
+        if not patch:
             return False
-        
-        # 获取模板数据
-        template_data = self.select_template_data(template_file, item_id, clone_id)
-        
-        is_weapon_item = item_info["is_weapon"]
-        
-        if template_data:
-            patch = template_data
-        else:
-            # 使用默认模板
-            if is_weapon_item:
-                patch = self.create_default_weapon_patch(item_id, item_info)
-            else:
-                patch = self.create_default_mod_patch(item_id, item_info, template_file)
-        
-        # 合并输入属性 (输入文件优先)
-        self.merge_input_properties(patch, item_info)
-        
-        # 应用最优先现实主义数值规则校验（根据核心规则进行校验和推断）
-        self.apply_realism_sanity_check(patch)
-        
-        # 按文件存储
-        add_to_file_patches(patch)
-        
-        # 存储补丁
-        if is_weapon_item:
-            self.weapon_patches[item_id] = patch
-        else:
-            self.attachment_patches[item_id] = patch
-        
-        processed_items.add(item_id)
+
+        self._finalize_patch(item_id, patch, item_info, processed_items, source_file)
+        self._store_primary_patch(item_id, patch, parent_id, item_info)
+
         return True
-    
-    def process_item_file(self, item_file: Path):
-        """处理单个物品文件"""
-        # 显示相对于input文件夹的路径
+
+    def _print_processing_file(self, item_file: Path):
+        """打印当前处理文件路径。"""
         try:
             relative_path = item_file.relative_to(self.input_path)
             print(f"\n处理文件: {relative_path}")
         except ValueError:
             print(f"\n处理文件: {item_file.name}")
-        
+
+    def _load_items_data(self, item_file: Path) -> Optional[Dict]:
+        """读取单个输入 JSON 文件。"""
         try:
             with open(item_file, 'r', encoding='utf-8') as f:
-                items_data = json.load(f)
+                return json.load(f)
         except Exception as e:
             print(f"  错误: 无法读取文件: {e}")
-            return
-        
-        # 创建已处理物品集合
+            return None
+
+    def _process_items_in_file(self, items_data: Dict, source_name: str) -> int:
+        """处理文件内所有物品，返回成功处理数量。"""
         processed_items = set()
         processed_count = 0
-        
-        # 遍历所有物品
+
         for item_id, item_data in items_data.items():
-            # 使用新的递归处理方法，传入源文件名以实现按文件保存
-            if self.process_single_item(item_id, item_data, items_data, processed_items, item_file.stem):
+            if self.process_single_item(item_id, item_data, items_data, processed_items, source_name):
                 processed_count += 1
-        
+
+        return processed_count
+
+    def _print_generation_summary(self):
+        """打印生成统计信息。"""
+        weapon_count = len(self.weapon_patches)
+        attachment_count = len(self.attachment_patches)
+        ammo_count = len(self.ammo_patches)
+        gear_count = len(self.gear_patches)
+        consumable_count = len(self.consumables_patches)
+        total = weapon_count + attachment_count + ammo_count + gear_count + consumable_count
+
+        print(f"\n生成统计:")
+        print(f"  武器补丁: {weapon_count} 个")
+        print(f"  配件补丁: {attachment_count} 个")
+        print(f"  子弹补丁: {ammo_count} 个")
+        print(f"  装备补丁: {gear_count} 个")
+        print(f"  消耗品补丁: {consumable_count} 个")
+        print(f"  总计: {total} 个")
+    
+    def process_item_file(self, item_file: Path):
+        """处理单个物品文件"""
+        self._print_processing_file(item_file)
+
+        items_data = self._load_items_data(item_file)
+        if items_data is None:
+            return
+
+        processed_count = self._process_items_in_file(items_data, item_file.stem)
         print(f"  处理完成: {processed_count} 个物品")
     
     def generate_patches(self):
         """生成所有补丁"""
         print("\n开始生成现实主义MOD兼容补丁...")
         print(f"物品文件夹: {self.input_path}")
-        
-        # 递归处理所有JSON文件（包括子文件夹）
+
         json_files = list(self.input_path.rglob("*.json"))
         print(f"找到 {len(json_files)} 个JSON文件")
-        
+
         for item_file in json_files:
             self.process_item_file(item_file)
-        
-        print(f"\n生成统计:")
-        print(f"  武器补丁: {len(self.weapon_patches)} 个")
-        print(f"  配件补丁: {len(self.attachment_patches)} 个")
-        print(f"  子弹补丁: {len(self.ammo_patches)} 个")
-        print(f"  装备补丁: {len(self.gear_patches)} 个")
-        print(f"  消耗品补丁: {len(self.consumables_patches)} 个")
-        total = len(self.weapon_patches) + len(self.attachment_patches) + len(self.ammo_patches) + len(self.gear_patches) + len(self.consumables_patches)
-        print(f"  总计: {total} 个")
+
+        self._print_generation_summary()
+
+    def _save_source_grouped_patches(self, output_path: Path):
+        """按源文件名保存补丁。"""
+        for source_name, patches in self.file_based_patches.items():
+            if not patches:
+                continue
+            file_output = output_path / f"{source_name}_realism_patch.json"
+            with open(file_output, 'w', encoding='utf-8') as f:
+                json.dump(patches, f, ensure_ascii=False, indent=4)
+            print(f"  [源文件分类] 补丁已保存到: {file_output.name}")
+
+    def _save_type_grouped_patches(self, output_path: Path):
+        """按物品类型保存补丁。"""
+        type_outputs = [
+            (self.weapon_patches, "weapons_realism_patch.json", "  [类型分类] 武器补丁: {name}"),
+            (self.attachment_patches, "attachments_realism_patch.json", "配件补丁已保存到: {path}"),
+            (self.ammo_patches, "ammo_realism_patch.json", "子弹补丁已保存到: {path}"),
+            (self.gear_patches, "gear_realism_patch.json", "装备补丁已保存到: {path}"),
+            (self.consumables_patches, "consumables_realism_patch.json", "消耗品补丁已保存到: {path}"),
+        ]
+
+        for patch_dict, filename, message_template in type_outputs:
+            if not patch_dict:
+                continue
+            file_output = output_path / filename
+            with open(file_output, 'w', encoding='utf-8') as f:
+                json.dump(patch_dict, f, ensure_ascii=False, indent=4)
+
+            message = message_template.format(name=file_output.name, path=file_output)
+            print(message)
+
+    def _save_combined_patch(self, output_path: Path):
+        """保存合并总补丁。"""
+        all_patches = {
+            **self.weapon_patches,
+            **self.attachment_patches,
+            **self.ammo_patches,
+            **self.gear_patches,
+            **self.consumables_patches,
+        }
+        if not all_patches:
+            return
+
+        combined_output = output_path / "all_items_realism_patch.json"
+        with open(combined_output, 'w', encoding='utf-8') as f:
+            json.dump(all_patches, f, ensure_ascii=False, indent=4)
+        print(f"合并补丁已保存到: {combined_output}")
     
-    def save_patches(self, output_dir: str = None):
+    def save_patches(self, output_dir: Optional[str] = None):
         """保存生成的补丁文件"""
         if output_dir is None:
-            output_dir = self.base_path / "output"
+            output_path = self.base_path / "output"
         else:
-            output_dir = Path(output_dir)
+            output_path = Path(output_dir)
         
-        output_dir.mkdir(exist_ok=True)
+        output_path.mkdir(exist_ok=True)
         
         print("\n正在导出补丁文件...")
-        
-        # 1. 按源文件名保存（用户要求的新功能）
-        for source_name, patches in self.file_based_patches.items():
-            if patches:
-                file_output = output_dir / f"{source_name}_realism_patch.json"
-                with open(file_output, 'w', encoding='utf-8') as f:
-                    json.dump(patches, f, ensure_ascii=False, indent=4)
-                print(f"  [源文件分类] 补丁已保存到: {file_output.name}")
 
-        # 2. 同时保留原有的分类保存逻辑（可选，如果您只需要按文件名保存，可以删除以下部分）
-        # 保存武器补丁
-        if self.weapon_patches:
-            weapon_output = output_dir / "weapons_realism_patch.json"
-            with open(weapon_output, 'w', encoding='utf-8') as f:
-                json.dump(self.weapon_patches, f, ensure_ascii=False, indent=4)
-            print(f"  [类型分类] 武器补丁: {weapon_output.name}")
-        
-        # 保存配件补丁
-        if self.attachment_patches:
-            attachment_output = output_dir / "attachments_realism_patch.json"
-            with open(attachment_output, 'w', encoding='utf-8') as f:
-                json.dump(self.attachment_patches, f, ensure_ascii=False, indent=4)
-            print(f"配件补丁已保存到: {attachment_output}")
-        
-        # 保存子弹补丁
-        if self.ammo_patches:
-            ammo_output = output_dir / "ammo_realism_patch.json"
-            with open(ammo_output, 'w', encoding='utf-8') as f:
-                json.dump(self.ammo_patches, f, ensure_ascii=False, indent=4)
-            print(f"子弹补丁已保存到: {ammo_output}")
-        
-        # 保存装备补丁
-        if self.gear_patches:
-            gear_output = output_dir / "gear_realism_patch.json"
-            with open(gear_output, 'w', encoding='utf-8') as f:
-                json.dump(self.gear_patches, f, ensure_ascii=False, indent=4)
-            print(f"装备补丁已保存到: {gear_output}")
-        
-        # 保存消耗品补丁
-        if self.consumables_patches:
-            consumables_output = output_dir / "consumables_realism_patch.json"
-            with open(consumables_output, 'w', encoding='utf-8') as f:
-                json.dump(self.consumables_patches, f, ensure_ascii=False, indent=4)
-            print(f"消耗品补丁已保存到: {consumables_output}")
-        
-        # 保存合并的补丁
-        all_patches = {**self.weapon_patches, **self.attachment_patches, **self.ammo_patches, **self.gear_patches, **self.consumables_patches}
-        if all_patches:
-            combined_output = output_dir / "all_items_realism_patch.json"
-            with open(combined_output, 'w', encoding='utf-8') as f:
-                json.dump(all_patches, f, ensure_ascii=False, indent=4)
-            print(f"合并补丁已保存到: {combined_output}")
+        self._save_source_grouped_patches(output_path)
+        self._save_type_grouped_patches(output_path)
+        self._save_combined_patch(output_path)
 
 
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义MOD兼容补丁生成器 v2.4")
+    print("EFT 现实主义MOD兼容补丁生成器 v2.5")
     print("=" * 60)
     
     # 获取脚本所在目录

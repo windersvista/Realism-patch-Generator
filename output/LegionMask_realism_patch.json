@@ -4,11 +4,10 @@
         "ItemID": "6621b200cb248c192d90e324",
         "Name": "军团面具（暴怒）",
         "AllowADS": true,
-        "LoyaltyLevel": 3,
-        "ArmorClass": "Unclassified",
-        "CanSpall": false,
-        "SpallReduction": 1,
+        "LoyaltyLevel": 4,
         "ReloadSpeedMulti": 1,
+        "BlocksMouth": true,
+        "MaskToUse": "atomic",
         "ConflictingItems": []
     }
 }

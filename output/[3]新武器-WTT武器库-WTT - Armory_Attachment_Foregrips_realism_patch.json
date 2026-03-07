@@ -15,8 +15,8 @@
         ],
         "Weight": 0.136,
         "LoyaltyLevel": 3,
-        "AimStability": 2.5,
-        "Handling": 6.5
+        "AimStability": 5,
+        "Handling": 8
     },
     "668070f11aff0d6b0cd7fb13": {
         "$type": "RealismMod.WeaponMod, RealismMod",

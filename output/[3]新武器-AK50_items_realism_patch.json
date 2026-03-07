@@ -8,9 +8,10 @@
         "Ergonomics": -5,
         "MalfunctionChance": 0.01,
         "LoadUnloadModifier": 5,
-        "CheckTimeModifier": 15,
+        "CheckTimeModifier": 5,
         "ConflictingItems": [],
-        "Weight": 0.612
+        "Weight": 0.612,
+        "LoyaltyLevel": 1
     },
     "686e90abd63bee9a05dcf5db": {
         "$type": "RealismMod.Ammo, RealismMod",

@@ -4,14 +4,14 @@
         "ItemID": "4eec6c5df7521b4c5512d257",
         "Name": "AR-15 Knights Armament URX 4 13 inch M-LOK handguard (FDE)",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -5,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
-        "CoolFactor": 1.06,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "55d35ee94bdc2d61338b4568",
             "2d2dbf0375f49c5b7ac899ab",
@@ -30,21 +30,21 @@
         "Weight": 0.58,
         "LoyaltyLevel": 3,
         "Handling": 4.5,
-        "AimStability": 2.5
+        "AimStability": 5
     },
     "2954b640d102782dbd31f967": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "2954b640d102782dbd31f967",
         "Name": "AR-15 Knights Armament URX 4 13 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -5,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
-        "CoolFactor": 1.06,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "55d35ee94bdc2d61338b4568",
             "2d2dbf0375f49c5b7ac899ab",
@@ -63,21 +63,21 @@
         "Weight": 0.58,
         "LoyaltyLevel": 3,
         "Handling": 4.5,
-        "AimStability": 2.5
+        "AimStability": 5
     },
     "cdd912ad2c46dc2c85ddabe9": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "cdd912ad2c46dc2c85ddabe9",
         "Name": "AR-15 Knights Armament URX 4 14.5 inch M-LOK handguard (FDE)",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -5,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
-        "CoolFactor": 1.06,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "55d35ee94bdc2d61338b4568",
             "2d2dbf0375f49c5b7ac899ab",
@@ -102,21 +102,21 @@
         "Weight": 0.58,
         "LoyaltyLevel": 3,
         "Handling": 4.5,
-        "AimStability": 2.5
+        "AimStability": 5
     },
     "575c716cbedac41ab557af94": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "575c716cbedac41ab557af94",
         "Name": "AR-15 Knights Armament URX 4 14.5 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -5,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
-        "CoolFactor": 1.06,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "55d35ee94bdc2d61338b4568",
             "2d2dbf0375f49c5b7ac899ab",
@@ -141,18 +141,18 @@
         "Weight": 0.58,
         "LoyaltyLevel": 3,
         "Handling": 4.5,
-        "AimStability": 2.5
+        "AimStability": 5
     },
     "5ce8cbc95925855be248fb33": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "5ce8cbc95925855be248fb33",
         "Name": "AR-15 Knights Armament URX 4 10.75 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -3,
         "AimSpeed": 0,
-        "Ergonomics": 10,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
         "CoolFactor": 1.02,
@@ -167,18 +167,18 @@
         "Weight": 0.5,
         "LoyaltyLevel": 4,
         "Handling": 3,
-        "AimStability": 1.5
+        "AimStability": 5
     },
     "d358ade47bd93cce3bb7afa6": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "d358ade47bd93cce3bb7afa6",
         "Name": "AR-15 Knights Armament URX 4 10.75 inch M-LOK handguard (FDE)",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -3,
         "AimSpeed": 0,
-        "Ergonomics": 10,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
         "CoolFactor": 1.02,
@@ -193,18 +193,18 @@
         "Weight": 0.5,
         "LoyaltyLevel": 4,
         "Handling": 3,
-        "AimStability": 1.5
+        "AimStability": 5
     },
     "eb351db5c0033682427e5ddf": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "eb351db5c0033682427e5ddf",
         "Name": "AR-15 Knights Armament URX 4 8.5 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -3,
         "AimSpeed": 0,
-        "Ergonomics": 10,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
         "CoolFactor": 1.02,
@@ -217,18 +217,18 @@
         "Weight": 0.5,
         "LoyaltyLevel": 4,
         "Handling": 3,
-        "AimStability": 1.5
+        "AimStability": 5
     },
     "18b71fb6878ffa6640e75aa1": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "18b71fb6878ffa6640e75aa1",
         "Name": "AR-15 Knights Armament URX 4 8.5 inch M-LOK handguard (FDE)",
         "ModType": "",
-        "VerticalRecoil": -1,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -3,
         "AimSpeed": 0,
-        "Ergonomics": 10,
+        "Ergonomics": 5,
         "Accuracy": 5,
         "HeatFactor": 0.955,
         "CoolFactor": 1.02,
@@ -239,6 +239,6 @@
         "Weight": 0.5,
         "LoyaltyLevel": 4,
         "Handling": 3,
-        "AimStability": 1.5
+        "AimStability": 5
     }
 }

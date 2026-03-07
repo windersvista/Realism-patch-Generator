@@ -4,7 +4,7 @@
         "ItemID": "68448bf2f4f9b64cb687698d",
         "Name": "AR-15 A1/A2 Carryhandle Piccatinny mount",
         "ModType": "mount",
-        "Ergonomics": -2,
+        "Ergonomics": -1,
         "Accuracy": -5,
         "ConflictingItems": [],
         "Weight": 0.11,
@@ -15,7 +15,7 @@
         "ItemID": "68448c3ea713d53905743800",
         "Name": "AR-15 A1/A2 Gooseneck Carryhandle mount",
         "ModType": "mount",
-        "Ergonomics": -2,
+        "Ergonomics": -1,
         "Accuracy": -5,
         "ConflictingItems": [],
         "Weight": 0.11,
@@ -97,7 +97,7 @@
         "ItemID": "686a5a6247c881f613196f91",
         "Name": "Canted Aim",
         "ModType": "sight",
-        "AimSpeed": -18,
+        "AimSpeed": 2,
         "Accuracy": -15,
         "ConflictingItems": [
             "686a5a6247c881f613196f91"

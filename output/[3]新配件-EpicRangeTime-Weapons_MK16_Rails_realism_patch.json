@@ -4,14 +4,14 @@
         "ItemID": "22a72cf93077b10b2cd6b96e",
         "Name": "AR-15 Geissele SMR MK16 13.5 inch M-LOK handguard (BLK)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b",
@@ -32,23 +32,23 @@
             "5b62e4a75ec6adea49b29abc"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "14c562c1c4f9f783c107ef27": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "14c562c1c4f9f783c107ef27",
         "Name": "AR-15 Geissele SMR MK16 10.5 inch M-LOK handguard (DDC)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b",
@@ -60,23 +60,23 @@
             "c6b01e3e7a1ec6168254e687"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "467eb5903b8a619b136c6e93": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "467eb5903b8a619b136c6e93",
         "Name": "AR-15 Geissele SMR MK16 10.5 inch M-LOK handguard (BLK)",
         "ModType": "",
-        "VerticalRecoil": -2.5,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2.5,
         "Dispersion": -1.5,
         "AimSpeed": 0,
-        "Ergonomics": 12,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
-        "CoolFactor": 1.092,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b",
@@ -88,23 +88,23 @@
             "c6b01e3e7a1ec6168254e687"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 5,
-        "AimStability": 4.5,
-        "Handling": 1.5
+        "LoyaltyLevel": 4,
+        "AimStability": 5,
+        "Handling": 2
     },
     "d21e3b7f7c8f308c1beba55c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "d21e3b7f7c8f308c1beba55c",
         "Name": "AR-15 Geissele SMR MK16 9.5 inch M-LOK handguard (BLK)",
         "ModType": "",
-        "VerticalRecoil": -2,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -1,
         "AimSpeed": 0,
-        "Ergonomics": 9,
+        "Ergonomics": 5,
         "Accuracy": 12,
         "HeatFactor": 0.996,
-        "CoolFactor": 1.054,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "6357c98711fb55120211f7e1",
             "5ae30e795acfc408fb139a0b",
@@ -114,6 +114,6 @@
         ],
         "Weight": 0.332,
         "LoyaltyLevel": 4,
-        "AimStability": 4.5
+        "AimStability": 5
     }
 }

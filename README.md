@@ -2,7 +2,11 @@
 
 ## 📋 项目概述
 
-**EFT 现实主义MOD兼容补丁生成器 v2.4** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的 现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据Items文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
+**EFT 现实主义MOD兼容补丁生成器 v2.5** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的 现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据Items文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
+
+## 📝 更新记录
+
+- 查看完整变更日志: [CHANGELOG.md](CHANGELOG.md)
 
 ## 🎯 核心特性
 

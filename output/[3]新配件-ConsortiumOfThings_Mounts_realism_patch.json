@@ -48,7 +48,7 @@
         "ItemID": "68599b6ad4d99d0c051b5964",
         "Name": "Unity Tactical FAST Micro sight mount (Bronze)",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
@@ -59,7 +59,7 @@
         "ItemID": "68599c5272359bd6b568656c",
         "Name": "Unity Tactical FAST Micro sight mount (Green)",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
@@ -70,7 +70,7 @@
         "ItemID": "68599c64f0a918bcd731198f",
         "Name": "Unity Tactical FAST Micro sight mount (White)",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
@@ -235,7 +235,7 @@
         "ItemID": "686a950f332bd39442d996c7",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -248,7 +248,7 @@
         "ItemID": "686a959fea53389283823a5e",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -261,7 +261,7 @@
         "ItemID": "686a95d3d23099a58e981e27",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (Olive Drab)",
         "ModType": "mount",
-        "Ergonomics": 2,
+        "Ergonomics": 1,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"

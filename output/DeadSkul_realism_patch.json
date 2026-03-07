@@ -5,16 +5,16 @@
         "Name": "定制版 Deadskul 携行 pouch",
         "AllowADS": true,
         "LoyaltyLevel": 5,
-        "ArmorClass": "GOST 6A",
+        "ArmorClass": "GOST 5A",
         "CanSpall": false,
         "SpallReduction": 1,
         "ReloadSpeedMulti": 1,
-        "Comfort": 1.12,
-        "speedPenaltyPercent": -5,
+        "Comfort": 1.05,
+        "speedPenaltyPercent": -2.5,
         "mousePenalty": 0,
-        "weaponErgonomicPenalty": -6,
+        "weaponErgonomicPenalty": -2,
         "TemplateType": "gear",
-        "Price": 23000,
+        "Price": 18000,
         "Weight": 0
     }
 }

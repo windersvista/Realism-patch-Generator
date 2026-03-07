@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^Select-String -Path generate_realism_patch\\.py -Pattern '\\^\\\\s\\*def \\(_handle_template_id_item\\|_handle_clone_item\\|_handle_itemtoclone_parent_resolution\\|process_single_item\\)\\\\b' \\| ForEach-Object \\{ \"\\{0\\}:\\{1\\}\" -f \\$_\\.LineNumber, \\$_\\.Line\\.Trim\\(\\) \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

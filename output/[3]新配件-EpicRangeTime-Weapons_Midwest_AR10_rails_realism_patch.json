@@ -4,14 +4,14 @@
         "ItemID": "f5e580d2d78aee1a68978f70",
         "Name": "AR-10 Midwest Industries 308 Combat Rail 12.625 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -2,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -2,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.96,
-        "CoolFactor": 1.11,
+        "CoolFactor": 1.05,
         "ConflictingItems": [
             "807cce3153fd6d07fa931fa1",
             "60658776f2cb2e02a42ace2b",
@@ -21,18 +21,18 @@
         "Weight": 0.357,
         "LoyaltyLevel": 4,
         "Handling": 2,
-        "AimStability": 4
+        "AimStability": 5
     },
     "0a64906cf9e00f3d10314995": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "0a64906cf9e00f3d10314995",
         "Name": "AR-10 Midwest Industries 308 Combat Rail 15 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -2,
+        "VerticalRecoil": -3,
         "HorizontalRecoil": -2,
         "Dispersion": -2,
         "AimSpeed": 0,
-        "Ergonomics": 13,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 0.965,
         "CoolFactor": 1.03,
@@ -46,6 +46,6 @@
         "Weight": 0.411,
         "LoyaltyLevel": 4,
         "Handling": 2,
-        "AimStability": 4
+        "AimStability": 5
     }
 }

@@ -2,7 +2,7 @@
 
 ## 📋 项目概述
 
-**EFT 现实主义MOD兼容补丁生成器 v2.5** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据 `input/` 文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
+**EFT 现实主义MOD兼容补丁生成器 v2.7** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据 `input/` 文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
 
 ## 📝 更新记录
 
@@ -12,15 +12,18 @@
 
 - ✅ **最高优先级校验**: 强制规避数值夸大，确保护甲、武器属性符合现实主义 1.6.3+ 标准。
 - ✅ **物理属性推断**: 自动感应材质(钛/钢/碳)并修正重量，通过枪管长度(mm/inch)推断初速偏差。
-- ✅ **多格式支持**: 同时支持 `TEMPLATE_ID`、`VIR`、`CLONE`、`STANDARD`、`ItemToClone` 5种数据格式。
+- ✅ **多格式支持**: 同时支持 `CURRENT_PATCH`、`TEMPLATE_ID`、`VIR`、`CLONE`、`STANDARD`、`ItemToClone` 6种数据格式。
 - ✅ **智能属性保护**: 自动识别并保留核心现实属性（人机、后坐、散布等），防止被普通 MOD 错误数值覆盖。
 - ✅ **递归文件扫描**: 自动处理 `input` 文件夹及其所有子文件夹中的 JSON 文件。
 - ✅ **模板库管理**: 内置丰富的物品模板库，涵盖武器、配件、装备、消耗品等多种类型。
+- ✅ **源文件结构化输出**: 输出仅按源文件生成，并保留 `input/` 目录结构到 `output/`。
+- ✅ **自动清理旧结果**: 每次运行自动清空旧输出，确保结果与当次输入一致。
 
 ## 📊 版本历史
 
 | 版本 | 日期 | 主要更新 |
 |------|------|---------|
+| **v2.7** | 2026-03-08 | 📦 **输出策略升级** - 仅按源文件输出、保留目录结构、每次运行自动清理旧输出；新增 `CURRENT_PATCH` 输入兼容。 |
 | **v2.5** | 2026-03-08 | 🧱 **规则接入与架构重构** - 接入武器/附件新规则文档，细分档位校验，重构处理与导出流程。 |
 | **v2.4** | 2026-02-21 | 🛡️ **现实主义规则校验 & 物理推断** - 强制校验数值范围，材质推断，枪管长度转换初速等物理逻辑。 |
 | v2.3 | 2026-02-21 | 📁 **源文件名分类输出** - 输出文件名与输入文件名对应，修正 `__init__` 分类字典。 |
@@ -55,11 +58,11 @@ Realism-patch-Generator/
 │   ├── gear/
 │   └── consumables/
 ├── output/                                 # 📤 输出目录（自动创建）
-│   ├── all_items_realism_patch.json       # ⭐ 完整补丁（推荐使用）
-│   ├── weapons_realism_patch.json          # 武器补丁
-│   ├── attachments_realism_patch.json      # 配件补丁
-│   ├── ammo_realism_patch.json             # 弹药补丁
-│   └── consumables_realism_patch.json      # 消耗品补丁（可选）
+│   ├── weapons/                            # 与 input 对应的子目录结构
+│   ├── attatchments/
+│   ├── gear/
+│   ├── consumables/
+│   └── xxx_realism_patch.json              # 源文件对应补丁
 └── 📚 文档
     ├── README.md                          # 本文件
     ├── 快速入门.md
@@ -97,16 +100,26 @@ python generate_realism_patch.py
 
 ### 步骤 4️⃣：获取生成的补丁
 运行完成后，在 `output/` 文件夹中查看结果：
-- 📌 **all_items_realism_patch.json** - 包含所有物品的完整补丁（推荐选择此文件使用）
-- weapons_realism_patch.json - 仅包含武器补丁
-- attachments_realism_patch.json - 仅包含配件补丁
-- ammo_realism_patch.json - 仅包含弹药补丁
+- 每个输入源文件对应一个 `*_realism_patch.json`
+- 输出会保留 `input/` 的原始目录结构
+- 每次运行会自动清理旧输出，仅保留本次生成结果
 
 ## 📋 使用方法详解
 
 ### 输入数据格式
 
-脚本支持5种物品数据格式，会自动识别：
+脚本支持6种物品数据格式，会自动识别：
+
+#### 0️⃣ **CURRENT_PATCH 格式**（v2.6新增）
+```json
+{
+  "item_id": {
+    "$type": "RealismMod.WeaponMod, RealismMod",
+    "ItemID": "item_id",
+    "Name": "example_name"
+  }
+}
+```
 
 #### 1️⃣ **ITEMTOCLONE 格式** （v2.0新增）
 ```json
@@ -198,7 +211,7 @@ python generate_realism_patch.py
 ```
 输入文件 (input文件夹)
     ↓
-格式检测 (自动识别5种格式)
+格式检测 (自动识别6种格式)
     ↓
 数据提取 (parentId / ItemToClone / clone等)
     ↓
@@ -218,12 +231,12 @@ python generate_realism_patch.py
 ### 主要处理步骤
 
 1. **递归扫描** - 查找 `input/` 文件夹及所有子文件夹中的JSON文件
-2. **格式检测** - 自动判断数据格式（ITEMTOCLONE/STANDARD/VIR/CLONE/TEMPLATE_ID）
+2. **格式检测** - 自动判断数据格式（CURRENT_PATCH/ITEMTOCLONE/STANDARD/VIR/CLONE/TEMPLATE_ID）
 3. **信息提取** - 从输入数据中提取关键信息（ID、parentId、属性等）
 4. **类型推断** - 基于parentId、ItemToClone前缀、HandbookParent推断物品类型
 5. **模板查询** - 在相应的模板库中查找参考数据
 6. **属性合并** - 合并模板属性和输入属性
-7. **分类输出** - 按类型（武器/配件/弹药）生成独立文件和合并文件
+7. **源文件输出** - 按源文件保存补丁，并保留原目录结构
 
 ## 📊 支持的物品类型
 
@@ -250,7 +263,7 @@ python generate_realism_patch.py
 
 ```
 ============================================================
-EFT 现实主义MOD兼容补丁生成器 v2.4
+EFT 现实主义MOD兼容补丁生成器 v2.7
 ============================================================
 
 扫描 input 文件夹...
@@ -348,7 +361,7 @@ TEMPLATE_BASE_PATH = "现实主义物品模板"
 | 检查项 | 说明 | 状态 |
 |-------|------|------|
 | ✓ | 所有JSON文件使用UTF-8编码 | 必需 |
-| ✓ | Items文件夹存在并包含数据 | 必需 |
+| ✓ | input 文件夹存在并包含数据 | 必需 |
 | ✓ | 模板库完整 | 必需 |
 | ✓ | Python版本 ≥ 3.6 | 必需 |
 | ✓ | 生成的补丁大小合理 | 推荐 |

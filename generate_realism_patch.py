@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-EFT 现实主义MOD兼容补丁生成器 v2.5
+EFT 现实主义MOD兼容补丁生成器 v2.7
 用于根据input文件夹中的物品数据，使用模板生成Realism MOD兼容配置文件
 
 版本历史:
+- v2.7 (2026-03-08):
+    - 导出策略调整为仅按源文件输出，不再生成按类型聚合与总合并补丁；
+    - 按源文件导出时保留 `input` 目录结构到 `output`；
+    - 每次运行导出前自动清理 `output` 旧结果，确保结果全量刷新。
+- v2.6 (2026-03-08):
+    - 新增 CURRENT_PATCH 输入格式支持（`$type` + `ItemID` 的现有 input 数据）；
+    - 支持直接识别并重写当前 input 补丁对象，沿用既有规则校验流程；
 - v2.5 (2026-03-08):
     - 新增并接入《武器属性规则指南》《附件属性规则指南》规则层，支持武器/附件细分档位数值范围校验；
     - 重构 `process_single_item` 为编排式结构，拆分 TEMPLATE_ID/CLONE/ITEMTOCLONE 分支与主类分流；
@@ -37,6 +44,7 @@ EFT 现实主义MOD兼容补丁生成器 v2.5
 import json
 import os
 import random
+import shutil
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import copy
@@ -1158,6 +1166,9 @@ class RealismPatchGenerator:
     
     def detect_item_format(self, item_data: Dict) -> str:
         """检测物品数据格式类型"""
+        # CURRENT_PATCH格式：当前 input 中常见的 Realism 补丁对象（$type + ItemID）
+        if "$type" in item_data and "ItemID" in item_data and "TemplateID" not in item_data:
+            return "CURRENT_PATCH"
         # TEMPLATE_ID格式：有 "TemplateID" 字段（旧补丁中MoxoPixel-BlackCore的格式）
         if "TemplateID" in item_data and "$type" in item_data:
             return "TEMPLATE_ID"
@@ -1199,6 +1210,31 @@ class RealismPatchGenerator:
             info["item_type"] = item_data.get("$type")
             # 根据$type判断类型
             item_type = info.get("item_type") or ""
+            if "RealismMod.Gun" in item_type:
+                info["is_weapon"] = True
+            elif "RealismMod.Gear" in item_type:
+                info["is_gear"] = True
+            elif "RealismMod.Consumable" in item_type:
+                info["is_consumable"] = True
+
+        elif format_type == "CURRENT_PATCH":
+            # 当前 input 目录中使用的补丁对象格式
+            info["item_type"] = item_data.get("$type")
+            info["name"] = item_data.get("Name")
+
+            # 仅提取可覆盖属性，元字段不放入 properties
+            ignored_keys = {
+                "$type", "ItemID", "TemplateID", "parentId", "itemTplToClone",
+                "clone", "ItemToClone", "enable", "locales", "LocalePush",
+                "OverrideProperties", "overrideProperties", "item", "items", "handbook"
+            }
+            info["properties"] = {k: v for k, v in item_data.items() if k not in ignored_keys}
+
+            # 若文件中同时提供了 parentId，保留用于后续规则推断
+            if "parentId" in item_data:
+                info["parent_id"] = self.normalize_parent_id(item_data.get("parentId"))
+
+            item_type = str(info.get("item_type") or "")
             if "RealismMod.Gun" in item_type:
                 info["is_weapon"] = True
             elif "RealismMod.Gear" in item_type:
@@ -1765,6 +1801,19 @@ class RealismPatchGenerator:
         self._store_patch_by_item_info_flags(item_id, template_data, item_info)
         return True
 
+    def _handle_current_patch_item(self, item_id: str, item_data: Dict, item_info: Dict, processed_items: set, source_file: Optional[str]) -> bool:
+        """处理 CURRENT_PATCH 格式物品（直接重写当前 input 的补丁对象）。"""
+        patch = copy.deepcopy(item_data)
+        patch["ItemID"] = item_id
+
+        # Name 兜底，避免空名称影响下游规则推断与输出可读性
+        if not patch.get("Name") and item_info.get("name"):
+            patch["Name"] = item_info["name"]
+
+        self._finalize_patch(item_id, patch, item_info, processed_items, source_file)
+        self._store_patch_by_patch_type(item_id, patch)
+        return True
+
     def _handle_clone_item(self, item_id: str, item_info: Dict, clone_id: str, items_data: Dict, processed_items: set, source_file: Optional[str]) -> bool:
         """处理 CLONE 格式物品。"""
         template_data = self._resolve_clone_template(clone_id, items_data, processed_items, source_file)
@@ -1863,6 +1912,9 @@ class RealismPatchGenerator:
         if format_type == "TEMPLATE_ID" and template_id:
             return self._handle_template_id_item(item_id, item_info, template_id, processed_items, source_file)
 
+        if format_type == "CURRENT_PATCH":
+            return self._handle_current_patch_item(item_id, item_data, item_info, processed_items, source_file)
+
         if format_type == "CLONE" and clone_id:
             return self._handle_clone_item(item_id, item_info, clone_id, items_data, processed_items, source_file)
 
@@ -1936,7 +1988,13 @@ class RealismPatchGenerator:
         if items_data is None:
             return
 
-        processed_count = self._process_items_in_file(items_data, item_file.stem)
+        # 使用 input 下的相对路径作为分组键，避免同名文件冲突并可还原目录结构。
+        try:
+            source_key = str(item_file.relative_to(self.input_path).with_suffix(""))
+        except ValueError:
+            source_key = item_file.stem
+
+        processed_count = self._process_items_in_file(items_data, source_key)
         print(f"  处理完成: {processed_count} 个物品")
     
     def generate_patches(self):
@@ -1953,14 +2011,23 @@ class RealismPatchGenerator:
         self._print_generation_summary()
 
     def _save_source_grouped_patches(self, output_path: Path):
-        """按源文件名保存补丁。"""
+        """按源文件保存补丁，并保留 input 的原目录结构。"""
         for source_name, patches in self.file_based_patches.items():
             if not patches:
                 continue
-            file_output = output_path / f"{source_name}_realism_patch.json"
+
+            source_rel = Path(source_name)
+            file_output = output_path / source_rel.parent / f"{source_rel.name}_realism_patch.json"
+            file_output.parent.mkdir(parents=True, exist_ok=True)
+
             with open(file_output, 'w', encoding='utf-8') as f:
                 json.dump(patches, f, ensure_ascii=False, indent=4)
-            print(f"  [源文件分类] 补丁已保存到: {file_output.name}")
+
+            try:
+                display_rel = file_output.relative_to(output_path)
+            except ValueError:
+                display_rel = file_output
+            print(f"  [源文件输出] 补丁已保存到: {display_rel}")
 
     def _save_type_grouped_patches(self, output_path: Path):
         """按物品类型保存补丁。"""
@@ -1998,27 +2065,54 @@ class RealismPatchGenerator:
         with open(combined_output, 'w', encoding='utf-8') as f:
             json.dump(all_patches, f, ensure_ascii=False, indent=4)
         print(f"合并补丁已保存到: {combined_output}")
+
+    def _cleanup_legacy_aggregate_outputs(self, output_path: Path):
+        """清理旧版聚合导出文件，避免与当前源文件导出模式混淆。"""
+        legacy_files = [
+            "weapons_realism_patch.json",
+            "attachments_realism_patch.json",
+            "ammo_realism_patch.json",
+            "gear_realism_patch.json",
+            "consumables_realism_patch.json",
+            "all_items_realism_patch.json",
+        ]
+
+        for filename in legacy_files:
+            legacy_path = output_path / filename
+            if legacy_path.exists() and legacy_path.is_file():
+                legacy_path.unlink()
+
+    def _clear_output_directory(self, output_path: Path):
+        """清空输出目录中的旧结果（保留 output 根目录本身）。"""
+        if not output_path.exists():
+            return
+
+        for child in output_path.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
     
     def save_patches(self, output_dir: Optional[str] = None):
-        """保存生成的补丁文件"""
+        """保存补丁文件（仅按源文件输出，并保留目录结构）。"""
         if output_dir is None:
             output_path = self.base_path / "output"
         else:
             output_path = Path(output_dir)
-        
-        output_path.mkdir(exist_ok=True)
+
+        output_path.mkdir(parents=True, exist_ok=True)
         
         print("\n正在导出补丁文件...")
 
+        self._clear_output_directory(output_path)
+        self._cleanup_legacy_aggregate_outputs(output_path)
         self._save_source_grouped_patches(output_path)
-        self._save_type_grouped_patches(output_path)
-        self._save_combined_patch(output_path)
 
 
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义MOD兼容补丁生成器 v2.5")
+    print("EFT 现实主义MOD兼容补丁生成器 v2.7")
     print("=" * 60)
     
     # 获取脚本所在目录

@@ -2,7 +2,7 @@
 
 ## 📋 项目概述
 
-**EFT 现实主义MOD兼容补丁生成器 v2.5** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的 现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据Items文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
+**EFT 现实主义MOD兼容补丁生成器 v2.5** 是一个功能强大的Python脚本，用于为《逃离塔科夫》(Escape from Tarkov)的SPT3.11.4的现实主义MOD (Realism Mod) 自动生成兼容补丁。它可以根据 `input/` 文件夹中的物品数据，使用预定义的模板快速生成规范化的配置文件。
 
 ## 📝 更新记录
 
@@ -21,6 +21,7 @@
 
 | 版本 | 日期 | 主要更新 |
 |------|------|---------|
+| **v2.5** | 2026-03-08 | 🧱 **规则接入与架构重构** - 接入武器/附件新规则文档，细分档位校验，重构处理与导出流程。 |
 | **v2.4** | 2026-02-21 | 🛡️ **现实主义规则校验 & 物理推断** - 强制校验数值范围，材质推断，枪管长度转换初速等物理逻辑。 |
 | v2.3 | 2026-02-21 | 📁 **源文件名分类输出** - 输出文件名与输入文件名对应，修正 `__init__` 分类字典。 |
 | v2.2 | 2026-02-21 | 🏢 **输入属性优先与Locales提取** - 支持从 `locales` 提取名称，完善 `CLONE` 格式。 |
@@ -37,7 +38,7 @@
 Realism-patch-Generator/
 ├── generate_realism_patch.py              # 🚀 主程序脚本
 ├── 运行补丁生成器.bat                      # 快速启动脚本（Windows）
-├── Items/                                  # 📥 输入目录 - 待处理的物品数据
+├── input/                                  # 📥 输入目录 - 待处理的物品数据
 │   ├── weapon_data_1.json
 │   ├── attachments_data_1.json
 │   └── ...（支持子文件夹）
@@ -46,7 +47,7 @@ Realism-patch-Generator/
 │   │   ├── AssaultRifleTemplates.json
 │   │   ├── PistolTemplates.json
 │   │   └── ...
-│   ├── attachments/
+│   ├── attatchments/
 │   │   ├── ScopeTemplates.json
 │   │   ├── MagazineTemplates.json
 │   │   └── ...
@@ -73,9 +74,9 @@ Realism-patch-Generator/
 - 无需额外的依赖包（仅使用Python标准库）
 
 ### 步骤 2️⃣：准备物品数据
-将待生成补丁的物品JSON文件放入 `Items/` 文件夹：
-- 可以直接放在 `Items/` 目录根部
-- 也可以放在 `Items/` 的子目录中（会自动递归扫描）
+将待生成补丁的物品JSON文件放入 `input/` 文件夹：
+- 可以直接放在 `input/` 目录根部
+- 也可以放在 `input/` 的子目录中（会自动递归扫描）
 - 支持多个文件和任意目录层级
 
 ### 步骤 3️⃣：运行生成器
@@ -186,8 +187,8 @@ python generate_realism_patch.py
 支持链式Clone引用，脚本会自动递归解析并继承属性。
 
 #### 📂 递归文件夹扫描 （v1.9支持）
-Items文件夹中的所有JSON文件都会被自动发现和处理，包括：
-- 直接放在Items/目录的文件
+`input/` 文件夹中的所有JSON文件都会被自动发现和处理，包括：
+- 直接放在 `input/` 目录的文件
 - 任意深度的子文件夹中的文件
 
 ## 💡 工作流程
@@ -195,7 +196,7 @@ Items文件夹中的所有JSON文件都会被自动发现和处理，包括：
 ### 数据处理流程图
 
 ```
-输入文件 (Items文件夹)
+输入文件 (input文件夹)
     ↓
 格式检测 (自动识别5种格式)
     ↓
@@ -216,7 +217,7 @@ Items文件夹中的所有JSON文件都会被自动发现和处理，包括：
 
 ### 主要处理步骤
 
-1. **递归扫描** - 查找Items文件夹及所有子文件夹中的JSON文件
+1. **递归扫描** - 查找 `input/` 文件夹及所有子文件夹中的JSON文件
 2. **格式检测** - 自动判断数据格式（ITEMTOCLONE/STANDARD/VIR/CLONE/TEMPLATE_ID）
 3. **信息提取** - 从输入数据中提取关键信息（ID、parentId、属性等）
 4. **类型推断** - 基于parentId、ItemToClone前缀、HandbookParent推断物品类型

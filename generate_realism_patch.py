@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-EFT 现实主义MOD兼容补丁生成器 v2.8
+EFT 现实主义数值生成器 v2.11
 用于根据input文件夹中的物品数据，使用模板生成Realism MOD兼容配置文件
 
 版本历史:
+- v2.11 (2026-03-08):
+    - 根据输出审查结果下调武器后坐基础范围与二级修正规则，缓解整体后坐偏高问题；
+    - 新增 machinegun/launcher 武器档位识别并参与范围夹紧；
+    - 强化武器后坐全局安全夹紧，并微调附件减后坐范围。
+- v2.10 (2026-03-08):
+    - 口径识别改为可配置关键词映射，支持在规则文件中扩展/调整识别策略；
+    - 细分 7.62x39、7.62x51、7.62x54R 等口径档位，提升不同弹种后坐差异表现。
+- v2.9 (2026-03-08):
+    - 接入武器二级细分规则：按口径与枪托形态对武器基础范围做二次修正；
+    - 新增 weapon_refinement_rules.py 配置文件，支持独立维护口径/枪托修正参数。
 - v2.8 (2026-03-08):
     - 新增 weapon_rule_ranges.py，武器规则范围（WEAPON_PROFILE_RANGES）独立维护；
     - 主脚本改为导入武器规则配置，与附件规则配置文件化方式一致。
@@ -53,6 +63,11 @@ from typing import Dict, List, Any, Optional
 import copy
 from weapon_rule_ranges import WEAPON_PROFILE_RANGES
 from attachment_rule_ranges import MOD_PROFILE_RANGES
+from weapon_refinement_rules import (
+    CALIBER_PROFILE_KEYWORDS,
+    WEAPON_CALIBER_RULE_MODIFIERS,
+    WEAPON_STOCK_RULE_MODIFIERS,
+)
 
 # 定义parentId到模板文件的映射 (基于 itemBaseClasses.md 完整映射)
 PARENT_ID_TO_TEMPLATE = {
@@ -574,6 +589,12 @@ WEAPON_PARENT_GROUPS = {
     "shotgun": {
         "5447b6094bdc2dc3278b4567",  # SHOTGUN
     },
+    "machinegun": {
+        "5447bed64bdc2d97278b4568",  # MACHINEGUN
+    },
+    "launcher": {
+        "5447bedf4bdc2d87278b4568",  # GRENADE_LAUNCHER
+    },
 }
 
 # 武器规则范围已拆分到 weapon_rule_ranges.py，便于独立维护与调参。
@@ -614,7 +635,7 @@ class RealismPatchGenerator:
                 patch[key] = self._clamp(patch[key], range_pair[0], range_pair[1])
 
     def _infer_weapon_profile(self, patch: Dict, item_info: Optional[Dict]) -> Optional[str]:
-        """推断武器规则档位（assault/pistol/smg/sniper/shotgun）。"""
+        """推断武器规则档位。"""
         parent_id = self.normalize_parent_id((item_info or {}).get("parent_id")) if item_info else None
         if parent_id:
             for profile, parent_set in WEAPON_PARENT_GROUPS.items():
@@ -628,6 +649,10 @@ class RealismPatchGenerator:
             return "pistol"
         if "smg" in name or "smg" in weap_type:
             return "smg"
+        if any(k in name for k in ["machinegun", "lmg", "mg"]) or "machinegun" in weap_type:
+            return "machinegun"
+        if any(k in name for k in ["launcher", "grenade launcher", "m203", "gp25", "ubgl"]) or "launcher" in weap_type:
+            return "launcher"
         if any(k in name for k in ["sniper", "marksman", "dmr"]):
             return "sniper"
         if "shotgun" in name or "shotgun" in weap_type:
@@ -635,6 +660,124 @@ class RealismPatchGenerator:
         if any(k in name for k in ["carbine", "assault", "rifle"]):
             return "assault"
         return None
+
+    def _extract_weapon_caliber_text(self, patch: Dict, item_info: Optional[Dict]) -> str:
+        """提取口径相关文本，用于口径档位推断。"""
+        candidates = [
+            patch.get("Caliber"),
+            patch.get("AmmoCaliber"),
+            patch.get("caliber"),
+            patch.get("ammoCaliber"),
+        ]
+
+        if item_info and isinstance(item_info.get("properties"), dict):
+            props = item_info["properties"]
+            candidates.extend([
+                props.get("Caliber"),
+                props.get("ammoCaliber"),
+                props.get("AmmoCaliber"),
+            ])
+
+        candidates.append(patch.get("Name"))
+
+        merged = " ".join(str(v) for v in candidates if v)
+        return merged.lower()
+
+    def _infer_weapon_caliber_profile(self, patch: Dict, item_info: Optional[Dict]) -> Optional[str]:
+        """推断口径细分档位。"""
+        caliber_text = self._extract_weapon_caliber_text(patch, item_info)
+        weap_type = str(patch.get("WeapType", "")).lower()
+        name = str(patch.get("Name", "")).lower()
+
+        for profile, keywords in CALIBER_PROFILE_KEYWORDS:
+            if any(k in caliber_text for k in keywords):
+                return profile
+
+        if "pistol" in weap_type or any(k in name for k in ["pistol", "handgun"]):
+            return "pistol_caliber"
+
+        return None
+
+    def _infer_weapon_stock_profile(self, patch: Dict) -> str:
+        """推断枪托形态档位。"""
+        name = str(patch.get("Name", "")).lower()
+        weap_type = str(patch.get("WeapType", "")).lower()
+        has_shoulder = patch.get("HasShoulderContact")
+
+        if "bullpup" in name or "bullpup" in weap_type:
+            return "bullpup"
+
+        if "pistol" in weap_type or any(k in name for k in ["pistol", "machine pistol", "stockless"]):
+            return "stockless"
+
+        if any(k in name for k in ["folded", "stock folded", "no stock"]):
+            return "folding_stock_collapsed"
+
+        if any(k in name for k in ["fold", "folding"]):
+            return "folding_stock_extended" if has_shoulder is not False else "folding_stock_collapsed"
+
+        if has_shoulder is False:
+            return "stockless"
+
+        return "fixed_stock"
+
+    def _apply_weapon_refinement_ranges(self, patch: Dict, weapon_profile: Optional[str], item_info: Optional[Dict]):
+        """应用武器二级细分规则：口径 + 枪托形态。"""
+        if not weapon_profile or weapon_profile not in WEAPON_PROFILE_RANGES:
+            return
+
+        caliber_profile = self._infer_weapon_caliber_profile(patch, item_info)
+        stock_profile = self._infer_weapon_stock_profile(patch)
+
+        caliber_mods = WEAPON_CALIBER_RULE_MODIFIERS.get(caliber_profile, {})
+        stock_mods = WEAPON_STOCK_RULE_MODIFIERS.get(stock_profile, {})
+
+        # 按基础范围 + 增量修正计算最终夹紧区间。
+        for key, base_range in WEAPON_PROFILE_RANGES[weapon_profile].items():
+            if key not in patch or not isinstance(base_range, tuple) or len(base_range) != 2:
+                continue
+
+            delta_min = 0.0
+            delta_max = 0.0
+
+            if key in caliber_mods:
+                delta_min += float(caliber_mods[key][0])
+                delta_max += float(caliber_mods[key][1])
+
+            if key in stock_mods:
+                delta_min += float(stock_mods[key][0])
+                delta_max += float(stock_mods[key][1])
+
+            if delta_min == 0.0 and delta_max == 0.0:
+                continue
+
+            min_v = float(base_range[0]) + delta_min
+            max_v = float(base_range[1]) + delta_max
+            if min_v > max_v:
+                min_v, max_v = max_v, min_v
+
+            patch[key] = self._clamp(patch[key], min_v, max_v)
+
+        # 对基础档位未覆盖但二级规则有明确约束的字段，做补充夹紧。
+        supplemental_keys = set(caliber_mods.keys()) | set(stock_mods.keys())
+        for key in supplemental_keys:
+            if key in WEAPON_PROFILE_RANGES[weapon_profile] or key not in patch:
+                continue
+
+            ranges = []
+            if key in caliber_mods:
+                ranges.append(caliber_mods[key])
+            if key in stock_mods:
+                ranges.append(stock_mods[key])
+            if not ranges:
+                continue
+
+            min_v = sum(float(r[0]) for r in ranges)
+            max_v = sum(float(r[1]) for r in ranges)
+            if min_v > max_v:
+                min_v, max_v = max_v, min_v
+
+            patch[key] = self._clamp(patch[key], min_v, max_v)
 
     def _infer_mod_profile(self, patch: Dict, item_info: Optional[Dict]) -> Optional[str]:
         """推断附件细分规则档位。"""
@@ -741,7 +884,9 @@ class RealismPatchGenerator:
             if "Ergonomics" in patch:
                 patch["Ergonomics"] = self._clamp(patch["Ergonomics"], 10, 100)
             if "VerticalRecoil" in patch:
-                patch["VerticalRecoil"] = self._clamp(patch["VerticalRecoil"], 10, 1800)
+                patch["VerticalRecoil"] = self._clamp(patch["VerticalRecoil"], 10, 700)
+            if "HorizontalRecoil" in patch:
+                patch["HorizontalRecoil"] = self._clamp(patch["HorizontalRecoil"], 20, 700)
             if "Convergence" in patch:
                 patch["Convergence"] = self._clamp(patch["Convergence"], 1, 40)
             if "RecoilAngle" in patch and (patch["RecoilAngle"] < 30 or patch["RecoilAngle"] > 150):
@@ -753,6 +898,7 @@ class RealismPatchGenerator:
             weapon_profile = self._infer_weapon_profile(patch, item_info)
             if weapon_profile and weapon_profile in WEAPON_PROFILE_RANGES:
                 self._apply_numeric_ranges(patch, WEAPON_PROFILE_RANGES[weapon_profile])
+                self._apply_weapon_refinement_ranges(patch, weapon_profile, item_info)
 
             # 文档要求手枪默认无抵肩
             if weapon_profile == "pistol":
@@ -1882,7 +2028,7 @@ class RealismPatchGenerator:
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义MOD兼容补丁生成器 v2.8")
+    print("EFT 现实主义数值生成器 v2.11")
     print("=" * 60)
     
     # 获取脚本所在目录

@@ -9,12 +9,12 @@
         "BaseTorque": -1.0,
         "HasShoulderContact": false,
         "Ergonomics": 71,
-        "VerticalRecoil": 450,
-        "HorizontalRecoil": 400,
+        "VerticalRecoil": 390,
+        "HorizontalRecoil": 313.0,
         "Dispersion": 10,
         "CameraRecoil": 0.004,
-        "VisualMulti": 2.3,
-        "Convergence": 18,
+        "VisualMulti": 2.2,
+        "Convergence": 18.0,
         "RecoilAngle": 91,
         "BaseMalfunctionChance": 0.001,
         "HeatFactorGun": 0.23,
@@ -27,7 +27,7 @@
         "HipAccuracyRestorationSpeed": 7,
         "HipInnaccuracyGain": 0.16,
         "ShotgunDispersion": 10,
-        "Velocity": 15,
+        "Velocity": 2.0,
         "RecoilDamping": 0.74,
         "RecoilHandDamping": 0.43,
         "WeaponAllowADS": false,
@@ -44,7 +44,7 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.01,
-        "RecoilIntensity": 0.35
+        "RecoilIntensity": 0.2
     },
     "666101e8704063719a3d9d62": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -156,12 +156,12 @@
         "BaseTorque": -1.0,
         "HasShoulderContact": false,
         "Ergonomics": 71,
-        "VerticalRecoil": 450,
-        "HorizontalRecoil": 400,
+        "VerticalRecoil": 390,
+        "HorizontalRecoil": 313.0,
         "Dispersion": 10,
         "CameraRecoil": 0.004,
-        "VisualMulti": 2.3,
-        "Convergence": 18,
+        "VisualMulti": 2.2,
+        "Convergence": 18.0,
         "RecoilAngle": 91,
         "BaseMalfunctionChance": 0.001,
         "HeatFactorGun": 0.23,
@@ -174,7 +174,7 @@
         "HipAccuracyRestorationSpeed": 7,
         "HipInnaccuracyGain": 0.16,
         "ShotgunDispersion": 10,
-        "Velocity": 15,
+        "Velocity": 2.0,
         "RecoilDamping": 0.74,
         "RecoilHandDamping": 0.43,
         "WeaponAllowADS": false,
@@ -191,6 +191,6 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.01,
-        "RecoilIntensity": 0.35
+        "RecoilIntensity": 0.2
     }
 }

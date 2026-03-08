@@ -436,7 +436,7 @@
         "WeaponAllowADS": false,
         "Ergonomics": 35,
         "VerticalRecoil": 210,
-        "HorizontalRecoil": 1300,
+        "HorizontalRecoil": 700,
         "Dispersion": 25,
         "CameraRecoil": -0.3,
         "VisualMulti": 1,

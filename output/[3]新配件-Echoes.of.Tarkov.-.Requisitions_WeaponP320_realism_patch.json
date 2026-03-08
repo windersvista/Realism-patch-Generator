@@ -9,12 +9,12 @@
         "BaseTorque": -1.0,
         "HasShoulderContact": false,
         "Ergonomics": 73,
-        "VerticalRecoil": 450,
-        "HorizontalRecoil": 400,
+        "VerticalRecoil": 400,
+        "HorizontalRecoil": 313.0,
         "Dispersion": 10,
         "CameraRecoil": 0.004,
-        "VisualMulti": 2.3,
-        "Convergence": 18,
+        "VisualMulti": 2.2,
+        "Convergence": 18.0,
         "RecoilAngle": 93,
         "BaseMalfunctionChance": 0.14,
         "HeatFactorGun": 0.96,
@@ -44,7 +44,7 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.011,
-        "RecoilIntensity": 0.38
+        "RecoilIntensity": 0.2
     },
     "6851b7eaae4e0776eacd8f0c": {
         "$type": "RealismMod.WeaponMod, RealismMod",

@@ -9,7 +9,7 @@
 WEAPON_CALIBER_RULE_MODIFIERS = {
     # 9x19 / .45 ACP / 10mm
     "pistol_caliber": {
-        "VerticalRecoil": (10, 70),
+        "VerticalRecoil": (10, 30),
         "HorizontalRecoil": (8, 55),
         "Convergence": (1, 3),
         "Velocity": (-3, 2),
@@ -17,10 +17,10 @@ WEAPON_CALIBER_RULE_MODIFIERS = {
     },
     # 5.45x39 / 5.56x45
     "small_high_velocity": {
-        "VerticalRecoil": (-10, 5),
-        "HorizontalRecoil": (-10, 5),
+        "VerticalRecoil": (-5, 5),
+        "HorizontalRecoil": (-5, 5),
         "Convergence": (0, 3),
-        "Velocity": (0, 6),
+        "Velocity": (0, 3),
         "RecoilIntensity": (-0.03, 0.02),
     },
     # 7.62x39（中间威力）
@@ -28,7 +28,7 @@ WEAPON_CALIBER_RULE_MODIFIERS = {
         "VerticalRecoil": (8, 45),
         "HorizontalRecoil": (4, 32),
         "Convergence": (-1, 2),
-        "Velocity": (2, 8),
+        "Velocity": (2, 6),
         "RecoilIntensity": (0.01, 0.06),
     },
     # 7.62x51 / 6.8（全威力）
@@ -44,7 +44,7 @@ WEAPON_CALIBER_RULE_MODIFIERS = {
         "VerticalRecoil": (30, 105),
         "HorizontalRecoil": (18, 75),
         "Convergence": (-4, 0),
-        "Velocity": (7, 18),
+        "Velocity": (7, 15),
         "RecoilIntensity": (0.03, 0.11),
     },
     # .300 WM / .338 LM / 12.7

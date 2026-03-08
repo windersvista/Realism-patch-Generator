@@ -730,7 +730,7 @@
         "ItemID": "5ab8f4ff86f77431c60d91ba",
         "Name": "balaclava_skull",
         "AllowADS": true,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "ReloadSpeedMulti": 1,
         "BlocksMouth": false,
         "speedPenaltyPercent": 0,

@@ -4,7 +4,7 @@
         "ItemID": "68bb6be346d4437fb40002e0",
         "Name": "Arisaka offset optic mount",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": -15,
         "ConflictingItems": [],
         "Weight": 0.04,
@@ -26,7 +26,7 @@
         "ItemID": "68bc3cd17208c642f409974e",
         "Name": "DeltaPoint mount for Arisaka offset mount",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.045,
@@ -59,7 +59,7 @@
         "ItemID": "68bc3cd17208c642f4099751",
         "Name": "B&T Acro Mount for Arisaka offset mount",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"

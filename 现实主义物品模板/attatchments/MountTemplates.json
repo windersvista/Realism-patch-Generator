@@ -1463,7 +1463,7 @@
             "66ffe7bab8da88805e07a03e"
         ],
         "Weight": 0.226,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "AimStability": 8,
         "Handling": 1
     },
@@ -1489,7 +1489,7 @@
             "66ffe7bab8da88805e07a03e"
         ],
         "Weight": 0.226,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "AimStability": 8,
         "Handling": 1
     },
@@ -2584,7 +2584,7 @@
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.141,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     },
     "653ed19d22e1ef3d9002c328": {
         "$type": "RealismMod.WeaponMod, RealismMod",

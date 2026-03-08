@@ -4,14 +4,14 @@
         "ItemID": "03f6c86c56945862820e1006",
         "Name": "Aimpoint CS reflex sight",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 3,
         "Accuracy": -2,
         "ConflictingItems": [
             "5a7c74b3e899ef0014332c29",
             "55d5f46a4bdc2d1b198b4567",
             "5bfd4c980db834001b73449d"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": -1,
         "Weight": 0.391,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -50,7 +50,7 @@
         "ItemID": "682be7bf16812803987c3715",
         "Name": "Aimpoint CGA5P 2x telescopic sight with carryhandle",
         "ModType": "sight",
-        "AimSpeed": -12,
+        "AimSpeed": -9,
         "Accuracy": 13,
         "ConflictingItems": [
             "5a7c74b3e899ef0014332c29",
@@ -60,7 +60,7 @@
             "5c0e2f26d174af02a9625114",
             "5bb20d53d4351e4502010a69"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": -6,
         "Weight": 0.19,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -71,14 +71,14 @@
         "ItemID": "2322ee962f6c77a1284abc1e",
         "Name": "BAE Systems SUSAT 4x32 scope",
         "ModType": "sight",
-        "AimSpeed": -12,
+        "AimSpeed": -9,
         "Accuracy": 13,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
             "5a7c74b3e899ef0014332c29",
             "5bfd4c980db834001b73449d"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": -7.03,
         "Weight": 0.495,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -89,10 +89,10 @@
         "ItemID": "5ae3d18efa17cbd51e898ced",
         "Name": "ITL MARS reflex sight",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 2,
         "Accuracy": 5,
         "ConflictingItems": [],
-        "Ergonomics": -5,
+        "Ergonomics": 0.49,
         "Weight": 0.43,
         "LoyaltyLevel": 4
     }

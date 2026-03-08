@@ -4890,7 +4890,7 @@
         "ModShotDispersion": 0,
         "Loudness": 75,
         "Convergence": 28,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 40
     },
     "5f6339d53ada5942720e2dc3": {
@@ -5553,7 +5553,7 @@
         "ModShotDispersion": -25,
         "Loudness": 50,
         "Convergence": 20,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 40
     },
     "5c0111ab0db834001966914d": {
@@ -6426,7 +6426,7 @@
         "Weight": 0.29,
         "Loudness": -25.5,
         "Convergence": 0,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 8
     },
     "593d489686f7745c6255d58a": {
@@ -6561,7 +6561,7 @@
         "Weight": 0.413,
         "Loudness": -29,
         "Convergence": 0,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "MeleeDamage": 16,
         "MeleePen": 9,
         "Flash": 6
@@ -6985,7 +6985,7 @@
         "Weight": 0.27,
         "Loudness": -35,
         "Convergence": 0,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 5
     },
     "571a28e524597720b4066567": {
@@ -7039,7 +7039,7 @@
         "Weight": 0.21,
         "Loudness": -28,
         "Convergence": 0,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 7
     },
     "5d3ef698a4b9361182109872": {

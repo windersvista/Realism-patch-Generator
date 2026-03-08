@@ -42,7 +42,7 @@
         "ItemID": "923987338260a1bb89e6a11b",
         "Name": "Magpul M-LOK 2.5英寸导轨(仅限二脚架)",
         "ModType": "",
-        "Ergonomics": -1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.05,

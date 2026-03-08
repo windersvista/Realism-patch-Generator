@@ -4,7 +4,7 @@
         "ItemID": "41e97223a2ad6374a096ae14",
         "Name": "Eotech EXPS3 /w Unity FTC (FDE)",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -20,7 +20,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": -0.82,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -31,7 +31,7 @@
         "ItemID": "7ca248803b89788492384ba2",
         "Name": "Eotech EXPS3 /w G33",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -47,7 +47,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": 1.03,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -58,7 +58,7 @@
         "ItemID": "8d9e9ff3020f92eb5fc46680",
         "Name": "Leupold LCO /w Unity FTC (Black)",
         "ModType": "sight",
-        "AimSpeed": 8,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -74,7 +74,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -1.5,
+        "Ergonomics": -0.34,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -85,7 +85,7 @@
         "ItemID": "2e31bdb165e6f6f7ac19b0d8",
         "Name": "Leupold LCO /w G33",
         "ModType": "sight",
-        "AimSpeed": 8,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -101,7 +101,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -1.5,
+        "Ergonomics": -0.05,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -112,7 +112,7 @@
         "ItemID": "a5c171496c1870f205a3c972",
         "Name": "Vortex UH-1 /w Unity FTC (Black)",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -128,7 +128,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": -0.24,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -139,7 +139,7 @@
         "ItemID": "22345a1c542354f86796efda",
         "Name": "Vortex UH-1 /w G33",
         "ModType": "sight",
-        "AimSpeed": -5,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -155,7 +155,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -5,
+        "Ergonomics": 0.92,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -166,7 +166,7 @@
         "ItemID": "81fb194d053a4ccedce3782d",
         "Name": "SIG Sauer ROMEO8T /w Unity FTC (Black)",
         "ModType": "sight",
-        "AimSpeed": 8,
+        "AimSpeed": 3,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -182,7 +182,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -1.5,
+        "Ergonomics": 2.73,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -193,7 +193,7 @@
         "ItemID": "0377e32842c4024a423c472e",
         "Name": "SIG Sauer ROMEO8T /w G33",
         "ModType": "sight",
-        "AimSpeed": 8,
+        "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -209,7 +209,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -1.5,
+        "Ergonomics": 1.66,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -220,7 +220,7 @@
         "ItemID": "08940f5c853aa6acf4049bc2",
         "Name": "Aimpoint Micro T-1 /w Unity FTC (Black)",
         "ModType": "sight",
-        "AimSpeed": 8,
+        "AimSpeed": 5,
         "Accuracy": 15,
         "ConflictingItems": [
             "55d5f46a4bdc2d1b198b4567",
@@ -236,7 +236,7 @@
             "61817865d3a39d50044c13a4",
             "275def25d1abe9b101511271"
         ],
-        "Ergonomics": -1.5,
+        "Ergonomics": -0.73,
         "Weight": 0.544,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,

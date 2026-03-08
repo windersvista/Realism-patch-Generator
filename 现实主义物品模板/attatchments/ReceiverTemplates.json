@@ -439,7 +439,7 @@
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
         "ChamberSpeed": 36,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     },
     "5a9685b1a2750c0032157104": {
         "$type": "RealismMod.WeaponMod, RealismMod",

@@ -299,7 +299,7 @@
         "ItemID": "67709e1ac9f65ea01033498b",
         "Name": "V‑Lites（蓝）",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -312,7 +312,7 @@
         "ItemID": "6773f2fc34e508088a53800f",
         "Name": "Augmento™ 头盔吉利罩 第二代（Multicam）",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -338,7 +338,7 @@
         "ItemID": "6773f8527775544a1b59da0a",
         "Name": "Augmento™ 头盔吉利罩第二代（多地形黑）",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -453,7 +453,7 @@
         "ItemID": "668bc5cd834c88e06b08b6a9",
         "Name": "DevTac Ronin 防弹头盔（高山迷彩）",
         "AllowADS": true,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "ArmorClass": "NIJ IIIA",
         "CanSpall": false,
         "SpallReduction": 1,
@@ -468,7 +468,7 @@
         "ItemID": "668bc5cd834c88e06b08b6aa",
         "Name": "DevTac Ronin 防弹头盔（黑色）",
         "AllowADS": true,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "ArmorClass": "NIJ IIIA",
         "CanSpall": false,
         "SpallReduction": 1,

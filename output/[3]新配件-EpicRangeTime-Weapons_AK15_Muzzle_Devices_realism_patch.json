@@ -5,9 +5,9 @@
         "Name": "AK-15 7.62x39欠音护臣",
         "ModType": "",
         "VerticalRecoil": -3.5,
-        "HorizontalRecoil": -3,
-        "Dispersion": -2,
-        "CameraRecoil": -2,
+        "HorizontalRecoil": -2,
+        "Dispersion": -1,
+        "CameraRecoil": -1,
         "AutoROF": 2.25,
         "SemiROF": 3,
         "ModMalfunctionChance": -23,
@@ -19,21 +19,21 @@
         "Velocity": 1.12,
         "RecoilAngle": 0,
         "ConflictingItems": [],
-        "Ergonomics": -2,
+        "Ergonomics": -5,
         "Weight": 0.338,
-        "Loudness": 0,
+        "Loudness": 3.11,
         "Convergence": 0,
         "LoyaltyLevel": 3,
-        "Flash": -40
+        "Flash": -47
     },
     "43b167b7a5c61d36f59f0783": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "43b167b7a5c61d36f59f0783",
         "Name": "AK-15 7.62x39枪口制退器",
         "ModType": "",
-        "VerticalRecoil": -3.5,
-        "HorizontalRecoil": -3,
-        "Dispersion": -2,
+        "VerticalRecoil": -2.8,
+        "HorizontalRecoil": -2,
+        "Dispersion": 1,
         "CameraRecoil": -2,
         "AutoROF": 0,
         "SemiROF": 0,
@@ -48,10 +48,10 @@
         "ConflictingItems": [],
         "Ergonomics": -2,
         "Weight": 0.075,
-        "Loudness": 10,
+        "Loudness": 7,
         "Convergence": 9,
         "LoyaltyLevel": 2,
         "MeleeDamage": 10,
-        "Flash": -40
+        "Flash": -52
     }
 }

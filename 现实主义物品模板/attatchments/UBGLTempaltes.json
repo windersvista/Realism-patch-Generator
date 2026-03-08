@@ -21,7 +21,7 @@
         "Weight": 1.36,
         "HeatFactor": 1,
         "CoolFactor": 1,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     },
     "62e7e7bbe6da9612f743f1e0": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -45,6 +45,6 @@
         "Weight": 1.5,
         "HeatFactor": 1,
         "CoolFactor": 1,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     }
 }

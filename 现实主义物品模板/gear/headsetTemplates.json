@@ -93,7 +93,7 @@
         "ItemID": "628e4e576d783146b124c64d",
         "Name": "item_equipment_headset_comtacIV",
         "AllowADS": true,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "dB": "21",
         "speedPenaltyPercent": 0,
         "mousePenalty": 0,

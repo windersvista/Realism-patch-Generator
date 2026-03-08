@@ -4,14 +4,14 @@
         "ItemID": "ca44e6083975d6dc27495d8e",
         "Name": "AR-15 KAC URX 3.1 13.5 inch handguard",
         "ModType": "",
-        "VerticalRecoil": -4,
-        "HorizontalRecoil": -2,
+        "VerticalRecoil": -6.04,
+        "HorizontalRecoil": -3,
         "Dispersion": 0,
-        "AimSpeed": 0,
-        "Ergonomics": 2,
+        "AimSpeed": 3,
+        "Ergonomics": 4,
         "Accuracy": 11,
-        "HeatFactor": 0.95,
-        "CoolFactor": 1.05,
+        "HeatFactor": 0.96,
+        "CoolFactor": 0.98,
         "ConflictingItems": [
             "5a34fbadc4a28200741e230a",
             "5ae30e795acfc408fb139a0b",
@@ -39,9 +39,9 @@
         "Name": "AR-15 KAC URX 3.1 13.5 inch lower handguard",
         "ModType": "",
         "VerticalRecoil": -4,
-        "HorizontalRecoil": -2,
+        "HorizontalRecoil": -4,
         "Dispersion": -1,
-        "AimSpeed": 0,
+        "AimSpeed": 1,
         "Ergonomics": 5,
         "Accuracy": 0,
         "HeatFactor": 1,
@@ -55,7 +55,7 @@
         ],
         "Weight": 0.096,
         "LoyaltyLevel": 4,
-        "Handling": 2,
-        "AimStability": 5
+        "Handling": 3,
+        "AimStability": 8
     }
 }

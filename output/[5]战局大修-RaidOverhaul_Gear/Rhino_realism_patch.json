@@ -4,16 +4,16 @@
         "ItemID": "6621b1f22310f5ff09476360",
         "Name": "CQC 犀牛防弹板携行背心（MTP迷彩）",
         "AllowADS": true,
-        "LoyaltyLevel": 3,
-        "ArmorClass": "GOST 4",
+        "LoyaltyLevel": 5,
+        "ArmorClass": "NIJ IV",
         "CanSpall": false,
         "SpallReduction": 1,
         "ReloadSpeedMulti": 1,
-        "Comfort": 1.1,
-        "speedPenaltyPercent": -6,
+        "Comfort": 1.05,
+        "speedPenaltyPercent": -5,
         "mousePenalty": 0,
         "weaponErgonomicPenalty": -6,
         "TemplateType": "gear",
-        "Price": 22000
+        "Price": 26000
     }
 }

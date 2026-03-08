@@ -82,7 +82,7 @@
         "ItemID": "66bf757f27d0b097db0ace43",
         "Name": "Alabama Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -121,7 +121,7 @@
         "ItemID": "676a24b5c3a24ed47d79720c",
         "Name": "'Fren' Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -134,7 +134,7 @@
         "ItemID": "676a34d23980119d8d5461c0",
         "Name": "UK Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -186,7 +186,7 @@
         "ItemID": "676ad83f4488c50df0ebb8ff",
         "Name": "Germany Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -212,7 +212,7 @@
         "ItemID": "66bf757f27d0b097db0ace50",
         "Name": "'no step on snek'Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -225,7 +225,7 @@
         "ItemID": "66bf757f27d0b097db0ace51",
         "Name": "Meowdy Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -238,7 +238,7 @@
         "ItemID": "66bf757f27d0b097db0ace52",
         "Name": "Australia Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -329,7 +329,7 @@
         "ItemID": "66bf757f27d0b097db0ace64",
         "Name": "Hidden Leaf Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -342,7 +342,7 @@
         "ItemID": "66bf757f27d0b097db0ace65",
         "Name": "Berserk Patch",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -420,7 +420,7 @@
         "ItemID": "6771bb1b8df8c956d414842c",
         "Name": "Ferro Concepts 电池包（土狼色）",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
@@ -524,7 +524,7 @@
         "ItemID": "674f690a7abfbaac80fa2587",
         "Name": "Helmet Cover Multicam Black",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"

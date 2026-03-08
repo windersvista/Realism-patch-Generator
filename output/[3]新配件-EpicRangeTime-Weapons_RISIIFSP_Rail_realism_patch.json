@@ -4,14 +4,14 @@
         "ItemID": "cabcc6939632138bbb740c0f",
         "Name": "AR-15 Daniel Defense RIS II FSP 12.25 inch handguard",
         "ModType": "",
-        "VerticalRecoil": -4,
+        "VerticalRecoil": -6,
         "HorizontalRecoil": -2,
         "Dispersion": 0,
-        "AimSpeed": 0,
-        "Ergonomics": 0,
+        "AimSpeed": 2,
+        "Ergonomics": 2,
         "Accuracy": 15,
-        "HeatFactor": 0.95,
-        "CoolFactor": 1.05,
+        "HeatFactor": 0.98,
+        "CoolFactor": 0.93,
         "ConflictingItems": [
             "55d35ee94bdc2d61338b4568",
             "2d2dbf0375f49c5b7ac899ab",
@@ -31,11 +31,11 @@
         "ItemID": "43ff431b62452e9c6ebc24c7",
         "Name": "AR-15 Daniel Defense RIS II 12.25 lower handguard (Coyote Brown) alt",
         "ModType": "",
-        "VerticalRecoil": -4,
-        "HorizontalRecoil": -2.5,
+        "VerticalRecoil": -8,
+        "HorizontalRecoil": -3.18,
         "Dispersion": -2.5,
-        "AimSpeed": 0,
-        "Ergonomics": 5,
+        "AimSpeed": 1,
+        "Ergonomics": 2.45,
         "Accuracy": 0,
         "HeatFactor": 1,
         "CoolFactor": 1,
@@ -44,6 +44,6 @@
         ],
         "Weight": 0.125,
         "LoyaltyLevel": 3,
-        "Handling": 5.5
+        "Handling": 2.59
     }
 }

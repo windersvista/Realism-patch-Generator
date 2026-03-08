@@ -1579,7 +1579,7 @@
             "55d35ee94bdc2d61338b4568"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "AimStability": 4.5,
         "Handling": 1.5
     },
@@ -1900,7 +1900,7 @@
         "CoolFactor": 1,
         "ConflictingItems": [],
         "Weight": 0.24,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Handling": 5,
         "AimStability": 5
     },
@@ -2813,7 +2813,7 @@
             "5ac66d9b5acfc4001633997a"
         ],
         "Weight": 0.167,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "AimStability": 9
     },
     "637ba19df7ca6372bf2613d7": {
@@ -3924,6 +3924,6 @@
         "Weight": 1,
         "MalfChance": 0,
         "Flash": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     }
 }

@@ -74,7 +74,7 @@
         "Weight": 0.464,
         "ShotgunDispersion": 1,
         "Loudness": 30,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Flash": 30
     },
     "669fa47da0bab4e8510d9526": {
@@ -640,7 +640,7 @@
         "AutoROF": 5,
         "SemiROF": 2.5,
         "CameraRecoil": 5,
-        "ModMalfunctionChance": 5,
+        "ModMalfunctionChance": 250,
         "Convergence": 0,
         "Accuracy": 0,
         "CenterOfImpact": 0.018,
@@ -665,7 +665,7 @@
         "AutoROF": 12,
         "SemiROF": 5,
         "CameraRecoil": 12,
-        "ModMalfunctionChance": 5,
+        "ModMalfunctionChance": 100,
         "Convergence": 0,
         "Accuracy": 0,
         "CenterOfImpact": 0.028,
@@ -2937,7 +2937,7 @@
         "ShotgunDispersion": 1,
         "Loudness": 0,
         "MalfChance": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 5
     },
     "673cb551093e0ea7fd0b874a": {
         "$type": "RealismMod.WeaponMod, RealismMod",

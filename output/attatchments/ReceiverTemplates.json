@@ -1265,7 +1265,7 @@
             "5c90c3622e221601da359851",
             "628a7b23b0f75035732dd565"
         ],
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Weight": 0.237,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -1816,7 +1816,7 @@
             "587e08ee245977446b4410cf",
             "6415d33eda439c6a97048b5b"
         ],
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Weight": 0.215,
         "LoyaltyLevel": 2
     },

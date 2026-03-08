@@ -70,7 +70,7 @@
         "ItemID": "68599c64f0a918bcd731198f",
         "Name": "Unity Tactical FAST Micro sight mount (White)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
@@ -136,7 +136,7 @@
         "ItemID": "685acac1d26e2f22bbe47797",
         "Name": "Unity Tactical FAST MRDS RMR baseplate",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
@@ -180,7 +180,7 @@
         "ItemID": "685e5326a119194a7cbaa34e",
         "Name": "Unity Tactical FAST COMP-series scope mount (Green)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 2,
         "ConflictingItems": [],
         "Weight": 0.075,
@@ -224,7 +224,7 @@
         "ItemID": "68611d79d2f8c2caf35ddd39",
         "Name": "Kastle Group FRT 226 scope mount (Sand)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
@@ -235,7 +235,7 @@
         "ItemID": "686a950f332bd39442d996c7",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -248,7 +248,7 @@
         "ItemID": "686a959fea53389283823a5e",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -261,7 +261,7 @@
         "ItemID": "686a95d3d23099a58e981e27",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (Olive Drab)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -274,7 +274,7 @@
         "ItemID": "686a95919c10df31081c9e2b",
         "Name": "Unity Tactical FAST LPVO canted optic mount",
         "ModType": "mount",
-        "Ergonomics": -1,
+        "Ergonomics": 0,
         "Accuracy": 9,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
@@ -287,7 +287,7 @@
         "ItemID": "686a990e217f312ed3fe65bf",
         "Name": "Unity Tactical FAST MRO sight mount",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,

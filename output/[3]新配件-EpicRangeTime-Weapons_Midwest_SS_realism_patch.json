@@ -4,83 +4,87 @@
         "ItemID": "1b06be8170fb8ea14b5b70e6",
         "Name": "AR-15 Midwest Industries Suppressor Series 7.5 inch M-LOK handguard",
         "ModType": "",
-        "VerticalRecoil": -6.31,
-        "HorizontalRecoil": -4.04,
-        "Dispersion": -1.5,
-        "AimSpeed": 0,
-        "Ergonomics": 5,
-        "Accuracy": 15,
-        "HeatFactor": 0.98,
-        "CoolFactor": 0.96,
-        "ConflictingItems": [
-            "5ae30e795acfc408fb139a0b"
-        ],
-        "Weight": 0.255,
-        "LoyaltyLevel": 4,
-        "AimStability": 6.04,
-        "Handling": 4.09
-    },
-    "b8bf2702b04bc9da101ff15e": {
-        "$type": "RealismMod.WeaponMod, RealismMod",
-        "ItemID": "b8bf2702b04bc9da101ff15e",
-        "Name": "AR-15 Midwest Industries Suppressor Series 9.25 inch M-LOK handguard",
-        "ModType": "",
-        "VerticalRecoil": -6.33,
-        "HorizontalRecoil": -3.15,
+        "VerticalRecoil": -6.32,
+        "HorizontalRecoil": -4.35,
         "Dispersion": -1.5,
         "AimSpeed": 1,
-        "Ergonomics": 4,
-        "Accuracy": 15,
-        "HeatFactor": 0.97,
-        "CoolFactor": 0.93,
-        "ConflictingItems": [
-            "5ae30e795acfc408fb139a0b"
-        ],
-        "Weight": 0.289,
-        "LoyaltyLevel": 4,
-        "AimStability": 6.07,
-        "Handling": 2.45
-    },
-    "515530338064f0f8c12409b5": {
-        "$type": "RealismMod.WeaponMod, RealismMod",
-        "ItemID": "515530338064f0f8c12409b5",
-        "Name": "AR-15 Midwest Industries Suppressor Series 10.5 inch M-LOK handguard",
-        "ModType": "",
-        "VerticalRecoil": -5.23,
-        "HorizontalRecoil": -5.21,
-        "Dispersion": -1.5,
-        "AimSpeed": 2,
-        "Ergonomics": 4,
-        "Accuracy": 15,
-        "HeatFactor": 1.04,
-        "CoolFactor": 0.94,
-        "ConflictingItems": [
-            "5ae30e795acfc408fb139a0b"
-        ],
-        "Weight": 0.317,
-        "LoyaltyLevel": 4,
-        "AimStability": 5.24,
-        "Handling": 3.92
-    },
-    "d8149ee29f559be5a2db2c80": {
-        "$type": "RealismMod.WeaponMod, RealismMod",
-        "ItemID": "d8149ee29f559be5a2db2c80",
-        "Name": "AR-15 Midwest Industries Suppressor Series 12.625 inch M-LOK handguard",
-        "ModType": "",
-        "VerticalRecoil": -7.25,
-        "HorizontalRecoil": -3.15,
-        "Dispersion": -1.5,
-        "AimSpeed": 3,
-        "Ergonomics": 1,
+        "Ergonomics": 5,
         "Accuracy": 15,
         "HeatFactor": 1.0,
         "CoolFactor": 0.94,
         "ConflictingItems": [
             "5ae30e795acfc408fb139a0b"
         ],
+        "Weight": 0.255,
+        "LoyaltyLevel": 4,
+        "AimStability": 5.78,
+        "Handling": 4.21,
+        "DurabilityBurnModificator": 1.0
+    },
+    "b8bf2702b04bc9da101ff15e": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "b8bf2702b04bc9da101ff15e",
+        "Name": "AR-15 Midwest Industries Suppressor Series 9.25 inch M-LOK handguard",
+        "ModType": "",
+        "VerticalRecoil": -5.23,
+        "HorizontalRecoil": -3.1,
+        "Dispersion": -1.5,
+        "AimSpeed": 4,
+        "Ergonomics": 4,
+        "Accuracy": 15,
+        "HeatFactor": 0.96,
+        "CoolFactor": 0.93,
+        "ConflictingItems": [
+            "5ae30e795acfc408fb139a0b"
+        ],
+        "Weight": 0.289,
+        "LoyaltyLevel": 4,
+        "AimStability": 6.9,
+        "Handling": 2.63,
+        "DurabilityBurnModificator": 1.0
+    },
+    "515530338064f0f8c12409b5": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "515530338064f0f8c12409b5",
+        "Name": "AR-15 Midwest Industries Suppressor Series 10.5 inch M-LOK handguard",
+        "ModType": "",
+        "VerticalRecoil": -5.64,
+        "HorizontalRecoil": -3.38,
+        "Dispersion": -1.5,
+        "AimSpeed": 3,
+        "Ergonomics": 2,
+        "Accuracy": 15,
+        "HeatFactor": 0.99,
+        "CoolFactor": 0.95,
+        "ConflictingItems": [
+            "5ae30e795acfc408fb139a0b"
+        ],
+        "Weight": 0.317,
+        "LoyaltyLevel": 4,
+        "AimStability": 7.85,
+        "Handling": 2.91,
+        "DurabilityBurnModificator": 1.0
+    },
+    "d8149ee29f559be5a2db2c80": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "d8149ee29f559be5a2db2c80",
+        "Name": "AR-15 Midwest Industries Suppressor Series 12.625 inch M-LOK handguard",
+        "ModType": "",
+        "VerticalRecoil": -5.3,
+        "HorizontalRecoil": -3.11,
+        "Dispersion": -1.5,
+        "AimSpeed": 3,
+        "Ergonomics": 5,
+        "Accuracy": 15,
+        "HeatFactor": 1.0,
+        "CoolFactor": 0.97,
+        "ConflictingItems": [
+            "5ae30e795acfc408fb139a0b"
+        ],
         "Weight": 0.362,
         "LoyaltyLevel": 4,
-        "AimStability": 5.96,
-        "Handling": 5.3
+        "AimStability": 6.93,
+        "Handling": 6.06,
+        "DurabilityBurnModificator": 1.0
     }
 }

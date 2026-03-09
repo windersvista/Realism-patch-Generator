@@ -266,7 +266,14 @@
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "66bf757f27d0b097db0ace45": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -279,7 +286,14 @@
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "67708ffbd78ed00a0b03b271": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -292,25 +306,59 @@
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "67709e1ac9f65ea01033498b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "67709e1ac9f65ea01033498b",
         "Name": "V‑Lites（蓝）",
         "ModType": "",
-        "Ergonomics": -1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6773f2fc34e508088a53800f": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6773f2fc34e508088a53800f",
         "Name": "Augmento™ 头盔吉利罩 第二代（Multicam）",
+        "ModType": "",
+        "Ergonomics": 0,
+        "Accuracy": 0,
+        "ConflictingItems": [
+            "5a16b7e1fcdbcb00165aa6c9"
+        ],
+        "Weight": 0.02,
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
+    },
+    "6773f6a441e9ad98ad1e00f8": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "6773f6a441e9ad98ad1e00f8",
+        "Name": "Augmento™ 头盔吉利罩第二代（高山迷彩）",
         "ModType": "",
         "Ergonomics": 1,
         "Accuracy": 0,
@@ -318,46 +366,54 @@
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
-    },
-    "6773f6a441e9ad98ad1e00f8": {
-        "$type": "RealismMod.WeaponMod, RealismMod",
-        "ItemID": "6773f6a441e9ad98ad1e00f8",
-        "Name": "Augmento™ 头盔吉利罩第二代（高山迷彩）",
-        "ModType": "",
-        "Ergonomics": 0,
-        "Accuracy": 0,
-        "ConflictingItems": [
-            "5a16b7e1fcdbcb00165aa6c9"
-        ],
-        "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6773f8527775544a1b59da0a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6773f8527775544a1b59da0a",
         "Name": "Augmento™ 头盔吉利罩第二代（多地形黑）",
         "ModType": "",
-        "Ergonomics": -1,
-        "Accuracy": 0,
-        "ConflictingItems": [
-            "5a16b7e1fcdbcb00165aa6c9"
-        ],
-        "Weight": 0.02,
-        "LoyaltyLevel": 1
-    },
-    "6773fbc54cafcf4c255207bd": {
-        "$type": "RealismMod.WeaponMod, RealismMod",
-        "ItemID": "6773fbc54cafcf4c255207bd",
-        "Name": "Augmento™ 头盔吉利罩 第二代（游骑兵绿）",
-        "ModType": "",
         "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
+    },
+    "6773fbc54cafcf4c255207bd": {
+        "$type": "RealismMod.WeaponMod, RealismMod",
+        "ItemID": "6773fbc54cafcf4c255207bd",
+        "Name": "Augmento™ 头盔吉利罩 第二代（游骑兵绿）",
+        "ModType": "",
+        "Ergonomics": 1,
+        "Accuracy": 0,
+        "ConflictingItems": [
+            "5a16b7e1fcdbcb00165aa6c9"
+        ],
+        "Weight": 0.02,
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "67709f35bcb7344a48a13c10": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -370,20 +426,34 @@
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6770ba90ecb0e684560d8184": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6770ba90ecb0e684560d8184",
         "Name": "V‑Lites（红外）",
         "ModType": "",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5a16b7e1fcdbcb00165aa6c9"
         ],
         "Weight": 0.02,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "66326bfd46817c660d01512e": {
         "$type": "RealismMod.WeaponMod, RealismMod",

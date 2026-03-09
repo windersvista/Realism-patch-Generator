@@ -4,16 +4,16 @@
         "ItemID": "6621b1e0bd80eeb4de0c9ed8",
         "Name": "军团防弹背心（腐肉）",
         "AllowADS": true,
-        "LoyaltyLevel": 5,
-        "ArmorClass": "NIJ IV",
+        "LoyaltyLevel": 1,
+        "ArmorClass": "GOST 2",
         "CanSpall": false,
         "SpallReduction": 1,
         "ReloadSpeedMulti": 1,
-        "Comfort": 1.05,
-        "speedPenaltyPercent": -5,
+        "Comfort": 1.07,
+        "speedPenaltyPercent": -2,
         "mousePenalty": 0,
-        "weaponErgonomicPenalty": -6,
+        "weaponErgonomicPenalty": -1.5,
         "TemplateType": "gear",
-        "Price": 26000
+        "Price": 19000
     }
 }

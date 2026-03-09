@@ -4,17 +4,17 @@
         "ItemID": "6621b0dcbcfe66cdbbab48c7",
         "Name": "定制版 Deadskul 携行 pouch",
         "AllowADS": true,
-        "LoyaltyLevel": 4,
-        "ArmorClass": "NIJ RF3 07",
+        "LoyaltyLevel": 2,
+        "ArmorClass": "GOST 2",
         "CanSpall": false,
         "SpallReduction": 1,
         "ReloadSpeedMulti": 1,
-        "Comfort": 0.85,
-        "speedPenaltyPercent": 0,
+        "Comfort": 1.07,
+        "speedPenaltyPercent": -3,
         "mousePenalty": 0,
-        "weaponErgonomicPenalty": 0,
+        "weaponErgonomicPenalty": -3,
         "TemplateType": "gear",
-        "Price": 7000,
+        "Price": 16000,
         "Weight": 0
     }
 }

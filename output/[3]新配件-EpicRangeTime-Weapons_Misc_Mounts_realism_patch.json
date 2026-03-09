@@ -4,11 +4,18 @@
         "ItemID": "877f002b7dadc7ae31d1fda1",
         "Name": "Unity Tactical FAST Micro Mount, 2.26",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "c26f2af872656829feb27c08": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -19,7 +26,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "de53b0fd978f0eaad71c5528": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -27,10 +41,17 @@
         "Name": "GBRS Hydra riser combo mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -5,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "d3e07e32dc01693c226878dc": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -38,10 +59,17 @@
         "Name": "GBRS Hydra riser combo mount (FDE)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -5,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "befd7a2bbc07793f73133f2c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -49,23 +77,37 @@
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "e4f2fd43b5613348b6e25bb5": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "e4f2fd43b5613348b6e25bb5",
         "Name": "Geissele 34mm Super Precision top ring cap",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "2437ee507945dfe829ddf298": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -76,7 +118,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "b2d57758abe9bb9345c58e4a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -84,25 +133,39 @@
         "Name": "Geissele Super Precision 34mm ring scope mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "67ea8b32e0d7701fc6bfc5bf": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "67ea8b32e0d7701fc6bfc5bf",
         "Name": "Geissele Super Precision 34mm ring scope mount (DDC)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": 9,
+        "Ergonomics": 1,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "ee8d5029626f7ba2e1510676": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -110,10 +173,17 @@
         "Name": "Reptilia 34mm ROF-90 RMR mount for Geissele scope mounts",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "959b54e7798be68a1a54ff81": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -121,10 +191,17 @@
         "Name": "Reptilia 34mm ROF-90 RMR mount for Geissele scope mounts (DDC)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "d4424e8a8d6e6789adbfcde2": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -132,21 +209,35 @@
         "Name": "Reptilia 34mm ROF-45 RMR mount for Geissele scope mounts",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "42aac757e1ac8161f6ec6766": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "42aac757e1ac8161f6ec6766",
         "Name": "Reptilia 34mm ROF-45 RMR mount for Geissele scope mounts (DDC)",
         "ModType": "mount",
-        "Ergonomics": 1,
-        "Accuracy": -1,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "81ee14e532991b2b9993ae0e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -157,7 +248,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "ac738256c846acc25b183a80": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -168,73 +266,122 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "26f02172906cbaa1ae78e57d": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "26f02172906cbaa1ae78e57d",
         "Name": "Reptilia 10mm RMR Riser for Trijicon RMR",
         "ModType": "mount",
-        "Ergonomics": -0.32,
+        "Ergonomics": -0.31,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "87690b1fadc788a959d42e46": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "87690b1fadc788a959d42e46",
         "Name": "Reptilia 10mm RMR Riser for Trijicon RMR (DDC)",
         "ModType": "mount",
-        "Ergonomics": 0.24,
+        "Ergonomics": -0.34,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6655df2d0169bf45a18535c8": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6655df2d0169bf45a18535c8",
         "Name": "Trijicon MRO standard mount (short)",
         "ModType": "mount",
-        "Ergonomics": -1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.011,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "794a8aea9ca78d01fc24a4f8": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "794a8aea9ca78d01fc24a4f8",
         "Name": "Trijicon MRO standard mount (tall)",
         "ModType": "mount",
-        "Ergonomics": -1,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "4330375080cfa3b0acf681c0": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "4330375080cfa3b0acf681c0",
         "Name": "Geissele Super Precision T1 Lower 1/3 Co-Witness mount (Black)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -5,
+        "Ergonomics": 1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "dc443bf6ab32570c69096e37": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "dc443bf6ab32570c69096e37",
         "Name": "Geissele Super Precision T1 Lower 1/3 Co-Witness mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -5,
+        "Ergonomics": 1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "66079d40016c0de3509a31e7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -245,7 +392,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "ca9b71e00031160119ab1e58": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -256,7 +410,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "58c3819c7e3f0593dbb9851a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -267,7 +428,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.113,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "f849f458cb4ad62c5d8b96e1": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -275,10 +443,17 @@
         "Name": "KAC Aimpoint Micro NVG riser mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -5,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "86f1db244188717106a25806": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -286,10 +461,17 @@
         "Name": "KAC Aimpoint Micro NVG riser mount (Reversed)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -5,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "2e681ada9836f6e030080191": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -297,34 +479,55 @@
         "Name": "Unity FAST Optic Riser (BLK)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 2,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.085,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "e1543def58291668bac8e2c8": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "e1543def58291668bac8e2c8",
         "Name": "Unity FAST Optic Riser (FDE)",
         "ModType": "mount",
-        "Ergonomics": -1,
-        "Accuracy": 2,
+        "Ergonomics": 0,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.085,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "7af1b735539670b26a3fe68b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "7af1b735539670b26a3fe68b",
         "Name": "Reptilia AUS 34mm ring scope mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": 9,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "e3dcf75199f821636a95cb9b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -332,12 +535,19 @@
         "Name": "Reptilia AUS 34mm ring scope mount (BLK)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "0ce104382851509ab14fb19c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -345,10 +555,17 @@
         "Name": "Reptilia 34mm ROF-90 RMR mount for Reptilia scope mounts (BLK)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "27b92c2226b1110635235c2e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -356,10 +573,17 @@
         "Name": "Reptilia 34mm ROF-90 RMR mount for Reptilia scope mounts (FDE)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "04b7ab7e14e564819a6d0e22": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -370,29 +594,50 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "0d914f394390e16506a949da": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "0d914f394390e16506a949da",
         "Name": "Reptilia AUS 34mm top ring cap (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "7b3525a6de4f4847921529c0": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "7b3525a6de4f4847921529c0",
         "Name": "Reptilia 34mm ROF-90 ACRO mount for Reptilia scope mounts (BLK)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -1,
+        "Ergonomics": 1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "159023b10fa02ac28247fce3": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -400,10 +645,17 @@
         "Name": "Reptilia 34mm ROF-90 ACRO mount for Reptilia scope mounts (FDE)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "93efffa7844876067d81dca5": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -416,31 +668,52 @@
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.07,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "85a2077a2a40a73a0f95f74a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "85a2077a2a40a73a0f95f74a",
         "Name": "Larue LT724 Angled CQB Micro T-1 mount",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -15,
+        "Ergonomics": 1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "55dccd6302404bfc237a814e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "55dccd6302404bfc237a814e",
         "Name": "Reptilia 1.93\" mount for Aimpoint ACRO (Black)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.07,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "1c852a7fd73bcde9d3ff968b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -453,7 +726,14 @@
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.07,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "71e6bc96b1a4cce0b4340b20": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -466,20 +746,34 @@
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.07,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "986150a30f2c89c4555dead5": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "986150a30f2c89c4555dead5",
         "Name": "Reptilia Lower 1/3 mount for Aimpoint ACRO (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.07,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "f07a16a89f1c954f72bbf50e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -487,43 +781,71 @@
         "Name": "Reptilia Offset mount for Aimpoint ACRO (Black)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -15,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "7e07f0150bb32a595e2c142b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "7e07f0150bb32a595e2c142b",
         "Name": "Reptilia Offset mount for Aimpoint ACRO (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -15,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "23878a19adddf4afbbcc0537": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "23878a19adddf4afbbcc0537",
         "Name": "Carry Handle Tactical Picatinny Riser mount",
         "ModType": "mount",
-        "Ergonomics": -1,
-        "Accuracy": -5,
+        "Ergonomics": 0,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "66713838ca123f9df8e7584e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "66713838ca123f9df8e7584e",
         "Name": "Precision Reflex Carry Handle Mount \"Gooseneck\"",
         "ModType": "mount",
-        "Ergonomics": -1,
-        "Accuracy": -5,
+        "Ergonomics": 0,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "e35149017403373f6b780e3b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -534,7 +856,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "fd70d4ce13dd451e8753f6f7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -549,7 +878,7 @@
         "ModMalfunctionChance": 0,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 1,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -559,7 +888,7 @@
         "Weight": 0.005,
         "LoyaltyLevel": 2,
         "AimStability": 2,
-        "Handling": 1
+        "Handling": -2
     },
     "df76c6ddaa6fd565159b9679": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -573,7 +902,7 @@
         "ModMalfunctionChance": 0,
         "AimSpeed": 1,
         "ReloadSpeed": 0,
-        "Ergonomics": 2,
+        "Ergonomics": -1,
         "Accuracy": 3,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -581,18 +910,26 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 1,
         "Weight": 0.005,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "eeb62fba336b644c26813276": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "eeb62fba336b644c26813276",
         "Name": "Elcan SpecterDR RMR mount",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "caa063259af7ba16d12efdec": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -603,7 +940,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "ebef489a3c50f53e143480f9": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -614,17 +958,31 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "df8c1c5015d2342b6c6edb56": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "df8c1c5015d2342b6c6edb56",
         "Name": "Farrow Tech DBAL-i2 ACRO mount",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.02,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     }
 }

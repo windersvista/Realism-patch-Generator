@@ -21,7 +21,10 @@
         "Weight": 0.31,
         "LoyaltyLevel": 2,
         "DurabilityBurnModificator": 1,
-        "Loudness": 0
+        "Loudness": 0,
+        "Convergence": 0,
+        "AimStability": 0,
+        "Handling": 0
     },
     "185bbb4e20e87b9aec36b1d5": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -45,19 +48,22 @@
         "Weight": 0.232,
         "LoyaltyLevel": 2,
         "DurabilityBurnModificator": 1,
-        "Loudness": 0
+        "Loudness": 0,
+        "Convergence": 0,
+        "AimStability": 0,
+        "Handling": 0
     },
     "9d387502b50d1f4b0fb8b0ce": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "9d387502b50d1f4b0fb8b0ce",
         "Name": "SAG折叠M4枪托适配器",
         "ModType": "buffer_adapter",
-        "VerticalRecoil": 2.24,
-        "HorizontalRecoil": 1.06,
+        "VerticalRecoil": 1.93,
+        "HorizontalRecoil": 1.94,
         "Dispersion": 0,
         "CameraRecoil": 3.25,
         "AimSpeed": 0,
-        "Ergonomics": 2,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "HasShoulderContact": false,
         "BlocksFolding": false,

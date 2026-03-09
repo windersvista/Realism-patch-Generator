@@ -6,15 +6,15 @@
         "WeapType": "pistol",
         "OperationType": "",
         "WeapAccuracy": 0,
-        "BaseTorque": -2,
+        "BaseTorque": -1,
         "HasShoulderContact": false,
         "Ergonomics": 93,
-        "VerticalRecoil": 569,
-        "HorizontalRecoil": 454,
-        "Dispersion": 11,
+        "VerticalRecoil": 528,
+        "HorizontalRecoil": 475,
+        "Dispersion": 13,
         "CameraRecoil": 0.004,
         "VisualMulti": 2,
-        "Convergence": 16,
+        "Convergence": 14,
         "RecoilAngle": 93,
         "BaseMalfunctionChance": 0.15,
         "HeatFactorGun": 0.2,
@@ -27,7 +27,7 @@
         "HipAccuracyRestorationSpeed": 7,
         "HipInnaccuracyGain": 0.16,
         "ShotgunDispersion": 10,
-        "Velocity": 0,
+        "Velocity": 1,
         "RecoilDamping": 0.72,
         "RecoilHandDamping": 0.45,
         "WeaponAllowADS": false,
@@ -44,95 +44,105 @@
         "BaseChamberCheckSpeed": 1,
         "BaseFixSpeed": 1,
         "OffsetRotation": 0.011,
-        "RecoilIntensity": 0.13
+        "RecoilIntensity": 0.19
     },
     "68452da6051e580c48ede835": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68452da6051e580c48ede835",
         "Name": "Staccato XC 9x19 barrel",
         "ModType": "",
-        "VerticalRecoil": -7,
+        "VerticalRecoil": -2,
         "HorizontalRecoil": 0,
         "AutoROF": 0,
         "SemiROF": 0,
         "ModMalfunctionChance": 0,
-        "Convergence": 6,
-        "Accuracy": -2,
+        "Convergence": 2,
+        "Accuracy": 1,
         "CenterOfImpact": 0.04,
-        "HeatFactor": 1.03,
-        "CoolFactor": 1.02,
+        "HeatFactor": 1.07,
+        "CoolFactor": 1.03,
         "DurabilityBurnModificator": 1,
-        "Velocity": -2,
+        "Velocity": 1,
         "ConflictingItems": [],
         "Ergonomics": -2,
         "Weight": 0.106,
         "ShotgunDispersion": 1,
         "Loudness": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "Dispersion": 2,
+        "RecoilAngle": -1
     },
     "684606c63dc00b27e95bb5fa": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "684606c63dc00b27e95bb5fa",
         "Name": "Staccato XC 9x19 extended barrel",
         "ModType": "",
-        "VerticalRecoil": -5,
-        "HorizontalRecoil": 0,
+        "VerticalRecoil": -3,
+        "HorizontalRecoil": -1,
         "AutoROF": 0,
         "SemiROF": 0,
         "ModMalfunctionChance": 0,
-        "Convergence": 7,
+        "Convergence": 3,
         "Accuracy": 1.0,
         "CenterOfImpact": 0.04,
-        "HeatFactor": 1.02,
+        "HeatFactor": 1.07,
         "CoolFactor": 0.99,
         "DurabilityBurnModificator": 1,
-        "Velocity": 2,
+        "Velocity": 1,
         "ConflictingItems": [],
         "Ergonomics": -4,
         "Weight": 0.13,
         "ShotgunDispersion": 1,
         "Loudness": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "Dispersion": 1,
+        "RecoilAngle": 2
     },
     "68452ddf08572b1e3c35081c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68452ddf08572b1e3c35081c",
         "Name": "Staccato XC 9x19 pistol slide",
         "ModType": "",
-        "ModMalfunctionChance": 1,
-        "Accuracy": 1,
-        "HeatFactor": 1.02,
+        "ModMalfunctionChance": -3,
+        "Accuracy": 2,
+        "HeatFactor": 1.01,
         "CoolFactor": 0.99,
         "DurabilityBurnModificator": 1,
         "ConflictingItems": [
             "684606c63dc00b27e95bb5fa"
         ],
-        "Ergonomics": 3,
+        "Ergonomics": 5,
         "Weight": 0.38,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
         "ChamberSpeed": 30,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "AutoROF": 0,
+        "SemiROF": 2,
+        "Convergence": 5
     },
     "68460744bf2da4e1fb5b4195": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68460744bf2da4e1fb5b4195",
         "Name": "Staccato XC 9x19 extended pistol slide",
         "ModType": "",
-        "ModMalfunctionChance": 2,
-        "Accuracy": 4.3,
-        "HeatFactor": 0.99,
-        "CoolFactor": 1.02,
+        "ModMalfunctionChance": 0,
+        "Accuracy": 2.1,
+        "HeatFactor": 0.98,
+        "CoolFactor": 1.03,
         "DurabilityBurnModificator": 1,
         "ConflictingItems": [
             "68452da6051e580c48ede835"
         ],
-        "Ergonomics": 3,
+        "Ergonomics": 6,
         "Weight": 0.616,
         "VerticalRecoil": -4,
         "HorizontalRecoil": 0,
         "ChamberSpeed": 30,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "AutoROF": 1,
+        "SemiROF": 3,
+        "Convergence": 7
     },
     "684602c4cb2dfb57366dbea3": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -146,7 +156,7 @@
         "ModMalfunctionChance": -15,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 1,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -154,7 +164,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 1,
         "Weight": 0.018,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "684606542ae9fafc455c4360": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -168,7 +179,7 @@
         "ModMalfunctionChance": -15,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 4,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -176,7 +187,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.95,
         "Weight": 0.011,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "68460695d918c58b53030c31": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -198,7 +210,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.96,
         "Weight": 0.016,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "6846069e5a768dfe9bf56af1": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -212,7 +225,7 @@
         "ModMalfunctionChance": -15,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 3,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -220,7 +233,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.93,
         "Weight": 0.011,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "684602de00667a8b3a8c1881": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -234,7 +248,7 @@
         "ModMalfunctionChance": -10,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 1,
+        "Ergonomics": -1,
         "Accuracy": 5,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -242,7 +256,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 1,
         "Weight": 0.016,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "6846057d217f48b33569b109": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -256,7 +271,7 @@
         "ModMalfunctionChance": -10,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 3.5,
+        "Ergonomics": -0.64,
         "Accuracy": 5,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -264,7 +279,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.95,
         "Weight": 0.013,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -4
     },
     "684605bdc3d585685ded6759": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -278,7 +294,7 @@
         "ModMalfunctionChance": -10,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 3,
+        "Ergonomics": 0,
         "Accuracy": 5,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -286,7 +302,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.98,
         "Weight": 0.013,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "68460625a5a59f05b08d55ba": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -300,7 +317,7 @@
         "ModMalfunctionChance": -10,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 4,
+        "Ergonomics": 0,
         "Accuracy": 5,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -308,7 +325,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 0.96,
         "Weight": 0.013,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -3
     },
     "68452ea1e41a7fbeb0b2ff4e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -316,15 +334,18 @@
         "Name": "Staccato XC 9x19 17-round magazine",
         "ModType": "",
         "ReloadSpeed": 2,
-        "Ergonomics": -1,
-        "MalfunctionChance": 1.22,
+        "Ergonomics": -3,
+        "MalfunctionChance": 0.015,
         "LoadUnloadModifier": 5,
-        "CheckTimeModifier": 0,
+        "CheckTimeModifier": 1,
         "ConflictingItems": [],
         "Weight": 0.098,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "ModMalfunctionChance": -0.37,
+        "AimSpeed": 0,
+        "Handling": -1
     },
     "68452ec3db6152a97e5f902a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -332,15 +353,18 @@
         "Name": "Staccato XC 9x19 20-round magazine",
         "ModType": "",
         "ReloadSpeed": 1,
-        "Ergonomics": -2,
-        "MalfunctionChance": -0.72,
-        "LoadUnloadModifier": 9,
-        "CheckTimeModifier": 3,
+        "Ergonomics": -1,
+        "MalfunctionChance": 0.021,
+        "LoadUnloadModifier": 6,
+        "CheckTimeModifier": 2,
         "ConflictingItems": [],
         "Weight": 0.108,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "ModMalfunctionChance": -0.44,
+        "AimSpeed": 0,
+        "Handling": 0
     },
     "6846034815241b9ba61936c6": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -351,7 +375,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.024,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6846039a06cd8ba4da4b764c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -361,7 +392,7 @@
         "AimSpeed": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Weight": 0.024,
         "LoyaltyLevel": 2
     },
@@ -370,10 +401,10 @@
         "ItemID": "6846049fd008e00428409f24",
         "Name": "Staccato XC front sight",
         "ModType": "sight",
-        "AimSpeed": 0,
+        "AimSpeed": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Weight": 0.004,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
@@ -391,7 +422,7 @@
         "ModMalfunctionChance": 12,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 7,
+        "Ergonomics": -1,
         "Accuracy": 5,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -399,6 +430,7 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 1,
         "Weight": 0.03,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "Handling": -3
     }
 }

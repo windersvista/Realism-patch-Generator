@@ -50,14 +50,15 @@
         "ItemID": "672e37d10527a90689a16240",
         "Name": "EOTech EXPS3 全息瞄准镜（黑色）",
         "ModType": "sight",
-        "AimSpeed": 2,
+        "AimSpeed": 3,
         "Accuracy": 15,
         "ConflictingItems": [],
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Weight": 0.317,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 1
     },
     "672e37d10c5f88d8ed0d056a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -65,9 +66,9 @@
         "Name": "AK AKademia Bastion 防尘盖（地形迷彩）",
         "ModType": "mount",
         "ModMalfunctionChance": -5,
-        "Accuracy": -12,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
+        "Accuracy": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01,
         "DurabilityBurnModificator": 0.95,
         "ConflictingItems": [
             "5947db3f86f77447880cf76f",
@@ -96,7 +97,10 @@
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
         "ChamberSpeed": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0
     },
     "672e37d1c999f94dae595a1b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -145,8 +149,8 @@
         "ItemID": "672e37d19f3e60fb0cbbe568",
         "Name": "Vortex Razor HD Gen.2 1-6x24 30mm 狙击镜（黑色）",
         "ModType": "sight",
-        "AimSpeed": -6,
-        "Accuracy": 15,
+        "AimSpeed": -7,
+        "Accuracy": 5,
         "ConflictingItems": [
             "591c4efa86f7741030027726",
             "570fd79bd2720bc7458b4583",
@@ -164,19 +168,21 @@
             "570fd721d2720bc5458b4596",
             "5c7d55f52e221644f31bff6a"
         ],
-        "Ergonomics": -6,
+        "Ergonomics": -9,
         "Weight": 0.57,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 8,
+        "Handling": -7
     },
     "67617ec9ea1e82ea5e103054": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "67617ec9ea1e82ea5e103054",
         "Name": "SIG TANGO6T 1-6x24 30mm 狙击镜（黑色）",
         "ModType": "sight",
-        "AimSpeed": -8,
-        "Accuracy": 14,
+        "AimSpeed": -9,
+        "Accuracy": 5,
         "ConflictingItems": [
             "591c4efa86f7741030027726",
             "570fd79bd2720bc7458b4583",
@@ -197,9 +203,11 @@
             "6477772ea8a38bb2050ed4db",
             "64785e7c19d732620e045e15"
         ],
-        "Ergonomics": -6,
+        "Ergonomics": -9,
         "Weight": 0.626,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 8,
+        "Handling": -7
     },
     "672e37d1603bec7640eb5459": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -318,11 +326,11 @@
         "Name": "AK Zenit PT-1 枪托（特别版）",
         "ModType": "Stock",
         "VerticalRecoil": -12,
-        "HorizontalRecoil": -8,
+        "HorizontalRecoil": -7,
         "Dispersion": -3,
-        "CameraRecoil": -14,
-        "AimSpeed": -8,
-        "Ergonomics": 9.89,
+        "CameraRecoil": -16,
+        "AimSpeed": -9,
+        "Ergonomics": 14.65,
         "Accuracy": 2,
         "HasShoulderContact": true,
         "BlocksFolding": false,
@@ -333,7 +341,9 @@
         "ConflictingItems": [],
         "Weight": 0.449,
         "LoyaltyLevel": 4,
-        "Handling": -7
+        "Handling": -6,
+        "Convergence": 16,
+        "AimStability": 12
     },
     "672e37d1af063ed84beecc40": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -379,9 +389,9 @@
         "Name": "AK TWS Dog Leg Rail 防尘盖（特别版）",
         "ModType": "mount",
         "ModMalfunctionChance": -5,
-        "Accuracy": -8,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
+        "Accuracy": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01,
         "DurabilityBurnModificator": 0.95,
         "ConflictingItems": [
             "5947db3f86f77447880cf76f",
@@ -405,12 +415,15 @@
             "5c90c3622e221601da359851",
             "628a7b23b0f75035732dd565"
         ],
-        "Ergonomics": -1,
+        "Ergonomics": 0,
         "Weight": 0.195,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
         "ChamberSpeed": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0
     },
     "672e37d16b2e4ea6c4076cbc": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -586,23 +599,24 @@
         "Name": "AR-15 Magpul MOE SL-K 枪托（黑色）",
         "ModType": "Stock",
         "VerticalRecoil": -11,
-        "HorizontalRecoil": -8,
+        "HorizontalRecoil": -9,
         "Dispersion": -12,
         "CameraRecoil": -13,
         "AutoROF": 0,
         "SemiROF": 0,
         "ModMalfunctionChance": 0,
-        "AimSpeed": -9,
-        "Ergonomics": 9.55,
+        "AimSpeed": -4,
+        "Ergonomics": 13.5,
         "Accuracy": 2,
         "HasShoulderContact": true,
         "BlocksFolding": false,
         "StockAllowADS": false,
         "ConflictingItems": [],
         "Weight": 0.226,
-        "AimStability": 13,
-        "Handling": -6.82,
-        "LoyaltyLevel": 4
+        "AimStability": 12,
+        "Handling": -8.1,
+        "LoyaltyLevel": 4,
+        "Convergence": 15
     },
     "672e37d1d0d67e193f688afa": {
         "$type": "RealismMod.Gear, RealismMod",
@@ -620,14 +634,15 @@
         "ItemID": "672e37d1988fac66b10d23c8",
         "Name": "Vortex Razor AMG UH-1 全息瞄准镜（v2）",
         "ModType": "sight",
-        "AimSpeed": 4,
+        "AimSpeed": 3,
         "Accuracy": 10,
         "ConflictingItems": [],
-        "Ergonomics": 2,
+        "Ergonomics": 0,
         "Weight": 0.334,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 5
     },
     "672e37d1c3f0ee2b60c5854d": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -635,23 +650,24 @@
         "Name": "AN/PEQ-15 战术装置（黑色）",
         "ModType": "",
         "ConflictingItems": [],
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Weight": 0.23,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "Handling": -3
     },
     "672e37d1713443a0355d72e8": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "672e37d1713443a0355d72e8",
         "Name": "AR-15 FAB Defense GL-CORE 黑色枪托",
         "ModType": "Stock",
-        "VerticalRecoil": -14,
-        "HorizontalRecoil": -9,
+        "VerticalRecoil": -11,
+        "HorizontalRecoil": -7,
         "Dispersion": -12,
-        "CameraRecoil": -18,
-        "AimSpeed": -8,
-        "Ergonomics": 8,
+        "CameraRecoil": -15,
+        "AimSpeed": -4,
+        "Ergonomics": 10,
         "Accuracy": 1,
         "HasShoulderContact": true,
         "BlocksFolding": false,
@@ -662,6 +678,8 @@
         "ConflictingItems": [],
         "Weight": 0.271,
         "LoyaltyLevel": 3,
-        "AimStability": 13
+        "AimStability": 12,
+        "Convergence": 17,
+        "Handling": -7
     }
 }

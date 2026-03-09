@@ -6,16 +6,82 @@
 
 ## [Unreleased]
 
+## [v3.6] - 2026-03-10
+
 ### 新增
-- `附件属性规则指南.md` 为各附件分类补充“现实作用归纳”说明段，便于将数值区间与现实用途对应理解。
+- 弹药规则新增 3 个故障相关字段：`MalfMisfireChance`、`MisfireChance`、`MalfFeedChance`。
+- 在高穿深档位（`pen_high` / `pen_very_high` / `pen_ap_extreme`）中加入故障概率正向增量修正。
 
 ### 变更
-- 源文件导出命名策略调整：当单个输入文件中 `CURRENT_PATCH` 成功处理占比超过 50% 时，输出保持原文件名（`plain`）；否则使用 `_realism_patch` 后缀。
-- 将 `ARCHITECTURE.md` 全文翻译为中文，保留原有章节结构、函数标识符与路径示例，便于中文读者快速理解架构设计。
+- `ArmorDamage` 全面切换为系数制语义，范围统一到小数倍率体系（目标约 `1.00 ~ 1.50`）。
+- 高压口径（`rifle_762x51` / `full_power_rifle` / `magnum_heavy` / `anti_materiel_50bmg`）故障概率上限提升到 `0.015`。
+- `generate_realism_patch.py` 对故障概率字段增加硬限制：最终值统一夹紧在 `0.001 ~ 0.015`。
+
+### 文档
+- 更新《弹药属性规则指南》：覆盖字段由 12 项扩展到 15 项，补充故障字段解释与高压/高穿规则说明。
+
+## [v3.5] - 2026-03-10
+
+### 新增
+- 新增独立弹药规则配置模块 `ammo_rule_ranges.py`，统一管理弹药基础区间、口径关键词映射与穿深档位修正。
+- 新增弹药属性规则文档 `弹药属性规则指南.md`，覆盖字段、档位逻辑、命中优先级与调参建议。
+
+### 变更
+- `generate_realism_patch.py` 接入弹药规则应用链路：支持口径识别、穿深档位识别、二级修正叠加及缺失字段补齐。
+- 弹药规则按 EFT 手感方向细调，强化低穿弹肉伤倾向与高穿/AP 弹在热量、耐久损耗、后坐/精度侧的代价。
+- 新增口径子档规则（`5.45x39`、`5.56x45`、`7.62x39`、`7.62x51`、`9x39`、`.300 AAC/.300 BLK`），并提升关键词优先级以避免误分类。
+
+### 兼容性
+- 保持输入格式兼容范围与输出目录策略不变；本次为弹药数值规则层增强。
+
+## [v3.0] - 2026-03-10
+
+### 变更
+- 以 `CURRENT_PATCH` 为一等标准输入，重构识别与兼容主流程：先做统一 `item_info` 归一化，再进行规则推断与数值应用。
+- 新增基于 `source_file` 的上下文补全链路，支持从输入文件路径推断 `template_file`，并在缺失 `parentId` 时反推 `parent_id`。
+- 武器规则推断新增 `template_file -> weapon_profile` 兜底映射，避免 `WeapType` 为空或名称不规范时漏命中。
+- `template_file -> parent_id` 从手工小映射升级为基于 `PARENT_ID_TO_TEMPLATE` 的反向索引，降低后续维护成本。
+
+### 修复
+- 修复 `input/weapons` 中大量 `CURRENT_PATCH` 条目因缺失 `parentId/WeapType` 导致武器主规则与二级细分规则未生效的问题。
+- 修复兼容顺序倒置导致的“标准数据反而不稳定、第三方格式优先”问题，统一为“标准优先，兼容扩展随后”。
+
+### 兼容性
+- 保持输入格式兼容范围不变（`CURRENT_PATCH` / `STANDARD` / `CLONE` / `ITEMTOCLONE` / `VIR` / `TEMPLATE_ID`）。
+- 输出目录结构与按源文件导出策略不变；本次为识别与规则命中架构重构。
+
+## [v2.13] - 2026-03-10
+
+### 变更
+- 增强 `CURRENT_PATCH` 分支的附件档位推断：当 `parentId` 缺失时，新增基于 `Name/ModType` 的 `template_file` 兜底映射，避免 `ReceiverTemplates` / `GasblockTemplates` 规则漏命中。
+- 附件名称兜底识别新增 `reciever_` 拼写兼容（与 `receiver_` 等效），提升历史数据兼容性。
+
+### 修复
+- 修复 `input/attatchments/ReceiverTemplates.json` 中大量 `reciever_*` 条目因 `parentId`、`ModType` 为空且名称拼写差异导致 `receiver` 规则未生效的问题。
+- 修复 `receiver` 规则未命中时输出数值近似照搬输入源的问题，确保 `AutoROF`、`SemiROF`、`Convergence` 等规则字段可按区间落地。
+
+### 兼容性
+- 不改变输入格式兼容范围与输出目录结构，仅修正附件 profile 推断链路与规则命中稳定性。
+
+## [v2.12] - 2026-03-09
+
+### 新增
+- 规则应用新增“字段补齐”能力：当规则字段在补丁中缺失时，先生成区间内基准值，再执行加权重算，避免 `Handling` 等字段因不存在而跳过。
+- `ItemInfo` 新增 `template_file` 信息链路，并在 `TEMPLATE_ID` / `STANDARD` / `VIR` / `CLONE` / `ITEMTOCLONE` 分支补齐来源模板信息。
+- 新增按模板文件名推断附件档位的兜底逻辑（如 `FlashlightLaserTemplates.json -> flashlight_laser`）。
+
+### 变更
+- `_apply_numeric_ranges` 支持 `ensure_fields=True`，并在武器与附件主规则应用中启用，规则从“命中已存在字段”升级为“规则字段必命中并生效”。
+- 武器二级细分（口径/枪托）改为可对缺失字段先补值再应用修正，降低细分规则漏命中概率。
+- 附件名称兜底识别扩展 `flashlight` / `laser` / `tactical` / `peq` / `dbal` / `x400` / `xc1` 关键词。
+
+### 修复
+- 修复 `FlashlightLaserTemplates` 等附件在 `parent_id` 缺失或 `ModType` 为空时，`flashlight_laser` 规则不触发的问题。
+- 修复附件规则仅在 `key in patch` 时生效导致的“配置了区间但输出不变”问题。
 
 ### 兼容性
 - 输入格式兼容范围不变（`CURRENT_PATCH` / `STANDARD` / `CLONE` / `ITEMTOCLONE` / `VIR` / `TEMPLATE_ID`）。
-- 导出目录结构保持不变，仍按 `input/` 相对路径还原到 `output/`。
+- 输出目录与按源文件导出策略不变；本次改动仅影响规则命中方式与字段落地行为。
 
 ## [v2.11] - 2026-03-08
 

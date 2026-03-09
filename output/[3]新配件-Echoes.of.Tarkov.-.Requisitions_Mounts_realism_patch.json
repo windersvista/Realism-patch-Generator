@@ -4,11 +4,18 @@
         "ItemID": "68448bf2f4f9b64cb687698d",
         "Name": "AR-15 A1/A2 Carryhandle Piccatinny mount",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -5,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68448c3ea713d53905743800": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -16,40 +23,61 @@
         "Name": "AR-15 A1/A2 Gooseneck Carryhandle mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -5,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.11,
-        "LoyaltyLevel": 3
+        "LoyaltyLevel": 3,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6845a2443b726a816a6ca79e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6845a2443b726a816a6ca79e",
         "Name": "CN Armament DUAL45 Backup mount",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": -15,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [
             "6837716de936d83c13099eea",
             "68398cd864a9d113ebab1b77",
             "644a3df63b0b6f03e101e065"
         ],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6845a36582114b67fdc12a16": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "6845a36582114b67fdc12a16",
         "Name": "CN Armament DUAL45 Backup mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": -1,
-        "Accuracy": -15,
+        "Ergonomics": 0,
+        "Accuracy": 0,
         "ConflictingItems": [
             "6837716de936d83c13099eea",
             "68398cd864a9d113ebab1b77",
             "644a3df63b0b6f03e101e065"
         ],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6845a394ddfdb4cac936974e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -57,14 +85,21 @@
         "Name": "CN Armament DUAL45 Backup mount (Anthracite)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -15,
+        "Accuracy": 0,
         "ConflictingItems": [
             "6837716de936d83c13099eea",
             "68398cd864a9d113ebab1b77",
             "644a3df63b0b6f03e101e065"
         ],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6845a930e3dfd938256267a2": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -72,14 +107,21 @@
         "Name": "CN Armament DUAL45 Backup mount (Olive Drab)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": -15,
+        "Accuracy": 0,
         "ConflictingItems": [
             "6837716de936d83c13099eea",
             "68398cd864a9d113ebab1b77",
             "644a3df63b0b6f03e101e065"
         ],
         "Weight": 0.04,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685097dbb9aa83c9e35c5027": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -90,7 +132,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.007,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a5a6247c881f613196f91": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -106,6 +155,7 @@
         "Weight": 0.113,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "AimStability": 2
     }
 }

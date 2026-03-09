@@ -290,7 +290,7 @@
             "55d35ee94bdc2d61338b4568"
         ],
         "Weight": 0.422,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "AimStability": 4.5,
         "Handling": 1.5
     },
@@ -1481,7 +1481,7 @@
         "StockAllowADS": false,
         "ConflictingItems": [],
         "Weight": 0.336,
-        "LoyaltyLevel": 4,
+        "LoyaltyLevel": 5,
         "Handling": 5,
         "AimStability": 8
     },

@@ -4,28 +4,30 @@
         "ItemID": "684ca7ab1a059f229b96e1a3",
         "Name": "Trijicon SRO reflex sight",
         "ModType": "sight",
-        "AimSpeed": 4,
+        "AimSpeed": 5,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Ergonomics": 1,
         "Weight": 0.046,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 2
     },
     "684ca7a7dd567362e6a2d719": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "684ca7a7dd567362e6a2d719",
         "Name": "Trijicon SRO reflex sight (FDE)",
         "ModType": "sight",
-        "AimSpeed": 3,
+        "AimSpeed": 5,
         "Accuracy": 0,
         "ConflictingItems": [],
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Weight": 0.046,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 1
     },
     "684ef6bc3fcbe11882807386": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -39,7 +41,8 @@
         "Weight": 0.04,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "AimStability": 1
     },
     "684f2ebbd4f01748a7d154b9": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -49,25 +52,27 @@
         "AimSpeed": 3,
         "Accuracy": -6,
         "ConflictingItems": [],
-        "Ergonomics": 2,
+        "Ergonomics": 0,
         "Weight": 0.04,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "AimStability": 1
     },
     "684f2eed5600200459543ecc": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "684f2eed5600200459543ecc",
         "Name": "SIG Sauer ROMEO3 reflex sight (Graphite)",
         "ModType": "sight",
-        "AimSpeed": 2,
+        "AimSpeed": 3,
         "Accuracy": -6,
         "ConflictingItems": [],
         "Ergonomics": 1,
         "Weight": 0.04,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "AimStability": 1
     },
     "685b40db60670990eb71ca2d": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -77,10 +82,11 @@
         "AimSpeed": 4,
         "Accuracy": 15,
         "ConflictingItems": [],
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Weight": 0.07,
         "VerticalRecoil": 0,
         "HorizontalRecoil": 0,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "AimStability": 3
     }
 }

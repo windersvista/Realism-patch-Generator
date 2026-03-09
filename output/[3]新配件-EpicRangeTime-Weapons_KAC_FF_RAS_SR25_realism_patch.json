@@ -4,13 +4,13 @@
         "ItemID": "9ecd437c07472b3eac377f31",
         "Name": "AR-10 Knights Armament 12.25 inch Free Float RAS handguard",
         "ModType": "",
-        "VerticalRecoil": -6,
-        "HorizontalRecoil": -4,
+        "VerticalRecoil": -5,
+        "HorizontalRecoil": -3,
         "Dispersion": -1,
-        "AimSpeed": 2,
-        "Ergonomics": 3,
+        "AimSpeed": 1,
+        "Ergonomics": 2,
         "Accuracy": 10,
-        "HeatFactor": 0.97,
+        "HeatFactor": 1.01,
         "CoolFactor": 0.99,
         "ConflictingItems": [
             "807cce3153fd6d07fa931fa1",
@@ -23,6 +23,8 @@
         ],
         "Weight": 0.487,
         "LoyaltyLevel": 2,
-        "Handling": 2.77
+        "Handling": 4.37,
+        "AimStability": 6,
+        "DurabilityBurnModificator": 1.0
     }
 }

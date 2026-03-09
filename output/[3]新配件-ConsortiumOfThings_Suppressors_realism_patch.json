@@ -4,8 +4,8 @@
         "ItemID": "686ad244771ad06c4fd8c970",
         "Name": "AAC Ti-RANT 45S .45 ACP 消音器",
         "ModType": "",
-        "VerticalRecoil": -3.76,
-        "HorizontalRecoil": -1,
+        "VerticalRecoil": -2.92,
+        "HorizontalRecoil": -2,
         "Dispersion": -1,
         "CameraRecoil": -1,
         "AutoROF": 0,
@@ -21,19 +21,21 @@
         "ConflictingItems": [],
         "Ergonomics": -4.2,
         "Weight": 0.108,
-        "Loudness": 6,
+        "Loudness": 7,
         "Convergence": 0,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Flash": -55,
+        "AimSpeed": 0
     },
     "686ad2e1cb1cd4ac811bfe81": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "686ad2e1cb1cd4ac811bfe81",
         "Name": "AAC Ti-RANT 45S .45 ACP 消音器（FDE色）",
         "ModType": "",
-        "VerticalRecoil": -3.83,
+        "VerticalRecoil": -3.36,
         "HorizontalRecoil": -2,
-        "Dispersion": 0,
-        "CameraRecoil": -1,
+        "Dispersion": -1,
+        "CameraRecoil": -2,
         "AutoROF": 0,
         "SemiROF": 0,
         "ModMalfunctionChance": 0,
@@ -47,8 +49,10 @@
         "ConflictingItems": [],
         "Ergonomics": -4.2,
         "Weight": 0.108,
-        "Loudness": 2,
+        "Loudness": 6,
         "Convergence": 0,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Flash": -50,
+        "AimSpeed": 0
     }
 }

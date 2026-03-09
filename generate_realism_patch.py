@@ -11,6 +11,12 @@ from typing import Dict, List, Any, Optional, Tuple, Mapping, TypedDict
 import copy
 from weapon_rule_ranges import WEAPON_PROFILE_RANGES
 from attachment_rule_ranges import MOD_PROFILE_RANGES
+from ammo_rule_ranges import (
+    AMMO_PROFILE_KEYWORDS,
+    AMMO_PROFILE_RANGES,
+    AMMO_PENETRATION_TIERS,
+    AMMO_PENETRATION_MODIFIERS,
+)
 from weapon_refinement_rules import (
     CALIBER_PROFILE_KEYWORDS,
     WEAPON_CALIBER_RULE_MODIFIERS,
@@ -580,12 +586,15 @@ class ItemInfo(TypedDict):
     parent_id: Optional[str]
     clone_id: Optional[str]
     template_id: Optional[str]
+    template_file: Optional[str]
     name: Optional[str]
     is_weapon: bool
     is_gear: bool
     is_consumable: bool
     item_type: Optional[str]
     properties: Dict[str, Any]
+    source_file: Optional[str]
+    format_type: Optional[str]
 
 
 PatchData = Dict[str, Any]
@@ -618,12 +627,110 @@ class RealismPatchGenerator:
         # 当文件内 CURRENT_PATCH 占比“超过该阈值”时，导出保持原文件名。
         # 0.5 表示“多数（>50%）即按原名输出”。
         self.current_patch_plain_ratio_threshold = 0.5
+        self._template_parent_index = self._build_template_parent_index()
+
+    def _build_template_parent_index(self) -> Dict[str, List[str]]:
+        """构建 template_file -> parent_id 列表索引（按 PARENT_ID_TO_TEMPLATE 反向生成）。"""
+        index: Dict[str, List[str]] = {}
+        for parent_id, template_path in PARENT_ID_TO_TEMPLATE.items():
+            # AMMO 是特殊标记，不是模板文件。
+            if template_path == "AMMO":
+                continue
+            template_name = os.path.basename(template_path)
+            index.setdefault(template_name, []).append(parent_id)
+        return index
 
     def _apply_field_clamps(self, patch: PatchData, clamp_rules: Mapping[str, Tuple[float | int, float | int]]):
         """按字段-区间规则批量夹紧。"""
         for field, (min_v, max_v) in clamp_rules.items():
             if field in patch:
                 patch[field] = self._clamp(patch[field], min_v, max_v)
+
+    def _infer_template_file_from_source_file(self, source_file: Optional[str]) -> Optional[str]:
+        """根据输入源相对路径推断模板文件名（优先服务 CURRENT_PATCH）。"""
+        if not source_file:
+            return None
+
+        source_path = Path(source_file)
+        if source_path.suffix:
+            template_name = source_path.name
+        else:
+            template_name = f"{source_path.name}.json"
+
+        # 只对规范目录启用，避免误将任意文件名当作模板。
+        top_level = source_path.parts[0].lower() if source_path.parts else ""
+        if top_level in {"weapons", "attatchments", "gear", "ammo", "consumables"}:
+            return template_name
+        return None
+
+    def _infer_parent_id_from_template_file(self, template_file: Optional[str]) -> Optional[str]:
+        """根据模板文件名反推 parent_id（CURRENT_PATCH 缺 parentId 时使用）。"""
+        if not template_file:
+            return None
+
+        parent_ids = self._template_parent_index.get(template_file, [])
+        if len(parent_ids) == 1:
+            return parent_ids[0]
+
+        # 多 parent 共享同模板时，给出稳定优先 parent（避免随机漂移）。
+        preferred_parent_by_template = {
+            "ScopeTemplates.json": "55818ae44bdc2dde698b456c",
+            "MuzzleDeviceTemplates.json": "550aa4bf4bdc2dd6348b456b",
+            "FlashlightLaserTemplates.json": "55818b084bdc2d5b648b4571",
+            "ReceiverTemplates.json": "55818a304bdc2db5418b457d",
+            "UBGLTempaltes.json": "55818b014bdc2ddc698b456b",
+            "armorPlateTemplates.json": "644120aa86ffbe10ee032b6f",
+            "meds.json": "5448f3ac4bdc2dce718b4569",
+            "food.json": "5448e8d04bdc2ddf718b4569",
+        }
+        preferred = preferred_parent_by_template.get(template_file)
+        if preferred:
+            return preferred
+
+        return None
+
+    def _enrich_item_info_with_source_context(
+        self,
+        info: ItemInfo,
+        item_data: JsonObject,
+        format_type: str,
+        source_file: Optional[str],
+    ):
+        """统一补全 item_info 上下文，让 CURRENT_PATCH 成为一等输入格式。"""
+        info["format_type"] = format_type
+        info["source_file"] = source_file
+
+        # 1) 先从 source_file 推模板文件，供 CURRENT_PATCH 直接使用。
+        if not info.get("template_file"):
+            source_template = self._infer_template_file_from_source_file(source_file)
+            if source_template:
+                info["template_file"] = source_template
+
+        # 2) parent_id 缺失时，按模板文件反推（武器/核心配件）。
+        if not info.get("parent_id") and info.get("template_file"):
+            inferred_parent = self._infer_parent_id_from_template_file(info.get("template_file"))
+            if inferred_parent:
+                info["parent_id"] = inferred_parent
+
+        # 3) 当前 patch 的 item_type 通常可信，用于稳定分类。
+        item_type = str(info.get("item_type") or item_data.get("$type") or "")
+        if item_type:
+            info["item_type"] = item_type
+        if "RealismMod.Gun" in item_type:
+            info["is_weapon"] = True
+        elif "RealismMod.Gear" in item_type:
+            info["is_gear"] = True
+        elif "RealismMod.Consumable" in item_type:
+            info["is_consumable"] = True
+
+        # 4) source_file 目录兜底分类（用于 item_type 异常或缺失场景）。
+        src = str(source_file or "").lower()
+        if src.startswith("weapons/"):
+            info["is_weapon"] = True
+        elif src.startswith("gear/"):
+            info["is_gear"] = True
+        elif src.startswith("consumables/"):
+            info["is_consumable"] = True
 
     def _rebuild_template_id_index(self):
         """构建模板ID索引，保持“先加载的模板优先”语义。"""
@@ -669,11 +776,33 @@ class RealismPatchGenerator:
 
         return round(sampled, 2)
 
-    def _apply_numeric_ranges(self, patch: PatchData, ranges: Dict[str, tuple]):
-        """按规则范围对补丁字段进行加权重算（仅当字段存在时）。"""
+    def _get_range_seed_value(self, min_v: float, max_v: float, prefer_int: bool) -> float | int:
+        """为缺失字段生成范围内的初始基准值。"""
+        if min_v > max_v:
+            min_v, max_v = max_v, min_v
+
+        # 区间跨过 0 时，以 0 作为中性基准；否则取中点。
+        seed = 0.0 if min_v <= 0 <= max_v else (min_v + max_v) / 2.0
+        if prefer_int:
+            return int(round(seed))
+        return float(seed)
+
+    def _apply_numeric_ranges(self, patch: PatchData, ranges: Dict[str, tuple], ensure_fields: bool = False):
+        """按规则范围对补丁字段进行加权重算。"""
         for key, range_pair in ranges.items():
-            if key in patch and isinstance(range_pair, tuple) and len(range_pair) == 2:
-                patch[key] = self._weighted_sample_in_range(patch[key], float(range_pair[0]), float(range_pair[1]))
+            if not (isinstance(range_pair, tuple) and len(range_pair) == 2):
+                continue
+
+            min_v = float(range_pair[0])
+            max_v = float(range_pair[1])
+            prefer_int = isinstance(range_pair[0], int) and isinstance(range_pair[1], int)
+
+            if key not in patch:
+                if not ensure_fields:
+                    continue
+                patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
+
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
 
     def _infer_weapon_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
         """推断武器规则档位。"""
@@ -682,6 +811,22 @@ class RealismPatchGenerator:
             for profile, parent_set in WEAPON_PARENT_GROUPS.items():
                 if parent_id in parent_set:
                     return profile
+
+        template_file = str((item_info or {}).get("template_file") or "") if item_info else ""
+        template_profile_map = {
+            "AssaultRifleTemplates.json": "assault",
+            "AssaultCarbineTemplates.json": "assault",
+            "PistolTemplates.json": "pistol",
+            "SMGTemplates.json": "smg",
+            "MarksmanRifleTemplates.json": "sniper",
+            "SniperRifleTemplates.json": "sniper",
+            "ShotgunTemplates.json": "shotgun",
+            "MachinegunTemplates.json": "machinegun",
+            "GrenadeLauncherTemplates.json": "launcher",
+            "SpecialWeaponTemplates.json": "assault",
+        }
+        if template_file in template_profile_map:
+            return template_profile_map[template_file]
 
         name = str(patch.get("Name", "")).lower()
         weap_type = str(patch.get("WeapType", "")).lower()
@@ -762,6 +907,116 @@ class RealismPatchGenerator:
 
         return "fixed_stock"
 
+    def _extract_ammo_caliber_text(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """提取弹药口径相关文本，用于口径分档推断。"""
+        candidates = [
+            patch.get("Caliber"),
+            patch.get("AmmoCaliber"),
+            patch.get("ammoCaliber"),
+            patch.get("ammoType"),
+            patch.get("Name"),
+        ]
+
+        if item_info and isinstance(item_info.get("properties"), dict):
+            props = item_info["properties"]
+            candidates.extend([
+                props.get("Caliber"),
+                props.get("AmmoCaliber"),
+                props.get("ammoCaliber"),
+                props.get("ammoType"),
+            ])
+
+        merged = " ".join(str(v) for v in candidates if v)
+        return merged.lower()
+
+    def _infer_ammo_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """根据口径关键词推断弹药分档。"""
+        caliber_text = self._extract_ammo_caliber_text(patch, item_info)
+        for profile, keywords in AMMO_PROFILE_KEYWORDS:
+            if any(keyword in caliber_text for keyword in keywords):
+                return profile
+
+        # 未匹配到关键词时，使用中间威力步枪弹作为默认档位。
+        return "intermediate_rifle"
+
+    def _try_parse_number(self, value: Any) -> Optional[float]:
+        """将输入值解析为数字。"""
+        if isinstance(value, bool):
+            return None
+        if isinstance(value, (int, float)):
+            return float(value)
+        if isinstance(value, str):
+            try:
+                return float(value.strip())
+            except ValueError:
+                return None
+        return None
+
+    def _extract_penetration_value(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[float]:
+        """提取穿深数值（PenetrationPower）。"""
+        pen_value = self._try_parse_number(patch.get("PenetrationPower"))
+        if pen_value is not None:
+            return pen_value
+
+        if item_info and isinstance(item_info.get("properties"), dict):
+            props = item_info["properties"]
+            for key in ["PenetrationPower", "Penetration", "penPower"]:
+                parsed = self._try_parse_number(props.get(key))
+                if parsed is not None:
+                    return parsed
+
+        return None
+
+    def _infer_ammo_penetration_tier(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """根据穿深推断弹药穿深档位。"""
+        penetration = self._extract_penetration_value(patch, item_info)
+        if penetration is None:
+            return "pen_medium"
+
+        for tier, pen_range in AMMO_PENETRATION_TIERS.items():
+            if not (isinstance(pen_range, tuple) and len(pen_range) == 2):
+                continue
+            min_pen = float(pen_range[0])
+            max_pen = float(pen_range[1])
+            if min_pen <= penetration <= max_pen:
+                return tier
+
+        return "pen_ap_extreme" if penetration > 64 else "pen_very_low"
+
+    def _apply_ammo_profile_ranges(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]):
+        """应用弹药规则：口径基础范围 + 穿深分层增量修正。"""
+        ammo_profile = self._infer_ammo_profile(patch, item_info)
+        if ammo_profile not in AMMO_PROFILE_RANGES:
+            return
+
+        penetration_tier = self._infer_ammo_penetration_tier(patch, item_info)
+        penetration_mods = AMMO_PENETRATION_MODIFIERS.get(penetration_tier, {})
+        base_ranges = AMMO_PROFILE_RANGES[ammo_profile]
+        malfunction_keys = {"MalfMisfireChance", "MisfireChance", "MalfFeedChance"}
+
+        for key, base_range in base_ranges.items():
+            if not (isinstance(base_range, tuple) and len(base_range) == 2):
+                continue
+
+            delta_pair = penetration_mods.get(key, (0.0, 0.0))
+            min_v = float(base_range[0]) + float(delta_pair[0])
+            max_v = float(base_range[1]) + float(delta_pair[1])
+            if min_v > max_v:
+                min_v, max_v = max_v, min_v
+
+            # 故障概率字段统一限制到规则约定区间。
+            if key in malfunction_keys:
+                min_v = self._clamp(min_v, 0.001, 0.015)
+                max_v = self._clamp(max_v, 0.001, 0.015)
+                if min_v > max_v:
+                    min_v, max_v = max_v, min_v
+
+            if key not in patch:
+                prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
+                patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
+
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
+
     def _apply_weapon_refinement_ranges(self, patch: PatchData, weapon_profile: Optional[str], item_info: Optional[Mapping[str, Any]]):
         """应用武器二级细分规则：口径 + 枪托形态。"""
         if not weapon_profile or weapon_profile not in WEAPON_PROFILE_RANGES:
@@ -775,8 +1030,12 @@ class RealismPatchGenerator:
 
         # 按基础范围 + 增量修正计算最终夹紧区间。
         for key, base_range in WEAPON_PROFILE_RANGES[weapon_profile].items():
-            if key not in patch or not isinstance(base_range, tuple) or len(base_range) != 2:
+            if not isinstance(base_range, tuple) or len(base_range) != 2:
                 continue
+
+            if key not in patch:
+                prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
+                patch[key] = self._get_range_seed_value(float(base_range[0]), float(base_range[1]), prefer_int)
 
             delta_min = 0.0
             delta_max = 0.0
@@ -802,7 +1061,7 @@ class RealismPatchGenerator:
         # 对基础档位未覆盖但二级规则有明确约束的字段，做补充夹紧。
         supplemental_keys = set(caliber_mods.keys()) | set(stock_mods.keys())
         for key in supplemental_keys:
-            if key in WEAPON_PROFILE_RANGES[weapon_profile] or key not in patch:
+            if key in WEAPON_PROFILE_RANGES[weapon_profile]:
                 continue
 
             ranges = []
@@ -817,6 +1076,10 @@ class RealismPatchGenerator:
             max_v = sum(float(r[1]) for r in ranges)
             if min_v > max_v:
                 min_v, max_v = max_v, min_v
+
+            if key not in patch:
+                prefer_int = all(isinstance(bound, int) for pair in ranges for bound in pair)
+                patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
 
             patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
 
@@ -910,6 +1173,8 @@ class RealismPatchGenerator:
 
     def _infer_mod_profile_from_name_fallback(self, name: str, item_info: Optional[Mapping[str, Any]], patch: PatchData) -> Optional[str]:
         """缺失 parentId/ModType 时，按名称兜底推断附件档位。"""
+        if name.startswith("gas_block_") or name.startswith("gasblock_") or "gas block" in name:
+            return "gasblock"
         if name.startswith("foregrip_"):
             return "foregrip"
         if name.startswith("pistolgrip_"):
@@ -922,7 +1187,7 @@ class RealismPatchGenerator:
             return "buffer_adapter"
         if name.startswith("stock_"):
             return self._infer_mod_stock_profile(name, patch, item_info)
-        if name.startswith("receiver_"):
+        if name.startswith("receiver_") or name.startswith("reciever_"):
             return "receiver"
         if name.startswith("mount_"):
             return "mount"
@@ -946,7 +1211,48 @@ class RealismPatchGenerator:
             return "muzzle_suppressor"
         if name.startswith("muzzle_") or "flashhider" in name or "compensator" in name:
             return "muzzle_flashhider"
+        if any(k in name for k in ["flashlight", "laser", "tactical", "peq", "dbal", "x400", "xc1"]):
+            return "flashlight_laser"
         return None
+
+    def _infer_mod_profile_from_template_file(self, template_file: str, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
+        """根据模板文件名兜底推断附件档位，避免规则漏命中。"""
+        template_name = os.path.basename(template_file)
+        item_name = str(patch.get("Name", "")).lower()
+
+        if template_name == "MagazineTemplates.json":
+            mag_capacity = self._extract_mag_capacity(item_info, item_name)
+            return self._infer_magazine_profile(mag_capacity, item_name)
+        if template_name == "BarrelTemplates.json":
+            if any(k in item_name for k in ["short", "sbr", "10\"", "11\"", "12\""]):
+                return "barrel_short"
+            if any(k in item_name for k in ["long", "20\"", "22\"", "24\""]):
+                return "barrel_long"
+            return "barrel_medium"
+        if template_name == "HandguardTemplates.json":
+            if any(k in item_name for k in ["short", "carbine"]):
+                return "handguard_short"
+            if any(k in item_name for k in ["long", "extended"]):
+                return "handguard_long"
+            return "handguard_medium"
+        if template_name == "StockTemplates.json":
+            return self._infer_mod_stock_profile(item_name, patch, item_info)
+
+        template_profile_map = {
+            "MuzzleDeviceTemplates.json": "muzzle_flashhider",
+            "ForegripTemplates.json": "foregrip",
+            "PistolGripTemplates.json": "pistol_grip",
+            "ReceiverTemplates.json": "receiver",
+            "GasblockTemplates.json": "gasblock",
+            "MountTemplates.json": "mount",
+            "FlashlightLaserTemplates.json": "flashlight_laser",
+            "IronSightTemplates.json": "iron_sight",
+        }
+
+        if template_name == "ScopeTemplates.json":
+            return self._infer_sight_profile_from_name(item_name) or "scope_red_dot"
+
+        return template_profile_map.get(template_name)
 
     def _infer_mod_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
         """推断附件细分规则档位。"""
@@ -991,6 +1297,8 @@ class RealismPatchGenerator:
 
         if mod_type in ["grip", "foregrip"]:
             return "foregrip"
+        if mod_type in ["gas", "gasblock", "gas_block"]:
+            return "gasblock"
         if mod_type in ["stock_adapter"]:
             return "stock_adapter"
         if mod_type in ["buffer_adapter", "buffer_tube"]:
@@ -1024,6 +1332,12 @@ class RealismPatchGenerator:
         fallback_profile = self._infer_mod_profile_from_name_fallback(name, item_info, patch)
         if fallback_profile:
             return fallback_profile
+
+        template_file = str((item_info or {}).get("template_file") or "")
+        if template_file:
+            template_profile = self._infer_mod_profile_from_template_file(template_file, patch, item_info)
+            if template_profile:
+                return template_profile
 
         return base_profile
 
@@ -1081,6 +1395,11 @@ class RealismPatchGenerator:
             patch.setdefault("Weight", 0.1)
             patch.setdefault("LoyaltyLevel", 1)
             patch.setdefault("ModType", "")
+        elif "RealismMod.Ammo" in item_type:
+            patch.setdefault("$type", "RealismMod.Ammo, RealismMod")
+            patch.setdefault("Name", (item_info or {}).get("name") or f"ammo_{patch.get('ItemID', 'unknown')}")
+            patch.setdefault("LoyaltyLevel", 1)
+            patch.setdefault("BasePriceModifier", 1)
 
     def apply_realism_sanity_check(self, patch: PatchData, item_info: Optional[Mapping[str, Any]] = None):
         """
@@ -1104,7 +1423,7 @@ class RealismPatchGenerator:
             # 应用武器新规则范围
             weapon_profile = self._infer_weapon_profile(patch, item_info)
             if weapon_profile and weapon_profile in WEAPON_PROFILE_RANGES:
-                self._apply_numeric_ranges(patch, WEAPON_PROFILE_RANGES[weapon_profile])
+                self._apply_numeric_ranges(patch, WEAPON_PROFILE_RANGES[weapon_profile], ensure_fields=True)
                 self._apply_weapon_refinement_ranges(patch, weapon_profile, item_info)
 
             # 文档要求手枪默认无抵肩
@@ -1120,11 +1439,14 @@ class RealismPatchGenerator:
             # 应用附件新规则范围
             mod_profile = self._infer_mod_profile(patch, item_info)
             if mod_profile and mod_profile in MOD_PROFILE_RANGES:
-                self._apply_numeric_ranges(patch, MOD_PROFILE_RANGES[mod_profile])
+                self._apply_numeric_ranges(patch, MOD_PROFILE_RANGES[mod_profile], ensure_fields=True)
 
             # 文档要求消音器必须可循环亚音速弹
             if mod_profile == "muzzle_suppressor" and "CanCycleSubs" in patch:
                 patch["CanCycleSubs"] = True
+
+        elif "RealismMod.Ammo" in item_type:
+            self._apply_ammo_profile_ranges(patch, item_info)
 
         elif "RealismMod.Gear" in item_type:
             self._apply_field_clamps(patch, GEAR_CLAMP_RULES)
@@ -1302,18 +1624,24 @@ class RealismPatchGenerator:
             "parent_id": None,
             "clone_id": None,
             "template_id": None,
+            "template_file": None,
             "name": None,
             "is_weapon": False,
             "is_gear": False,
             "is_consumable": False,
             "item_type": None,
-            "properties": {}
+            "properties": {},
+            "source_file": None,
+            "format_type": None,
         }
 
     def _extract_template_id_info(self, info: ItemInfo, item_data: JsonObject):
         info["template_id"] = item_data.get("TemplateID")
         info["name"] = item_data.get("Name")
         info["item_type"] = item_data.get("$type")
+        template_id = info.get("template_id")
+        if template_id:
+            info["template_file"] = self._find_template_file_by_template_id(template_id)
         item_type = str(info.get("item_type") or "")
         if "RealismMod.Gun" in item_type:
             info["is_weapon"] = True
@@ -1335,6 +1663,18 @@ class RealismPatchGenerator:
 
         if "parentId" in item_data:
             info["parent_id"] = self.normalize_parent_id(item_data.get("parentId"))
+        if info["parent_id"]:
+            info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
+
+        # CURRENT_PATCH 常见缺失 parentId/ModType，按名称和 ModType 兜底模板文件，
+        # 避免 receiver/reciever 等规则因 profile 推断失败而漏命中。
+        if not info["template_file"]:
+            name_l = str(info.get("name") or "").lower()
+            mod_type_l = str(item_data.get("ModType") or "").lower()
+            if name_l.startswith("receiver_") or name_l.startswith("reciever_") or mod_type_l == "receiver":
+                info["template_file"] = "ReceiverTemplates.json"
+            elif name_l.startswith("gas_block_") or name_l.startswith("gasblock_") or mod_type_l in ["gas", "gasblock", "gas_block"]:
+                info["template_file"] = "GasblockTemplates.json"
 
         item_type = str(info.get("item_type") or "")
         if "RealismMod.Gun" in item_type:
@@ -1351,6 +1691,8 @@ class RealismPatchGenerator:
         info["parent_id"] = self.normalize_parent_id(item_obj.get("_parent"))
         info["name"] = item_obj.get("_name")
         info["properties"] = item_obj.get("_props", {})
+        if info["parent_id"]:
+            info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
         if "isweapon" in item_data:
             info["is_weapon"] = item_data["isweapon"]
         elif info["parent_id"]:
@@ -1360,6 +1702,8 @@ class RealismPatchGenerator:
         info["parent_id"] = self.normalize_parent_id(item_data.get("parentId"))
         info["clone_id"] = item_data.get("itemTplToClone")
         info["properties"] = item_data.get("overrideProperties", {})
+        if info["parent_id"]:
+            info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
 
         locales = item_data.get("locales")
         if isinstance(locales, dict):
@@ -1408,8 +1752,16 @@ class RealismPatchGenerator:
             info["properties"] = item_data[item_obj_key]["_props"]
             if not info["parent_id"] and "_parent" in item_data[item_obj_key]:
                 info["parent_id"] = self.normalize_parent_id(item_data[item_obj_key]["_parent"])
+        if info["parent_id"]:
+            info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
     
-    def extract_item_info(self, item_id: str, item_data: JsonObject, format_type: str) -> ItemInfo:
+    def extract_item_info(
+        self,
+        item_id: str,
+        item_data: JsonObject,
+        format_type: str,
+        source_file: Optional[str] = None,
+    ) -> ItemInfo:
         """根据格式提取物品信息"""
         info = self._create_empty_item_info(item_id)
 
@@ -1425,6 +1777,8 @@ class RealismPatchGenerator:
             self._extract_itemtoclone_info(info, item_data)
         elif format_type == "CLONE":
             self._extract_clone_info(info, item_data)
+
+        self._enrich_item_info_with_source_context(info, item_data, format_type, source_file)
 
         return info
     
@@ -1567,6 +1921,15 @@ class RealismPatchGenerator:
         if template_item is None:
             return None
         return copy.deepcopy(template_item)
+
+    def _find_template_file_by_template_id(self, template_id: str) -> Optional[str]:
+        """返回模板ID所在的模板文件名。"""
+        if not template_id:
+            return None
+        for template_file, template_data in self.templates.items():
+            if isinstance(template_data, dict) and template_id in template_data:
+                return template_file
+        return None
     
     def select_template_data(self, template_file: str, item_id: str, clone_id: Optional[str] = None) -> Optional[Dict]:
         """从模板文件中选择合适的数据"""
@@ -1932,6 +2295,7 @@ class RealismPatchGenerator:
             return False
 
         item_info["parent_id"] = parent_id
+        item_info["template_file"] = self.get_template_for_parent_id(parent_id)
         item_info["is_weapon"] = self.is_weapon(parent_id)
         item_info["is_gear"] = self.is_gear_simple(parent_id)
         item_info["is_consumable"] = self.is_consumable(parent_id)
@@ -2114,7 +2478,7 @@ class RealismPatchGenerator:
         if format_type == "UNKNOWN":
             return False
 
-        item_info = self.extract_item_info(item_id, item_data, format_type)
+        item_info = self.extract_item_info(item_id, item_data, format_type, source_file)
         clone_id = item_info.get("clone_id")
         template_id = item_info.get("template_id")
 
@@ -2346,7 +2710,7 @@ class RealismPatchGenerator:
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义MOD兼容补丁生成器 v2.11")
+    print("EFT 现实主义MOD兼容补丁生成器 v3.6")
     print("=" * 60)
     
     # 获取脚本所在目录

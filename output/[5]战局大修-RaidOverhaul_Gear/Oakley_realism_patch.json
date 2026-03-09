@@ -4,10 +4,10 @@
         "ItemID": "6621b28d9411498998d408c3",
         "Name": "Oakley Kitchen Sink 支援型背包",
         "AllowADS": true,
-        "LoyaltyLevel": 3,
+        "LoyaltyLevel": 2,
         "ReloadSpeedMulti": 1,
-        "Comfort": 0.84,
-        "speedPenaltyPercent": -3,
+        "Comfort": 1.16,
+        "speedPenaltyPercent": -1.6,
         "mousePenalty": 0,
         "weaponErgonomicPenalty": 0
     }

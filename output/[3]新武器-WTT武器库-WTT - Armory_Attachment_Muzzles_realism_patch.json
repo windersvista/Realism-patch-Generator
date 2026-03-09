@@ -19,11 +19,11 @@
         "Velocity": 0,
         "RecoilAngle": 0,
         "ConflictingItems": [],
-        "Ergonomics": -1.2,
+        "Ergonomics": -0.27,
         "Weight": 0.105,
         "Loudness": 40,
         "Convergence": 0,
         "LoyaltyLevel": 3,
-        "Flash": 2
+        "Flash": 0
     }
 }

@@ -11,7 +11,7 @@
         "ModMalfunctionChance": 0,
         "AimSpeed": 0,
         "ReloadSpeed": 0,
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 4,
         "ConflictingItems": [],
         "FixSpeed": 0,
@@ -19,7 +19,8 @@
         "CoolFactor": 1,
         "DurabilityBurnModificator": 1,
         "Weight": 0.007,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "Handling": -4
     },
     "685760329044ae9bac9012c3": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -30,7 +31,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.113,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "6857624d565daea78886d0c2": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -41,40 +49,68 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.113,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68599b6ad4d99d0c051b5964": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68599b6ad4d99d0c051b5964",
         "Name": "Unity Tactical FAST Micro sight mount (Bronze)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68599c5272359bd6b568656c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68599c5272359bd6b568656c",
         "Name": "Unity Tactical FAST Micro sight mount (Green)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68599c64f0a918bcd731198f": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68599c64f0a918bcd731198f",
         "Name": "Unity Tactical FAST Micro sight mount (White)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685ac95d7bde7c5e19ba8d89": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -85,7 +121,14 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685acb7cdabf1c595fd9b3b7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -96,18 +139,32 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685aca4843d2be6cbdb61499": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "685aca4843d2be6cbdb61499",
         "Name": "Unity Tactical FAST MRDS ACRO baseplate",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": -1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685aca6e995b4ebe27611124": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -118,29 +175,50 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685aca8b8281c25f7215539a": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "685aca8b8281c25f7215539a",
         "Name": "Unity Tactical FAST MRDS 509T baseplate",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685acac1d26e2f22bbe47797": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "685acac1d26e2f22bbe47797",
         "Name": "Unity Tactical FAST MRDS RMR baseplate",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.017,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685e519eacaed4c4e66980a7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -148,10 +226,17 @@
         "Name": "Unity Tactical FAST COMP-series scope mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 2,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.075,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685e52a030452e0aa23b53b6": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -159,10 +244,17 @@
         "Name": "Unity Tactical FAST COMP-series scope mount (FDE)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 2,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.075,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685e52e7038ea03a82a7a2c1": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -170,32 +262,53 @@
         "Name": "Unity Tactical FAST COMP-series scope mount (Bronze)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 2,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.075,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685e5326a119194a7cbaa34e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "685e5326a119194a7cbaa34e",
         "Name": "Unity Tactical FAST COMP-series scope mount (Green)",
         "ModType": "mount",
-        "Ergonomics": 1,
-        "Accuracy": 2,
+        "Ergonomics": 0,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.075,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "685e5339826695a4b438120c": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "685e5339826695a4b438120c",
         "Name": "Unity Tactical FAST COMP-series scope mount (White)",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": 2,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.075,
-        "LoyaltyLevel": 1
+        "LoyaltyLevel": 1,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68611c8d57834d1471676982": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -206,42 +319,70 @@
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68611d271b5181217dee6c31": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68611d271b5181217dee6c31",
         "Name": "Kastle Group FRT 226 scope mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "68611d79d2f8c2caf35ddd39": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "68611d79d2f8c2caf35ddd39",
         "Name": "Kastle Group FRT 226 scope mount (Sand)",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a950f332bd39442d996c7": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "686a950f332bd39442d996c7",
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount",
         "ModType": "mount",
-        "Ergonomics": 0,
-        "Accuracy": 9,
+        "Ergonomics": -1,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a959fea53389283823a5e": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -249,12 +390,19 @@
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (FDE)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a95d3d23099a58e981e27": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -262,12 +410,19 @@
         "Name": "Unity Tactical FAST LPVO 30mm ring scope mount (Olive Drab)",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.194,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a95919c10df31081c9e2b": {
         "$type": "RealismMod.WeaponMod, RealismMod",
@@ -275,33 +430,54 @@
         "Name": "Unity Tactical FAST LPVO canted optic mount",
         "ModType": "mount",
         "Ergonomics": 0,
-        "Accuracy": 9,
+        "Accuracy": 0,
         "ConflictingItems": [
             "5ae30bad5acfc400185c2dc4"
         ],
         "Weight": 0.015,
-        "LoyaltyLevel": 4
+        "LoyaltyLevel": 4,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a990e217f312ed3fe65bf": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "686a990e217f312ed3fe65bf",
         "Name": "Unity Tactical FAST MRO sight mount",
         "ModType": "mount",
-        "Ergonomics": 1,
+        "Ergonomics": 0,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     },
     "686a99b24e95c2b6c57ef026": {
         "$type": "RealismMod.WeaponMod, RealismMod",
         "ItemID": "686a99b24e95c2b6c57ef026",
         "Name": "Unity Tactical FAST MRO sight mount (FDE)",
         "ModType": "mount",
-        "Ergonomics": 0,
+        "Ergonomics": 1,
         "Accuracy": 0,
         "ConflictingItems": [],
         "Weight": 0.015,
-        "LoyaltyLevel": 2
+        "LoyaltyLevel": 2,
+        "VerticalRecoil": 0,
+        "HorizontalRecoil": 0,
+        "Dispersion": 0,
+        "AimStability": 0,
+        "Handling": 0,
+        "HeatFactor": 0.01,
+        "CoolFactor": 0.01
     }
 }

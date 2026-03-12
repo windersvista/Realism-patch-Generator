@@ -9,9 +9,9 @@
 WEAPON_CALIBER_RULE_MODIFIERS = {
     # 9x19 / .45 ACP / 10mm
     "pistol_caliber": {
-        "VerticalRecoil": (10, 30),
-        "HorizontalRecoil": (8, 55),
-        "Convergence": (1, 3),
+        "VerticalRecoil": (10, 25),
+        "HorizontalRecoil": (12, 55),
+        "Convergence": (1, 4),
         "Velocity": (-3, 2),
         "RecoilIntensity": (0.01, 0.06),
     },

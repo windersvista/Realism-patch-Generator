@@ -1,11 +1,15 @@
 @echo off
 chcp 65001 >nul
 echo ============================================================
-echo EFT 现实主义数值生成器 v3.12
+echo EFT 现实主义数值生成器 v3.15
 echo ============================================================
 echo.
 
-python generate_realism_patch.py
+if exist ".venv\Scripts\python.exe" (
+	".venv\Scripts\python.exe" generate_realism_patch.py
+) else (
+	python generate_realism_patch.py
+)
 
 echo.
 echo ============================================================

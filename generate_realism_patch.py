@@ -9,6 +9,16 @@ import re
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple, Mapping, TypedDict
 import copy
+from generator_static_data import (
+    DEFAULT_AMMO_TEMPLATE,
+    DEFAULT_CONSUMABLE_TEMPLATE,
+    DEFAULT_MOD_TEMPLATE,
+    DEFAULT_WEAPON_TEMPLATE,
+    HANDBOOK_PARENT_TO_ID,
+    ITEM_TYPE_NAME_TO_ID,
+    MOD_TYPE_SPECIFIC_ATTRS,
+    PARENT_ID_TO_TEMPLATE,
+)
 from weapon_rule_ranges import WEAPON_PROFILE_RANGES
 from attachment_rule_ranges import MOD_PROFILE_RANGES
 from ammo_rule_ranges import (
@@ -24,507 +34,6 @@ from weapon_refinement_rules import (
     WEAPON_CALIBER_RULE_MODIFIERS,
     WEAPON_STOCK_RULE_MODIFIERS,
 )
-
-# 定义parentId到模板文件的映射 (基于 itemBaseClasses.md 完整映射)
-PARENT_ID_TO_TEMPLATE = {
-    # ===== 武器类型映射 =====
-    # 突击步枪 (ASSAULT_RIFLE)
-    "5447b5f14bdc2d61278b4567": "weapons/AssaultRifleTemplates.json",
-    # 突击卡宾枪 (ASSAULT_CARBINE)
-    "5447b5fc4bdc2d87278b4567": "weapons/AssaultCarbineTemplates.json",
-    # 手枪 (HANDGUN)
-    "5447b5cf4bdc2d65278b4567": "weapons/PistolTemplates.json",
-    # 机枪 (MACHINEGUN)
-    "5447bed64bdc2d97278b4568": "weapons/MachinegunTemplates.json",
-    # 精确射手步枪 (MARKSMAN_RIFLE)
-    "5447b6194bdc2d67278b4567": "weapons/MarksmanRifleTemplates.json",
-    # 狙击步枪 (SNIPER_RIFLE)
-    "5447b6254bdc2dc3278b4568": "weapons/SniperRifleTemplates.json",
-    # 霰弹枪 (SHOTGUN)
-    "5447b6094bdc2dc3278b4567": "weapons/ShotgunTemplates.json",
-    # 冲锋枪 (SMG) - 注: itemBaseClasses 中没有SMG，这是原有映射
-    "5447b5e04bdc2d62278b4567": "weapons/SMGTemplates.json",
-    # 榴弹发射器 (GRENADE_LAUNCHER)
-    "5447bedf4bdc2d87278b4568": "weapons/GrenadeLauncherTemplates.json",
-    # 特殊武器 - 其他武器相关ID
-    "617f1ef5e8b54b0998387732": "weapons/SpecialWeaponTemplates.json",
-    "617f1ef5e8b54b0998387733": "weapons/GrenadeLauncherTemplates.json",
-    # 投掷武器 (THROWABLE_WEAPON)
-    "543be6564bdc2df4348b4568": "weapons/ThrowableTemplates.json",
-    # 近战武器 (KNIFE)
-    "5447e1d04bdc2dff2f8b4567": "weapons/MeleeTemplates.json",
-    
-    # ===== 配件类型映射 =====
-    # 枪管 (BARREL)
-    "555ef6e44bdc2de9068b457e": "attatchments/BarrelTemplates.json",
-    # 双脚架 (BIPOD)
-    "55818afb4bdc2dde698b456d": "attatchments/ForegripTemplates.json",
-    # 拉机柄 (CHARGING_HANDLE)
-    "55818a6f4bdc2db9688b456b": "attatchments/ChargingHandleTemplates.json",
-    # 紧凑型反射瞄具 (COMPACT_REFLEX_SIGHT)
-    "55818acf4bdc2dde698b456b": "attatchments/ScopeTemplates.json",
-    # 消焰器 (FLASHHIDER)
-    "550aa4bf4bdc2dd6348b456b": "attatchments/MuzzleDeviceTemplates.json",
-    # 手电筒 (FLASHLIGHT)
-    "55818b084bdc2d5b648b4571": "attatchments/FlashlightLaserTemplates.json",
-    # 战术组合装置 (TacticalCombo)
-    "55818b164bdc2ddc698b456c": "attatchments/FlashlightLaserTemplates.json",
-    # 前握把 (FOREGRIP)
-    "55818af64bdc2d5b648b4570": "attatchments/ForegripTemplates.json",
-    # 导气箍 (GAS_BLOCK)
-    "56ea9461d2720b67698b456f": "attatchments/GasblockTemplates.json",
-    # 护木 (HANDGUARD)
-    "55818a104bdc2db9688b4569": "attatchments/HandguardTemplates.json",
-    # 机械瞄具 (IRON_SIGHT)
-    "55818ac54bdc2d5b648b456e": "attatchments/IronSightTemplates.json",
-    # 弹匣 (MAGAZINE)
-    "5448bc234bdc2d3c308b4569": "attatchments/MagazineTemplates.json",
-    # 导轨/基座 (MOUNT)
-    "55818b224bdc2dde698b456f": "attatchments/MountTemplates.json",
-    # 枪口组合装置 (MUZZLECOMBO)
-    "550aa4dd4bdc2dc9348b4569": "attatchments/MuzzleDeviceTemplates.json",
-    # 手枪握把 (PISTOLGRIP)
-    "55818a684bdc2ddd698b456d": "attatchments/PistolGripTemplates.json",
-    # 机匣 (RECEIVER)
-    "55818a304bdc2db5418b457d": "attatchments/ReceiverTemplates.json",
-    # 反射瞄具 (REFLEX_SIGHT)
-    "55818ad54bdc2ddc698b4569": "attatchments/ScopeTemplates.json",
-    # 瞄准镜 (SCOPE)
-    "55818ae44bdc2dde698b456c": "attatchments/ScopeTemplates.json",
-    # 消音器 (SILENCER)
-    "550aa4cd4bdc2dd8348b456c": "attatchments/MuzzleDeviceTemplates.json",
-    # 枪托 (STOCK)
-    "55818a594bdc2db9688b456a": "attatchments/StockTemplates.json",
-    # 下挂榴弹发射器 (UBGL)
-    "55818b014bdc2ddc698b456b": "attatchments/UBGLTempaltes.json",
-    # 突击型瞄准镜 (ASSAULT_SCOPE)
-    "55818add4bdc2d5b648b456f": "attatchments/ScopeTemplates.json",
-    # 战术装置/激光
-    "5a74651486f7744e73386dd1": "attatchments/FlashlightLaserTemplates.json",
-    "5448fe124bdc2da5018b4567": "attatchments/FlashlightLaserTemplates.json",
-    # 辅助配件
-    "5448fe394bdc2d0d028b456c": "attatchments/AuxiliaryModTemplates.json",
-    # 其他机匣相关
-    "55818b0f4bdc2db9688b4569": "attatchments/ReceiverTemplates.json",
-    # 拉机柄 (充电手柄)
-    "55818b1d4bdc2d5b648b4572": "attatchments/ChargingHandleTemplates.json",
-    # 下挂榴弹发射器 (备用ID)
-    "617f1ef5e8b54b0998387734": "attatchments/UBGLTempaltes.json",
-    
-    # ===== 护甲和装备类型映射 =====
-    # 护甲 (ARMOR)
-    "5448e54d4bdc2dcc718b4568": "gear/armorVestsTemplates.json",
-    # 装甲板 (ARMORPLATE)
-    "644120aa86ffbe10ee032b6f": "gear/armorPlateTemplates.json",
-    # 装甲插板 (Armor_Plate)
-    "5b5f704686f77447ec5d76d7": "gear/armorPlateTemplates.json",
-    # 背包 (BACKPACK)
-    "5448e53e4bdc2d60728b4567": "gear/bagTemplates.json",
-    # 胸挂 (CHEST_RIG)
-    "5448e5284bdc2dcb718b4567": "gear/chestrigTemplates.json",
-    # 护甲装备 (ARMORED_EQUIPMENT)
-    "57bef4c42459772e8d35a53b": "gear/armorChestrigTemplates.json",
-    # 头盔 (HEADWEAR)
-    "5a341c4086f77401f2541505": "gear/helmetTemplates.json",
-    # 面罩 (FACECOVER)
-    "5a341c4686f77469e155819e": "gear/armorMasksTemplates.json",
-    # 耳机 (HEADPHONES)
-    "5645bcb74bdc2ded0b8b4578": "gear/headsetTemplates.json",
-    # 臂章 (ARMBAND)
-    "5b3f15d486f77432d0509248": "gear/cosmeticsTemplates.json",
-    # 物品组件/模组 (Armor components)
-    "55d7217a4bdc2d86028b456d": "gear/armorComponentsTemplates.json",
-    # 夜视仪 (NIGHTVISION)
-    "5a2c3a9486f774688b05e574": "equipment/NightVisionTemplates.json",
-    # 热成像 (THERMALVISION)
-    "5d21f59b6dbe99052b54ef83": "equipment/ThermalVisionTemplates.json",
-    # 便携式测距仪 (PORTABLE_RANGEFINDER)
-    "61605ddea09d851a0a0c1bbc": "equipment/RangefinderTemplates.json",
-    # 指南针 (COMPASS)
-    "5f4fbaaca5573a5ac31db429": "equipment/CompassTemplates.json",
-    
-    # ===== 消耗品类型映射 =====
-    # 子弹 (AMMO) - 特殊标识
-    "5485a8684bdc2da71d8b4567": "AMMO",
-    # 医疗用品 (MEDICAL_ITEM)
-    "5448f3ac4bdc2dce718b4569": "consumables/meds.json",
-    # 医疗包 (MEDITKIT)
-    "5448f39d4bdc2d0a728b4568": "consumables/meds.json",
-    # 药品 (DRUG)
-    "5448f3a14bdc2d27728b4569": "consumables/meds.json",
-    # 兴奋剂 (STIMULANT)
-    "5448f3a64bdc2d60728b456a": "consumables/meds.json",
-    # 食物 (FOOD)
-    "5448e8d04bdc2ddf718b4569": "consumables/food.json",
-    # 饮料 (DRINK)
-    "5448e8d64bdc2dce718b4568": "consumables/food.json",
-    
-    # ===== 其他物品类型 =====
-    # 弹药盒 (AMMO_CONTAINER)
-    "543be5cb4bdc2deb348b4568": "containers/AmmoContainerTemplates.json",
-    # 通用容器 (COMMON_CONTAINER)
-    "5795f317245977243854e041": "containers/CommonContainerTemplates.json",
-    # 上锁容器 (LOCKING_CONTAINER)
-    "5671435f4bdc2d96058b4569": "containers/LockingContainerTemplates.json",
-    # 钥匙卡 (KEYCARD)
-    "5c164d2286f774194c5e69fa": "items/KeycardTemplates.json",
-    # 机械钥匙 (KEYMECHANICAL)
-    "5c99f98d86f7745c314214b3": "items/KeyMechanicalTemplates.json",
-    # 金钱 (MONEY)
-    "543be5dd4bdc2deb348b4569": "items/MoneyTemplates.json",
-    # 修理工具 (REPAIRKITS)
-    "616eb7aea207f41933308f46": "items/RepairKitTemplates.json",
-    # 工具 (TOOL)
-    "57864bb7245977548b3b66c2": "items/ToolTemplates.json",
-    # 地图 (MAP)
-    "567849dd4bdc2d150f8b456e": "items/MapTemplates.json",
-    # 燃料 (FUEL)
-    "5d650c3e815116009f6201d2": "items/FuelTemplates.json",
-    # 润滑剂 (LUBRICANT)
-    "57864e4c24597754843f8723": "items/LubricantTemplates.json",
-    # 电池 (BATTERY)
-    "57864ee62459775490116fc1": "items/BatteryTemplates.json",
-    # 电子设备 (ELECTRONICS)
-    "57864a66245977548f04a81f": "items/ElectronicsTemplates.json",
-    # 建筑材料 (BUILDING_MATERIAL)
-    "57864ada245977548638de91": "items/BuildingMaterialTemplates.json",
-    # 医疗用品 (MEDICAL_SUPPLIES)
-    "57864c8c245977548867e7f1": "items/MedicalSuppliesTemplates.json",
-    # 信息 (INFO)
-    "5448ecbe4bdc2d60728b4568": "items/InfoTemplates.json",
-    # 特殊物品 (SPECIAL_ITEM)
-    "5447e0e74bdc2d3c308b4567": "items/SpecialItemTemplates.json",
-}
-
-# 定义物品类型名称到ID的映射 (用于处理parentId为字符串名称的情况，如 "GAS_BLOCK" -> "56ea9461d2720b67698b456f")
-ITEM_TYPE_NAME_TO_ID = {
-    # 武器类型
-    "ASSAULT_RIFLE": "5447b5f14bdc2d61278b4567",
-    "ASSAULT_CARBINE": "5447b5fc4bdc2d87278b4567",
-    "HANDGUN": "5447b5cf4bdc2d65278b4567",
-    "MACHINEGUN": "5447bed64bdc2d97278b4568",
-    "MARKSMAN_RIFLE": "5447b6194bdc2d67278b4567",
-    "SNIPER_RIFLE": "5447b6254bdc2dc3278b4568",
-    "SHOTGUN": "5447b6094bdc2dc3278b4567",
-    "SMG": "5447b5e04bdc2d62278b4567",
-    "GRENADE_LAUNCHER": "5447bedf4bdc2d87278b4568",
-    "THROWABLE_WEAPON": "543be6564bdc2df4348b4568",
-    "KNIFE": "5447e1d04bdc2dff2f8b4567",
-    
-    # 配件类型
-    "BARREL": "555ef6e44bdc2de9068b457e",
-    "BIPOD": "55818afb4bdc2dde698b456d",
-    "CHARGING_HANDLE": "55818a6f4bdc2db9688b456b",
-    "COMPACT_REFLEX_SIGHT": "55818acf4bdc2dde698b456b",
-    "FLASHHIDER": "550aa4bf4bdc2dd6348b456b",
-    "FLASHLIGHT": "55818b084bdc2d5b648b4571",
-    "TacticalCombo": "55818b164bdc2ddc698b456c",
-    "FOREGRIP": "55818af64bdc2d5b648b4570",
-    "GAS_BLOCK": "56ea9461d2720b67698b456f",
-    "HANDGUARD": "55818a104bdc2db9688b4569",
-    "IRON_SIGHT": "55818ac54bdc2d5b648b456e",
-    "MAGAZINE": "5448bc234bdc2d3c308b4569",
-    "MOUNT": "55818b224bdc2dde698b456f",
-    "MUZZLECOMBO": "550aa4dd4bdc2dc9348b4569",
-    "PISTOLGRIP": "55818a684bdc2ddd698b456d",
-    "RECEIVER": "55818a304bdc2db5418b457d",
-    "REFLEX_SIGHT": "55818ad54bdc2ddc698b4569",
-    "SCOPE": "55818ae44bdc2dde698b456c",
-    "SILENCER": "550aa4cd4bdc2dd8348b456c",
-    "STOCK": "55818a594bdc2db9688b456a",
-    "UBGL": "55818b014bdc2ddc698b456b",
-    "ASSAULT_SCOPE": "55818add4bdc2d5b648b456f",
-    
-    # 护甲和装备
-    "ARMOR": "5448e54d4bdc2dcc718b4568",
-    "ARMORPLATE": "644120aa86ffbe10ee032b6f",
-    "Armor_Plate": "5b5f704686f77447ec5d76d7",
-    "BACKPACK": "5448e53e4bdc2d60728b4567",
-    "CHEST_RIG": "5448e5284bdc2dcb718b4567",
-    "ARMORED_EQUIPMENT": "57bef4c42459772e8d35a53b",
-    "HEADWEAR": "5a341c4086f77401f2541505",
-    "FACECOVER": "5a341c4686f77469e155819e",
-    "HEADPHONES": "5645bcb74bdc2ded0b8b4578",
-    "ARMBAND": "5b3f15d486f77432d0509248",
-    "NIGHTVISION": "5a2c3a9486f774688b05e574",
-    "THERMALVISION": "5d21f59b6dbe99052b54ef83",
-    "PORTABLE_RANGEFINDER": "61605ddea09d851a0a0c1bbc",
-    "COMPASS": "5f4fbaaca5573a5ac31db429",
-    
-    # 消耗品
-    "AMMO": "5485a8684bdc2da71d8b4567",
-    "MEDICAL_ITEM": "5448f3ac4bdc2dce718b4569",
-    "MEDITKIT": "5448f39d4bdc2d0a728b4568",
-    "DRUG": "5448f3a14bdc2d27728b4569",
-    "STIMULANT": "5448f3a64bdc2d60728b456a",
-    "FOOD": "5448e8d04bdc2ddf718b4569",
-    "DRINK": "5448e8d64bdc2dce718b4568",
-    
-    # 其他物品
-    "AMMO_CONTAINER": "543be5cb4bdc2deb348b4568",
-    "COMMON_CONTAINER": "5795f317245977243854e041",
-    "LOCKING_CONTAINER": "5671435f4bdc2d96058b4569",
-    "KEYCARD": "5c164d2286f774194c5e69fa",
-    "KEY_CARD": "5c164d2286f774194c5e69fa",
-    "KEYMECHANICAL": "5c99f98d86f7745c314214b3",
-    "MONEY": "543be5dd4bdc2deb348b4569",
-    "REPAIRKITS": "616eb7aea207f41933308f46",
-    "TOOL": "57864bb7245977548b3b66c2",
-    "MAP": "567849dd4bdc2d150f8b456e",
-    "FUEL": "5d650c3e815116009f6201d2",
-    "LUBRICANT": "57864e4c24597754843f8723",
-    "BATTERY": "57864ee62459775490116fc1",
-    "ELECTRONICS": "57864a66245977548f04a81f",
-    "BUILDING_MATERIAL": "57864ada245977548638de91",
-    "MEDICAL_SUPPLIES": "57864c8c245977548867e7f1",
-    "INFO": "5448ecbe4bdc2d60728b4568",
-    "SPECIAL_ITEM": "5447e0e74bdc2d3c308b4567",
-    "VIS_OBSERV_DEVICE": "5448e5724bdc2ddf718b4568",
-    "LOOT_CONTAINER": "566965d44bdc2d814c8b4571",
-    "STATIONARY_CONT.": "567583764bdc2d98058b456e",
-    "STASH": "566abbb64bdc2d144c8b457d",
-    "INVENTORY": "55d720f24bdc2d88028b456d",
-    "POCKETS": "557596e64bdc2dc2118b4571",
-    "RANDOMLOOTCONTAINER": "62f109593b54472778797866",
-    "OTHER": "590c745b86f7743cc433c5f2",
-}
-
-# 定义 HandbookParent 到 parent_id 的映射 (用于处理ItemToClone格式)
-HANDBOOK_PARENT_TO_ID = {
-    # 武器
-    "AssaultRifles": "5447b5f14bdc2d61278b4567",
-    "AssaultCarbines": "5447b5fc4bdc2d87278b4567",
-    "Handguns": "5447b5cf4bdc2d65278b4567",
-    "MachineGuns": "5447bed64bdc2d97278b4568",
-    "MarksmanRifles": "5447b6194bdc2d67278b4567",
-    "SniperRifles": "5447b6254bdc2dc3278b4568",
-    "Shotguns": "5447b6094bdc2dc3278b4567",
-    "SMGs": "5447b5e04bdc2d62278b4567",
-    "GrenadeLaunchers": "5447bedf4bdc2d87278b4568",
-    
-    # 配件
-    "Mods": "5448fe124bdc2da5018b4567",  # 默认配件
-    "Magazines": "5448bc234bdc2d3c308b4569",  # 弹匣
-    "Sights": "55818ad54bdc2ddc698b4569",  # 瞄具
-    "Scopes": "55818ae44bdc2dde698b456c",  # 高倍瞄具
-    "IronSights": "55818ac54bdc2d5b648b456e",  # 机械瞄具
-    "Stocks": "55818a594bdc2db9688b456a",  # 枪托
-    "Handguards": "55818a104bdc2db9688b4569",  # 护木
-    "Barrels": "555ef6e44bdc2de9068b457e",  # 枪管
-    "Suppressors": "550aa4cd4bdc2dd8348b456c",  # 消音器
-    "Flashhiders": "550aa4bf4bdc2dd6348b456b",  # 制退器
-    "Grips": "55818af64bdc2d5b648b4570",  # 前握把
-    "PistolGrips": "55818a684bdc2ddd698b456d",  # 手枪握把
-    "Mounts": "55818b224bdc2dde698b456f",  # 导轨
-    "Receivers": "55818a304bdc2db5418b457d",  # 机匣
-    "ChargingHandles": "55818a6f4bdc2db9688b456b",  # 拉机柄
-    "GasBlocks": "56ea9461d2720b67698b456f",  # 导气箍
-    
-    # 弹药
-    "Ammo": "5485a8684bdc2da71d8b4567",  # 默认弹药父类
-    
-    # 护甲和装备
-    "Armor": "5448e54d4bdc2dcc718b4568",
-    "Backpacks": "5448e53e4bdc2d60728b4567",
-    "ChestRigs": "5448e5284bdc2dcb718b4567",
-    "Headwear": "5a341c4086f77401f2541505",
-    "FaceCover": "5a341c4686f77469e155819e",
-    "Headphones": "5645bcb74bdc2ded0b8b4578",
-    
-    # 容器
-    "Containers": "5795f317245977243854e041",  # 通用容器
-    
-    # 钥匙
-    "MechanicalKeys": "5c99f98d86f7745c314214b3",  # 机械钥匙
-    "Keycards": "5c164d2286f774194c5e69fa",  # 钥匙卡
-    
-    # 其他
-    "Info": "5448ecbe4bdc2d60728b4568",  # 信息
-}
-
-# 定义默认的武器模板（如果没有找到匹配的模板，使用这个）
-DEFAULT_WEAPON_TEMPLATE = {
-    "$type": "RealismMod.Gun, RealismMod",
-    "WeapType": "rifle",
-    "OperationType": "",
-    "WeapAccuracy": 0,
-    "BaseTorque": 4.5,
-    "HasShoulderContact": True,
-    "Ergonomics": 85,
-    "VerticalRecoil": 65,
-    "HorizontalRecoil": 160,
-    "Dispersion": 6,
-    "CameraRecoil": 0.037,
-    "VisualMulti": 1.1,
-    "Convergence": 13.5,
-    "RecoilAngle": 80,
-    "BaseMalfunctionChance": 0.0012,
-    "HeatFactorGun": 0.22,
-    "HeatFactorByShot": 1,
-    "CoolFactorGun": 0.1,
-    "CoolFactorGunMods": 1,
-    "AllowOverheat": True,
-    "CenterOfImpact": 0,
-    "HipAccuracyRestorationDelay": 0.2,
-    "HipAccuracyRestorationSpeed": 7,
-    "HipInnaccuracyGain": 0.16,
-    "ShotgunDispersion": 0,
-    "Velocity": 0,
-    "RecoilDamping": 0.82,
-    "RecoilHandDamping": 0.6,
-    "WeaponAllowADS": False,
-    "Weight": 1.5,
-    "DurabilityBurnRatio": 0.28,
-    "AutoROF": 600,
-    "SemiROF": 340,
-    "LoyaltyLevel": 2,
-    "BaseReloadSpeedMulti": 1.0,
-    "BaseChamberSpeedMulti": 1,
-    "MinChamberSpeed": 0.7,
-    "MaxChamberSpeed": 1.5,
-    "IsManuallyOperated": False,
-    "BaseChamberCheckSpeed": 1,
-    "BaseFixSpeed": 1,
-    "OffsetRotation": 0.011,
-    "RecoilIntensity": 0.19,
-    "RecoilCenter": {"x": 0, "y": -0.35, "z": 0}
-}
-
-# 定义默认的子弹模板
-DEFAULT_AMMO_TEMPLATE = {
-    "$type": "RealismMod.Ammo, RealismMod",
-    "Name": "",
-    "Damage": 50,
-    "PenetrationPower": 20,
-    "LoyaltyLevel": 1,
-    "BasePriceModifier": 1
-}
-
-# 定义默认的消耗品模板
-DEFAULT_CONSUMABLE_TEMPLATE = {
-    "$type": "RealismMod.Consumable, RealismMod",
-    "Name": "",
-    "TemplateType": "consumable",
-    "LoyaltyLevel": 1,
-    "BasePriceModifier": 1,
-    "ConsumableType": "other",
-    "Duration": 0,
-    "Delay": 0,
-    "EffectPeriod": 0,
-    "WaitPeriod": 0,
-    "Strength": 0,
-    "TunnelVisionStrength": 0,
-    "CanBeUsedInRaid": True
-}
-
-# 定义默认的配件模板（精简版，只包含基础必需属性）
-DEFAULT_MOD_TEMPLATE = {
-    "$type": "RealismMod.WeaponMod, RealismMod",
-    "ModType": "",
-    "Ergonomics": 0,
-    "Weight": 0.1,
-    "ConflictingItems": [],
-    "LoyaltyLevel": 1,
-    "VerticalRecoil": 0,
-    "HorizontalRecoil": 0,
-    "AimSpeed": 0,
-    "Accuracy": 0
-}
-
-# 配件类型特定属性映射（当使用默认模板时，根据配件类型添加额外属性）
-MOD_TYPE_SPECIFIC_ATTRS = {
-    # 枪托相关
-    "Stock": {
-        "Dispersion": 0,
-        "CameraRecoil": 0,
-        "HasShoulderContact": False,
-        "BlocksFolding": False,
-        "StockAllowADS": False,
-        "Handling": 0,
-        "AutoROF": 0,
-        "SemiROF": 0,
-        "ModMalfunctionChance": 0,
-    },
-    # 握把相关
-    "grip": {
-        "Dispersion": 0,
-        "Handling": 0,
-        "AimStability": 0,
-    },
-    "foregrip": {
-        "Dispersion": 0,
-        "Handling": 0,
-        "AimStability": 0,
-    },
-    # 护木相关
-    "handguard": {
-        "Dispersion": 0,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
-        "Handling": 0,
-    },
-    # 枪管相关
-    "barrel": {
-        "Dispersion": 0,
-        "Convergence": 0,
-        "CenterOfImpact": 0,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
-        "DurabilityBurnModificator": 1,
-        "Velocity": 0,
-        "ShotgunDispersion": 1,
-        "Loudness": 0,
-        "Flash": 0,
-        "AutoROF": 0,
-        "SemiROF": 0,
-        "ModMalfunctionChance": 0,
-    },
-    # 枪口装置（含消音器、补偿器等）
-    "muzzle": {
-        "Dispersion": 0,
-        "CameraRecoil": 0,
-        "Convergence": 0,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
-        "DurabilityBurnModificator": 1,
-        "Velocity": 0,
-        "Loudness": 0,
-        "CanCycleSubs": False,
-        "RecoilAngle": 0,
-        "AutoROF": 0,
-        "SemiROF": 0,
-        "ModMalfunctionChance": 0,
-    },
-    # 弹匣相关
-    "magazine": {
-        "ReloadSpeed": 0,
-        "MalfunctionChance": 0,
-        "LoadUnloadModifier": 0,
-        "CheckTimeModifier": 0,
-    },
-    # 瞄准镜相关
-    "sight": {
-        # 瞄准镜通常只需要基础属性
-    },
-    # 刺刀
-    "bayonet": {
-        "Dispersion": 0,
-        "CameraRecoil": 0,
-        "MeleeDamage": 0,
-        "MeleePen": 0,
-        "HeatFactor": 1,
-        "CoolFactor": 1,
-        "DurabilityBurnModificator": 1,
-        "Velocity": 0,
-        "Loudness": 0,
-        "Convergence": 0,
-        "RecoilAngle": 0,
-        "AutoROF": 0,
-        "SemiROF": 0,
-        "ModMalfunctionChance": 0,
-        "CanCycleSubs": False,
-    }
-}
 
 # 武器类型 parent_id 分组（用于应用武器规则指南中的典型范围）
 WEAPON_PARENT_GROUPS = {
@@ -579,8 +88,10 @@ GEAR_CLAMP_RULES = {
     "speedPenaltyPercent": (-40, 10),
 }
 
-MAG_CAPACITY_NAME_REGEX = re.compile(r"\b(\d{1,3})\s*(?:round|rnd|rds)\b")
-BARREL_LENGTH_REGEX = re.compile(r"(\d+(?:\.\d+)?)\s*(?:mm|inch|in|\")")
+MAG_CAPACITY_NAME_REGEX = re.compile(r"\b(\d{1,3})(?:\s*|-)?(?:round|rnd|rds)\b", re.IGNORECASE)
+MAG_CAPACITY_CN_REGEX = re.compile(r"(?<!\d)(\d{1,3})\s*发")
+MAG_CAPACITY_RU_REGEX = re.compile(r"(?<![\d.])(\d{1,3})\s*патрон", re.IGNORECASE)
+BARREL_LENGTH_REGEX = re.compile(r"(\d+(?:\.\d+)?)\s*(mm|inch|in|\")")
 
 
 class ItemInfo(TypedDict):
@@ -608,6 +119,8 @@ class RealismPatchGenerator:
         self.base_path = Path(base_path)
         self.input_path = self.base_path / "input"
         self.templates_base_path = self.base_path / "现实主义物品模板"
+        self.random_seed = 20260313
+        self.random = random.Random(self.random_seed)
         
         # 加载所有模板
         self.templates = {}
@@ -630,6 +143,21 @@ class RealismPatchGenerator:
         # 0.5 表示“多数（>50%）即按原名输出”。
         self.current_patch_plain_ratio_threshold = 0.5
         self._template_parent_index = self._build_template_parent_index()
+
+    def _load_templates_from_dir(self, relative_dir: str):
+        """按稳定顺序加载指定目录下的所有模板文件。"""
+        template_dir = self.templates_base_path / relative_dir
+        if not template_dir.exists():
+            return
+
+        for template_file in sorted(template_dir.glob("*.json"), key=lambda path: path.name.lower()):
+            try:
+                with open(template_file, 'r', encoding='utf-8') as f:
+                    template_data = json.load(f)
+                    self.templates[template_file.name] = template_data
+                    print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
+            except Exception as e:
+                print(f"  警告: 无法加载 {template_file.name}: {e}")
 
     def _build_template_parent_index(self) -> Dict[str, List[str]]:
         """构建 template_file -> parent_id 列表索引（按 PARENT_ID_TO_TEMPLATE 反向生成）。"""
@@ -750,7 +278,7 @@ class RealismPatchGenerator:
             return max(min_v, min(max_v, value))
         return value
 
-    def _weighted_sample_in_range(self, original_value: Any, min_v: float, max_v: float) -> Any:
+    def _weighted_sample_in_range(self, original_value: Any, min_v: float, max_v: float, prefer_int: Optional[bool] = None) -> Any:
         """在规则区间内按权重重算数值。
 
         权重策略：以“原值(夹紧后)”与“区间中点”的加权结果作为三角分布 mode，
@@ -759,8 +287,11 @@ class RealismPatchGenerator:
         if min_v > max_v:
             min_v, max_v = max_v, min_v
 
+        if prefer_int is None:
+            prefer_int = False
+
         if min_v == max_v:
-            return int(round(min_v)) if isinstance(original_value, int) else float(min_v)
+            return int(round(min_v)) if prefer_int else float(min_v)
 
         if isinstance(original_value, bool) or not isinstance(original_value, (int, float)):
             return original_value
@@ -771,12 +302,23 @@ class RealismPatchGenerator:
         # 越偏向原值，越能保留物品个体差异；其余权重回归规则中位。
         preserve_ratio = 0.7
         mode = clamped_original * preserve_ratio + center * (1.0 - preserve_ratio)
-        sampled = random.triangular(float(min_v), float(max_v), float(mode))
+        sampled = self.random.triangular(float(min_v), float(max_v), float(mode))
 
-        if isinstance(original_value, int):
+        if prefer_int:
             return int(round(sampled))
 
-        return round(sampled, 2)
+        precision = self._infer_float_precision(min_v, max_v)
+        return round(self._clamp(round(sampled, precision), min_v, max_v), precision)
+
+    def _infer_float_precision(self, *values: float) -> int:
+        """根据范围值推断浮点保留位数，避免小概率字段被量化到范围外。"""
+        precision = 2
+        for value in values:
+            normalized = f"{float(value):.6f}".rstrip("0").rstrip(".")
+            if "." not in normalized:
+                continue
+            precision = max(precision, len(normalized.split(".", 1)[1]))
+        return max(2, min(4, precision))
 
     def _get_range_seed_value(self, min_v: float, max_v: float, prefer_int: bool) -> float | int:
         """为缺失字段生成范围内的初始基准值。"""
@@ -787,7 +329,7 @@ class RealismPatchGenerator:
         seed = 0.0 if min_v <= 0 <= max_v else (min_v + max_v) / 2.0
         if prefer_int:
             return int(round(seed))
-        return float(seed)
+        return round(float(seed), self._infer_float_precision(min_v, max_v))
 
     def _apply_numeric_ranges(self, patch: PatchData, ranges: Dict[str, tuple], ensure_fields: bool = False):
         """按规则范围对补丁字段进行加权重算。"""
@@ -804,7 +346,7 @@ class RealismPatchGenerator:
                     continue
                 patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
 
-            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v, prefer_int=prefer_int)
 
     def _infer_weapon_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
         """推断武器规则档位。"""
@@ -832,17 +374,18 @@ class RealismPatchGenerator:
 
         name = str(patch.get("Name", "")).lower()
         weap_type = str(patch.get("WeapType", "")).lower()
+        name_tokens = set(re.findall(r"[a-z0-9]+", name))
 
         if any(k in name for k in ["pistol", "handgun"]) or "pistol" in weap_type:
             return "pistol"
         if "smg" in name or "smg" in weap_type:
             return "smg"
-        if any(k in name for k in ["machinegun", "lmg", "mg"]) or "machinegun" in weap_type:
-            return "machinegun"
         if any(k in name for k in ["launcher", "grenade launcher", "m203", "gp25", "ubgl"]) or "launcher" in weap_type:
             return "launcher"
-        if any(k in name for k in ["sniper", "marksman", "dmr"]):
+        if any(k in name for k in ["sniper", "marksman", "dmr", "anti-materiel", "anti materiel", "狙击"]):
             return "sniper"
+        if "lmg" in name_tokens or "mg" in name_tokens or "machinegun" in name or "machinegun" in weap_type:
+            return "machinegun"
         if "shotgun" in name or "shotgun" in weap_type:
             return "shotgun"
         if any(k in name for k in ["carbine", "assault", "rifle"]):
@@ -1073,8 +616,10 @@ class RealismPatchGenerator:
             if key not in patch:
                 prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
                 patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
+            else:
+                prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
 
-            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v, prefer_int=prefer_int)
 
     def _apply_weapon_refinement_ranges(self, patch: PatchData, weapon_profile: Optional[str], item_info: Optional[Mapping[str, Any]]):
         """应用武器二级细分规则：口径 + 枪托形态。"""
@@ -1095,6 +640,8 @@ class RealismPatchGenerator:
             if key not in patch:
                 prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
                 patch[key] = self._get_range_seed_value(float(base_range[0]), float(base_range[1]), prefer_int)
+            else:
+                prefer_int = isinstance(base_range[0], int) and isinstance(base_range[1], int)
 
             delta_min = 0.0
             delta_max = 0.0
@@ -1115,7 +662,7 @@ class RealismPatchGenerator:
             if min_v > max_v:
                 min_v, max_v = max_v, min_v
 
-            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v, prefer_int=prefer_int)
 
         # 对基础档位未覆盖但二级规则有明确约束的字段，做补充夹紧。
         supplemental_keys = set(caliber_mods.keys()) | set(stock_mods.keys())
@@ -1139,13 +686,19 @@ class RealismPatchGenerator:
             if key not in patch:
                 prefer_int = all(isinstance(bound, int) for pair in ranges for bound in pair)
                 patch[key] = self._get_range_seed_value(min_v, max_v, prefer_int)
+            else:
+                prefer_int = all(isinstance(bound, int) for pair in ranges for bound in pair)
 
-            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v)
+            patch[key] = self._weighted_sample_in_range(patch[key], min_v, max_v, prefer_int=prefer_int)
 
     def _infer_magazine_profile(self, capacity: Optional[int], item_name: str) -> str:
         """根据容量与名称推断弹匣档位。"""
-        if any(k in item_name for k in ["drum", "casket", "quad", "coupled", "twin"]):
+        if any(k in item_name for k in ["drum", "casket", "quad", "coupled", "twin", "beta", "helical", "snail"]):
             return "magazine_drum"
+        if any(k in item_name for k in ["extended", "extend", "加长", "扩容"]):
+            return "magazine_extended"
+        if any(k in item_name for k in ["compact", "short", "stubby", "短弹匣", "短匣"]):
+            return "magazine_compact"
         if capacity is None:
             return "magazine_standard"
         if capacity <= 20:
@@ -1156,11 +709,63 @@ class RealismPatchGenerator:
             return "magazine_extended"
         return "magazine_drum"
 
+    def _extract_barrel_length_mm(self, item_name: str) -> Optional[float]:
+        """从名称中提取枪管长度，统一换算为毫米。"""
+        length_matches = BARREL_LENGTH_REGEX.findall(item_name)
+        if not length_matches:
+            return None
+        try:
+            value_text, unit = length_matches[-1]
+            value = float(value_text)
+        except (TypeError, ValueError):
+            return None
+        if unit in {"inch", "in", '"'}:
+            return value * 25.4
+        return value
+
+    def _infer_barrel_profile_from_name(self, item_name: str) -> str:
+        """根据名称和长度推断枪管档位。"""
+        if self._contains_any_keyword(item_name, ["integral barrel-suppressor", "integral suppressor", "integrally suppressed", "barrel-suppressor", "一体消音枪管", "整体消音枪管"]):
+            return "barrel_integral_suppressed"
+
+        barrel_length_mm = self._extract_barrel_length_mm(item_name)
+        if any(k in item_name for k in ["shortened", "short", "sbr", "kurz"]):
+            return "barrel_short"
+        if barrel_length_mm is not None and barrel_length_mm <= 330 and any(k in item_name for k in ["carbine", "smg", "pdw", "shotgun", "12ga", "762x51", "556x45", "545x39", "762x39"]):
+            return "barrel_short"
+        if any(k in item_name for k in ["extended", "long", "rifle length", "full length"]):
+            return "barrel_long"
+        return "barrel_medium"
+
+    def _infer_suppressor_profile_from_name(self, item_name: str) -> str:
+        """根据名称推断消音器细分档位。"""
+        if any(k in item_name for k in ["mini", "mini2", "compact", "short", "45s", "rbs", "k-can", "mini monster"]):
+            return "muzzle_suppressor_compact"
+        return "muzzle_suppressor"
+
+    def _is_handguard_like_name(self, item_name: str) -> bool:
+        """判断名称是否明显指向护木/前端组件。"""
+        return item_name.startswith("handguard_") or self._contains_any_keyword(
+            item_name,
+            ["护木", "forend", "handguard", "front-end assembly", "front end assembly", "цевье"],
+        )
+
+    def _infer_handguard_profile_from_name(self, item_name: str) -> str:
+        """根据名称推断护木长度档位。"""
+        if any(k in item_name for k in ["short", "carbine", "pdw", "compact"]):
+            return "handguard_short"
+        if any(k in item_name for k in ["long", "extended", "rifle length", "full length"]):
+            return "handguard_long"
+        return "handguard_medium"
+
     def _infer_sight_profile_from_name(self, item_name: str) -> Optional[str]:
         """根据名称关键词推断瞄具档位。"""
         normalized = item_name.lower().replace(",", ".")
 
-        if any(k in normalized for k in ["sight_front", "sight_rear", "iron", "mbus", "flip", "backup"]):
+        if any(k in normalized for k in [
+            "sight_front", "sight_rear", "front sight", "rear sight", "sight post", "front post",
+            "iron", "mbus", "flip", "backup", "drum rear sight", "tritium rear sight", "tritium front sight",
+        ]):
             return "iron_sight"
 
         red_dot_keywords = [
@@ -1206,7 +811,7 @@ class RealismPatchGenerator:
         raw_props = (item_info or {}).get("properties")
         props: Dict[str, Any] = raw_props if isinstance(raw_props, dict) else {}
 
-        if any(k in item_name for k in ["buttpad", "recoil pad", "butt pad", "shoulder pad"]):
+        if any(k in item_name for k in ["buttpad", "recoil pad", "butt pad", "shoulder pad", "托腮", "后托垫", "枪托垫", "缓冲垫"]):
             return "stock_buttpad"
 
         stock_allow_ads = self._to_optional_bool(props.get("StockAllowADS"))
@@ -1217,12 +822,19 @@ class RealismPatchGenerator:
         if has_shoulder is None:
             has_shoulder = self._to_optional_bool(patch.get("HasShoulderContact"))
 
-        folding_keywords = ["fold", "folding", "collapsed", "retracted", "telescop", "wire", "pdw", "skeleton"]
+        folding_keywords = [
+            "fold", "folding", "collapsed", "retracted", "telescop", "wire", "pdw", "skeleton",
+            "折叠", "伸缩", "收缩", "骨架", "折叠托", "伸缩托", "枪托",
+        ]
         if stock_allow_ads is True:
             return "stock_ads_support"
         if has_shoulder is False or any(k in item_name for k in folding_keywords):
             return "stock_folding"
         return "stock_fixed"
+
+    def _contains_any_keyword(self, text: str, keywords: List[str]) -> bool:
+        """判断文本是否包含任一关键词。"""
+        return any(keyword in text for keyword in keywords)
 
     def _get_mod_parent_base_profile(self, parent_id: Optional[str]) -> Optional[str]:
         """由 parent_id 推断附件基础档位。"""
@@ -1255,44 +867,76 @@ class RealismPatchGenerator:
 
     def _infer_mod_profile_from_name_fallback(self, name: str, item_info: Optional[Mapping[str, Any]], patch: PatchData) -> Optional[str]:
         """缺失 parentId/ModType 时，按名称兜底推断附件档位。"""
-        if name.startswith("gas_block_") or name.startswith("gasblock_") or "gas block" in name:
+        if name.startswith("catch_"):
+            return "catch"
+        if name.startswith("hammer_"):
+            return "hammer"
+        if name.startswith("trigger_"):
+            return "trigger"
+        if name.startswith("charge_") or "charging handle" in name or "charging_handle" in name or "拉机柄" in name:
+            return "charging_handle"
+        if name.startswith("bipod_") or "bipod" in name or "二脚架" in name:
+            return "bipod"
+        if "rear_hook" in name or "rear hook" in name:
+            return "stock_rear_hook"
+        if "eyecup" in name:
+            return "optic_eyecup"
+        if "killflash" in name:
+            return "optic_killflash"
+        if "panel" in name:
+            return "rail_panel"
+        if name.startswith("gas_block_") or name.startswith("gasblock_") or "gas block" in name or "导气箍" in name:
             return "gasblock"
-        if name.startswith("foregrip_"):
+        if name.startswith("foregrip_") or self._contains_any_keyword(name, ["前握把", "垂直前握把", "斜握把", "握把挡块", "前握挡块", "hand stop", "grip stop", "handstop", "vertical grip", "angled grip", "foregrip", "sturmgriff"]):
             return "foregrip"
-        if name.startswith("pistolgrip_"):
+        if name.startswith("pistolgrip_") or self._contains_any_keyword(name, ["pistol grip", "小角度握把", "后握把", "пистолетная рукоятка"]):
+            return "pistol_grip"
+        if "握把" in name and "前握把" not in name and "垂直" not in name and "斜握" not in name:
             return "pistol_grip"
         if name.startswith("stock_adapter_"):
             return "stock_adapter"
-        if "buttpad" in name or "butt pad" in name:
+        if "buttpad" in name or "butt pad" in name or self._contains_any_keyword(name, ["托腮", "枪托垫", "后托垫"]):
             return "stock_buttpad"
-        if name.startswith("buffer_") or name.startswith("buffertube_") or "buffer tube" in name:
+        if name.startswith("buffer_") or name.startswith("buffertube_") or "buffer tube" in name or "缓冲管" in name:
             return "buffer_adapter"
-        if name.startswith("stock_"):
+        if name.startswith("stock_") or self._contains_any_keyword(name, ["枪托", "buttstock", "brace", "底盘枪托", "приклад", "托"]):
             return self._infer_mod_stock_profile(name, patch, item_info)
-        if name.startswith("receiver_") or name.startswith("reciever_"):
+        if name.startswith("receiver_") or name.startswith("reciever_") or self._contains_any_keyword(name, ["机匣", "机匣盖", "防尘盖", "receiver", "reciever", "dust cover", "upper receiver", "upper reciever", "slide", "крышка ствольной коробки"]):
             return "receiver"
-        if name.startswith("mount_"):
-            return "mount"
-        if name.startswith("mag_") or name.startswith("magazine_"):
+        if name.startswith("mag_") or name.startswith("magazine_") or self._contains_any_keyword(name, ["弹匣", "magazine", "drum", "casket", "магазин"]):
             mag_capacity = self._extract_mag_capacity(item_info, name)
             return self._infer_magazine_profile(mag_capacity, name)
-        if name.startswith("handguard_"):
+        if self._is_handguard_like_name(name):
+            return self._infer_handguard_profile_from_name(name)
+        if name.startswith("silencer_") or "suppressor" in name or self._contains_any_keyword(name, ["消音器", "抑制器", "消声器", "глушитель"]):
+            return self._infer_suppressor_profile_from_name(name)
+        if name.startswith("railq"):
             return "handguard_medium"
-        if name.startswith("barrel_"):
-            return "barrel_medium"
-        if name.startswith("sight_") or name.startswith("scope_"):
+        if self._contains_any_keyword(name, ["barrel and rail system", "rail system", "front-end assembly", "front end assembly"]) and self._contains_any_keyword(name, ["m-lok", "mlok", "keymod", "barrel", "forend", "handguard", "护木"]):
+            return self._infer_handguard_profile_from_name(name)
+        if name.startswith("mount_") or self._contains_any_keyword(name, ["导轨", "基座", "偏移座", "镜座", "mount", "rail segment", "rail", "offset mount"]):
+            return "mount"
+        if name.startswith("barrel_") or self._contains_any_keyword(name, ["枪管", "barrel", "ствол"]):
+            return self._infer_barrel_profile_from_name(name)
+        if name.startswith("sight_") or name.startswith("scope_") or self._contains_any_keyword(name, ["瞄具", "瞄准镜", "全息", "红点", "反射式"]):
             sight_profile = self._infer_sight_profile_from_name(name)
             if sight_profile:
                 return sight_profile
             return "scope_red_dot"
-        if "adapter" in name and any(k in name for k in ["muzzle", "suppressor", "silencer", "taper", "qd"]):
+        if "adapter" in name and any(k in name for k in ["muzzle", "suppressor", "silencer", "taper", "qd", "消音器", "抑制器"]):
             return "muzzle_adapter"
-        if name.startswith("silencer_") or "suppressor" in name:
-            return "muzzle_suppressor"
-        if name.startswith("muzzle_") or "flashhider" in name or "compensator" in name:
+        if self._contains_any_keyword(name, ["thread protector", "螺纹保护", "protective cap"]):
+            return "muzzle_thread"
+        if self._contains_any_keyword(name, ["制退器", "compensator", "muzzle brake", "brake"]):
+            return "muzzle_brake"
+        if name.startswith("muzzle_") or "flashhider" in name or "compensator" in name or self._contains_any_keyword(name, ["消焰器", "消焰", "火帽", "flash hider"]):
             return "muzzle_flashhider"
-        if any(k in name for k in ["flashlight", "laser", "tactical", "peq", "dbal", "x400", "xc1"]):
+        if self._contains_any_keyword(name, ["flashlight", "laser", "peq", "dbal", "x400", "xc1", "战术灯", "战术装置", "手电", "手电筒", "激光", "镭射", "照明", "wmx", "wmlx", "x300", "m300", "m600", "m640", "wmx200"]) and not self._contains_any_keyword(name, ["偏移座", "基座", "导轨", "mount", "rail"]):
             return "flashlight_laser"
+        if self._contains_any_keyword(name, ["gas tube", "导气管"]):
+            return "gasblock"
+        if self._contains_any_keyword(name, ["front-end assembly", "front end assembly"]):
+            return self._infer_handguard_profile_from_name(name)
         return None
 
     def _infer_mod_profile_from_template_file(self, template_file: str, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
@@ -1304,19 +948,13 @@ class RealismPatchGenerator:
             mag_capacity = self._extract_mag_capacity(item_info, item_name)
             return self._infer_magazine_profile(mag_capacity, item_name)
         if template_name == "BarrelTemplates.json":
-            if any(k in item_name for k in ["short", "sbr", "10\"", "11\"", "12\""]):
-                return "barrel_short"
-            if any(k in item_name for k in ["long", "20\"", "22\"", "24\""]):
-                return "barrel_long"
-            return "barrel_medium"
+            return self._infer_barrel_profile_from_name(item_name)
         if template_name == "HandguardTemplates.json":
-            if any(k in item_name for k in ["short", "carbine"]):
-                return "handguard_short"
-            if any(k in item_name for k in ["long", "extended"]):
-                return "handguard_long"
-            return "handguard_medium"
+            return self._infer_handguard_profile_from_name(item_name)
         if template_name == "StockTemplates.json":
             return self._infer_mod_stock_profile(item_name, patch, item_info)
+        if template_name == "ChargingHandleTemplates.json":
+            return "charging_handle"
 
         template_profile_map = {
             "MuzzleDeviceTemplates.json": "muzzle_flashhider",
@@ -1349,51 +987,57 @@ class RealismPatchGenerator:
                 return "muzzle_adapter"
             if "adapter" in name and any(k in name for k in ["muzzle", "suppressor", "silencer", "taper", "qd"]):
                 return "muzzle_adapter"
-            if any(k in name for k in ["silencer", "suppressor", "qd", "pbs"]):
-                return "muzzle_suppressor"
-            if any(k in name for k in ["brake", "comp", "compensator"]):
+            if any(k in name for k in ["silencer", "suppressor", "qd", "pbs"]) or self._contains_any_keyword(name, ["消音器", "抑制器", "消声器", "глушитель"]):
+                return self._infer_suppressor_profile_from_name(name)
+            if any(k in name for k in ["brake", "comp", "compensator"]) or self._contains_any_keyword(name, ["制退器"]):
                 return "muzzle_brake"
-            if "thread" in name or "protector" in name:
+            if "thread" in name or "protector" in name or self._contains_any_keyword(name, ["螺纹保护", "保护帽"]):
                 return "muzzle_thread"
+            if self._contains_any_keyword(name, ["消焰器", "消焰", "火帽", "flash hider"]):
+                return "muzzle_flashhider"
             return "muzzle_flashhider"
 
         if "barrel" in mod_type or "short_barrel" in mod_type or (base_profile and base_profile.startswith("barrel")):
-            if any(k in name for k in ["short", "sbr", "10\"", "11\"", "12\""]):
-                return "barrel_short"
-            if any(k in name for k in ["long", "20\"", "22\"", "24\""]):
-                return "barrel_long"
-            return "barrel_medium"
+            return self._infer_barrel_profile_from_name(name)
 
         if "handguard" in mod_type or (base_profile and base_profile.startswith("handguard")):
-            if any(k in name for k in ["short", "carbine"]):
-                return "handguard_short"
-            if any(k in name for k in ["long", "extended"]):
-                return "handguard_long"
-            return "handguard_medium"
+            return self._infer_handguard_profile_from_name(name)
+
+        if self._is_handguard_like_name(name):
+            return self._infer_handguard_profile_from_name(name)
 
         if mod_type in ["magazine"] or base_profile == "magazine":
             mag_capacity = self._extract_mag_capacity(item_info, name)
             return self._infer_magazine_profile(mag_capacity, name)
 
-        if mod_type in ["grip", "foregrip"]:
+        if mod_type in ["grip", "foregrip"] or "foregrip" in mod_type or "verticalgrip" in mod_type or "handstop" in mod_type:
             return "foregrip"
+        if mod_type in ["bipod"]:
+            return "bipod"
+        if "mag" in mod_type and "malf" not in mod_type:
+            mag_capacity = self._extract_mag_capacity(item_info, name)
+            return self._infer_magazine_profile(mag_capacity, name)
         if mod_type in ["gas", "gasblock", "gas_block"]:
             return "gasblock"
         if mod_type in ["stock_adapter"]:
             return "stock_adapter"
-        if mod_type in ["buffer_adapter", "buffer_tube"]:
+        if mod_type in ["buffer_adapter", "buffer_tube"] or mod_type.startswith("buffer"):
             return "buffer_adapter"
         if mod_type in ["grip_stock_adapter"]:
             return "stock_adapter"
         if "buttpad" in mod_type:
             return "stock_buttpad"
-        if mod_type in ["stock"]:
+        if mod_type in ["stock"] or mod_type.startswith("stock") or mod_type.endswith("_stock"):
             return self._infer_mod_stock_profile(name, patch, item_info)
-        if mod_type in ["pistolgrip", "pistol_grip"]:
+        if mod_type in ["pistolgrip", "pistol_grip"] or ("pistol" in mod_type and "grip" in mod_type):
             return "pistol_grip"
-        if mod_type in ["receiver"]:
+        if mod_type in ["receiver"] or "receiver" in mod_type or "reciever" in mod_type:
             return "receiver"
-        if mod_type in ["mount"]:
+        if mod_type in ["mount"] or "mount" in mod_type or "rail" in mod_type:
+            if name.startswith("silencer_") or "suppressor" in name or self._contains_any_keyword(name, ["消音器", "抑制器", "消声器", "глушитель"]):
+                return self._infer_suppressor_profile_from_name(name)
+            if self._contains_any_keyword(name, ["barrel and rail system", "rail system", "front-end assembly", "front end assembly"]) and self._contains_any_keyword(name, ["m-lok", "mlok", "handguard", "forend", "barrel"]):
+                return self._infer_handguard_profile_from_name(name)
             return "mount"
         if mod_type in ["iron_sight"]:
             return "iron_sight"
@@ -1401,6 +1045,8 @@ class RealismPatchGenerator:
             return "scope_red_dot"
         if mod_type in ["scope", "assault_scope"]:
             return "scope_magnified"
+        if "laser" in mod_type or "flashlight" in mod_type or "tactical" in mod_type:
+            return "flashlight_laser"
         if mod_type in ["sight"]:
             sight_profile = self._infer_sight_profile_from_name(name)
             if sight_profile:
@@ -1457,9 +1103,19 @@ class RealismPatchGenerator:
                     if 1 <= value <= 200:
                         return value
 
-        # 名称兜底：匹配“30-round / 30rnd / 30 rds”等常见容量标记。
+        # 名称兜底：匹配“30-round / 30 round / 30rnd / 30 rds”等常见容量标记。
         if item_name:
             match = MAG_CAPACITY_NAME_REGEX.search(item_name)
+            if match:
+                value = int(match.group(1))
+                if 1 <= value <= 200:
+                    return value
+            match = MAG_CAPACITY_CN_REGEX.search(item_name)
+            if match:
+                value = int(match.group(1))
+                if 1 <= value <= 200:
+                    return value
+            match = MAG_CAPACITY_RU_REGEX.search(item_name)
             if match:
                 value = int(match.group(1))
                 if 1 <= value <= 200:
@@ -1486,6 +1142,54 @@ class RealismPatchGenerator:
             patch.setdefault("LoyaltyLevel", 1)
             patch.setdefault("BasePriceModifier", 1)
 
+    def _apply_material_heuristics(self, patch: PatchData, item_name: str) -> None:
+        """基于材质关键词预调整物品属性。"""
+        if any(keyword in item_name for keyword in ["titanium", "ti-", "carbon"]):
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 0.8, 3)
+            if "CoolFactor" in patch:
+                patch["CoolFactor"] = round(patch["CoolFactor"] * 1.15, 2)
+            if "Ergonomics" in patch:
+                patch["Ergonomics"] = round(patch["Ergonomics"] * 1.05, 1)
+        elif "steel" in item_name:
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 1.25, 3)
+            if "DurabilityBurnModificator" in patch:
+                patch["DurabilityBurnModificator"] = round(patch["DurabilityBurnModificator"] * 0.9, 2)
+
+    def _apply_size_heuristics(self, patch: PatchData, item_name: str) -> None:
+        """基于尺寸/形态关键词预调整物品属性。"""
+        if any(keyword in item_name for keyword in ["compact", "mini", "short", "k-", "kurz"]):
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 0.75, 3)
+            if "Loudness" in patch and patch["Loudness"] < 0:
+                patch["Loudness"] = round(patch["Loudness"] * 0.7, 1)
+            if "VerticalRecoil" in patch and patch["VerticalRecoil"] < 0:
+                patch["VerticalRecoil"] = round(patch["VerticalRecoil"] * 0.7, 2)
+        elif any(keyword in item_name for keyword in ["long", "extended", "heavy", "full"]):
+            if "Weight" in patch:
+                patch["Weight"] = round(patch["Weight"] * 1.3, 3)
+            if "Accuracy" in patch:
+                patch["Accuracy"] = round(patch["Accuracy"] * 1.1 + 1, 1)
+
+    def _apply_barrel_velocity_heuristic(self, patch: PatchData, item_name: str) -> None:
+        """基于枪管长度预估初速偏移。"""
+        barrel_length_mm = self._extract_barrel_length_mm(item_name)
+        if barrel_length_mm is None or "barrel" not in item_name:
+            return
+
+        inferred_velocity = (barrel_length_mm - 370) / 25.4 * 1.5
+        current_velocity = patch.get("Velocity", 0)
+        if current_velocity == 0:
+            patch["Velocity"] = round(self._clamp(inferred_velocity, -18, 18), 2)
+
+    def _apply_pre_rule_heuristics(self, patch: PatchData) -> None:
+        """在规则区间采样前应用启发式，让最终写盘结果保持在规则口径内。"""
+        item_name = str(patch.get("Name", "")).lower()
+        self._apply_material_heuristics(patch, item_name)
+        self._apply_size_heuristics(patch, item_name)
+        self._apply_barrel_velocity_heuristic(patch, item_name)
+
     def apply_realism_sanity_check(self, patch: PatchData, item_info: Optional[Mapping[str, Any]] = None):
         """
         根据新旧规则文档对补丁进行最终校验：
@@ -1493,11 +1197,15 @@ class RealismPatchGenerator:
         2) 按武器/附件细分规则夹紧数值；
         3) 保留原有现实主义推断与极值兜底。
         """
-        item_name = str(patch.get("Name", "")).lower()
         item_type = str(patch.get("$type", ""))
 
         # 0. 必填字段兜底
         self._ensure_required_fields(patch, item_type, item_info)
+        item_name = str(patch.get("Name", "")).lower()
+        item_type = str(patch.get("$type", ""))
+
+        # 0.5 先应用现实启发式，再进入规则区间采样。
+        self._apply_pre_rule_heuristics(patch)
 
         # 1. 基础限制：规避夸大数值 (Clamping)
         if "RealismMod.Gun" in item_type:
@@ -1510,6 +1218,7 @@ class RealismPatchGenerator:
             if weapon_profile and weapon_profile in WEAPON_PROFILE_RANGES:
                 self._apply_numeric_ranges(patch, WEAPON_PROFILE_RANGES[weapon_profile], ensure_fields=True)
                 self._apply_weapon_refinement_ranges(patch, weapon_profile, item_info)
+                self._apply_field_clamps(patch, GUN_CLAMP_RULES)
 
             # 文档要求手枪默认无抵肩
             if weapon_profile == "pistol":
@@ -1525,6 +1234,7 @@ class RealismPatchGenerator:
             mod_profile = self._infer_mod_profile(patch, item_info)
             if mod_profile and mod_profile in MOD_PROFILE_RANGES:
                 self._apply_numeric_ranges(patch, MOD_PROFILE_RANGES[mod_profile], ensure_fields=True)
+                self._apply_field_clamps(patch, MOD_CLAMP_RULES)
 
             # 文档要求消音器必须可循环亚音速弹
             if mod_profile == "muzzle_suppressor" and "CanCycleSubs" in patch:
@@ -1536,46 +1246,7 @@ class RealismPatchGenerator:
         elif "RealismMod.Gear" in item_type:
             self._apply_field_clamps(patch, GEAR_CLAMP_RULES)
 
-        # 2. 自动化现实数据推断 (Automated Reality-based Lookup)
-        if any(kw in item_name for kw in ["titanium", "ti-", "carbon"]):
-            if "Weight" in patch:
-                patch["Weight"] = round(patch["Weight"] * 0.8, 3)
-            if "CoolFactor" in patch:
-                patch["CoolFactor"] = round(patch["CoolFactor"] * 1.15, 2)
-            if "Ergonomics" in patch:
-                patch["Ergonomics"] = round(patch["Ergonomics"] * 1.05, 1)
-        elif "steel" in item_name:
-            if "Weight" in patch:
-                patch["Weight"] = round(patch["Weight"] * 1.25, 3)
-            if "DurabilityBurnModificator" in patch:
-                patch["DurabilityBurnModificator"] = round(patch["DurabilityBurnModificator"] * 0.9, 2)
-
-        if any(kw in item_name for kw in ["compact", "mini", "short", "k-", "kurz"]):
-            if "Weight" in patch:
-                patch["Weight"] = round(patch["Weight"] * 0.75, 3)
-            if "Loudness" in patch and patch["Loudness"] < 0:
-                patch["Loudness"] = round(patch["Loudness"] * 0.7, 1)
-            if "VerticalRecoil" in patch and patch["VerticalRecoil"] < 0:
-                patch["VerticalRecoil"] = round(patch["VerticalRecoil"] * 0.7, 2)
-        elif any(kw in item_name for kw in ["long", "extended", "heavy", "full"]):
-            if "Weight" in patch:
-                patch["Weight"] = round(patch["Weight"] * 1.3, 3)
-            if "Accuracy" in patch:
-                patch["Accuracy"] = round(patch["Accuracy"] * 1.1 + 1, 1)
-
-        # 3. 枪管长度推断初速 (毫米/英寸转换)
-        length_match = BARREL_LENGTH_REGEX.search(item_name)
-        if length_match and "barrel" in item_name:
-            try:
-                val = float(length_match.group(1))
-                mm_val = val * 25.4 if any(u in item_name for u in ["inch", "in", '"']) else val
-                inferred_velocity = (mm_val - 370) / 25.4 * 1.5
-                if patch.get("Velocity", 0) == 0:
-                    patch["Velocity"] = round(self._clamp(inferred_velocity, -18, 18), 2)
-            except Exception:
-                pass
-
-        # 4. 安全性兜底：防止任何属性出现天文数字
+        # 2. 安全性兜底：防止任何属性出现天文数字
         for key, value in patch.items():
             if isinstance(value, (int, float)):
                 if "Recoil" in key:
@@ -1590,66 +1261,9 @@ class RealismPatchGenerator:
     def load_all_templates(self):
         """加载所有模板文件"""
         print("正在加载模板文件...")
-        
-        # 加载武器模板
-        weapons_path = self.templates_base_path / "weapons"
-        if weapons_path.exists():
-            for template_file in weapons_path.glob("*.json"):
-                try:
-                    with open(template_file, 'r', encoding='utf-8') as f:
-                        template_data = json.load(f)
-                        self.templates[template_file.name] = template_data
-                        print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
-                except Exception as e:
-                    print(f"  警告: 无法加载 {template_file.name}: {e}")
-        
-        # 加载配件模板
-        attachments_path = self.templates_base_path / "attatchments"
-        if attachments_path.exists():
-            for template_file in attachments_path.glob("*.json"):
-                try:
-                    with open(template_file, 'r', encoding='utf-8') as f:
-                        template_data = json.load(f)
-                        self.templates[template_file.name] = template_data
-                        print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
-                except Exception as e:
-                    print(f"  警告: 无法加载 {template_file.name}: {e}")
-        
-        # 加载子弹模板
-        ammo_path = self.templates_base_path / "ammo"
-        if ammo_path.exists():
-            for template_file in ammo_path.glob("*.json"):
-                try:
-                    with open(template_file, 'r', encoding='utf-8') as f:
-                        template_data = json.load(f)
-                        self.templates[template_file.name] = template_data
-                        print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
-                except Exception as e:
-                    print(f"  警告: 无法加载 {template_file.name}: {e}")
-        
-        # 加载护甲/装备模板
-        gear_path = self.templates_base_path / "gear"
-        if gear_path.exists():
-            for template_file in gear_path.glob("*.json"):
-                try:
-                    with open(template_file, 'r', encoding='utf-8') as f:
-                        template_data = json.load(f)
-                        self.templates[template_file.name] = template_data
-                        print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
-                except Exception as e:
-                    print(f"  警告: 无法加载 {template_file.name}: {e}")
-        
-        # 加载消耗品模板
-        consumables_path = self.templates_base_path / "consumables"
-        if consumables_path.exists():
-            for template_file in consumables_path.glob("*.json"):
-                try:
-                    with open(template_file, 'r', encoding='utf-8') as f:
-                        template_data = json.load(f)
-                        self.templates[template_file.name] = template_data
-                        print(f"  已加载: {template_file.name} ({len(template_data)} 个模板)")
-                except Exception as e:
-                    print(f"  警告: 无法加载 {template_file.name}: {e}")
+
+        for relative_dir in ["weapons", "attatchments", "ammo", "gear", "consumables"]:
+            self._load_templates_from_dir(relative_dir)
 
         self._rebuild_template_id_index()
     
@@ -1720,6 +1334,25 @@ class RealismPatchGenerator:
             "format_type": None,
         }
 
+    def _extract_localized_name(self, locale_blob: Any) -> Optional[str]:
+        """从 locales / LocalePush 结构中提取显示名称。"""
+        if not isinstance(locale_blob, dict):
+            return None
+
+        for lang in ["en", "ch", "zh", "ru"]:
+            lang_locale = locale_blob.get(lang)
+            if not isinstance(lang_locale, dict):
+                continue
+            localized_name = lang_locale.get("name") or lang_locale.get("Name")
+            if isinstance(localized_name, str) and localized_name.strip():
+                return localized_name
+
+        localized_name = locale_blob.get("name") or locale_blob.get("Name")
+        if isinstance(localized_name, str) and localized_name.strip():
+            return localized_name
+
+        return None
+
     def _extract_template_id_info(self, info: ItemInfo, item_data: JsonObject):
         info["template_id"] = item_data.get("TemplateID")
         info["name"] = item_data.get("Name")
@@ -1738,6 +1371,10 @@ class RealismPatchGenerator:
     def _extract_current_patch_info(self, info: ItemInfo, item_data: JsonObject):
         info["item_type"] = item_data.get("$type")
         info["name"] = item_data.get("Name")
+        if not info["name"]:
+            info["name"] = self._extract_localized_name(item_data.get("locales"))
+        if not info["name"]:
+            info["name"] = self._extract_localized_name(item_data.get("LocalePush"))
 
         ignored_keys = {
             "$type", "ItemID", "TemplateID", "parentId", "itemTplToClone",
@@ -1775,6 +1412,8 @@ class RealismPatchGenerator:
             return
         info["parent_id"] = self.normalize_parent_id(item_obj.get("_parent"))
         info["name"] = item_obj.get("_name")
+        if not info["name"]:
+            info["name"] = self._extract_localized_name(item_data.get("locales"))
         info["properties"] = item_obj.get("_props", {})
         if info["parent_id"]:
             info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
@@ -1790,13 +1429,7 @@ class RealismPatchGenerator:
         if info["parent_id"]:
             info["template_file"] = self.get_template_for_parent_id(info["parent_id"])
 
-        locales = item_data.get("locales")
-        if isinstance(locales, dict):
-            for lang in ["en", "ch", "zh", "ru"]:
-                lang_locale = locales.get(lang)
-                if isinstance(lang_locale, dict) and "name" in lang_locale:
-                    info["name"] = lang_locale["name"]
-                    break
+        info["name"] = self._extract_localized_name(item_data.get("locales"))
 
         if info["parent_id"]:
             info["is_weapon"] = self.is_weapon(info["parent_id"])
@@ -1807,24 +1440,15 @@ class RealismPatchGenerator:
 
     def _extract_itemtoclone_info(self, info: ItemInfo, item_data: JsonObject):
         info["clone_id"] = item_data.get("ItemToClone")
-        locale_data = item_data.get("LocalePush")
-        if isinstance(locale_data, dict) and "name" in locale_data:
-            info["name"] = locale_data["name"]
+        info["name"] = self._extract_localized_name(item_data.get("LocalePush"))
+        if not info["name"]:
+            info["name"] = self._extract_localized_name(item_data.get("locales"))
         if "OverrideProperties" in item_data:
             info["properties"] = item_data["OverrideProperties"]
 
     def _extract_clone_info(self, info: ItemInfo, item_data: JsonObject):
         info["clone_id"] = item_data.get("clone")
-
-        locales = item_data.get("locales")
-        if isinstance(locales, dict):
-            for lang in ["en", "ch", "zh", "ru"]:
-                lang_locale = locales.get(lang)
-                if isinstance(lang_locale, dict) and "Name" in lang_locale:
-                    info["name"] = lang_locale["Name"]
-                    break
-            if not info["name"] and "Name" in locales:
-                info["name"] = locales["Name"]
+        info["name"] = self._extract_localized_name(item_data.get("locales"))
 
         handbook = item_data.get("handbook")
         if isinstance(handbook, dict):
@@ -2052,39 +1676,13 @@ class RealismPatchGenerator:
                     result["ItemID"] = item_id
                     return result
             
-            # 如果还是没找到，随机选择一个模板作为基础 (最后手段)
-            random_template = random.choice(list(template_data.values()))
-            result = copy.deepcopy(random_template)
+            # 最后手段：按稳定顺序选取第一个模板，避免输出随运行漂移。
+            first_template_key = sorted(template_data.keys())[0]
+            result = copy.deepcopy(template_data[first_template_key])
             result["ItemID"] = item_id
             return result
         
         return None
-    
-    def clean_mod_data(self, mod_data: Dict) -> Dict:
-        """清理配件数据，移除不必要的零值属性（可选）"""
-        # 必须保留的属性
-        required_fields = {
-            "$type", "ItemID", "ModType", "Ergonomics", "Weight", 
-            "ConflictingItems", "LoyaltyLevel", "VerticalRecoil", "HorizontalRecoil"
-        }
-        
-        # 这个函数目前只是返回原数据，保留所有属性
-        # 如果需要精简，可以启用下面的清理逻辑
-        return mod_data
-        
-        # 清理逻辑（注释掉以保留所有属性）
-        # cleaned = {}
-        # for key, value in mod_data.items():
-        #     # 保留必需字段
-        #     if key in required_fields:
-        #         cleaned[key] = value
-        #     # 保留非零值
-        #     elif value != 0 and value != False and value != 1:
-        #         cleaned[key] = value
-        #     # 保留特殊的默认值
-        #     elif key in ["ShotgunDispersion", "HeatFactor", "CoolFactor", "DurabilityBurnModificator"]:
-        #         cleaned[key] = value
-        # return cleaned
     
     def create_default_weapon_patch(self, item_id: str, item_info: ItemInfo) -> PatchData:
         """创建默认的武器补丁"""
@@ -2683,7 +2281,7 @@ class RealismPatchGenerator:
         print("\n开始生成现实主义MOD兼容补丁...")
         print(f"物品文件夹: {self.input_path}")
 
-        json_files = list(self.input_path.rglob("*.json"))
+        json_files = sorted(self.input_path.rglob("*.json"), key=lambda path: str(path.relative_to(self.input_path)).lower())
         print(f"找到 {len(json_files)} 个JSON文件")
 
         for item_file in json_files:
@@ -2712,59 +2310,6 @@ class RealismPatchGenerator:
                 display_rel = file_output
             print(f"  [源文件输出] 补丁已保存到: {display_rel}")
 
-    def _save_type_grouped_patches(self, output_path: Path):
-        """按物品类型保存补丁。"""
-        type_outputs = [
-            (self.weapon_patches, "weapons_realism_patch.json", "  [类型分类] 武器补丁: {name}"),
-            (self.attachment_patches, "attachments_realism_patch.json", "配件补丁已保存到: {path}"),
-            (self.ammo_patches, "ammo_realism_patch.json", "子弹补丁已保存到: {path}"),
-            (self.gear_patches, "gear_realism_patch.json", "装备补丁已保存到: {path}"),
-            (self.consumables_patches, "consumables_realism_patch.json", "消耗品补丁已保存到: {path}"),
-        ]
-
-        for patch_dict, filename, message_template in type_outputs:
-            if not patch_dict:
-                continue
-            file_output = output_path / filename
-            with open(file_output, 'w', encoding='utf-8') as f:
-                json.dump(patch_dict, f, ensure_ascii=False, indent=4)
-
-            message = message_template.format(name=file_output.name, path=file_output)
-            print(message)
-
-    def _save_combined_patch(self, output_path: Path):
-        """保存合并总补丁。"""
-        all_patches = {
-            **self.weapon_patches,
-            **self.attachment_patches,
-            **self.ammo_patches,
-            **self.gear_patches,
-            **self.consumables_patches,
-        }
-        if not all_patches:
-            return
-
-        combined_output = output_path / "all_items_realism_patch.json"
-        with open(combined_output, 'w', encoding='utf-8') as f:
-            json.dump(all_patches, f, ensure_ascii=False, indent=4)
-        print(f"合并补丁已保存到: {combined_output}")
-
-    def _cleanup_legacy_aggregate_outputs(self, output_path: Path):
-        """清理旧版聚合导出文件，避免与当前源文件导出模式混淆。"""
-        legacy_files = [
-            "weapons_realism_patch.json",
-            "attachments_realism_patch.json",
-            "ammo_realism_patch.json",
-            "gear_realism_patch.json",
-            "consumables_realism_patch.json",
-            "all_items_realism_patch.json",
-        ]
-
-        for filename in legacy_files:
-            legacy_path = output_path / filename
-            if legacy_path.exists() and legacy_path.is_file():
-                legacy_path.unlink()
-
     def _clear_output_directory(self, output_path: Path):
         """清空输出目录中的旧结果（保留 output 根目录本身）。"""
         if not output_path.exists():
@@ -2788,14 +2333,13 @@ class RealismPatchGenerator:
         print("\n正在导出补丁文件...")
 
         self._clear_output_directory(output_path)
-        self._cleanup_legacy_aggregate_outputs(output_path)
         self._save_source_grouped_patches(output_path)
 
 
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义MOD兼容补丁生成器 v3.12")
+    print("EFT 现实主义数值生成器 v3.15")
     print("=" * 60)
     
     # 获取脚本所在目录

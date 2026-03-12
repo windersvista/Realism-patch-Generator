@@ -25,7 +25,7 @@ WEAPON_PROFILE_RANGES = {
         "BaseTorque": (-2.0, -1.0),
     },
     "smg": {
-        "VerticalRecoil": (55, 78),
+        "VerticalRecoil": (32, 59),
         "HorizontalRecoil": (70, 120),
         "Convergence": (16, 22),
         "Dispersion": (6, 12),

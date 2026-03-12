@@ -1,0 +1,688 @@
+{
+    "group": "无规则类别",
+    "count": 51,
+    "category_count": 3,
+    "categories": [
+        {
+            "category": "unsupported_cosmetic_patch",
+            "count": 27,
+            "items": [
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace3d",
+                    "name": "Tron Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace3f",
+                    "name": "'Oi Matey' Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace40",
+                    "name": "Bluey Portrait Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace41",
+                    "name": "USEC Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace42",
+                    "name": "BEAR Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace43",
+                    "name": "Alabama Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace47",
+                    "name": "USA Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "6752641b1470fc33b675d59a",
+                    "name": "Sweden Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676a24b5c3a24ed47d79720c",
+                    "name": "'Fren' Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676a34d23980119d8d5461c0",
+                    "name": "UK Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676ab7e323e05eb20de89163",
+                    "name": "Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676ab93db29a95d6fb6fbf19",
+                    "name": "Notepad++ Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676ad644ed32115c8b46342d",
+                    "name": "Scotland Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676ad83f4488c50df0ebb8ff",
+                    "name": "Germany Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676a31defb84836a874777a6",
+                    "name": "Rangers Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace50",
+                    "name": "'no step on snek'Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace51",
+                    "name": "Meowdy Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace52",
+                    "name": "Australia Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace53",
+                    "name": "Canada Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace54",
+                    "name": "Poland Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace4d",
+                    "name": "Solaire Circular Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace55",
+                    "name": "Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace56",
+                    "name": "Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace57",
+                    "name": "Brotherhood Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace64",
+                    "name": "Hidden Leaf Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "66bf757f27d0b097db0ace65",
+                    "name": "Berserk Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
+                    "source_file": "[4]新商人-Artem_Patches.json",
+                    "item_id": "676ac6e0769e44deb14a028a",
+                    "name": "Patch",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品更像装饰类部件，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[4]新商人-Artem_Patches.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                }
+            ]
+        },
+        {
+            "category": "unsupported_trigger_group",
+            "count": 23,
+            "items": [
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
+                    "item_id": "677c9e9d8949d89b64a3baa5",
+                    "name": "LAR Grizzly 50 Mark V hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
+                    "item_id": "677c9eccdfcac18ddc7c6b5b",
+                    "name": "LAR Grizzly 50 Mark V trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                    "item_id": "68b7f8d25cc65007af7be8de",
+                    "name": "HK MK23 trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                    "item_id": "68b9c66b1b3e1ec9414d1983",
+                    "name": "HK MK23 performance trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                    "item_id": "68b7f9242936eb3c214e1dd9",
+                    "name": "HK MK23 hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                    "item_id": "68b9c5271bda9c05ec4843c1",
+                    "name": "HK MK23 skeletonized hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
+                    "item_id": "665fe6a117ff1ba8218d680c",
+                    "name": "Springfield Armory DS Prodigy Skeletonized Hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
+                    "item_id": "665fe64b7b6c44d885b755a8",
+                    "name": "Springfield Armory DS Prodigy Trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "684602c4cb2dfb57366dbea3",
+                    "name": "Staccato XC hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "684606542ae9fafc455c4360",
+                    "name": "Staccato XC competition hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "68460695d918c58b53030c31",
+                    "name": "Staccato XC stainless hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "6846069e5a768dfe9bf56af1",
+                    "name": "Staccato XC tactical lightweight hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "684602de00667a8b3a8c1881",
+                    "name": "2011 Staccato XC trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "6846057d217f48b33569b109",
+                    "name": "2011 Staccato XC lightweight trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "684605bdc3d585685ded6759",
+                    "name": "2011 Staccato XC stainless trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                    "item_id": "68460625a5a59f05b08d55ba",
+                    "name": "2011 Staccato XC competition trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
+                    "item_id": "6761b213607f9a6f79017d5e",
+                    "name": "Wilson Combat EDC X9 trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
+                    "item_id": "6761b213607f9a6f79017d61",
+                    "name": "Wilson Combat EDC X9 skeletonized trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320_realism_patch.json",
+                    "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320.json",
+                    "item_id": "6851bad98f3bd02ba613fd8a",
+                    "name": "SIG Sauer P320 standard trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
+                    "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                    "item_id": "684b262a5aa7a321ae3a7b5b",
+                    "name": "TTI Pit Viper hammer",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
+                    "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                    "item_id": "684b2626a61732cce6be2fdc",
+                    "name": "TTI Viper 2011-style lightweight trigger",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
+                    "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                    "item_id": "684c8311b6f88a4f907a56da",
+                    "name": "TTI Viper 2011-series hammer (Black)",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                },
+                {
+                    "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
+                    "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                    "item_id": "684c82e76dabc752e00593bb",
+                    "name": "TTI Viper 2011-style lightweight trigger (Black)",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于扳机/击发组件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                }
+            ]
+        },
+        {
+            "category": "unsupported_optic_accessory",
+            "count": 1,
+            "items": [
+                {
+                    "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes_realism_patch.json",
+                    "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes.json",
+                    "item_id": "186b5c3e8ace3d9a1343bfeb",
+                    "name": "Aimpoint CS front lens cap",
+                    "type": "RealismMod.WeaponMod, RealismMod",
+                    "message": "当前物品属于瞄具附件小件类，尚未配置附件规则范围",
+                    "context": {
+                        "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes.json",
+                        "mod_profile": null,
+                        "template_file": null
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -11,8 +11,8 @@
     },
     "files": [
         {
-            "file": "output/[2]新物品-竞技场赛季奖励-SPT Battlepass_realism_patch.json",
-            "source_file": "[2]新物品-竞技场赛季奖励-SPT Battlepass.json",
+            "file": "output/user_templates/[2]新物品-竞技场赛季奖励-SPT Battlepass_realism_patch.json",
+            "source_file": "user_templates/[2]新物品-竞技场赛季奖励-SPT Battlepass.json",
             "item_count": 44,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -24,8 +24,8 @@
             "items": []
         },
         {
-            "file": "output/[2]新装备、衣服-TacticalGearComponent_realism_patch.json",
-            "source_file": "[2]新装备、衣服-TacticalGearComponent.json",
+            "file": "output/user_templates/[2]新装备、衣服-TacticalGearComponent_realism_patch.json",
+            "source_file": "user_templates/[2]新装备、衣服-TacticalGearComponent.json",
             "item_count": 114,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -37,8 +37,8 @@
             "items": []
         },
         {
-            "file": "output/[2]新酒水-WTT - CornerStore_Food_Items_realism_patch.json",
-            "source_file": "[2]新酒水-WTT - CornerStore_Food_Items.json",
+            "file": "output/user_templates/[2]新酒水-WTT - CornerStore_Food_Items_realism_patch.json",
+            "source_file": "user_templates/[2]新酒水-WTT - CornerStore_Food_Items.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -50,8 +50,8 @@
             "items": []
         },
         {
-            "file": "output/[2]新酒水-WTT - CornerStore_Four_Loko_realism_patch.json",
-            "source_file": "[2]新酒水-WTT - CornerStore_Four_Loko.json",
+            "file": "output/user_templates/[2]新酒水-WTT - CornerStore_Four_Loko_realism_patch.json",
+            "source_file": "user_templates/[2]新酒水-WTT - CornerStore_Four_Loko.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -63,8 +63,8 @@
             "items": []
         },
         {
-            "file": "output/[2]新酒水-WTT - CornerStore_Red_Bull_realism_patch.json",
-            "source_file": "[2]新酒水-WTT - CornerStore_Red_Bull.json",
+            "file": "output/user_templates/[2]新酒水-WTT - CornerStore_Red_Bull_realism_patch.json",
+            "source_file": "user_templates/[2]新酒水-WTT - CornerStore_Red_Bull.json",
             "item_count": 14,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -76,8 +76,8 @@
             "items": []
         },
         {
-            "file": "output/[3].50BMG重制-Epics 50 BMG Remaster-Expansion_realism_patch.json",
-            "source_file": "[3].50BMG重制-Epics 50 BMG Remaster-Expansion.json",
+            "file": "output/user_templates/[3].50BMG重制-Epics 50 BMG Remaster-Expansion_realism_patch.json",
+            "source_file": "user_templates/[3].50BMG重制-Epics 50 BMG Remaster-Expansion.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -89,8 +89,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-AK50_items_realism_patch.json",
-            "source_file": "[3]新武器-AK50_items.json",
+            "file": "output/user_templates/[3]新武器-AK50_items_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-AK50_items.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -102,8 +102,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-AK50_Weapon_realism_patch.json",
-            "source_file": "[3]新武器-AK50_Weapon.json",
+            "file": "output/user_templates/[3]新武器-AK50_Weapon_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-AK50_Weapon.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -115,8 +115,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-AKResonant_realism_patch.json",
-            "source_file": "[3]新武器-AKResonant.json",
+            "file": "output/user_templates/[3]新武器-AKResonant_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-AKResonant.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -128,8 +128,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-SIG_MCX_VIRTUS_items_realism_patch.json",
-            "source_file": "[3]新武器-SIG_MCX_VIRTUS_items.json",
+            "file": "output/user_templates/[3]新武器-SIG_MCX_VIRTUS_items_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-SIG_MCX_VIRTUS_items.json",
             "item_count": 49,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -141,8 +141,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Ammo_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Ammo.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Ammo_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Ammo.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -154,8 +154,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Foregrips_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Foregrips.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Foregrips_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Foregrips.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -167,8 +167,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_IronSights_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_IronSights.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_IronSights_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_IronSights.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -180,8 +180,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Magazines_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Magazines.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Magazines_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Magazines.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -193,8 +193,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Muzzles_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Muzzles.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Muzzles_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Muzzles.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -206,8 +206,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_PistolGrips_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_PistolGrips.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_PistolGrips_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_PistolGrips.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -219,8 +219,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Scopes.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -232,8 +232,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_Suppressors_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_Suppressors.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Suppressors_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_Suppressors.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -245,8 +245,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Attachment_VSSM_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Attachment_VSSM.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_VSSM_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Attachment_VSSM.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -258,8 +258,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_M700XL_Norma_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_M700XL_Norma.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_M700XL_Norma_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_M700XL_Norma.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -271,8 +271,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_M700XL_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_M700XL.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_M700XL_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_M700XL.json",
             "item_count": 37,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -284,8 +284,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_Weapon92fs_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_Weapon92fs.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_Weapon92fs_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_Weapon92fs.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -297,8 +297,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAEK_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAEK.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAEK_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAEK.json",
             "item_count": 25,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -310,8 +310,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAGSeries_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAGSeries.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAGSeries_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAGSeries.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -323,8 +323,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAK5C_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAK5C.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAK5C_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAK5C.json",
             "item_count": 33,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -336,8 +336,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAN94_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAN94.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAN94_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAN94.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -349,8 +349,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAuto5_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAuto5.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAuto5_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAuto5.json",
             "item_count": 13,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -362,8 +362,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponAXMC_300WM_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponAXMC_300WM.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAXMC_300WM_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponAXMC_300WM.json",
             "item_count": 14,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -375,8 +375,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponC9_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponC9.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponC9_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponC9.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -388,8 +388,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponCarmel_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponCarmel.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCarmel_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCarmel.json",
             "item_count": 14,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -401,8 +401,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponCZ75_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponCZ75.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCZ75_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCZ75.json",
             "item_count": 7,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -414,8 +414,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponCZScorpion_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponCZScorpion.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCZScorpion_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponCZScorpion.json",
             "item_count": 42,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -427,8 +427,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponDragunov_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponDragunov.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponDragunov_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponDragunov.json",
             "item_count": 17,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -440,8 +440,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponG3_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponG3.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponG3_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponG3.json",
             "item_count": 42,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -453,8 +453,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponGrizzly.json",
             "item_count": 28,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -466,8 +466,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponHK417_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponHK417.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponHK417_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponHK417.json",
             "item_count": 13,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -479,8 +479,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponKACPDW_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponKACPDW.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponKACPDW_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponKACPDW.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -492,8 +492,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponM249_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponM249.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponM249_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponM249.json",
             "item_count": 18,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -505,8 +505,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponM76_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponM76.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponM76_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponM76.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -518,8 +518,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponMK23.json",
             "item_count": 23,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -531,8 +531,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponMSR_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponMSR.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponMSR_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponMSR.json",
             "item_count": 13,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -544,8 +544,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponPatriot_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponPatriot.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponPatriot_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponPatriot.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -557,8 +557,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponPM9_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponPM9.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponPM9_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponPM9.json",
             "item_count": 10,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -570,8 +570,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponProdigy.json",
             "item_count": 14,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -583,8 +583,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponRemingtonACR_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponRemingtonACR.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponRemingtonACR_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponRemingtonACR.json",
             "item_count": 29,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -596,8 +596,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponSerbuSuperShorty_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponSerbuSuperShorty.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponSerbuSuperShorty_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponSerbuSuperShorty.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -609,8 +609,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponStaccatoXC.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -622,8 +622,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponUCP_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponUCP.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponUCP_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponUCP.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -635,8 +635,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponUdav_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponUdav.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponUdav_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponUdav.json",
             "item_count": 7,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -648,8 +648,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponWagesOfSin_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWagesOfSin.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponWagesOfSin_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponWagesOfSin.json",
             "item_count": 22,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -661,8 +661,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponWilsonCombatEDCX9.json",
             "item_count": 14,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -674,8 +674,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponX95_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponX95.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponX95_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponX95.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -687,8 +687,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-WTT武器库-WTT - Armory_WeaponXM8_realism_patch.json",
-            "source_file": "[3]新武器-WTT武器库-WTT - Armory_WeaponXM8.json",
+            "file": "output/user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponXM8_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-WTT武器库-WTT - Armory_WeaponXM8.json",
             "item_count": 37,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -700,8 +700,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新武器-国产武器-1SD-QBZ191_items_realism_patch.json",
-            "source_file": "[3]新武器-国产武器-1SD-QBZ191_items.json",
+            "file": "output/user_templates/[3]新武器-国产武器-1SD-QBZ191_items_realism_patch.json",
+            "source_file": "user_templates/[3]新武器-国产武器-1SD-QBZ191_items.json",
             "item_count": 30,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -713,8 +713,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-BlackCore_realism_patch.json",
-            "source_file": "[3]新配件-BlackCore.json",
+            "file": "output/user_templates/[3]新配件-BlackCore_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-BlackCore.json",
             "item_count": 34,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -726,8 +726,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Ammo_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Ammo.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Ammo_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Ammo.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -739,8 +739,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Attachments_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Attachments.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Attachments_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Attachments.json",
             "item_count": 11,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -752,8 +752,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Barrels_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Barrels.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Barrels_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Barrels.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -765,8 +765,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Barters_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Barters.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Barters_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Barters.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -778,8 +778,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Foregrips_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Foregrips.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Foregrips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Foregrips.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -791,8 +791,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Handguards_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Handguards.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Handguards_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Handguards.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -804,8 +804,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Mags_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Mags.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Mags_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Mags.json",
             "item_count": 11,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -817,8 +817,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Mounts_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Mounts.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Mounts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Mounts.json",
             "item_count": 26,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -830,8 +830,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Stocks_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Stocks.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Stocks_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Stocks.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -843,8 +843,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Suppressors_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Suppressors.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Suppressors_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Suppressors.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -856,8 +856,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_Weapon556Krink_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_Weapon556Krink.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_Weapon556Krink_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_Weapon556Krink.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -869,8 +869,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_WeaponFNX_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_WeaponFNX.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_WeaponFNX_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_WeaponFNX.json",
             "item_count": 7,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -882,8 +882,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-ConsortiumOfThings_WeaponGlock22_realism_patch.json",
-            "source_file": "[3]新配件-ConsortiumOfThings_WeaponGlock22.json",
+            "file": "output/user_templates/[3]新配件-ConsortiumOfThings_WeaponGlock22_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-ConsortiumOfThings_WeaponGlock22.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -895,8 +895,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Ammunition_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Ammunition.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Ammunition_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Ammunition.json",
             "item_count": 12,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -908,8 +908,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Attachments_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Attachments.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Attachments_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Attachments.json",
             "item_count": 54,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -921,8 +921,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Barrels_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Barrels.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Barrels_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Barrels.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -934,8 +934,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Eotech_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Eotech.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Eotech_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Eotech.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -947,8 +947,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Handguards_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Handguards.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Handguards_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Handguards.json",
             "item_count": 28,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -960,8 +960,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mags_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mags.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mags_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mags.json",
             "item_count": 26,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -973,8 +973,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mounts_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mounts.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mounts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Mounts.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -986,8 +986,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Optics_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Optics.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Optics_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Optics.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -999,8 +999,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Pistol_Grips_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Pistol_Grips.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Pistol_Grips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Pistol_Grips.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1012,8 +1012,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Recievers_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Recievers.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Recievers_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Recievers.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1025,8 +1025,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Skull_HG_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Skull_HG.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Skull_HG_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Skull_HG.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1038,8 +1038,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Stocks_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Stocks.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Stocks_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Stocks.json",
             "item_count": 32,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1051,8 +1051,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Weapon762AR_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_Weapon762AR.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Weapon762AR_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_Weapon762AR.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1064,8 +1064,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponAKs_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponAKs.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponAKs_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponAKs.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1077,8 +1077,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponM700_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponM700.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponM700_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponM700.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1090,8 +1090,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponMCX_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponMCX.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponMCX_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponMCX.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1103,8 +1103,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponP320.json",
             "item_count": 22,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1116,8 +1116,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponPitViper.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1129,8 +1129,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSCARL_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSCARL.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSCARL_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSCARL.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1142,8 +1142,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSKS_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSKS.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSKS_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSKS.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1155,8 +1155,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSR25_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSR25.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSR25_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponSR25.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1168,8 +1168,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponUMP9_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponUMP9.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponUMP9_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponUMP9.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1181,8 +1181,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponVelociraptor_realism_patch.json",
-            "source_file": "[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponVelociraptor.json",
+            "file": "output/user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponVelociraptor_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Echoes.of.Tarkov.-.Requisitions_WeaponVelociraptor.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1194,8 +1194,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_AK_Stuff_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_AK_Stuff.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_AK_Stuff_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_AK_Stuff.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1207,8 +1207,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_Anaconda_Riser_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_Anaconda_Riser.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_Anaconda_Riser_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_Anaconda_Riser.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1220,8 +1220,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_AR_15_handguards_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_AR_15_handguards.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_handguards_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_handguards.json",
             "item_count": 13,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1233,8 +1233,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_AR_15_Receivers_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_AR_15_Receivers.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_Receivers_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_Receivers.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1246,8 +1246,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_AR_15_Stocks_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_AR_15_Stocks.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_Stocks_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_AR_15_Stocks.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1259,8 +1259,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_Arisaka_Mounts_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_Arisaka_Mounts.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_Arisaka_Mounts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_Arisaka_Mounts.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1272,8 +1272,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_As_Val_Mod_3_5_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_As_Val_Mod_3_5.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_As_Val_Mod_3_5_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_As_Val_Mod_3_5.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1285,8 +1285,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_Clutch_CH_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_Clutch_CH.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_Clutch_CH_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_Clutch_CH.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1298,8 +1298,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_Foregrips_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_Foregrips.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_Foregrips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_Foregrips.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1311,8 +1311,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_IronSights_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_IronSights.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_IronSights_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_IronSights.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1324,8 +1324,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_MK12_Mod0_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_MK12_Mod0.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_MK12_Mod0_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_MK12_Mod0.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1337,8 +1337,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_PistolGrips_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_PistolGrips.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_PistolGrips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_PistolGrips.json",
             "item_count": 10,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1350,8 +1350,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_PKM_Zenitco_kit_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium_PKM_Zenitco_kit.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_PKM_Zenitco_kit_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium_PKM_Zenitco_kit.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1363,8 +1363,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-Eco-Attachment Emporium_realism_patch.json",
-            "source_file": "[3]新配件-Eco-Attachment Emporium.json",
+            "file": "output/user_templates/[3]新配件-Eco-Attachment Emporium_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-Eco-Attachment Emporium.json",
             "item_count": 91,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1376,8 +1376,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AK15_Muzzle_Devices_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AK15_Muzzle_Devices.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AK15_Muzzle_Devices_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AK15_Muzzle_Devices.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1389,8 +1389,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AK_Stocks_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AK_Stocks.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AK_Stocks_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AK_Stocks.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1402,8 +1402,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Amps_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Amps.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Amps_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Amps.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1415,8 +1415,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AR_Barrels_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AR_Barrels.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Barrels_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Barrels.json",
             "item_count": 18,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1428,8 +1428,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AR_Muzzle_Devices_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AR_Muzzle_Devices.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Muzzle_Devices_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Muzzle_Devices.json",
             "item_count": 23,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1441,8 +1441,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AR_Stocks_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AR_Stocks.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Stocks_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AR_Stocks.json",
             "item_count": 30,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1454,8 +1454,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Armor Plates_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Armor Plates.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Armor Plates_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Armor Plates.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1467,8 +1467,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_AXMC_Barrels_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_AXMC_Barrels.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_AXMC_Barrels_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_AXMC_Barrels.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1480,8 +1480,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_BCM_MCMR_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_BCM_MCMR.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_BCM_MCMR_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_BCM_MCMR.json",
             "item_count": 12,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1493,8 +1493,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Bipods_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Bipods.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Bipods_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Bipods.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1506,8 +1506,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_DD_MFR_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_DD_MFR.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_DD_MFR_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_DD_MFR.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1519,8 +1519,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Glock_parts_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Glock_parts.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Glock_parts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Glock_parts.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1532,8 +1532,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Headgear_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Headgear.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Headgear_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Headgear.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1545,8 +1545,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_HK_SMR_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_HK_SMR.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_HK_SMR_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_HK_SMR.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1558,8 +1558,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Hogue_Tube_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Hogue_Tube.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Hogue_Tube_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Hogue_Tube.json",
             "item_count": 10,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1571,8 +1571,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Iron_Sights_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Iron_Sights.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Iron_Sights_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Iron_Sights.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1584,8 +1584,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_KAC_FF_RAS_SR25_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_KAC_FF_RAS_SR25.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_KAC_FF_RAS_SR25_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_KAC_FF_RAS_SR25.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1597,8 +1597,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Lasers_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Lasers.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Lasers_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Lasers.json",
             "item_count": 17,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1610,8 +1610,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_M700_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_M700.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_M700_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_M700.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1623,8 +1623,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Magazines_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Magazines.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Magazines_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Magazines.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1636,8 +1636,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Magnifiers_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Magnifiers.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Magnifiers_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Magnifiers.json",
             "item_count": 9,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1649,8 +1649,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_MCX_Parts_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_MCX_Parts.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_MCX_Parts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_MCX_Parts.json",
             "item_count": 15,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1662,8 +1662,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Midwest_AR10_rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Midwest_AR10_rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_AR10_rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_AR10_rails.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1675,8 +1675,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Midwest_NF_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Midwest_NF_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_NF_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_NF_Rails.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1688,8 +1688,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Midwest_SS_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Midwest_SS.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_SS_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Midwest_SS.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1701,8 +1701,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Misc_Barter_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Misc_Barter.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Misc_Barter_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Misc_Barter.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1714,8 +1714,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Misc_Mounts_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Misc_Mounts.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Misc_Mounts_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Misc_Mounts.json",
             "item_count": 53,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1727,8 +1727,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_MK16_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_MK16_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_MK16_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_MK16_Rails.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1740,8 +1740,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_MK4_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_MK4_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_MK4_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_MK4_Rails.json",
             "item_count": 15,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1753,8 +1753,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_MK8 Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_MK8 Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_MK8 Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_MK8 Rails.json",
             "item_count": 12,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1766,8 +1766,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_New_AKs_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_New_AKs.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_New_AKs_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_New_AKs.json",
             "item_count": 10,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1779,8 +1779,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_New_M4_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_New_M4.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_New_M4_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_New_M4.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1792,8 +1792,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_New_MK47s_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_New_MK47s.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_New_MK47s_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_New_MK47s.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1805,8 +1805,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_New_Spear_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_New_Spear.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_New_Spear_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_New_Spear.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1818,8 +1818,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Pistol_Grips_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Pistol_Grips.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Pistol_Grips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Pistol_Grips.json",
             "item_count": 11,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1831,8 +1831,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Red_Dots_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Red_Dots.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Red_Dots_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Red_Dots.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1844,8 +1844,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_RISIIFSP_Rail_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_RISIIFSP_Rail.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIFSP_Rail_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIFSP_Rail.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1857,8 +1857,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_RISIIIL_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_RISIIIL_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIIL_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIIL_Rails.json",
             "item_count": 12,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1870,8 +1870,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_RISIIIU_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_RISIIIU_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIIU_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_RISIIIU_Rails.json",
             "item_count": 12,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1883,8 +1883,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Scopes_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Scopes.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Scopes_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Scopes.json",
             "item_count": 34,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1896,8 +1896,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_Suppressors_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_Suppressors.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_Suppressors_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_Suppressors.json",
             "item_count": 63,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1909,8 +1909,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_URX3_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_URX3_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_URX3_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_URX3_Rails.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1922,8 +1922,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-Weapons_URX4_Rails_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-Weapons_URX4_Rails.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-Weapons_URX4_Rails_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-Weapons_URX4_Rails.json",
             "item_count": 8,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1935,8 +1935,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-WeaponsAK_HGS_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-WeaponsAK_HGS.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-WeaponsAK_HGS_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-WeaponsAK_HGS.json",
             "item_count": 19,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1948,8 +1948,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-WeaponsAK_Muzzle Devices_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-WeaponsAK_Muzzle Devices.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-WeaponsAK_Muzzle Devices_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-WeaponsAK_Muzzle Devices.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1961,8 +1961,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-EpicRangeTime-WeaponsAK_Pgrips_realism_patch.json",
-            "source_file": "[3]新配件-EpicRangeTime-WeaponsAK_Pgrips.json",
+            "file": "output/user_templates/[3]新配件-EpicRangeTime-WeaponsAK_Pgrips_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-EpicRangeTime-WeaponsAK_Pgrips.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1974,8 +1974,8 @@
             "items": []
         },
         {
-            "file": "output/[3]新配件-MagTape_realism_patch.json",
-            "source_file": "[3]新配件-MagTape.json",
+            "file": "output/user_templates/[3]新配件-MagTape_realism_patch.json",
+            "source_file": "user_templates/[3]新配件-MagTape.json",
             "item_count": 20,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -1987,8 +1987,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Backpacks_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Backpacks.json",
+            "file": "output/user_templates/[4]新商人-Artem_Backpacks_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Backpacks.json",
             "item_count": 2,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2000,8 +2000,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Helmets_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Helmets.json",
+            "file": "output/user_templates/[4]新商人-Artem_Helmets_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Helmets.json",
             "item_count": 40,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2013,8 +2013,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Masks_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Masks.json",
+            "file": "output/user_templates/[4]新商人-Artem_Masks_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Masks.json",
             "item_count": 24,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2026,8 +2026,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Misc_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Misc.json",
+            "file": "output/user_templates/[4]新商人-Artem_Misc_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Misc.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2039,8 +2039,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Patches_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Patches.json",
+            "file": "output/user_templates/[4]新商人-Artem_Patches_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Patches.json",
             "item_count": 41,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2052,8 +2052,8 @@
             "items": []
         },
         {
-            "file": "output/[4]新商人-Artem_Vests_realism_patch.json",
-            "source_file": "[4]新商人-Artem_Vests.json",
+            "file": "output/user_templates/[4]新商人-Artem_Vests_realism_patch.json",
+            "source_file": "user_templates/[4]新商人-Artem_Vests.json",
             "item_count": 16,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2065,8 +2065,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/DeadSkul_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/DeadSkul.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/DeadSkul_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/DeadSkul.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2078,8 +2078,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/LegionMask_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/LegionMask.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/LegionMask_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/LegionMask.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2091,8 +2091,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/Onyx_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/Onyx.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/Onyx_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/Onyx.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2104,8 +2104,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/SecConts_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/SecConts.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/SecConts_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/SecConts.json",
             "item_count": 6,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2117,8 +2117,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/SpecialExfilFlare_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/SpecialExfilFlare.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/SpecialExfilFlare_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/SpecialExfilFlare.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2130,8 +2130,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_ConstItems/SpecialTrainFlare_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_ConstItems/SpecialTrainFlare.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_ConstItems/SpecialTrainFlare_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_ConstItems/SpecialTrainFlare.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2143,8 +2143,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Gear/Carrion_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Gear/Carrion.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Gear/Carrion_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Gear/Carrion.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2156,8 +2156,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Gear/LoneDragon_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Gear/LoneDragon.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Gear/LoneDragon_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Gear/LoneDragon.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2169,8 +2169,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Gear/Oakley_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Gear/Oakley.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Gear/Oakley_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Gear/Oakley.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2182,8 +2182,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Gear/Rhino_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Gear/Rhino.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Gear/Rhino_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Gear/Rhino.json",
             "item_count": 1,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2195,8 +2195,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/Aug_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/Aug.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/Aug_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/Aug.json",
             "item_count": 3,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2208,8 +2208,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/Executioner_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/Executioner.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/Executioner_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/Executioner.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2221,8 +2221,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/Judge_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/Judge.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/Judge_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/Judge.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2234,8 +2234,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/Jury_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/Jury.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/Jury_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/Jury.json",
             "item_count": 5,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2247,8 +2247,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/MCM4_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/MCM4.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/MCM4_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/MCM4.json",
             "item_count": 11,
             "flagged_item_count": 0,
             "violation_count": 0,
@@ -2260,8 +2260,8 @@
             "items": []
         },
         {
-            "file": "output/[5]战局大修-RaidOverhaul_Weapons/STM46_realism_patch.json",
-            "source_file": "[5]战局大修-RaidOverhaul_Weapons/STM46.json",
+            "file": "output/user_templates/[5]战局大修-RaidOverhaul_Weapons/STM46_realism_patch.json",
+            "source_file": "user_templates/[5]战局大修-RaidOverhaul_Weapons/STM46.json",
             "item_count": 4,
             "flagged_item_count": 0,
             "violation_count": 0,

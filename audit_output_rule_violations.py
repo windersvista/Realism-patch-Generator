@@ -18,6 +18,7 @@ from ammo_rule_ranges import (
     AMMO_SPECIAL_MODIFIERS,
 )
 from attachment_rule_ranges import MOD_PROFILE_RANGES
+from gear_rule_ranges import GEAR_PROFILE_RANGES
 from generate_realism_patch import (
     GEAR_CLAMP_RULES,
     GUN_CLAMP_RULES,
@@ -412,6 +413,19 @@ class OutputRuleAuditor:
 
         elif "RealismMod.Gear" in item_type:
             self._collect_range_violations(violations, patch, GEAR_CLAMP_RULES, "gear_clamp")
+            gear_profile = self.generator._infer_gear_profile(dict(patch), item_info)
+            context["gear_profile"] = gear_profile
+            if gear_profile and gear_profile in GEAR_PROFILE_RANGES:
+                self._collect_range_violations(violations, patch, GEAR_PROFILE_RANGES[gear_profile], "gear_rule")
+            else:
+                detail = self._build_profile_gap_warning_detail(
+                    patch,
+                    "gear",
+                    "gear_profile_unresolved",
+                    "无法推断装备规则档位，未能校验装备范围",
+                )
+                warnings.append(detail["message"])
+                warning_details.append(detail)
         else:
             detail = make_warning_detail(
                 "未配置专项审计",

@@ -1,6 +1,6 @@
 # EFT 现实主义数值生成器
 
-面向 SPT Realism 物品补丁的批量数值生成工具。当前版本为 v3.15，主流程以 generate_realism_patch.py 为核心，支持多输入格式识别、模板重建、规则重算、按源文件导出，以及生成后审计。
+面向 SPT Realism 物品补丁的批量数值生成工具。当前版本为 v3.17，主流程以 generate_realism_patch.py 为核心，支持多输入格式识别、模板重建、武器/附件/弹药/装备规则重算、按源文件导出，以及生成后审计。
 
 ## 项目定位
 
@@ -11,10 +11,10 @@
 
 ## 当前版本重点
 
-- 主脚本中的静态映射已拆分到 generator_static_data.py，主流程只保留识别、构建、规则应用与导出逻辑。
-- 模板加载已统一为目录级加载，减少重复代码和手工维护点。
-- 输出策略固定为“按源文件导出”，不再维护旧的按大类聚合输出链路。
-- 名称回填回归已纳入 tests/test_name_extraction.py，审计脚本 audit_output_rule_violations.py 仍是正式工作流的一部分。
+- gear_rule_ranges.py 已形成完整的装备规则层，装备不再只做全局 clamp，而是按 gear_profile 应用独立区间。
+- 装备规则已细化到 armor_vest、armor_chest_rig、chest_rig、helmet、armor_component、armor_mask、armor_plate、backpack、belt_harness、back_panel、protective_eyewear 等二级档位。
+- tests/test_gear_rules.py 当前覆盖 38 条 gear 回归用例，包含识别分流与关键区间应用。
+- 审计脚本 audit_output_rule_violations.py 已接入 gear 规则校验；当前全量审计结果保持 0 违规、0 警告。
 
 ## 目录结构
 
@@ -26,6 +26,7 @@ Realism-patch-Generator/
 ├── weapon_refinement_rules.py                # 武器二级细分规则
 ├── attachment_rule_ranges.py                 # 附件规则
 ├── ammo_rule_ranges.py                       # 弹药三层规则
+├── gear_rule_ranges.py                       # 装备规则
 ├── audit_output_rule_violations.py           # 输出审计脚本
 ├── tests/
 │   └── test_name_extraction.py               # 名称回填回归测试
@@ -97,6 +98,14 @@ Windows：
 
 该测试用于确认 CURRENT_PATCH、STANDARD、CLONE、ITEMTOCLONE、VIR 的名称提取和审计回读逻辑未回退。
 
+如本轮改动涉及 gear 规则，补跑：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_gear_rules
+```
+
+该测试用于确认装备 profile 推断、插板/头盔/胸挂/背包等二级细分，以及 gear 区间应用逻辑未回退。
+
 ## 支持的输入格式
 
 | 格式 | 典型特征 | 当前用途 |
@@ -116,6 +125,7 @@ Windows：
 - weapon_refinement_rules.py：武器口径与枪托二级修正
 - attachment_rule_ranges.py：附件档位区间
 - ammo_rule_ranges.py：弹药三层规则
+- gear_rule_ranges.py：装备档位区间
 
 仅在以下场景需要改 generator_static_data.py：
 
@@ -172,17 +182,17 @@ Windows：
 - 武器属性规则指南.md：武器规则说明
 - 附件属性规则指南.md：附件规则说明
 - 弹药属性规则指南.md：弹药规则说明
+- 装备属性规则指南.md：装备规则说明
 - 规则文件与文档同步对照清单.md：发版前同步清单
-- 现实主义“Realism”装备补丁属性规则说明.md：装备/字段参考说明
 
 ## 版本记录
 
-当前版本：v3.15
+当前版本：v3.17
 
 本轮更新重点：
 
-- 文档体系按当前脚本结构重写并统一版本号
-- 静态数据拆分结果同步到 README 与配置文档
-- 清理历史输出哈希快照文件 first_output_hashes.txt、second_output_hashes.txt
+- 装备规则体系已扩展到护甲主体、头部面部、承载系统、轻量饰品与插板的二级细分
+- gear 回归测试已扩展到 38 条，覆盖头盔、胸挂、背包、护目镜、面甲、插板等核心分流与区间
+- 当前生成结果已通过全量审计，输出规则范围内保持 0 违规、0 警告
 
 完整历史请查看 CHANGELOG.md。

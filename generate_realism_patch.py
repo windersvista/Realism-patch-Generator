@@ -29,6 +29,7 @@ from ammo_rule_ranges import (
     AMMO_PENETRATION_TIERS,
     AMMO_PENETRATION_MODIFIERS,
 )
+from gear_rule_ranges import GEAR_PROFILE_RANGES
 from weapon_refinement_rules import (
     CALIBER_PROFILE_KEYWORDS,
     WEAPON_CALIBER_RULE_MODIFIERS,
@@ -64,6 +65,7 @@ WEAPON_PARENT_GROUPS = {
 
 # 武器规则范围已拆分到 weapon_rule_ranges.py，便于独立维护与调参。
 # 附件规则范围已拆分到 attachment_rule_ranges.py，便于独立维护与调参。
+# Gear 规则范围已拆分到 gear_rule_ranges.py，便于独立维护与调参。
 
 GUN_CLAMP_RULES = {
     "Ergonomics": (10, 100),
@@ -390,6 +392,336 @@ class RealismPatchGenerator:
             return "shotgun"
         if any(k in name for k in ["carbine", "assault", "rifle"]):
             return "assault"
+        return None
+
+    def _extract_gear_armor_class_text(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """提取装备防护等级相关文本，用于轻量级 gear 细分。"""
+        candidates = [patch.get("ArmorClass"), patch.get("Name")]
+
+        if item_info and isinstance(item_info.get("properties"), dict):
+            props = item_info["properties"]
+            candidates.extend([
+                props.get("ArmorClass"),
+                props.get("armorClass"),
+                props.get("Name"),
+                props.get("name"),
+            ])
+
+        return " ".join(str(value) for value in candidates if value).lower()
+
+    def _infer_armor_plate_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """根据名称与防护文本区分软插板和硬插板。"""
+        armor_text = self._extract_gear_armor_class_text(patch, item_info)
+        helmet_keywords = [
+            "helmet_armor",
+            "helmet armor",
+            "helmet",
+            "ears",
+            "nape",
+            "top",
+            "jaw",
+            "eyes",
+        ]
+        soft_keywords = [
+            "soft armor",
+            "soft",
+            "backer",
+            "iiia",
+            "gost 2",
+            "gost 2a",
+            "2a",
+            "3a",
+            "soft_armor",
+            "软甲",
+            "软插板",
+        ]
+        if self._contains_any_keyword(armor_text, helmet_keywords):
+            return "armor_plate_helmet"
+        if self._contains_any_keyword(armor_text, soft_keywords):
+            return "armor_plate_soft"
+        return "armor_plate_hard"
+
+    def _infer_body_armor_profile(self, base_profile: str, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """按 ArmorClass 将护甲背心和护甲胸挂细分为轻型/重型。"""
+        armor_text = self._extract_gear_armor_class_text(patch, item_info)
+
+        heavy_keywords = [
+            "gost 4",
+            "gost 5",
+            "gost 5a",
+            "gost 6",
+            "nij iii+",
+            "nij iv",
+            "rf3",
+            "xsapi",
+            "esapi",
+            "mk4a",
+            "rev. g",
+            "rev. j",
+            "pm 5",
+            "pm 8",
+            "pm 10",
+            "plates",
+        ]
+        light_keywords = [
+            "gost 2",
+            "gost 2a",
+            "gost 3",
+            "gost 3a",
+            "nij ii",
+            "nij iia",
+            "nij iii",
+            "pm 2",
+            "pm 3",
+        ]
+
+        if any(keyword in armor_text for keyword in heavy_keywords):
+            return f"{base_profile}_heavy"
+        if any(keyword in armor_text for keyword in light_keywords):
+            return f"{base_profile}_light"
+        return f"{base_profile}_heavy"
+
+    def _infer_cosmetic_gear_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
+        """仅对带防毒/防辐射语义或明确头饰语义的 cosmetic 条目应用 gear 规则。"""
+        name = str(patch.get("Name", "")).lower()
+        props = (item_info or {}).get("properties") or {}
+
+        if patch.get("IsGasMask"):
+            return "cosmetic_gasmask"
+        if any(key in patch for key in ["GasProtection", "RadProtection"]):
+            return "cosmetic_gasmask"
+        if any(key in props for key in ["GasProtection", "gasProtection", "RadProtection", "radProtection"]):
+            return "cosmetic_gasmask"
+        if self._contains_any_keyword(name, ["gas mask", "respirator", "防毒", "防毒面具", "gasmask", "maska"]):
+            return "cosmetic_gasmask"
+        if self._contains_any_keyword(name, ["beret", "贝雷帽", "cap", "帽", "boonie", "watch cap"]):
+            return "cosmetic_headwear"
+        return None
+
+    def _infer_helmet_profile(self, patch: PatchData) -> str:
+        """根据头盔平台语义细分轻型/重型头盔。"""
+        name = str(patch.get("Name", "")).lower()
+
+        if self._contains_any_keyword(
+            name,
+            [
+                "altyn",
+                "rys",
+                "ronin",
+                "maska",
+                "vulkan",
+                "tor",
+                "zsh",
+                "lshz",
+                "kiver",
+                "sphera",
+                "devtac",
+                "k1c",
+                "shpm",
+                "psh97",
+                "ssh-68",
+                "ssh68",
+                "neosteel",
+            ],
+        ):
+            return "helmet_heavy"
+
+        return "helmet_light"
+
+    def _infer_face_protection_profile(self, base_profile: str, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """细分头盔附加护具与面罩类防护。"""
+        name = str(patch.get("Name", "")).lower()
+        armor_text = self._extract_gear_armor_class_text(patch, item_info)
+
+        if base_profile == "armor_component":
+            if self._contains_any_keyword(name, ["shield", "face shield", "faceshield", "visor", "面甲", "面罩"]):
+                return "armor_component_faceshield"
+            return "armor_component_accessory"
+
+        ballistic_keywords = ["nij", "gost", "v50", "anti-shatter", "ansi", "mil-prf", "bs en", "ballistic"]
+        if any(keyword in armor_text for keyword in ballistic_keywords):
+            return "armor_mask_ballistic"
+        return "armor_mask_decorative"
+
+    def _infer_backpack_profile(self, patch: PatchData) -> str:
+        """按体积语义将背包细分为 compact 与 full 两档。"""
+        name = str(patch.get("Name", "")).lower()
+
+        if self._contains_any_keyword(
+            name,
+            [
+                "sling",
+                "daypack",
+                "day pack",
+                "drawbridge",
+                "switchblade",
+                "medpack",
+                "medbag",
+                "redfox",
+                "wild",
+                "takedown",
+                "t20",
+                "vertx",
+            ],
+        ):
+            return "backpack_compact"
+
+        return "backpack_full"
+
+    def _infer_eyewear_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
+        """按防护文本细分普通防碎镜与弹道护目镜。"""
+        armor_text = self._extract_gear_armor_class_text(patch, item_info)
+        ballistic_keywords = ["v50", "anti-shatter", "ansi", "mil-prf", "ballistic", "z87", "31013"]
+
+        if any(keyword in armor_text for keyword in ballistic_keywords):
+            return "protective_eyewear_ballistic"
+        return "protective_eyewear_standard"
+
+    def _infer_chest_rig_profile(self, patch: PatchData) -> str:
+        """按承载量语义区分轻载与重载胸挂。"""
+        name = str(patch.get("Name", "")).lower()
+
+        if self._contains_any_keyword(
+            name,
+            [
+                "bankrobber",
+                "micro",
+                "d3crx",
+                "cs_assault",
+                "thunderbolt",
+                "bssmk1",
+                "recon",
+                "zulu",
+            ],
+        ):
+            return "chest_rig_light"
+
+        return "chest_rig_heavy"
+
+    def _infer_gear_profile(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> Optional[str]:
+        """推断 Gear 规则档位。"""
+        parent_id = self.normalize_parent_id((item_info or {}).get("parent_id")) if item_info else None
+        template_file = str((item_info or {}).get("template_file") or "") if item_info else ""
+        name = str(patch.get("Name", "")).lower()
+        armor_class = str(patch.get("ArmorClass", "") or "").strip().lower()
+        has_armor_class = bool(armor_class and armor_class not in {"unclassified", "none", "null"})
+
+        if parent_id in {"644120aa86ffbe10ee032b6f", "5b5f704686f77447ec5d76d7"}:
+            return self._infer_armor_plate_profile(patch, item_info)
+
+        parent_profile_map = {
+            "5448e54d4bdc2dcc718b4568": "armor_vest",
+            "57bef4c42459772e8d35a53b": "armor_chest_rig",
+            "5448e5284bdc2dcb718b4567": "chest_rig",
+            "5a341c4086f77401f2541505": "helmet",
+            "5a341c4686f77469e155819e": "armor_mask",
+            "55d7217a4bdc2d86028b456d": "armor_component",
+            "5448e53e4bdc2d60728b4567": "backpack",
+            "5645bcb74bdc2ded0b8b4578": "headset",
+            "5b3f15d486f77432d0509248": "cosmetic_gasmask",
+        }
+        if parent_id in parent_profile_map:
+            profile = parent_profile_map[parent_id]
+            if profile == "helmet":
+                return self._infer_helmet_profile(patch)
+            if profile in {"armor_vest", "armor_chest_rig"}:
+                return self._infer_body_armor_profile(profile, patch, item_info)
+            if profile == "chest_rig":
+                return self._infer_chest_rig_profile(patch)
+            if profile == "backpack":
+                return self._infer_backpack_profile(patch)
+            if profile in {"armor_component", "armor_mask"}:
+                return self._infer_face_protection_profile(profile, patch, item_info)
+            if profile == "cosmetic_gasmask":
+                return self._infer_cosmetic_gear_profile(patch, item_info)
+            return profile
+
+        template_profile_map = {
+            "armorVestsTemplates.json": "armor_vest",
+            "armorChestrigTemplates.json": "armor_chest_rig",
+            "chestrigTemplates.json": "chest_rig",
+            "helmetTemplates.json": "helmet",
+            "armorMasksTemplates.json": "armor_mask",
+            "armorComponentsTemplates.json": "armor_component",
+            "bagTemplates.json": "backpack",
+            "headsetTemplates.json": "headset",
+        }
+        if template_file == "armorPlateTemplates.json":
+            return self._infer_armor_plate_profile(patch, item_info)
+        if template_file == "cosmeticsTemplates.json":
+            return self._infer_cosmetic_gear_profile(patch, item_info)
+        if template_file == "helmetTemplates.json":
+            return self._infer_helmet_profile(patch)
+        if template_file == "armorVestsTemplates.json":
+            return self._infer_body_armor_profile("armor_vest", patch, item_info)
+        if template_file == "armorChestrigTemplates.json":
+            return self._infer_body_armor_profile("armor_chest_rig", patch, item_info)
+        if template_file == "chestrigTemplates.json":
+            return self._infer_chest_rig_profile(patch)
+        if template_file == "bagTemplates.json":
+            return self._infer_backpack_profile(patch)
+        if template_file == "armorMasksTemplates.json" and self._contains_any_keyword(
+            name, ["glasses", "goggles", "eyewear", "射击眼镜", "护目镜", "眼镜", "condor"]
+        ):
+            return self._infer_eyewear_profile(patch, item_info)
+        if template_file == "armorMasksTemplates.json":
+            return self._infer_face_protection_profile("armor_mask", patch, item_info)
+        if template_file == "armorComponentsTemplates.json":
+            return self._infer_face_protection_profile("armor_component", patch, item_info)
+        if template_file in template_profile_map:
+            return template_profile_map[template_file]
+
+        if self._contains_any_keyword(name, ["headset", "headphones", "耳机", "耳麦"]):
+            return "headset"
+        if self._contains_any_keyword(name, ["beret", "贝雷帽", "boonie", "watch cap"]):
+            return "cosmetic_headwear"
+        if self._contains_any_keyword(name, ["back panel", "背部面板"]):
+            return "back_panel"
+        if self._contains_any_keyword(name, ["腰带", "belt", "warbelt", "battle belt", "警用腰带", "mule"]):
+            return "belt_harness"
+        if self._contains_any_keyword(name, ["backpack", "ruck", "pack", "bag", "背包", "背负系统", "bvs", "nice comm"]):
+            return self._infer_backpack_profile(patch)
+        if self._contains_any_keyword(name, ["soft armor", "armor plate", "plate", "插板", "软甲", "防弹插板"]):
+            return self._infer_armor_plate_profile(patch, item_info)
+        if self._contains_any_keyword(name, ["helmet", "头盔", "helm", "ops-core", "ops core", "fast mt", "tc2000", "mich", "ronin"]):
+            return self._infer_helmet_profile(patch)
+        if self._contains_any_keyword(name, ["glasses", "goggles", "eyewear", "射击眼镜", "护目镜", "眼镜", "condor"]):
+            return self._infer_eyewear_profile(patch, item_info)
+        if self._contains_any_keyword(name, ["visor", "face shield", "mandible", "aventail", "side armor", "applique", "护颈", "面甲"]):
+            return self._infer_face_protection_profile("armor_component", patch, item_info)
+        if self._contains_any_keyword(name, ["gas mask", "respirator", "mask", "面罩", "防毒"]):
+            return self._infer_face_protection_profile("armor_mask", patch, item_info)
+        if self._contains_any_keyword(
+            name,
+            [
+                "plate carrier",
+                "armor rig",
+                "armored rig",
+                "carrier",
+                "jpc",
+                "apc",
+                "sohpc",
+                "cgpc",
+                "avs",
+                "tqs",
+                "战术背心",
+                "携行背心",
+                "板携行",
+                "板携行背心",
+                "护甲胸挂",
+                "防弹胸挂",
+            ],
+        ):
+            return self._infer_body_armor_profile("armor_chest_rig", patch, item_info)
+        if has_armor_class and self._contains_any_keyword(name, ["rig", "胸挂", "背心", "vest"]):
+            return self._infer_body_armor_profile("armor_chest_rig", patch, item_info)
+        if self._contains_any_keyword(name, ["rig", "胸挂"]):
+            return self._infer_chest_rig_profile(patch)
+        if has_armor_class and self._contains_any_keyword(name, ["背心", "vest"]):
+            return self._infer_body_armor_profile("armor_vest", patch, item_info)
+        if self._contains_any_keyword(name, ["armor", "vest", "body armor", "护甲", "防弹衣"]):
+            return self._infer_body_armor_profile("armor_vest", patch, item_info)
+
         return None
 
     def _extract_weapon_caliber_text(self, patch: PatchData, item_info: Optional[Mapping[str, Any]]) -> str:
@@ -1245,6 +1577,10 @@ class RealismPatchGenerator:
 
         elif "RealismMod.Gear" in item_type:
             self._apply_field_clamps(patch, GEAR_CLAMP_RULES)
+            gear_profile = self._infer_gear_profile(patch, item_info)
+            if gear_profile and gear_profile in GEAR_PROFILE_RANGES:
+                self._apply_numeric_ranges(patch, GEAR_PROFILE_RANGES[gear_profile], ensure_fields=True)
+                self._apply_field_clamps(patch, GEAR_CLAMP_RULES)
 
         # 2. 安全性兜底：防止任何属性出现天文数字
         for key, value in patch.items():
@@ -2339,7 +2675,7 @@ class RealismPatchGenerator:
 def main():
     """主函数"""
     print("=" * 60)
-    print("EFT 现实主义数值生成器 v3.15")
+    print("EFT 现实主义数值生成器 v3.17")
     print("=" * 60)
     
     # 获取脚本所在目录

@@ -8,6 +8,49 @@
 
 ## [Unreleased]
 
+## [v3.17] - 2026-03-14
+
+### 变更
+- gear 的 helmet 档位已细分为 helmet_light 与 helmet_heavy，按头盔平台关键词分流，并分别收紧 Comfort 区间。
+- armor_vest 与 armor_chest_rig 已按 ArmorClass 细分为 light/heavy 二级档，并分别收紧 SpallReduction、Comfort 与负面机动字段范围。
+- armor_component 与 armor_mask 已拆分为 accessory / faceshield / decorative / ballistic 四类面部防护子档，避免装饰面罩与真实面甲共用同一规则。
+- 承载类装备已细分为 backpack_compact / backpack_full，并同步收紧 back_panel 与 belt_harness 的 Comfort、speedPenaltyPercent、ReloadSpeedMulti 层级关系。
+- protective_eyewear 已细分为 standard / ballistic 两档，按 V50、ANSI、MIL-PRF 等防护文本区分普通防碎镜与弹道护目镜。
+- chest_rig 已细分为 light / heavy 两档，按名称语义区分极简高速胸挂与多模块重载胸挂。
+- armor_plate 已细分为 soft / hard / helmet 三档，优先识别头盔附板语义，避免头盔板与胸腹插板共用同一范围。
+
+### 测试
+- tests/test_gear_rules.py 补充轻型/重型头盔的 profile 推断与区间应用回归。
+- tests/test_gear_rules.py 继续补充护甲背心与护甲胸挂的 ArmorClass 细分回归。
+- tests/test_gear_rules.py 补充面甲、附加护具与弹道面罩的 profile 推断与区间应用回归。
+- tests/test_gear_rules.py 补充 compact/full 背包分流与承载类区间回归。
+- tests/test_gear_rules.py 补充 standard / ballistic 护目镜分流与区间回归。
+- tests/test_gear_rules.py 补充 light / heavy 胸挂分流与区间回归。
+- tests/test_gear_rules.py 补充 helmet armor plate 的 profile 推断与区间回归。
+
+### 验证
+- gear 回归测试当前为 38 条用例，全部通过。
+- 全量生成后的输出审计保持 174 个文件、2191 个物品、0 违规、0 警告。
+
+## [v3.16] - 2026-03-13
+
+### 变更
+- 新增 gear_rule_ranges.py，为 armor vest、armor chest rig、chest rig、helmet、armor component、armor mask、armor plate、backpack、headset 和防毒类 cosmetic 建立装备规则档位。
+- generate_realism_patch.py 接入 gear_profile 推断与装备规则应用链路，Gear 不再只有全局 clamp，而是支持“模板文件主档 + 少量二级细分”的范围生成。
+- audit_output_rule_violations.py 新增 gear_profile 上下文和 gear_rule 审计；普通 cosmetic 仍保持审计豁免，仅防毒/防辐射语义条目进入装备规则识别。
+- 扩展 gear_profile 识别关键词，补齐 plate carrier、helmet、bearing system、防护眼镜、贝雷帽、战术腰带、背部面板等语义分流。
+- 新增 cosmetic_headwear、protective_eyewear、belt_harness、back_panel 四个装备档位，避免轻量头饰、防护眼镜、腰带和背板误套 chest rig 规则。
+
+### 文档
+- 新增 装备属性规则指南.md 作为统一命名的装备规则文档，并同步 README 与规则同步清单引用。
+- 为武器、附件、弹药、装备规则指南补充常见字段解释，并同步维护旧命名的装备规则说明文档。
+
+### 测试
+- 新增 tests/test_gear_rules.py，覆盖软插板 profile 推断、背包规则应用和防毒 cosmetic 规则应用。
+
+### 验证
+- 全量审计结果更新为 174 个文件、2191 个物品、0 违规、0 警告。
+
 ## [v3.15] - 2026-03-13
 
 ### 变更
